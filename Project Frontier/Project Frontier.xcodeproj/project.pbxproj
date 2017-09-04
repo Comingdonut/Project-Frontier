@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
+		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +51,7 @@
 				D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */,
 				D1B9477C1F5C8C4A000FB895 /* AboutController.swift */,
 				D1B9477E1F5C8C6B000FB895 /* HelpController.swift */,
+				D1A31D481F5CF4610024E44F /* OptionsController.swift */,
 			);
 			path = MenuControllers;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */,
 				D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */,
+				D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */,
 				D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
