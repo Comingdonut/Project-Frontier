@@ -308,7 +308,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-qW-82h">
-                                <rect key="frame" x="108" y="283" width="104" height="30"/>
+                                <rect key="frame" x="108" y="284" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
@@ -426,7 +426,7 @@
         <image name="SmallButtonBackground" width="45" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8gd-KM-gdA"/>
+        <segue reference="3fP-2r-61p"/>
         <segue reference="Ffh-Q0-dOL"/>
     </inferredMetricsTieBreakers>
 </document>
