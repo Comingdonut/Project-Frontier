@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
+		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
+		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
 		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
+		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
@@ -45,15 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D125794A1F5C78DF000A3EF3 /* MenuControllers */ = {
+		D125794A1F5C78DF000A3EF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */,
 				D1B9477C1F5C8C4A000FB895 /* AboutController.swift */,
 				D1B9477E1F5C8C6B000FB895 /* HelpController.swift */,
 				D1A31D481F5CF4610024E44F /* OptionsController.swift */,
+				D13233A01F5DA44C00033F33 /* SelectModeController.swift */,
+				D13233A21F5DC10B00033F33 /* InformationController.swift */,
 			);
-			path = MenuControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D1DFA93E1F5B9CC200B0E4D9 = {
@@ -75,7 +81,7 @@
 		D1DFA9491F5B9CC200B0E4D9 /* Project Frontier */ = {
 			isa = PBXGroup;
 			children = (
-				D125794A1F5C78DF000A3EF3 /* MenuControllers */,
+				D125794A1F5C78DF000A3EF3 /* Controllers */,
 				D1DFA9581F5B9CC200B0E4D9 /* Info.plist */,
 				D1DFA94C1F5B9CC200B0E4D9 /* art.scnassets */,
 				D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */,
@@ -159,11 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
 				D1DFA94F1F5B9CC200B0E4D9 /* ViewController.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */,
 				D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */,
 				D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */,
+				D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */,
 				D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
