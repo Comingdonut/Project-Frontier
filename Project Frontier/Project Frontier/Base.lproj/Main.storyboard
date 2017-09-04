@@ -390,7 +390,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="Vd3-pe-0aj"/>
+                                    <segue destination="IyX-gc-yOg" kind="show" id="c16-Vj-1ai"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -403,20 +403,17 @@
             <point key="canvasLocation" x="-15" y="92.957746478873247"/>
         </scene>
         <!--AR-->
-        <scene sceneID="tXr-a1-R10">
+        <scene sceneID="0Nq-j8-YMP">
             <objects>
-                <viewController title="AR" id="BV1-FR-VrT" customClass="ViewController" customModule="Project_Frontier" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController title="AR" id="IyX-gc-yOg" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Zzm-71-xgU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </arscnView>
-                    <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahj-PL-byd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="93"/>
+            <point key="canvasLocation" x="801" y="93"/>
         </scene>
     </scenes>
     <resources>
