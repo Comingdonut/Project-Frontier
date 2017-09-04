@@ -168,6 +168,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Software Versions     IDE: Xcode 9 Beta     Language: Swift 4     OS: iOS 11 Beta (5-8)     Framework: ARKit Beta" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHh-ps-y7q">
+                                <rect key="frame" x="16" y="79" width="288" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="rVH-dY-tyy"/>
@@ -420,6 +427,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8gd-KM-gdA"/>
-        <segue reference="Src-dw-F6L"/>
+        <segue reference="Ffh-Q0-dOL"/>
     </inferredMetricsTieBreakers>
 </document>
