@@ -10,9 +10,6 @@ import UIKit
 
 class SelectModeController: UIViewController{
     
-    let infoStr = "Information"
-    let selectStr = "Select a Mode"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

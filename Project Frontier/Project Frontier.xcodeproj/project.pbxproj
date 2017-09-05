@@ -13,6 +13,7 @@
 		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
+		D1CA25381F5F19510029D881 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA25371F5F19510029D881 /* ARController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
 		D1DFA94D1F5B9CC200B0E4D9 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */; };
 		D1DFA94F1F5B9CC200B0E4D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94E1F5B9CC200B0E4D9 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
+		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				D1A31D481F5CF4610024E44F /* OptionsController.swift */,
 				D13233A01F5DA44C00033F33 /* SelectModeController.swift */,
 				D13233A21F5DC10B00033F33 /* InformationController.swift */,
+				D1CA25371F5F19510029D881 /* ARController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				D1DFA94F1F5B9CC200B0E4D9 /* ViewController.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */,
+				D1CA25381F5F19510029D881 /* ARController.swift in Sources */,
 				D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */,
 				D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */,
 				D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */,
