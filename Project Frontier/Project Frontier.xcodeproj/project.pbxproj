@@ -14,7 +14,7 @@
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
-		D1DFA94D1F5B9CC200B0E4D9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA94C1F5B9CC200B0E4D9 /* art.scnassets */; };
+		D1DFA94D1F5B9CC200B0E4D9 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */; };
 		D1DFA94F1F5B9CC200B0E4D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94E1F5B9CC200B0E4D9 /* ViewController.swift */; };
 		D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */; };
 		D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */; };
@@ -30,7 +30,7 @@
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1DFA94C1F5B9CC200B0E4D9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		D1DFA94E1F5B9CC200B0E4D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1DFA9511F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,16 +81,24 @@
 		D1DFA9491F5B9CC200B0E4D9 /* Project Frontier */ = {
 			isa = PBXGroup;
 			children = (
+				D1E107D41F5E241A008FC721 /* Resources */,
 				D125794A1F5C78DF000A3EF3 /* Controllers */,
-				D1DFA9581F5B9CC200B0E4D9 /* Info.plist */,
-				D1DFA94C1F5B9CC200B0E4D9 /* art.scnassets */,
 				D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */,
 				D1DFA94E1F5B9CC200B0E4D9 /* ViewController.swift */,
+			);
+			path = "Project Frontier";
+			sourceTree = "<group>";
+		};
+		D1E107D41F5E241A008FC721 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1DFA9581F5B9CC200B0E4D9 /* Info.plist */,
+				D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
 				D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */,
 				D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */,
 			);
-			path = "Project Frontier";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DFA94D1F5B9CC200B0E4D9 /* art.scnassets in Resources */,
+				D1DFA94D1F5B9CC200B0E4D9 /* Models.scnassets in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
