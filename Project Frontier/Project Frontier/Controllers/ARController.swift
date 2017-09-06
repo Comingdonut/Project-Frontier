@@ -32,7 +32,6 @@ class ARController: UIViewController{
     @IBAction func addBox(_ sender: Any) {
         let cubeNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
         cubeNode.position = SCNVector3(0, 0, -0.5)
-        
         sceneView.scene.rootNode.addChildNode(cubeNode)
         print("Added Box")
     }
@@ -40,9 +39,7 @@ class ARController: UIViewController{
     @IBAction func addSphere(_ sender: Any) {
         let earthNode = SCNNode(geometry: SCNSphere(radius: 0.1))
         earthNode.position = SCNVector3(0, 0, -0.5)
-        
         sceneView.scene.rootNode.addChildNode(earthNode)
-        
         print("Added Earth")
     }
     
