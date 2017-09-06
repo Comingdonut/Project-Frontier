@@ -19,7 +19,7 @@ class ARController: UIViewController{
         //Do any additional setup after the view is loaded, typically from a nib
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-        
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.session.run(configuration)
     }
     
