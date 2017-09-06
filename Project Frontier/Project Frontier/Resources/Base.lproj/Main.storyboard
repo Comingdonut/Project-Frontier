@@ -422,20 +422,19 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddBox:" destination="IyX-gc-yOg" eventType="touchUpInside" id="bLU-S5-co3"/>
+                                    <action selector="addBox:" destination="IyX-gc-yOg" eventType="touchUpInside" id="Dz6-6y-zpl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-rX-GSy">
-                                <rect key="frame" x="205" y="518" width="99" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-rX-GSy">
+                                <rect key="frame" x="199" y="518" width="105" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
-                                <state key="normal" title="Add Earth">
+                                <state key="normal" title="Add Sphere">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddObject:" destination="IyX-gc-yOg" eventType="touchUpInside" id="3hk-cZ-QOz"/>
-                                    <action selector="addEarth:" destination="IyX-gc-yOg" eventType="touchUpInside" id="uDe-X8-7AD"/>
+                                    <action selector="addSphere:" destination="IyX-gc-yOg" eventType="touchUpInside" id="H29-Pz-Y6h"/>
                                 </connections>
                             </button>
                         </subviews>
