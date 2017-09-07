@@ -29,7 +29,7 @@ class ARController: UIViewController, ARSCNViewDelegate{
         sceneView.showsStatistics = true
         
         // Debug plane
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        //sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         // Create a new scene
         let scene = SCNScene()
