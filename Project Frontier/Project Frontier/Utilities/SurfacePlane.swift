@@ -20,13 +20,11 @@ class SurfacePlane: SCNNode{
         self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.y))
         
         // Instead of just visualizing the grid as a gray plane, we will render
-        // it in some Tron style colours.
+        // it in some space style colours.
         let material = SCNMaterial()
         let img = UIImage(named: "PlaneGrid")
         material.diffuse.contents = img
         self.planeGeometry!.materials = [material]
-        
-        print("Added image")
         
         let planeNode = SCNNode(geometry: planeGeometry!)
         planeNode.position = SCNVector3Make(anchor.center.x, anchor.center.y, anchor.center.z)
@@ -61,7 +59,7 @@ class SurfacePlane: SCNNode{
         let height = Float(self.planeGeometry!.height)
         
         if let material = self.planeGeometry?.materials.first {
-            // As the width/height of the plane updates, we want our tron grid material to
+            // As the width/height of the plane updates, we want our grid material to
             // cover the entire plane, repeating the texture over and over. Also if the
             // grid is less than 1 unit, we don't want to squash the texture to fit, so
             // scaling updates the texture co-ordinates to crop the texture in that case

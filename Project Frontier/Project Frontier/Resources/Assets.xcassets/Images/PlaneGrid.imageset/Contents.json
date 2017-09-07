@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "surfacePlane.png",
+      "filename" : "PlaneGrid@250x250.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "surfacePlane-1.png",
+      "filename" : "PlaneGrid@511x511.png",
       "scale" : "2x"
     },
     {
