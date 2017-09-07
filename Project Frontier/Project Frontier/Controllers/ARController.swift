@@ -93,12 +93,16 @@ class ARController: UIViewController, ARSCNViewDelegate{
         
     }
     
+    /**
+     Called when a new node has been mapped to the anchor
+    @param renderer The renderer that will render the scene.
+    @param node The node that maps to the anchor.
+    @param anchor The added anchor.
+     */
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if (!(anchor is ARPlaneAnchor)) {
-            print("oh no!!!")
             return
         }
-        print("Plane detected")
         // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
         let plane = SurfacePlane.init(with: anchor as! ARPlaneAnchor)
         planes[anchor.identifier] = plane
@@ -107,24 +111,18 @@ class ARController: UIViewController, ARSCNViewDelegate{
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         if let plane = planes[anchor.identifier] {
-            print("Plane update")
             // When an anchor is updated we need to also update our 3D geometry too. For example
             // the width and height of the plane detection may have changed so we need to update
             // our SceneKit geometry to match that
             plane.update(anchor: anchor as! ARPlaneAnchor)
-        } else{
-            print("oh no!!!")
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         if let _ = planes[anchor.identifier] {
-            print("Planes")
             // Nodes will be removed if planes multiple individual planes that are detected to all be
             // part of a larger plane are merged.
             planes.remove(at: planes.index(forKey: anchor.identifier)!)
-        } else{
-            print("oh no!!!")
         }
     }
     
