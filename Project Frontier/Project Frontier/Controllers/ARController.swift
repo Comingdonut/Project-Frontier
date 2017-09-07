@@ -14,11 +14,16 @@ class ARController: UIViewController, ARSCNViewDelegate{
     
     @IBOutlet weak var sceneView: ARSCNView!
     
+    var planes = [UUID: SurfacePlane]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
-        sceneView.delegate = self
+        self.sceneView.delegate = self
+        
+        // add some default lighting in the 3D scene
+        sceneView.autoenablesDefaultLighting = true
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
@@ -27,15 +32,19 @@ class ARController: UIViewController, ARSCNViewDelegate{
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         // Create a new scene
-        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
         
         // Set the scene to the view
-        //sceneView.scene = scene
+        sceneView.scene = scene
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        
+        configuration.planeDetection = .horizontal
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -56,16 +65,22 @@ class ARController: UIViewController, ARSCNViewDelegate{
     
     // MARK: - ARSCNViewDelegate
     
-    //Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
+    /**
+     Called when a new node has been mapped to the given anchor.
+     @param renderer The renderer that will render the scene.
+     @param node The node that maps to the anchor.
+     @param anchor The added anchor.
+     // Override to create and configure nodes for anchors added to the view's session.
+     override func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+     let node = SCNNode()
      
-        return node
-    }
+     return node
+     }
+    */
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        
+        print("Error: \(error.localizedDescription)")
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
@@ -78,20 +93,39 @@ class ARController: UIViewController, ARSCNViewDelegate{
         
     }
     
-    // MARK: - Outlets
-    
-    @IBAction func addBox(_ sender: Any) {
-        let cubeNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
-        cubeNode.position = SCNVector3(0, 0, -0.5)
-        sceneView.scene.rootNode.addChildNode(cubeNode)
-        print("Added Box")
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if (!(anchor is ARPlaneAnchor)) {
+            print("oh no!!!")
+            return
+        }
+        print("Plane detected")
+        // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
+        let plane = SurfacePlane.init(with: anchor as! ARPlaneAnchor)
+        planes[anchor.identifier] = plane
+        node.addChildNode(plane)
     }
     
-    @IBAction func addSphere(_ sender: Any) {
-        let earthNode = SCNNode(geometry: SCNSphere(radius: 0.1))
-        earthNode.position = SCNVector3(0, 0, -0.5)
-        sceneView.scene.rootNode.addChildNode(earthNode)
-        print("Added Earth")
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let plane = planes[anchor.identifier] {
+            print("Plane update")
+            // When an anchor is updated we need to also update our 3D geometry too. For example
+            // the width and height of the plane detection may have changed so we need to update
+            // our SceneKit geometry to match that
+            plane.update(anchor: anchor as! ARPlaneAnchor)
+        } else{
+            print("oh no!!!")
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        if let _ = planes[anchor.identifier] {
+            print("Planes")
+            // Nodes will be removed if planes multiple individual planes that are detected to all be
+            // part of a larger plane are merged.
+            planes.remove(at: planes.index(forKey: anchor.identifier)!)
+        } else{
+            print("oh no!!!")
+        }
     }
     
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cya-oo-3F5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cya-oo-3F5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,8 +69,8 @@
                             <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu3-qk-e17">
                                 <rect key="frame" x="16" y="165" width="288" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">    Use app in decent lighting
-    Make sure the flat surface          has texture     Use slight movements     Mode-Small: Have camera          12-19 inches away from a          flat surface (Advised)     Mode-Medium: Have camera          20-35 inches away from a         flat surface (Advised)</mutableString>
+                                <string key="text">    Use app in decent lighting
+    Make sure the flat surface          has texture     Use slight movements     Mode-Small: Have camera          12-19 inches away from a          flat surface (Advised)     Mode-Medium: Have camera          20-35 inches away from a         flat surface (Advised)</string>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -414,45 +414,13 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVh-6k-ta9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78t-cb-Ik6">
-                                <rect key="frame" x="16" y="518" width="99" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
-                                <state key="normal" title="Add Box">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addBox:" destination="IyX-gc-yOg" eventType="touchUpInside" id="Dz6-6y-zpl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-rX-GSy">
-                                <rect key="frame" x="199" y="518" width="105" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
-                                <state key="normal" title="Add Sphere">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addSphere:" destination="IyX-gc-yOg" eventType="touchUpInside" id="H29-Pz-Y6h"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oVh-6k-ta9" firstAttribute="bottom" secondItem="akB-sc-Cgv" secondAttribute="bottom" id="1bH-OV-8mo"/>
-                            <constraint firstItem="2y0-rX-GSy" firstAttribute="leading" secondItem="78t-cb-Ik6" secondAttribute="trailing" constant="90" id="5Fj-fi-oR9"/>
-                            <constraint firstItem="akB-sc-Cgv" firstAttribute="trailing" secondItem="78t-cb-Ik6" secondAttribute="trailing" constant="205" id="6eB-YO-dTg"/>
-                            <constraint firstItem="oVh-6k-ta9" firstAttribute="trailing" secondItem="akB-sc-Cgv" secondAttribute="trailing" id="80d-p7-fbk"/>
-                            <constraint firstItem="2y0-rX-GSy" firstAttribute="top" secondItem="akB-sc-Cgv" secondAttribute="top" constant="498" id="AaC-mR-tKF"/>
-                            <constraint firstItem="78t-cb-Ik6" firstAttribute="top" secondItem="akB-sc-Cgv" secondAttribute="top" constant="498" id="GDS-fV-zbb"/>
-                            <constraint firstItem="oVh-6k-ta9" firstAttribute="top" secondItem="mip-Mi-Tq7" secondAttribute="top" id="Jsn-2j-LAf"/>
-                            <constraint firstItem="akB-sc-Cgv" firstAttribute="bottom" secondItem="2y0-rX-GSy" secondAttribute="bottom" constant="20" id="Tkx-Ci-y9l"/>
-                            <constraint firstItem="78t-cb-Ik6" firstAttribute="leading" secondItem="akB-sc-Cgv" secondAttribute="leading" constant="16" id="dS5-PT-dPo"/>
-                            <constraint firstItem="akB-sc-Cgv" firstAttribute="bottom" secondItem="78t-cb-Ik6" secondAttribute="bottom" constant="20" id="hqR-1J-g9w"/>
-                            <constraint firstItem="oVh-6k-ta9" firstAttribute="leading" secondItem="akB-sc-Cgv" secondAttribute="leading" id="jXB-Iu-83T"/>
-                            <constraint firstItem="akB-sc-Cgv" firstAttribute="trailing" secondItem="2y0-rX-GSy" secondAttribute="trailing" constant="16" id="s2x-PM-dKH"/>
+                            <constraint firstItem="oVh-6k-ta9" firstAttribute="leading" secondItem="akB-sc-Cgv" secondAttribute="leading" id="Erw-iU-xQD"/>
+                            <constraint firstItem="oVh-6k-ta9" firstAttribute="bottom" secondItem="akB-sc-Cgv" secondAttribute="bottom" id="VQa-4r-MSJ"/>
+                            <constraint firstItem="oVh-6k-ta9" firstAttribute="trailing" secondItem="akB-sc-Cgv" secondAttribute="trailing" id="aQS-L1-LHs"/>
+                            <constraint firstItem="oVh-6k-ta9" firstAttribute="top" secondItem="mip-Mi-Tq7" secondAttribute="top" id="tyt-Kf-xd3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="akB-sc-Cgv"/>
                     </view>
