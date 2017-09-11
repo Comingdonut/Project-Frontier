@@ -20,6 +20,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     var planes = [UUID: SurfacePlane]()
     // Contains a list of all the boxes in the scene
     var boxes: [SCNNode] = []
+    // Point where the use tapped on the plane
     struct PointOnPlane {
         static var x: Float = 0
         static var y: Float = 0
@@ -33,6 +34,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
             PointOnPlane.hasPoint = false;
         }
     }
+    
     struct CollisionCategory : OptionSet {
         let rawValue: Int
         
@@ -155,13 +157,6 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         // Stop detecting new planes or updating existing ones.
         let configuration: ARWorldTrackingConfiguration? = (sceneView.session.configuration as? ARWorldTrackingConfiguration)
         configuration?.planeDetection = .init(rawValue: ARPlaneDetectionNone)
-        sceneView.session.run(configuration!)
-    }
-    
-    func startPlaneDetection(){
-        // Start detecting new planes
-        let configuration: ARWorldTrackingConfiguration? = (sceneView.session.configuration as? ARWorldTrackingConfiguration)
-        configuration?.planeDetection = .horizontal
         sceneView.session.run(configuration!)
     }
 
