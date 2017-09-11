@@ -13,6 +13,7 @@ import SceneKit
 class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var plusButton: UIButton!
     
     let ARPlaneDetectionNone: UInt = 0
     
@@ -217,6 +218,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     
     @IBAction func refreshView(_ sender: Any) {
         PointOnPlane.reset()
+        plusButton.isHidden = false
         for box in boxes {
             box.removeFromParentNode()
         }
@@ -227,6 +229,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     
     @IBAction func initModels(_ sender: Any) {
         if PointOnPlane.hasPoint {
+            plusButton.isHidden = true
             insertGeometry(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
             hidePlanes()
         }

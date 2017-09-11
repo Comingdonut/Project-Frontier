@@ -443,6 +443,7 @@
                         <viewLayoutGuide key="safeArea" id="akB-sc-Cgv"/>
                     </view>
                     <connections>
+                        <outlet property="plusButton" destination="uwv-3l-HVI" id="DCV-KI-wIf"/>
                         <outlet property="sceneView" destination="oVh-6k-ta9" id="u96-gL-wl0"/>
                     </connections>
                 </viewController>
