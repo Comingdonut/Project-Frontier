@@ -10,10 +10,11 @@ import UIKit
 import ARKit
 import SceneKit
 
-class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
+class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate, ContainerDelegateProtocol {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var startContainer: UIView!
     
     let ARPlaneDetectionNone: UInt = 0
     
@@ -213,6 +214,18 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
             planes.remove(at: planes.index(forKey: anchor.identifier)!)
         }
     }
+    
+    // MARK: - Delegate Protocols
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Check for the right segue by name
+        (segue.destination as! StartController).delegate = self
+    }
+    
+    func close() {
+        startContainer.isHidden = true
+    }
+    
     
     // MARK: - Button Outlets
     

@@ -10,6 +10,7 @@
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
 		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
 		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
+		D17B91581F68437900BB533E /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B91571F68437800BB533E /* StartController.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
 		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
@@ -26,6 +27,7 @@
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
 		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
+		D17B91571F68437800BB533E /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -54,13 +56,14 @@
 		D125794A1F5C78DF000A3EF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D1CA25371F5F19510029D881 /* ARController.swift */,
-				D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */,
 				D1B9477C1F5C8C4A000FB895 /* AboutController.swift */,
+				D1CA25371F5F19510029D881 /* ARController.swift */,
 				D1B9477E1F5C8C6B000FB895 /* HelpController.swift */,
+				D13233A21F5DC10B00033F33 /* InformationController.swift */,
+				D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */,
 				D1A31D481F5CF4610024E44F /* OptionsController.swift */,
 				D13233A01F5DA44C00033F33 /* SelectModeController.swift */,
-				D13233A21F5DC10B00033F33 /* InformationController.swift */,
+				D17B91571F68437800BB533E /* StartController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
 				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
+				D17B91581F68437900BB533E /* StartController.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */,
 				D1CA25381F5F19510029D881 /* ARController.swift in Sources */,
