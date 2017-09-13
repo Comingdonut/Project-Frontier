@@ -22,7 +22,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     var planes = [UUID: SurfacePlane]()
     // Contains a list of all the boxes in the scene
     var boxes: [SCNNode] = []
-    // Point where the use tapped on the plane
+    // Point where the user tapped on the plane
     struct PointOnPlane {
         static var x: Float = 0
         static var y: Float = 0
@@ -226,10 +226,9 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         startContainer.isHidden = true
     }
     
-    
     // MARK: - Button Outlets
     
-    @IBAction func refreshView(_ sender: Any) {
+    @IBAction func resetView(_ sender: Any) {
         PointOnPlane.reset()
         plusButton.isHidden = false
         for box in boxes {
