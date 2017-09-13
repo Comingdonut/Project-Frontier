@@ -489,7 +489,7 @@
                                     <action selector="switchViews:" destination="2JK-Oe-m9c" eventType="valueChanged" id="Khe-oy-deH"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-EK-s4c" userLabel="First">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-EK-s4c" userLabel="Surface and Light">
                                 <rect key="frame" x="0.0" y="102" width="320" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -504,20 +504,46 @@
                                         <rect key="frame" x="8" y="63" width="304" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make sure the surface has decent lighting" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-at-Qup" userLabel="Description Light">
+                                        <rect key="frame" x="8" y="238" width="304" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LightExample" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-TF-hry" userLabel="Light Image">
+                                        <rect key="frame" x="8" y="291" width="304" height="167"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ME-zc-maq" userLabel="Second">
+                            <view hidden="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ME-zc-maq" userLabel="Texture and Motion">
                                 <rect key="frame" x="0.0" y="102" width="320" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrr-CJ-VCw">
-                                        <rect key="frame" x="123" y="212" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The surface should have some texture to make it recognizable." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHM-gW-fId" userLabel="Description Surface">
+                                        <rect key="frame" x="8" y="8" width="304" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextureExample" translatesAutoresizingMaskIntoConstraints="NO" id="SvT-3N-Tdl" userLabel="Texture Image">
+                                        <rect key="frame" x="8" y="63" width="304" height="167"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moving the device too fast can reduce the experience." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mv-WR-EvY" userLabel="Description Movement">
+                                        <rect key="frame" x="8" y="228" width="304" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MotionExample" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-CY-bqa" userLabel="Motion Image">
+                                        <rect key="frame" x="8" y="291" width="304" height="167"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -577,10 +603,13 @@
         <image name="Background" width="368" height="654"/>
         <image name="ButtonBackground" width="156" height="45"/>
         <image name="DimBackground" width="368" height="654"/>
+        <image name="LightExample" width="125" height="64"/>
+        <image name="MotionExample" width="125" height="64"/>
         <image name="Plus" width="64" height="64"/>
         <image name="Refresh" width="64" height="64"/>
         <image name="SmallButtonBackground" width="45" height="45"/>
         <image name="SurfaceExample" width="125" height="64"/>
+        <image name="TextureExample" width="125" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3fP-2r-61p"/>
