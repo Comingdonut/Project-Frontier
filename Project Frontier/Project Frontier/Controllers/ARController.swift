@@ -21,7 +21,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     var configuration = ARWorldTrackingConfiguration()
     var planes = [UUID: SurfacePlane]()
     // Contains a list of all the boxes in the scene
-    var boxes: [SCNNode] = []
+    var spheres: [SCNNode] = []
     // Point where the user tapped on the plane
     struct PointOnPlane {
         static var x: Float = 0
@@ -49,6 +49,8 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         
         setupScene()
         setupRecognizers()
+        // Stops screen from dimmming if the application is runnning
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +72,14 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         
     }
     
+    func setupSession(){
+        //configuration.isLightEstimationEnabled = true
+        configuration.planeDetection = .horizontal
+        
+        // Run the view's session
+        sceneView.session.run(configuration)
+    }
+    
     func setupScene(){
         // Set the view's delegate
         sceneView.delegate = self
@@ -79,6 +89,9 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         // add some default lighting in the 3D scene
         sceneView.autoenablesDefaultLighting = true
         
+        // Make things look prettier
+        sceneView.antialiasingMode = SCNAntialiasingMode.multisampling4X
+        
         // Debug plane
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
@@ -87,13 +100,6 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
 
         // Set the scene to the view
         sceneView.scene = scene
-    }
-    
-    func setupSession(){
-        configuration.planeDetection = .horizontal
-        
-        // Run the view's session
-        sceneView.session.run(configuration)
     }
     
     func setupRecognizers(){
@@ -134,13 +140,9 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     }
     
     func insertGeometry(x: Float, y: Float, z: Float){
-        let dimension: Float = 0.1
-        let cube = SCNBox(
-            width: CGFloat(dimension),
-            height: CGFloat(dimension),
-            length: CGFloat(dimension), 
-            chamferRadius: 0)
-        let node = SCNNode(geometry: cube)
+        let dimension: Float = 0.05
+        let sphere = SCNSphere(radius: CGFloat(dimension))
+        let node = SCNNode(geometry: sphere)
         // We insert the geometry slightly above the point the user tapped
         // to make it float
         let insertionYOffSet: Float = 0.15
@@ -148,7 +150,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         // Add the cube to the scene
         sceneView.scene.rootNode.addChildNode(node)
         // Add the cube to an internal list for book keeping
-        boxes.append(node)
+        spheres.append(node)
     }
     
     func hidePlanes(){
@@ -231,10 +233,10 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     @IBAction func resetView(_ sender: Any) {
         PointOnPlane.reset()
         plusButton.isHidden = false
-        for box in boxes {
-            box.removeFromParentNode()
+        for sphere in spheres {
+            sphere.removeFromParentNode()
         }
-        boxes = []
+        spheres = []
         sceneView.session.run(configuration, options: .removeExistingAnchors)
         sceneView.session.run(configuration, options: .resetTracking)
     }
