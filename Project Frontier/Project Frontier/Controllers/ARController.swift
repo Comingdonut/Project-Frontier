@@ -85,7 +85,7 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // sceneView.showsStatistics = true
         // add some default lighting in the 3D scene
         sceneView.autoenablesDefaultLighting = true
         
@@ -141,16 +141,30 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     
     func insertGeometry(x: Float, y: Float, z: Float){
         let dimension: Float = 0.05
-        let sphere = SCNSphere(radius: CGFloat(dimension))
-        let node = SCNNode(geometry: sphere)
-        // We insert the geometry slightly above the point the user tapped
-        // to make it float
-        let insertionYOffSet: Float = 0.15
-        node.position = SCNVector3Make(x, y + insertionYOffSet, z)
-        // Add the cube to the scene
-        sceneView.scene.rootNode.addChildNode(node)
-        // Add the cube to an internal list for book keeping
-        spheres.append(node)
+        var nodes: [ObjectNode] = []
+        for x in stride(from: 0, to: 6, by: 1) {
+            let node = ObjectNode(dimension)
+            if x > 0 {
+                node.setShape(shape: .box)
+                node.setColor(.gray)
+            }
+            nodes.append(node)
+        }
+        nodes[0].setShape(shape: .sphere)
+        nodes[0].setColor(.yellow)
+        
+        let offSet: Float = 0.15
+        let none: Float = 0.0
+        nodes[0].setPosition(x, y, z, none, offSet, none)
+        nodes[1].setPosition(x, y, z, offSet, offSet, none)
+        nodes[2].setPosition(x, y, z, -offSet, offSet, none)
+        nodes[3].setPosition(x, y, z, none, offSet, -offSet)
+        nodes[4].setPosition(x, y, z, offSet, offSet, -offSet)
+        nodes[5].setPosition(x, y, z, -offSet, offSet, -offSet)
+        for x in stride(from: 0, to: 6, by: 1) {
+            sceneView.scene.rootNode.addChildNode(nodes[x])
+            spheres.append(nodes[x])
+        }
     }
     
     func hidePlanes(){

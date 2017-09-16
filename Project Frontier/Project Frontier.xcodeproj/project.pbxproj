@@ -13,11 +13,13 @@
 		D17B91581F68437900BB533E /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B91571F68437800BB533E /* StartController.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
 		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
+		D1ACCEBA1F6D87D000859CD1 /* ObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACCEB91F6D87D000859CD1 /* ObjectNode.swift */; };
+		D1ACCEBC1F6D8BA100859CD1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */; };
+		D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B486C01F6DCD2C00031E86 /* Color.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
 		D1CA25381F5F19510029D881 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA25371F5F19510029D881 /* ARController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
-		D1DFA94D1F5B9CC200B0E4D9 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */; };
 		D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */; };
 		D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */; };
 		D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */; };
@@ -30,12 +32,14 @@
 		D17B91571F68437800BB533E /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		D1ACCEB91F6D87D000859CD1 /* ObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectNode.swift; sourceTree = "<group>"; };
+		D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		D1B486C01F6DCD2C00031E86 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		D1DFA9511F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DFA9561F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,12 +72,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		D1A2D9701F6097F6004C1162 /* Utilities */ = {
+		D1A2D9701F6097F6004C1162 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D1A2D9711F609828004C1162 /* SurfacePlane.swift */,
+				D1ACCEB91F6D87D000859CD1 /* ObjectNode.swift */,
+				D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */,
+				D1B486C01F6DCD2C00031E86 /* Color.swift */,
 			);
-			path = Utilities;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D1DFA93E1F5B9CC200B0E4D9 = {
@@ -95,7 +102,7 @@
 		D1DFA9491F5B9CC200B0E4D9 /* Project Frontier */ = {
 			isa = PBXGroup;
 			children = (
-				D1A2D9701F6097F6004C1162 /* Utilities */,
+				D1A2D9701F6097F6004C1162 /* Models */,
 				D1DFA9581F5B9CC200B0E4D9 /* Info.plist */,
 				D1E107D41F5E241A008FC721 /* Resources */,
 				D125794A1F5C78DF000A3EF3 /* Controllers */,
@@ -107,7 +114,6 @@
 		D1E107D41F5E241A008FC721 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D1DFA94C1F5B9CC200B0E4D9 /* Models.scnassets */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
 				D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */,
 				D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */,
@@ -173,7 +179,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DFA94D1F5B9CC200B0E4D9 /* Models.scnassets in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
@@ -188,9 +193,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
+				D1ACCEBA1F6D87D000859CD1 /* ObjectNode.swift in Sources */,
 				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
 				D17B91581F68437900BB533E /* StartController.swift in Sources */,
+				D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
+				D1ACCEBC1F6D8BA100859CD1 /* Shape.swift in Sources */,
 				D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */,
 				D1CA25381F5F19510029D881 /* ARController.swift in Sources */,
 				D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */,
