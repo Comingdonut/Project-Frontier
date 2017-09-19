@@ -10,39 +10,19 @@ import UIKit
 import ARKit
 import SceneKit
 
-class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate, ContainerDelegateProtocol {
+class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate, UIGestureRecognizerDelegate, ContainerDelegateProtocol {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var scopeImage: UIImageView!
     @IBOutlet weak var startContainer: UIView!
     
     let ARPlaneDetectionNone: UInt = 0
     
+    var isPlacingNodes: Bool = true
     var configuration = ARWorldTrackingConfiguration()
     var planes = [UUID: SurfacePlane]()
-    // Contains a list of all the boxes in the scene
-    var spheres: [SCNNode] = []
-    // Point where the user tapped on the plane
-    struct PointOnPlane {
-        static var x: Float = 0
-        static var y: Float = 0
-        static var z: Float = 0
-        static var hasPoint = false
-        
-        static func reset(){
-            PointOnPlane.x = 0
-            PointOnPlane.y = 0
-            PointOnPlane.z = 0
-            PointOnPlane.hasPoint = false;
-        }
-    }
-    
-    struct CollisionCategory : OptionSet {
-        let rawValue: Int
-        
-        static let bottom = CollisionCategory(rawValue: 1 << 0)
-        static let cube = CollisionCategory(rawValue: 1 << 1)
-    }
+    var objects: [ObjectNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +77,8 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         
         // Create a new scene
         let scene = SCNScene()
+		
+		scene.physicsWorld.contactDelegate = self
 
         // Set the scene to the view
         sceneView.scene = scene
@@ -107,64 +89,89 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         sceneView.addGestureRecognizer(tapGestureRecognizer)
-        // Press and hold will cause all the planes to disappear
-        let hidePlanesGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleHidePlane))
-        hidePlanesGestureRecognizer.minimumPressDuration = 1
-        sceneView.addGestureRecognizer(hidePlanesGestureRecognizer)
     }
     
     @objc func handleTap (from recognizer: UITapGestureRecognizer){
-        // Take the screen tap coordinates and pass them to the hitTest method on the ARSCNView instance
-        let tapPoint: CGPoint = recognizer.location(in: sceneView)
-        let result: [ARHitTestResult] = sceneView.hitTest(tapPoint, types: ARHitTestResult.ResultType.existingPlaneUsingExtent)
-        // If the intersection ray passes through any plane geometry they will be returned with the planes
-        // ordered by distance from the camera
-        if result.count == 0 {
-            return
-        }
-        
-        // If there are multiple hits, just pick the closest plane
-        let hitResult: ARHitTestResult? = result.first
-        
-        PointOnPlane.x = hitResult!.worldTransform.columns.3.x
-        PointOnPlane.y = hitResult!.worldTransform.columns.3.y
-        PointOnPlane.z = hitResult!.worldTransform.columns.3.z
-        PointOnPlane.hasPoint = true
-    }
-    
-    @objc func handleHidePlane(from recognizer: UITapGestureRecognizer) {
-        if recognizer.state != .began {
-            return
-        }
-        hidePlanes()
-    }
-    
-    func insertGeometry(x: Float, y: Float, z: Float){
-        let dimension: Float = 0.05
-        var nodes: [ObjectNode] = []
-        for x in stride(from: 0, to: 6, by: 1) {
-            let node = ObjectNode(dimension)
-            if x > 0 {
-                node.setShape(shape: .box)
-                node.setColor(.gray)
+        if isPlacingNodes {
+            // Take the screen tap coordinates and pass them to the hitTest method on the ARSCNView instance
+            let tapPoint: CGPoint = recognizer.location(in: sceneView)
+            let result: [ARHitTestResult] = sceneView.hitTest(tapPoint, types: ARHitTestResult.ResultType.existingPlaneUsingExtent)
+            // If the intersection ray passes through any plane geometry they will be returned with the planes
+            // ordered by distance from the camera
+            if result.count == 0 {
+                return
             }
-            nodes.append(node)
+            
+            // If there are multiple hits, just pick the closest plane
+            let hitResult: ARHitTestResult? = result.first
+            
+            PointOnPlane.x = hitResult!.worldTransform.columns.3.x
+            PointOnPlane.y = hitResult!.worldTransform.columns.3.y
+            PointOnPlane.z = hitResult!.worldTransform.columns.3.z
+            PointOnPlane.hasPoint = true
+        } else {
+			if !searchNode(for: "Bullet", from: objects) {
+				let dimensions: Float = 0.010
+				let bulletNode = ObjectNode(dimensions, true)
+				bulletNode.setName(to: "Bullet")
+				bulletNode.setShape(.sphere)
+				bulletNode.setColor(.white)
+				bulletNode.setPosition(
+					(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
+					(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
+					(sceneView.session.currentFrame?.camera.transform.columns.3.z)!, 0, 0, 0)
+				
+				let bulletDirection = self.getUserDirection()
+				bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+				sceneView.scene.rootNode.addChildNode(bulletNode)
+				// TODO: Only one bullet at a time, disappear when past y = 0 or when touched object
+				objects.append(bulletNode)
+			}
         }
-        nodes[0].setShape(shape: .sphere)
-        nodes[0].setColor(.yellow)
+    }
+	
+	func searchNode(for name: String, from objects: [SCNNode]) -> Bool {
+		var hasNode = false
+		for obj in objects {
+			if obj.name == name {
+				hasNode = true
+				break
+			}
+		}
+		return hasNode
+	}
+	
+	func getNodeIndex(from objects: [SCNNode], by name: String) -> Int{
+		var index = 0
+		for obj in objects {
+			if obj.name == name {
+				return index
+			}
+			index+=1;
+		}
+		return -1
+	}
+    
+    func insertGeometry(x: Float, y: Float, z: Float) {
+        let dimension: Float = 0.025
+        let arMenu = ARMenu.init()
         
-        let offSet: Float = 0.15
-        let none: Float = 0.0
-        nodes[0].setPosition(x, y, z, none, offSet, none)
-        nodes[1].setPosition(x, y, z, offSet, offSet, none)
-        nodes[2].setPosition(x, y, z, -offSet, offSet, none)
-        nodes[3].setPosition(x, y, z, none, offSet, -offSet)
-        nodes[4].setPosition(x, y, z, offSet, offSet, -offSet)
-        nodes[5].setPosition(x, y, z, -offSet, offSet, -offSet)
-        for x in stride(from: 0, to: 6, by: 1) {
-            sceneView.scene.rootNode.addChildNode(nodes[x])
-            spheres.append(nodes[x])
+        arMenu.initARMenu(dimension)
+        arMenu.initCategory(.sphere, .yellow)
+        arMenu.setCategoryPositions(x, y, z)
+        
+        for x in stride(from: 0, to: arMenu.categories.count, by: 1) {
+            sceneView.scene.rootNode.addChildNode(arMenu.categories[x])
+            objects.append(arMenu.categories[x])
         }
+    }
+    
+    func getUserDirection() -> SCNVector3 {
+        if let frame = self.sceneView.session.currentFrame {
+            let mat = SCNMatrix4.init(frame.camera.transform)
+            return SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33)
+        }
+        return SCNVector3(0, 0, -1)
     }
     
     func hidePlanes(){
@@ -177,6 +184,24 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
         configuration?.planeDetection = .init(rawValue: ARPlaneDetectionNone)
         sceneView.session.run(configuration!)
     }
+    
+    // MARK: - SCNPhysicsContactDelegate
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+		print("Contact Added")
+		
+		contact.nodeB.removeFromParentNode()
+		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
+		print("Bullet still exist: \(searchNode(for: "Bullet", from: objects))")
+    }
+	
+	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
+		print("Contact Updated")
+	}
+	
+	func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+		print("Contact Ended")
+	}
 
     // MARK: - ARSCNViewDelegate
     
@@ -245,19 +270,25 @@ class ARController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDele
     // MARK: - Button Outlets
     
     @IBAction func resetView(_ sender: Any) {
-        PointOnPlane.reset()
-        plusButton.isHidden = false
-        for sphere in spheres {
-            sphere.removeFromParentNode()
+        if !isPlacingNodes {
+            isPlacingNodes = true
+            scopeImage.isHidden = true
+            plusButton.isHidden = false
+            PointOnPlane.reset()
+            for object in objects {
+                object.removeFromParentNode()
+            }
+            objects = []
+            sceneView.session.run(configuration, options: .removeExistingAnchors)
+            sceneView.session.run(configuration, options: .resetTracking)
         }
-        spheres = []
-        sceneView.session.run(configuration, options: .removeExistingAnchors)
-        sceneView.session.run(configuration, options: .resetTracking)
     }
     
     @IBAction func initModels(_ sender: Any) {
         if PointOnPlane.hasPoint {
+            isPlacingNodes = false
             plusButton.isHidden = true
+            scopeImage.isHidden = false
             insertGeometry(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
             hidePlanes()
         }

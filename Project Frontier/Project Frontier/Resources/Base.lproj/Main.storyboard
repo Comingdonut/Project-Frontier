@@ -412,6 +412,7 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVh-6k-ta9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-ir-hhp" userLabel="Button Reset">
                                 <rect key="frame" x="16" y="20" width="40" height="40"/>
@@ -431,6 +432,10 @@
                                     <action selector="initModels:" destination="IyX-gc-yOg" eventType="touchUpInside" id="1BV-Tx-qn1"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scope" translatesAutoresizingMaskIntoConstraints="NO" id="L6L-Q5-RUC" userLabel="Scope Image">
+                                <rect key="frame" x="128" y="252" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SN6-38-iVs" userLabel="Getting Started Container">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -451,6 +456,7 @@
                     <connections>
                         <outlet property="plusButton" destination="uwv-3l-HVI" id="DCV-KI-wIf"/>
                         <outlet property="sceneView" destination="oVh-6k-ta9" id="u96-gL-wl0"/>
+                        <outlet property="scopeImage" destination="L6L-Q5-RUC" id="Fqd-e1-PRq"/>
                         <outlet property="startContainer" destination="SN6-38-iVs" id="pq3-eQ-t6h"/>
                     </connections>
                 </viewController>
@@ -658,6 +664,7 @@
         <image name="PlaneGrid" width="256" height="256"/>
         <image name="Plus" width="64" height="64"/>
         <image name="Refresh" width="64" height="64"/>
+        <image name="Scope" width="45" height="45"/>
         <image name="SmallButtonBackground" width="45" height="45"/>
         <image name="SurfaceExample" width="125" height="64"/>
         <image name="TextureExample" width="125" height="64"/>

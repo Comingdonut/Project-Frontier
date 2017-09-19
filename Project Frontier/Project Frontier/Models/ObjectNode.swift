@@ -13,22 +13,36 @@ class ObjectNode: SCNNode {
     
     var dimension: Float
     var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
+    var isBullet: Bool
     
     override init() {
         dimension = 0.05
         multiplier = 1.0
+        isBullet = false
         super.init()
     }
     
-    init(_ dimension: Float) {
+	init(_ dimension: Float) {
         self.dimension = dimension
-        multiplier = 1.0
+        multiplier = 2.0
+        isBullet = false
+        super.init()
+    }
+    
+    init(_ dimension: Float, _ isBullet: Bool) {
+        self.dimension = dimension
+        multiplier = 2.0
+        self.isBullet = isBullet
         super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	func setName(to name: String) {
+		self.name = name
+	}
     
     func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
         self.position = SCNVector3Make(x + xOffSet, y + yOffSet, z + zOffSet)
@@ -37,7 +51,7 @@ class ObjectNode: SCNNode {
     func setColor(_ color: Color) {
         let materials = self.geometry?.materials as [SCNMaterial]?
         let material = materials![0]
-        switch(color){
+		switch(color){ // Missing colors: brown
         case .red:
             material.diffuse.contents = UIColor.red
             break
@@ -68,16 +82,41 @@ class ObjectNode: SCNNode {
         }
     }
     
-    func setShape(shape: Shape) {
+    func setShape(_ shape: Shape) {
         switch(shape){
         case .box:
             let box = newBox(dimension)
             self.geometry = box
+            setPhysicsBody(Box: box)
             break
         case .sphere:
             let sphere = newSphere(dimension)
             self.geometry = sphere
+            setPhysicsBody(Sphere: sphere)
             break
+        }
+    }
+    
+    func setPhysicsBody(Box box: SCNBox) {
+        let shape = SCNPhysicsShape(geometry: box, options: nil)
+        self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+        self.physicsBody?.isAffectedByGravity = false;
+        
+        self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
+        self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
+    }
+    
+    func setPhysicsBody(Sphere sphere: SCNSphere) {
+        let shape = SCNPhysicsShape(geometry: sphere, options: nil)
+        self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+        self.physicsBody?.isAffectedByGravity = false;
+        if isBullet {
+            self.physicsBody?.categoryBitMask = CollisionCategory.bullet.rawValue
+            self.physicsBody?.contactTestBitMask = CollisionCategory.object.rawValue
+        }
+        else {
+            self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
+            self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
         }
     }
     
