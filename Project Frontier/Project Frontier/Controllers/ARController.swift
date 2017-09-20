@@ -18,7 +18,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBOutlet weak var startContainer: UIView!
     
     let ARPlaneDetectionNone: UInt = 0
-    
+	let framesPerSecond: Float = 60.0
+	
+	var bulletsFrames: Float = 0.0
     var isPlacingNodes: Bool = true
     var configuration = ARWorldTrackingConfiguration()
     var planes = [UUID: SurfacePlane]()
@@ -188,11 +190,10 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-		print("Contact Added")
+		print("Contact Added: \(contact.nodeA.name ?? "other")")
 		
 		contact.nodeB.removeFromParentNode()
 		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
-		print("Bullet still exist: \(searchNode(for: "Bullet", from: objects))")
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
@@ -255,6 +256,17 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             planes.remove(at: planes.index(forKey: anchor.identifier)!)
         }
     }
+	
+	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+		if searchNode(for: "Bullet", from: objects) {
+			bulletsFrames+=1
+			if bulletsFrames == (framesPerSecond * (objects.first?.multiplier)!) { //Bullet disappears in 2 seconds
+				let node = objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
+				node.removeFromParentNode()
+				bulletsFrames = 0.0
+			}
+		}
+	}
     
     // MARK: - Delegate Protocols
     
