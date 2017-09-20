@@ -51,7 +51,8 @@ class ObjectNode: SCNNode {
     func setColor(_ color: Color) {
         let materials = self.geometry?.materials as [SCNMaterial]?
         let material = materials![0]
-		switch(color){ // Missing colors: brown
+		//UIColor.init(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+		switch(color){ // Missing colors: brown, cyan, magenta, clear, light & dark gray & Text,
         case .red:
             material.diffuse.contents = UIColor.red
             break

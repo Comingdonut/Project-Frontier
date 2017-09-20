@@ -20,6 +20,7 @@ class ARMenu {
     func initARMenu (_ dimension: Float) {
         for x in stride(from: 0, to: 6, by: 1) {
             let node = ObjectNode(dimension)
+            node.opacity = 0.0
             if x > 0 {
                 node.setName(to: "Coming Soon")
                 node.setShape(.box)
@@ -47,4 +48,19 @@ class ARMenu {
         categories[5].setPosition(x, y, z, -offSet, offSet, -offSet)
     }
     
+    func show() {
+        let anim: Animation = Animation()
+        for cat in categories {
+            anim.appear(cat, duration: 1.5)
+        }
+    }
+    
+    func hide (except node: SCNNode) {
+        let anim: Animation = Animation()
+        for cat in categories{
+            if cat.name != node.name {
+                anim.disappear(cat, duration: 1.5)
+            }
+        }
+    }
 }

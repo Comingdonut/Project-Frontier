@@ -126,7 +126,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				let bulletDirection = self.getUserDirection()
 				bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
 				sceneView.scene.rootNode.addChildNode(bulletNode)
-				// TODO: Only one bullet at a time, disappear when past y = 0 or when touched object
 				objects.append(bulletNode)
 			}
         }
@@ -166,6 +165,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             sceneView.scene.rootNode.addChildNode(arMenu.categories[x])
             objects.append(arMenu.categories[x])
         }
+		arMenu.show()
     }
     
     func getUserDirection() -> SCNVector3 {
@@ -190,10 +190,24 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-		print("Contact Added: \(contact.nodeA.name ?? "other")")
+		//print("Node [\(contact.nodeA.name)] and Node [\(contact.nodeB.name)]")
+		let anim: Animation = Animation()
 		
 		contact.nodeB.removeFromParentNode()
 		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
+		
+		if contact.nodeA.name == "Coming Soon" {
+			anim.spin(contact.nodeA, x: 0, y: 1, z: 0, d: 1)
+		}
+		else if contact.nodeA.name == "Sun" {
+			for obj in objects {
+				if obj.name != "Sun" {
+					//anim.disappear(obj, duration: 1)
+					obj.removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				}
+			}
+		}
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
