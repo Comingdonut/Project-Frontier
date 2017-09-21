@@ -192,6 +192,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
 		//print("Node [\(contact.nodeA.name)] and Node [\(contact.nodeB.name)]")
 		let anim: Animation = Animation()
+		bulletsFrames = 0.0
+		
+		contact.nodeA.addParticleSystem(anim.createTrails(color: .white, geometry: contact.nodeA.geometry!))
 		
 		contact.nodeB.removeFromParentNode()
 		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))

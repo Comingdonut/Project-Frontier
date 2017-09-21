@@ -133,4 +133,10 @@ class ObjectNode: SCNNode {
                      chamferRadius: CGFloat(0.0))
         return box
     }
+	
+	func addTrail() {
+		let anim: Animation = Animation()
+		let trailEmitter = anim.createTrails(color: UIColor.white, geometry: self.geometry!)
+		self.addParticleSystem(trailEmitter)
+	}
 }
