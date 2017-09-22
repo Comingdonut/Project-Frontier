@@ -199,10 +199,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		contact.nodeB.removeFromParentNode()
 		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
 		
-		if contact.nodeA.name == "Coming Soon" {
-			anim.spin(contact.nodeA, x: 0, y: 10, z: 0, d: 3)
-		}
-		else if contact.nodeA.name == "Sun" {
+		if contact.nodeA.name == "Sun" {
 			for obj in objects {
 				if obj.name != "Sun" {
 					//anim.disappear(obj, duration: 1)
