@@ -38,11 +38,10 @@ class Animation {
     
     // Mark: - Particle Effects
     
-    func createTrails(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+    func explode(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
         let trail = SCNParticleSystem(named: "BulletParticle.scnp", inDirectory: nil)
         trail?.particleColor = color
         trail?.emitterShape = geometry
-        trail?.particleLifeSpan = 0.1
         return trail!
     }
     

@@ -194,13 +194,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let anim: Animation = Animation()
 		bulletsFrames = 0.0
 		
-		contact.nodeA.addParticleSystem(anim.createTrails(color: .white, geometry: contact.nodeA.geometry!))
+		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
 		
 		contact.nodeB.removeFromParentNode()
 		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
 		
 		if contact.nodeA.name == "Coming Soon" {
-			anim.spin(contact.nodeA, x: 0, y: 1, z: 0, d: 1)
+			anim.spin(contact.nodeA, x: 0, y: 10, z: 0, d: 3)
 		}
 		else if contact.nodeA.name == "Sun" {
 			for obj in objects {
