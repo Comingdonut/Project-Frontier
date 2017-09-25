@@ -158,7 +158,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         let arMenu = ARMenu.init()
         
         arMenu.initARMenu(dimension)
-        arMenu.initCategory(.sphere, .yellow)
         arMenu.setCategoryPositions(x, y, z)
         
         for x in stride(from: 0, to: arMenu.categories.count, by: 1) {

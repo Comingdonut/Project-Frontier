@@ -95,6 +95,10 @@ class ObjectNode: SCNNode {
             self.geometry = sphere
             setPhysicsBody(Sphere: sphere)
             break
+		case .text:
+			let text = newText(dimension)
+			self.geometry = text
+			break
         }
     }
     
@@ -133,4 +137,11 @@ class ObjectNode: SCNNode {
                      chamferRadius: CGFloat(0.0))
         return box
     }
+	
+	func newText(_ dimension: Float) -> SCNText {
+		let text = SCNText(string: self.name, extrusionDepth: CGFloat(dimension))
+		self.scale = SCNVector3(dimension, dimension, dimension)
+		text.font = UIFont.init(name: "Helvetica", size: 1)
+		return text
+	}
 }
