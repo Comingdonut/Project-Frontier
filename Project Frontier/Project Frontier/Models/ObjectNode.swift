@@ -14,18 +14,29 @@ class ObjectNode: SCNNode {
     var dimension: Float
     var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
     var isBullet: Bool
+	var hasText: Bool
     
     override init() {
         dimension = 0.05
         multiplier = 1.0
         isBullet = false
+		hasText = false
         super.init()
     }
-    
+	
 	init(_ dimension: Float) {
+		self.dimension = dimension
+		multiplier = 2.0
+		isBullet = false
+		hasText = false
+		super.init()
+	}
+    
+	init(_ dimension: Float, hasText: Bool) {
         self.dimension = dimension
         multiplier = 2.0
         isBullet = false
+		self.hasText = hasText
         super.init()
     }
     
@@ -33,6 +44,7 @@ class ObjectNode: SCNNode {
         self.dimension = dimension
         multiplier = 2.0
         self.isBullet = isBullet
+		hasText = false
         super.init()
     }
     
@@ -46,6 +58,20 @@ class ObjectNode: SCNNode {
     
     func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
         self.position = SCNVector3Make(x + xOffSet, y + yOffSet, z + zOffSet)
+		if hasText {
+			let textOffSet: Float = 0.08
+			let text = ObjectNode(dimension)
+			text.setName(to: name!)
+			text.setShape(.text)
+			text.setColor(.white)
+			text.setPosition(0, 0, 0, 0, 0, 0 + textOffSet)
+			let (min, max) = text.boundingBox
+			let dx = min.x + 0.5 * (max.x - min.x)
+			let dy = min.y + 0.5 * (max.y - min.y)
+			let dz = min.z + 0.5 * (max.z - min.z)
+			text.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+			self.addChildNode(text)
+		}
     }
     
     func setColor(_ color: Color) {

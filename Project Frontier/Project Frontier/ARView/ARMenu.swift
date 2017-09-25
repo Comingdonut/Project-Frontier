@@ -12,7 +12,6 @@ import SceneKit
 class ARMenu {
     
     let size: Int = 6
-    let addition: Int = 2
     
     var categories: [ObjectNode]
     
@@ -21,21 +20,15 @@ class ARMenu {
     }
     
     func initARMenu (_ dimension: Float) {
-        for x in stride(from: 0, to: size*addition, by: 1) {
-            let node = ObjectNode(dimension)
+        for x in stride(from: 0, to: size, by: 1) {
+            let node = ObjectNode(dimension, hasText: true)
             node.opacity = 0.0
             categories.append(node)
-            if x > 0 && x % 2 == 0 {
+            if x > 0 {
                 initCategory(x, "Coming Soon", .box, .gray)
-            }
-            else if x > 1 &&  x % 2 == 1 {
-                initCategory(x, "Coming Soon", .text, .white)
             }
             else if x == 0 {
                 initCategory(x, "Sun", .sphere, .yellow)
-            }
-            else if x == 1 {
-                initCategory(x, "Sun", .text, .white)
             }
         }
         
@@ -49,20 +42,13 @@ class ARMenu {
     
     func setCategoryPositions(_ x: Float, _ y: Float, _ z: Float) {
         let offSet: Float = 0.15
-        let textOffSet: Float = 0.08
         let none: Float = 0.0
         categories[0].setPosition(x, y, z, none, offSet, none)
-        categories[1].setPosition(x, y, z, none, offSet, none+textOffSet)
-        categories[2].setPosition(x, y, z, offSet, offSet, none)
-        categories[3].setPosition(x, y, z, offSet, offSet, none+textOffSet)
-        categories[4].setPosition(x, y, z, -offSet, offSet, none)
-        categories[5].setPosition(x, y, z, -offSet, offSet, none+textOffSet)
-        categories[6].setPosition(x, y, z, none, offSet, -offSet)
-        categories[7].setPosition(x, y, z, none, offSet, -offSet+textOffSet)
-        categories[8].setPosition(x, y, z, offSet, offSet, -offSet)
-        categories[9].setPosition(x, y, z, offSet, offSet, -offSet+textOffSet)
-        categories[10].setPosition(x, y, z, -offSet, offSet, -offSet)
-        categories[11].setPosition(x, y, z, -offSet, offSet, -offSet+textOffSet)
+        categories[1].setPosition(x, y, z, offSet, offSet, none)
+        categories[2].setPosition(x, y, z, -offSet, offSet, none)
+        categories[3].setPosition(x, y, z, none, offSet, -offSet)
+        categories[4].setPosition(x, y, z, offSet, offSet, -offSet)
+        categories[5].setPosition(x, y, z, -offSet, offSet, -offSet)
     }
     
     func show() {
