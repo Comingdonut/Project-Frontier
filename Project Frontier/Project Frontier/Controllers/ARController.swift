@@ -160,7 +160,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         arMenu.initMenu(dimension)
         arMenu.setOptionPositions(x, y, z)
         
-        for x in stride(from: 0, to: arMenu.options.count, by: 1) {
+        for x in stride(from: 0, to: arMenu.size, by: 1) {
             sceneView.scene.rootNode.addChildNode(arMenu.options[x])
             objects.append(arMenu.options[x])
         }
@@ -174,7 +174,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		sunMenu.initMenu(dimension)
 		sunMenu.setOptionPositions(x, y, z)
 		
-		for x in stride(from: 0, to: sunMenu.options.count, by: 1) {
+		for x in stride(from: 0, to: sunMenu.size, by: 1) {
 			sceneView.scene.rootNode.addChildNode(sunMenu.options[x])
 			objects.append(sunMenu.options[x])
 		}
@@ -182,8 +182,16 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	func newYellowSun(x: Float, y: Float, z: Float) {
-		let dimension: Float = 0.025
 		let sun: YellowSun = YellowSun()
+		
+		sun.initSubject()
+		sun.setObjectPositions(x, y, z)
+		
+		for x in stride(from: 0, to: sun.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(sun.objects[x])
+			objects.append(sun.objects[x])
+		}
+		sun.show()
 	}
     
     func getUserDirection() -> SCNVector3 {
@@ -239,7 +247,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				obj.removeFromParentNode()
 				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}
-			// TODO: Here
+			newYellowSun(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
     }
 	

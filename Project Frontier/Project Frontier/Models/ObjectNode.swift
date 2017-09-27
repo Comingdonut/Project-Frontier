@@ -63,7 +63,7 @@ class ObjectNode: SCNNode {
     func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
         self.position = SCNVector3Make(x + xOffSet, y + yOffSet, z + zOffSet)
 		if hasText {
-			let textOffSet: Float = 0.08
+			let textOffSet: Float = 0.06
 			let text = ObjectNode(dimension)
 			text.setName(to: name!)
 			text.setShape(.text)
@@ -124,7 +124,7 @@ class ObjectNode: SCNNode {
         }
     }
 	
-	func setColor(r: Float, g: Float, b: Float, a: Float) {
+	func setColor(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
 		let materials = self.geometry?.materials as [SCNMaterial]?
 		let material = materials![0]
 		material.diffuse.contents = UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
