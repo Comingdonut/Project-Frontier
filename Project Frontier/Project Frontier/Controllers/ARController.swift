@@ -180,6 +180,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		sunMenu.show()
 	}
+	
+	func newYellowSun(x: Float, y: Float, z: Float) {
+		let dimension: Float = 0.025
+		let sun: YellowSun = YellowSun()
+	}
     
     func getUserDirection() -> SCNVector3 {
         if let frame = self.sceneView.session.currentFrame {
@@ -227,6 +232,14 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}
 			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		}
+		else if contact.nodeA.name == "Yellow Sun" {
+			for obj in objects {
+				//anim.disappear(obj, duration: 1)
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			// TODO: Here
 		}
     }
 	

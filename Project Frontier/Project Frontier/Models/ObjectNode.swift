@@ -11,13 +11,13 @@ import SceneKit
 
 class ObjectNode: SCNNode {
     
-    var dimension: Float
+    var dimension: Float // Size 0.025
     var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
     var isBullet: Bool
 	var hasText: Bool
     
     override init() {
-        dimension = 0.05
+        dimension = 0.025
         multiplier = 1.0
         isBullet = false
 		hasText = false
@@ -52,6 +52,10 @@ class ObjectNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 	
+	func setDimension(to dimension: Float) {
+		self.dimension = dimension
+	}
+	
 	func setName(to name: String) {
 		self.name = name
 	}
@@ -77,8 +81,10 @@ class ObjectNode: SCNNode {
     func setColor(_ color: Color) {
         let materials = self.geometry?.materials as [SCNMaterial]?
         let material = materials![0]
-		//UIColor.init(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
-		switch(color){ // Missing colors: brown, cyan, magenta, clear, light & dark gray & Text,
+		switch(color){ // Missing colors: brown, clear
+		case .magenta:
+			material.diffuse.contents = UIColor.magenta
+			break
         case .red:
             material.diffuse.contents = UIColor.red
             break
@@ -91,6 +97,9 @@ class ObjectNode: SCNNode {
         case .green:
             material.diffuse.contents = UIColor.green
             break
+		case .cyan:
+			material.diffuse.contents = UIColor.cyan
+			break
         case .blue:
             material.diffuse.contents = UIColor.blue
             break
@@ -100,14 +109,26 @@ class ObjectNode: SCNNode {
         case .white:
             material.diffuse.contents = UIColor.white
             break
+		case .lightgray:
+			material.diffuse.contents = UIColor.lightGray
+			break
         case .gray:
             material.diffuse.contents = UIColor.gray
             break
+		case .darkgray:
+			material.diffuse.contents = UIColor.darkGray
+			break
         case .black:
             material.diffuse.contents = UIColor.black
             break
         }
     }
+	
+	func setColor(r: Float, g: Float, b: Float, a: Float) {
+		let materials = self.geometry?.materials as [SCNMaterial]?
+		let material = materials![0]
+		material.diffuse.contents = UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
+	}
     
     func setShape(_ shape: Shape) {
         switch(shape){
