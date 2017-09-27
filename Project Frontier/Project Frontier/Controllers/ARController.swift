@@ -153,23 +153,37 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		return -1
 	}
     
-    func insertGeometry(x: Float, y: Float, z: Float) {
+    func newARMenu(x: Float, y: Float, z: Float) {
         let dimension: Float = 0.025
-        let arMenu = ARMenu.init()
+        let arMenu = ARMenu()
         
-        arMenu.initARMenu(dimension)
-        arMenu.setCategoryPositions(x, y, z)
+        arMenu.initMenu(dimension)
+        arMenu.setOptionPositions(x, y, z)
         
-        for x in stride(from: 0, to: arMenu.categories.count, by: 1) {
-            sceneView.scene.rootNode.addChildNode(arMenu.categories[x])
-            objects.append(arMenu.categories[x])
+        for x in stride(from: 0, to: arMenu.options.count, by: 1) {
+            sceneView.scene.rootNode.addChildNode(arMenu.options[x])
+            objects.append(arMenu.options[x])
         }
 		arMenu.show()
     }
+	
+	func newSunsMenu(x: Float, y: Float, z: Float) {
+		let dimension: Float = 0.025
+		let sunMenu = SunMenu()
+		
+		sunMenu.initMenu(dimension)
+		sunMenu.setOptionPositions(x, y, z)
+		
+		for x in stride(from: 0, to: sunMenu.options.count, by: 1) {
+			sceneView.scene.rootNode.addChildNode(sunMenu.options[x])
+			objects.append(sunMenu.options[x])
+		}
+		sunMenu.show()
+	}
     
     func getUserDirection() -> SCNVector3 {
         if let frame = self.sceneView.session.currentFrame {
-            let mat = SCNMatrix4.init(frame.camera.transform)
+            let mat = SCNMatrix4(frame.camera.transform)
             return SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33)
         }
         return SCNVector3(0, 0, -1)
@@ -200,12 +214,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {
-				if obj.name != "Sun" {
-					//anim.disappear(obj, duration: 1)
-					obj.removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
-				}
+				//anim.disappear(obj, duration: 1)
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}
+			newSunsMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		}
+		else if contact.nodeA.name == "Back" {
+			for obj in objects {
+				//anim.disappear(obj, duration: 1)
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
     }
 	
@@ -248,7 +269,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             return
         }
         // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
-        let plane = SurfacePlane.init(with: anchor as! ARPlaneAnchor)
+        let plane = SurfacePlane(with: anchor as! ARPlaneAnchor)
         planes[anchor.identifier] = plane
         node.addChildNode(plane)
     }
@@ -314,7 +335,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             isPlacingNodes = false
             plusButton.isHidden = true
             scopeImage.isHidden = false
-            insertGeometry(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+            newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
             hidePlanes()
         }
     }

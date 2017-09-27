@@ -1,15 +1,15 @@
 //
-//  ARMenu.swift
+//  SunMenu.swift
 //  Project Frontier
 //
-//  Created by James Castrejon on 9/17/17.
+//  Created by James Castrejon on 9/27/17.
 //  Copyright © 2017 James Castrejon. All rights reserved.
 //
 
 import Foundation
 import SceneKit
 
-class ARMenu: Menu {
+class SunMenu: Menu {
     
     var size: Int
     
@@ -25,11 +25,23 @@ class ARMenu: Menu {
             let node = ObjectNode(dimension, hasText: true)
             node.opacity = 0.0
             options.append(node)
-            if x > 0 {
-                initOption(x, "TBA", .box, .gray)
+            if x == 0 {
+                initOption(x, "Red Sun", .sphere, .red)
             }
-            else if x == 0 {
-                initOption(x, "Sun", .sphere, .yellow)
+            else if x == 1 {
+                initOption(x, "Yellow Sun", .sphere, .yellow)
+            }
+            else if x == 2 {
+                initOption(x, "Blue Sun", .sphere, .blue)
+            }
+            else if x == 3 {
+                initOption(x, "White Dwarf", .sphere, .white)
+            }
+            else if x == 4 {
+                initOption(x, "Black Dwarf", .sphere, .black)
+            }
+            else {
+                initOption(x, "Back", .box, .orange)
             }
         }
     }
@@ -53,15 +65,15 @@ class ARMenu: Menu {
     
     func show() {
         let anim: Animation = Animation()
-        for cat in options {
-            anim.appear(cat, duration: 1.5)
+        for sun in options {
+            anim.appear(sun, duration: 1.5)
         }
     }
     
     func hide () {
         let anim: Animation = Animation()
-        for cat in options{
-            anim.disappear(cat, duration: 1.5)
+        for sun in options{
+            anim.disappear(sun, duration: 1.5)
         }
     }
 }
