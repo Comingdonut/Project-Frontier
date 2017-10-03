@@ -16,5 +16,4 @@ protocol Menu {
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color)
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float)
     func show()
-    func hide()
 }

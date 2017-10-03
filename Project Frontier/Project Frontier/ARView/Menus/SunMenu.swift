@@ -66,14 +66,7 @@ class SunMenu: Menu {
     func show() {
         let anim: Animation = Animation()
         for sun in options {
-            anim.appear(sun, duration: 1.5)
-        }
-    }
-    
-    func hide () {
-        let anim: Animation = Animation()
-        for sun in options{
-            anim.disappear(sun, duration: 1.5)
+            anim.appear(sun, d: 1.5)
         }
     }
 }

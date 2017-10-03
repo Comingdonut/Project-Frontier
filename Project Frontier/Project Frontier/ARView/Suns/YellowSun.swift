@@ -27,7 +27,7 @@ class YellowSun: Subject {
             objects.append(node)
         }
         
-        initObject(0, "Sun", 0.030, .sphere, .yellow)
+        initObject(0, "Medium Sun", 0.030, .sphere, .yellow)
         initObject(1, "Mercury", 0.015, .sphere, .lightgray)
         initObject(2, "Venus", 0.017, .sphere, .red)
         initObject(3, "Earth", 0.018, .sphere, .green)
@@ -55,11 +55,11 @@ class YellowSun: Subject {
     
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float) {
         var distance: Float = 0.030
-        let none: Float = 0.0
         let offSet: Float = 0.015
+        let none: Float = 0.0
         
         for obj in objects {
-            obj.setPosition(x, y, z, none, offSet, distance)
+            obj.setPosition(x, y, z, none, offSet, distance*obj.multiplier)
             distance+=0.045
         }
     }
@@ -67,15 +67,14 @@ class YellowSun: Subject {
     func show() {
         let anim: Animation = Animation()
         for obj in objects {
-            anim.appear(obj, duration: 1)
+            anim.appear(obj, d: 1.5)
         }
     }
     
-    func hide() {
+    func rotate() {
         let anim: Animation = Animation()
         for obj in objects {
-            anim.disappear(obj, duration: 1)
+            anim.rotate(obj, d: 0.001)
         }
     }
-    
 }

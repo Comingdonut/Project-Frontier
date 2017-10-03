@@ -12,7 +12,6 @@ import SceneKit
 class ARMenu: Menu {
     
     var size: Int
-    
     var options: [ObjectNode]
     
     required init() {
@@ -25,11 +24,17 @@ class ARMenu: Menu {
             let node = ObjectNode(dimension, hasText: true)
             node.opacity = 0.0
             options.append(node)
-            if x > 0 {
+            if x > 2 {
                 initOption(x, "TBA", .box, .gray)
             }
             else if x == 0 {
                 initOption(x, "Sun", .sphere, .yellow)
+            }
+            else if x == 1 {
+                initOption(x, "Planets", .box, .gray)
+            }
+            else if x == 2 {
+                initOption(x, "SolarSytem", .box, .gray)
             }
         }
     }
@@ -54,14 +59,7 @@ class ARMenu: Menu {
     func show() {
         let anim: Animation = Animation()
         for cat in options {
-            anim.appear(cat, duration: 1.5)
-        }
-    }
-    
-    func hide () {
-        let anim: Animation = Animation()
-        for cat in options{
-            anim.disappear(cat, duration: 1.5)
+            anim.appear(cat, d: 1.5)
         }
     }
 }

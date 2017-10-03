@@ -18,7 +18,7 @@ class ObjectNode: SCNNode {
     
     override init() {
         dimension = 0.025
-        multiplier = 1.0
+        multiplier = 2.0
         isBullet = false
 		hasText = false
         super.init()
