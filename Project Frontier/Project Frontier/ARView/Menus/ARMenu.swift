@@ -15,7 +15,7 @@ class ARMenu: Menu {
     var options: [ObjectNode]
     
     required init() {
-        size = 6
+        size = 7
         options = []
     }
     
@@ -24,7 +24,7 @@ class ARMenu: Menu {
             let node = ObjectNode(dimension, hasText: true)
             node.opacity = 0.0
             options.append(node)
-            if x > 2 {
+            if x > 2 && x != 6{
                 initOption(x, "TBA", .box, .gray)
             }
             else if x == 0 {
@@ -36,6 +36,10 @@ class ARMenu: Menu {
             else if x == 2 {
                 initOption(x, "Solar Sytem", .ring, .gray)
             }
+            else if x == 6 {
+                initOption(x, "Choose a Category", .text, .white)
+                options[x].hasText = false
+            }
         }
     }
     
@@ -46,6 +50,7 @@ class ARMenu: Menu {
     }
     
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float) {
+        let textOffSet: Float = 0.40
         let offSet: Float = 0.15
         let none: Float = 0.0
         options[0].setPosition(x, y, z, none, offSet, none)
@@ -54,6 +59,7 @@ class ARMenu: Menu {
         options[3].setPosition(x, y, z, none, offSet, -offSet)
         options[4].setPosition(x, y, z, offSet, offSet, -offSet)
         options[5].setPosition(x, y, z, -offSet, offSet, -offSet)
+        options[6].setPosition(x, y, z, none, textOffSet, none)
     }
     
     func show() {

@@ -16,7 +16,7 @@ class SunMenu: Menu {
     var options: [ObjectNode]
     
     required init() {
-        size = 6
+        size = 7
         options = []
     }
     
@@ -26,10 +26,10 @@ class SunMenu: Menu {
             node.opacity = 0.0
             options.append(node)
             if x == 0 {
-                initOption(x, "Red Sun", .sphere, .red)
+                initOption(x, "Yellow Sun", .sphere, .yellow)
             }
             else if x == 1 {
-                initOption(x, "Yellow Sun", .sphere, .yellow)
+                initOption(x, "Red Sun", .sphere, .red)
             }
             else if x == 2 {
                 initOption(x, "Blue Sun", .sphere, .blue)
@@ -40,8 +40,12 @@ class SunMenu: Menu {
             else if x == 4 {
                 initOption(x, "Black Dwarf", .sphere, .black)
             }
-            else {
+            else if x == 5 {
                 initOption(x, "Back", .box, .orange)
+            }
+            else if x == 6 {
+                initOption(x, "Choose a Subject", .text, .white)
+                options[x].hasText = false
             }
         }
     }
@@ -53,6 +57,7 @@ class SunMenu: Menu {
     }
     
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float) {
+        let textOffSet: Float = 0.40
         let offSet: Float = 0.15
         let none: Float = 0.0
         options[0].setPosition(x, y, z, none, offSet, none)
@@ -61,6 +66,7 @@ class SunMenu: Menu {
         options[3].setPosition(x, y, z, none, offSet, -offSet)
         options[4].setPosition(x, y, z, offSet, offSet, -offSet)
         options[5].setPosition(x, y, z, -offSet, offSet, -offSet)
+        options[6].setPosition(x, y, z, none, textOffSet, none)
     }
     
     func show() {

@@ -69,12 +69,14 @@ class ObjectNode: SCNNode {
 			text.setShape(.text)
 			text.setColor(.white)
 			text.setPosition(0, 0, 0, 0, 0, 0 + textOffSet)
-			let (min, max) = text.boundingBox
+			self.addChildNode(text)
+		}
+		else if (self.geometry as? SCNText) != nil {
+			let (min, max) = boundingBox
 			let dx = min.x + 0.5 * (max.x - min.x)
 			let dy = min.y + 0.5 * (max.y - min.y)
 			let dz = min.z + 0.5 * (max.z - min.z)
-			text.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
-			self.addChildNode(text)
+			pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
 		}
     }
     
