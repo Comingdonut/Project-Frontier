@@ -142,6 +142,16 @@ class ObjectNode: SCNNode {
             self.geometry = sphere
             setPhysicsBody(Sphere: sphere)
             break
+		case .ring:
+			let ring = newRing(dimension)
+			self.geometry = ring
+			setPhysicsBody(Ring: ring)
+			break
+		case .pill:
+			let pill = newPill(dimension)
+			self.geometry = pill
+			setPhysicsBody(Pill: pill)
+			break
 		case .text:
 			let text = newText(dimension)
 			self.geometry = text
@@ -171,11 +181,24 @@ class ObjectNode: SCNNode {
             self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
         }
     }
-    
-    func newSphere(_ dimension: Float) -> SCNSphere {
-        let sphere = SCNSphere(radius: CGFloat(dimension * multiplier))
-        return sphere
-    }
+	
+	func setPhysicsBody(Ring ring: SCNTorus) {
+		let shape = SCNPhysicsShape(geometry: ring, options: nil)
+		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+		self.physicsBody?.isAffectedByGravity = false;
+		
+		self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
+		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
+	}
+	
+	func setPhysicsBody(Pill pill: SCNCapsule) {
+		let shape = SCNPhysicsShape(geometry: pill, options: nil)
+		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+		self.physicsBody?.isAffectedByGravity = false;
+		
+		self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
+		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
+	}
     
     func newBox(_ dimension: Float) -> SCNBox {
         let box = SCNBox(width: CGFloat(dimension * multiplier),
@@ -184,6 +207,23 @@ class ObjectNode: SCNNode {
                      chamferRadius: CGFloat(0.0))
         return box
     }
+	
+	func newSphere(_ dimension: Float) -> SCNSphere {
+		let sphere = SCNSphere(radius: CGFloat(dimension * multiplier))
+		return sphere
+	}
+	
+	func newRing(_ dimension: Float) -> SCNTorus {
+		let ring = SCNTorus(
+			ringRadius: CGFloat(dimension),
+			pipeRadius: CGFloat(dimension/2))
+		return ring
+	}
+	
+	func newPill(_ dimension: Float) -> SCNCapsule {
+		let pill = SCNCapsule(capRadius: CGFloat(dimension/3), height: CGFloat(dimension))
+		return pill
+	}
 	
 	func newText(_ dimension: Float) -> SCNText {
 		let text = SCNText(string: self.name, extrusionDepth: CGFloat(dimension))

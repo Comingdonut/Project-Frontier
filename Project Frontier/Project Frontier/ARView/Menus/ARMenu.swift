@@ -31,10 +31,10 @@ class ARMenu: Menu {
                 initOption(x, "Sun", .sphere, .yellow)
             }
             else if x == 1 {
-                initOption(x, "Planets", .box, .gray)
+                initOption(x, "Black Hole", .pill, .gray)
             }
             else if x == 2 {
-                initOption(x, "SolarSytem", .box, .gray)
+                initOption(x, "Solar Sytem", .ring, .gray)
             }
         }
     }
