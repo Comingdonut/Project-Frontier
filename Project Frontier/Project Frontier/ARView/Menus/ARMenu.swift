@@ -24,7 +24,7 @@ class ARMenu: Menu {
             let node = ObjectNode(dimension, hasText: true)
             node.opacity = 0.0
             options.append(node)
-            if x > 2 && x != 6{
+            if x > 2 && x != 6 {
                 initOption(x, "TBA", .box, .gray)
             }
             else if x == 0 {
@@ -37,6 +37,7 @@ class ARMenu: Menu {
                 initOption(x, "Solar Sytem", .ring, .gray)
             }
             else if x == 6 {
+                options[x].setDimension(to: 0.030)
                 initOption(x, "Choose a Category", .text, .white)
                 options[x].hasText = false
             }

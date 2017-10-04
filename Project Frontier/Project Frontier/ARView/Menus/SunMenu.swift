@@ -44,6 +44,7 @@ class SunMenu: Menu {
                 initOption(x, "Back", .box, .orange)
             }
             else if x == 6 {
+                options[x].setDimension(to: 0.030)
                 initOption(x, "Choose a Subject", .text, .white)
                 options[x].hasText = false
             }
