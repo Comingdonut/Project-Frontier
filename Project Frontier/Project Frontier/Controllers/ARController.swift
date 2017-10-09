@@ -192,12 +192,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			objects.append(sun.objects[x])
 		}
 		sun.show()
-		var dist: Float = 0.01
-		for obj in sun.objects {
-			let anim = Animation()
-			anim.move(obj, x: obj.position.x+dist, y: obj.position.y, z: obj.position.z, d: 2)
-			dist+=dist
-		}
+//		var dist: Float = 0.01
+//		for obj in sun.objects {
+//			let anim = Animation()
+//			anim.move(obj, x: obj.position.x+dist, y: obj.position.y, z: obj.position.z, d: 2)
+//			dist+=dist
+//		}
 	}
     
     func getUserDirection() -> SCNVector3 {
@@ -229,7 +229,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
 		
 		contact.nodeB.removeFromParentNode()
-		objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
+		objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
 		
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {

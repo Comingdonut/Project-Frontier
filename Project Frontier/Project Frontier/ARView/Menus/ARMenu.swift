@@ -65,8 +65,8 @@ class ARMenu: Menu {
     
     func show() {
         let anim: Animation = Animation()
-        for cat in options {
-            anim.appear(cat, d: 1.5)
+        for opt in options {
+            anim.appear(opt, d: 1.5)
         }
     }
 }

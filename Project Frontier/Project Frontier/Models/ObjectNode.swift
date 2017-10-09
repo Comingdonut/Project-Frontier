@@ -131,6 +131,10 @@ class ObjectNode: SCNNode {
 		let material = materials![0]
 		material.diffuse.contents = UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
 	}
+	
+	func setTexture() {
+		
+	}
     
     func setShape(_ shape: Shape) {
         switch(shape){

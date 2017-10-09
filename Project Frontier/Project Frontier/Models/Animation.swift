@@ -35,6 +35,11 @@ class Animation {
         node.runAction(action)
     }
     
+    func rotate(_ node: SCNNode) {
+        let action = SCNAction.rotateBy(x: 0.0, y: 1.0, z: 0.0, duration: 1.0)
+        node.runAction(action)
+    }
+    
     func rotate(_ node: SCNNode, d: TimeInterval) {
         var xAxis: Float = node.position.x
         var zAxis: Float = node.position.z
