@@ -35,7 +35,7 @@ class SunMenu: Menu {
                 initOption(x, "Blue Sun", .sphere, "bluesun")
             }
             else if x == 3 {
-                initOption(x, "White Dwarf", .sphere, .white)
+                initOption(x, "White Dwarf", .sphere, "whitedwarf")
             }
             else if x == 4 {
                 initOption(x, "Black Dwarf", .sphere, .black)

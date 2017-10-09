@@ -19,7 +19,6 @@
 		D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
 		D1A31D491F5CF4610024E44F /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* OptionsController.swift */; };
-		D1A9F9091F8C033B007175A5 /* spherical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1A9F9081F8C033B007175A5 /* spherical.jpg */; };
 		D1ACCEBA1F6D87D000859CD1 /* ObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACCEB91F6D87D000859CD1 /* ObjectNode.swift */; };
 		D1ACCEBC1F6D8BA100859CD1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */; };
 		D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */; };
@@ -51,7 +50,6 @@
 		D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOnPlane.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
-		D1A9F9081F8C033B007175A5 /* spherical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spherical.jpg; sourceTree = "<group>"; };
 		D1ACCEB91F6D87D000859CD1 /* ObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectNode.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = BulletParticle.scnp; sourceTree = "<group>"; };
@@ -163,14 +161,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D1A9F9071F8C02EE007175A5 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				D1A9F9081F8C033B007175A5 /* spherical.jpg */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
 		D1DFA93E1F5B9CC200B0E4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +195,6 @@
 		D1E107D41F5E241A008FC721 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D1A9F9071F8C02EE007175A5 /* Environment */,
 				D191124B1F79DAA900806D9C /* Audio */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
 				D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */,
@@ -289,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1A9F9091F8C033B007175A5 /* spherical.jpg in Resources */,
 				D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */,
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,

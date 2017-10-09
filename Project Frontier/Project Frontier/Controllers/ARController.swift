@@ -234,9 +234,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
 		
-		contact.nodeB.removeFromParentNode()
-		objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
-		
+		if searchNode(for: "Bullet", from: objects) {
+			contact.nodeB.removeFromParentNode()
+			objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
+		}
+			
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {
 				//anim.disappear(obj, d: 1)
