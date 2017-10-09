@@ -14,6 +14,7 @@ protocol Menu {
     init()
     func initMenu(_ dimension: Float)
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color)
+    func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ texture: String) 
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float)
     func show()
 }

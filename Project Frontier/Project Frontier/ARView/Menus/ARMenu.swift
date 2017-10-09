@@ -28,10 +28,10 @@ class ARMenu: Menu {
                 initOption(x, "TBA", .box, .gray)
             }
             else if x == 0 {
-                initOption(x, "Sun", .sphere, .yellow)
+                initOption(x, "Sun", .sphere, "yellowsun")
             }
             else if x == 1 {
-                initOption(x, "Black Hole", .pill, .gray)
+                initOption(x, "Black Hole", .sphere, .gray)
             }
             else if x == 2 {
                 initOption(x, "Solar Sytem", .ring, .gray)
@@ -48,6 +48,12 @@ class ARMenu: Menu {
         options[index].setName(to: name)
         options[index].setShape(geometry)
         options[index].setColor(color)
+    }
+    
+    func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ texture: String) {
+        options[index].setName(to: name)
+        options[index].setShape(geometry)
+        options[index].setTexture(to: texture)
     }
     
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float) {

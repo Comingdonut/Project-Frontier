@@ -69,7 +69,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         // Show statistics such as fps and timing information
         // sceneView.showsStatistics = true
         // add some default lighting in the 3D scene
-        sceneView.autoenablesDefaultLighting = true
+        //sceneView.autoenablesDefaultLighting = true
         
         // Make things look prettier
         sceneView.antialiasingMode = SCNAntialiasingMode.multisampling4X
@@ -85,6 +85,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         // Set the scene to the view
         sceneView.scene = scene
     }
+	
+	func setupLighting(){
+		let env = UIImage(named: "spherical.jpg")
+		sceneView.scene.lightingEnvironment.contents = env
+		sceneView.scene.lightingEnvironment.intensity = 2.0
+	}
     
     func setupRecognizers(){
         // Single tap will insert a new piece of geometry into the scene

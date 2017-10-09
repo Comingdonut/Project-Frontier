@@ -81,59 +81,61 @@ class ObjectNode: SCNNode {
     }
     
     func setColor(_ color: Color) {
-        let materials = self.geometry?.materials as [SCNMaterial]?
-        let material = materials![0]
+        let material = self.geometry?.firstMaterial
 		switch(color){ // Missing colors: brown, clear
 		case .magenta:
-			material.diffuse.contents = UIColor.magenta
+			material?.diffuse.contents = UIColor.magenta
 			break
         case .red:
-            material.diffuse.contents = UIColor.red
+            material?.diffuse.contents = UIColor.red
             break
         case .orange:
-            material.diffuse.contents = UIColor.orange
+            material?.diffuse.contents = UIColor.orange
             break
         case .yellow:
-            material.diffuse.contents = UIColor.yellow
+            material?.diffuse.contents = UIColor.yellow
             break
         case .green:
-            material.diffuse.contents = UIColor.green
+            material?.diffuse.contents = UIColor.green
             break
 		case .cyan:
-			material.diffuse.contents = UIColor.cyan
+			material?.diffuse.contents = UIColor.cyan
 			break
         case .blue:
-            material.diffuse.contents = UIColor.blue
+            material?.diffuse.contents = UIColor.blue
             break
         case .purple:
-            material.diffuse.contents = UIColor.purple
+            material?.diffuse.contents = UIColor.purple
             break
         case .white:
-            material.diffuse.contents = UIColor.white
+            material?.diffuse.contents = UIColor.white
             break
 		case .lightgray:
-			material.diffuse.contents = UIColor.lightGray
+			material?.diffuse.contents = UIColor.lightGray
 			break
         case .gray:
-            material.diffuse.contents = UIColor.gray
+            material?.diffuse.contents = UIColor.gray
             break
 		case .darkgray:
-			material.diffuse.contents = UIColor.darkGray
+			material?.diffuse.contents = UIColor.darkGray
 			break
         case .black:
-            material.diffuse.contents = UIColor.black
+			material?.diffuse.contents = UIColor.black
             break
         }
     }
 	
 	func setColor(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
-		let materials = self.geometry?.materials as [SCNMaterial]?
-		let material = materials![0]
-		material.diffuse.contents = UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
+		let material = self.geometry?.firstMaterial
+		material?.diffuse.contents = UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
 	}
 	
-	func setTexture() {
-		
+	func setTexture(to prefix: String) {
+		let material = self.geometry?.firstMaterial
+		material?.diffuse.contents = UIImage(named: "\(prefix)-albedo.png")
+		material?.roughness.contents = UIImage(named: "\(prefix)-roughness.png")
+		material?.metalness.contents = 0
+		material?.normal.contents = UIImage(named: "\(prefix)-normal.png")
 	}
     
     func setShape(_ shape: Shape) {

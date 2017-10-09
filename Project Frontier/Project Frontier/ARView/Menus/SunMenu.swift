@@ -26,13 +26,13 @@ class SunMenu: Menu {
             node.opacity = 0.0
             options.append(node)
             if x == 0 {
-                initOption(x, "Yellow Sun", .sphere, .yellow)
+                initOption(x, "Yellow Sun", .sphere, "yellowsun")
             }
             else if x == 1 {
-                initOption(x, "Red Sun", .sphere, .red)
+                initOption(x, "Red Sun", .sphere, "redsun")
             }
             else if x == 2 {
-                initOption(x, "Blue Sun", .sphere, .blue)
+                initOption(x, "Blue Sun", .sphere, "bluesun")
             }
             else if x == 3 {
                 initOption(x, "White Dwarf", .sphere, .white)
@@ -55,6 +55,12 @@ class SunMenu: Menu {
         options[index].setName(to: name)
         options[index].setShape(geometry)
         options[index].setColor(color)
+    }
+    
+    func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ texture: String) {
+        options[index].setName(to: name)
+        options[index].setShape(geometry)
+        options[index].setTexture(to: texture)
     }
     
     func setOptionPositions(_ x: Float, _ y: Float, _ z: Float) {
