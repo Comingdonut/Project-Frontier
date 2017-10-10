@@ -101,6 +101,8 @@ class ObjectNode: SCNNode {
         case .black:
 			material?.diffuse.contents = UIColor.black
             break
+		case .clear:
+			material?.diffuse.contents = UIColor.clear
         }
     }
 	

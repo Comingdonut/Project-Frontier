@@ -67,14 +67,14 @@ class YellowSun: Subject {
     func show() {
         let anim: Animation = Animation()
         for obj in objects {
-            anim.appear(obj, d: 1.5)
+            anim.appear(obj, d: Duration.light)
         }
     }
     
     func rotate() {
         let anim: Animation = Animation()
         for obj in objects {
-            anim.rotate(obj, d: 0.001)
+            anim.infiniteRotate(obj,x: 0.0, y: 1.0, z: 0.0, d: Duration.medium)
         }
     }
 }

@@ -208,12 +208,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			objects.append(sun.objects[x])
 		}
 		sun.show()
-//		var dist: Float = 0.01
-//		for obj in sun.objects {
-//			let anim = Animation()
-//			anim.move(obj, x: obj.position.x+dist, y: obj.position.y, z: obj.position.z, d: 2)
-//			dist+=dist
-//		}
 	}
     
     func getUserDirection() -> SCNVector3 {
@@ -251,7 +245,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {
-				//anim.disappear(obj, d: 1)
+				//anim.disappear(obj, d: Duration.light)
 				obj.removeFromParentNode()
 				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}
@@ -259,7 +253,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		else if contact.nodeA.name == "Back" {
 			for obj in objects {
-				//anim.disappear(obj, duration: 1)
+				//anim.disappear(obj, d: Duration.light)
 				obj.removeFromParentNode()
 				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}
@@ -267,7 +261,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		else if contact.nodeA.name == "Yellow Sun" {
 			for obj in objects {
-				//anim.disappear(obj, duration: 1)
+				//anim.disappear(obj, d: Duration.light)
 				obj.removeFromParentNode()
 				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 			}

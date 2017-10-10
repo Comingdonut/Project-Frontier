@@ -15,67 +15,29 @@ class Animation {
         
     }
     
-    func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: TimeInterval) {
-        let action = SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d)
+    func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+        let action = SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    func disappear(_ node: SCNNode, d: TimeInterval) {
-        let action = SCNAction.fadeOut(duration: d)
+    func disappear(_ node: SCNNode, d: Duration) {
+        let action = SCNAction.fadeOut(duration: d.rawValue)
         node.runAction(action)
     }
     
-    func appear(_ node: SCNNode, d: TimeInterval) {
-        let action = SCNAction.fadeIn(duration: d)
+    func appear(_ node: SCNNode, d: Duration) {
+        let action = SCNAction.fadeIn(duration: d.rawValue)
         node.runAction(action)
     }
     
-    func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: TimeInterval) {
-        let action = SCNAction.moveBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d)
+    func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+        let action = SCNAction.moveBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    func rotate(_ node: SCNNode) {
-        let action = SCNAction.rotateBy(x: 0.0, y: 1.0, z: 0.0, duration: 1.0)
+    func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+        let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue))
         node.runAction(action)
-    }
-    
-    func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: TimeInterval) {
-        let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d))
-        node.runAction(action)
-    }
-    
-    func rotate(_ node: SCNNode, d: TimeInterval) {
-        var xAxis: Float = node.position.x
-        var zAxis: Float = node.position.z
-        let transform: Float = 0.001
-        repeat {
-//            print("X-Axis: \(xAxis)")
-//            print("Z-Axis: \(zAxis)")
-            if (xAxis <= 0.000 && xAxis >= -0.029) && (zAxis <= 0.030 && zAxis >= 0.001) {
-                xAxis-=transform
-                zAxis-=transform
-            }
-            else if (xAxis >= -0.030 && xAxis <= -0.001) && (zAxis <= 0.000 && zAxis >= -0.029) {
-                xAxis+=transform
-                zAxis-=transform
-            }
-            else if (xAxis >= 0.000 && xAxis <= 0.029) && (zAxis >= -0.030 && zAxis <= -0.001) {
-                xAxis+=transform
-                zAxis+=transform
-            }
-            else if (xAxis <= 0.030 && xAxis >= 0.001) && (zAxis >= 0.000 && zAxis <= 0.029) {
-                xAxis-=transform
-                zAxis+=transform
-            }
-            else {
-                break
-            }
-            xAxis = Float(round(xAxis*1000)/1000)
-            zAxis = Float(round(zAxis*1000)/1000)
-            let action = SCNAction.moveBy(x: CGFloat(xAxis), y: CGFloat(node.position.y), z: CGFloat(zAxis), duration: d)
-            node.runAction(action)
-        } while true
     }
     
     // Mark: - Particle Effects

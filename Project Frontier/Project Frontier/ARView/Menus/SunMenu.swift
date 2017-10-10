@@ -101,17 +101,13 @@ class SunMenu: Menu {
     }
     
     func show() {
-        let slow = 10.0
-        let medium = 7.0
-        let fast = 4.0
-        let light = 1.0
         let anim: Animation = Animation()
         for sun in options {
-            anim.appear(sun, d: 1.5)
+            anim.appear(sun, d: Duration.light)
         }
-        anim.infiniteRotate(options[0], x: 0, y: 1, z: 0, d: medium)
-        anim.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: fast)
-        anim.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: slow)
-        anim.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: light)
+        anim.infiniteRotate(options[0], x: 0, y: 1, z: 0, d: Duration.medium)
+        anim.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)
+        anim.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: Duration.slow)
+        anim.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: Duration.light)
     }
 }

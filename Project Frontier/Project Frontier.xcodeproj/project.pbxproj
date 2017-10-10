@@ -25,6 +25,7 @@
 		D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B486C01F6DCD2C00031E86 /* Color.swift */; };
 		D1B9477D1F5C8C4A000FB895 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477C1F5C8C4A000FB895 /* AboutController.swift */; };
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
+		D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF8E251F8C742D000FF09B /* Duration.swift */; };
 		D1CA25381F5F19510029D881 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA25371F5F19510029D881 /* ARController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
 		D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		D1B486C01F6DCD2C00031E86 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D1B9477C1F5C8C4A000FB895 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
+		D1BF8E251F8C742D000FF09B /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */,
 				D1B486C01F6DCD2C00031E86 /* Color.swift */,
 				D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */,
+				D1BF8E251F8C742D000FF09B /* Duration.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
+				D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */,
 				D1E1703C1F7BF7900065C54F /* SunMenu.swift in Sources */,
 				D1ACCEBA1F6D87D000859CD1 /* ObjectNode.swift in Sources */,
 				D183665E1F6ED32F00E6786E /* CollisionCategory.swift in Sources */,
