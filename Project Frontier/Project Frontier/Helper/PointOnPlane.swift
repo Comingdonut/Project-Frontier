@@ -12,12 +12,10 @@ struct PointOnPlane {
     static var x: Float = 0
     static var y: Float = 0
     static var z: Float = 0
-    static var hasPoint = false
     
     static func reset(){
         PointOnPlane.x = 0
         PointOnPlane.y = 0
         PointOnPlane.z = 0
-        PointOnPlane.hasPoint = false;
     }
 }

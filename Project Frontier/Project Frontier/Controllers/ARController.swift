@@ -116,7 +116,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             PointOnPlane.x = hitResult!.worldTransform.columns.3.x
             PointOnPlane.y = hitResult!.worldTransform.columns.3.y
             PointOnPlane.z = hitResult!.worldTransform.columns.3.z
-            PointOnPlane.hasPoint = true
+			
+			initAR()
         } else {
 			if !searchNode(for: "Bullet", from: objects) {
 				let dimensions: Float = 0.010
@@ -136,6 +137,14 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
         }
     }
+	
+	func initAR(){
+		isPlacingNodes = false
+		plusButton.isHidden = true
+		scopeImage.isHidden = false
+		newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		hidePlanes()
+	}
 	
 	func searchNode(for name: String, from objects: [SCNNode]) -> Bool {
 		var hasNode = false
@@ -354,7 +363,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         if !isPlacingNodes {
             isPlacingNodes = true
             scopeImage.isHidden = true
-            plusButton.isHidden = false
             PointOnPlane.reset()
             for object in objects {
                 object.removeFromParentNode()
@@ -366,13 +374,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     }
     
     @IBAction func initModels(_ sender: Any) {
-        if PointOnPlane.hasPoint {
-            isPlacingNodes = false
-            plusButton.isHidden = true
-            scopeImage.isHidden = false
-            newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-            hidePlanes()
-        }
+		// TODO: The plus button
     }
     
 }
