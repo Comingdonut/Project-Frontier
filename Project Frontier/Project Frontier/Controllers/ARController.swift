@@ -70,6 +70,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         // sceneView.showsStatistics = true
         // add some default lighting in the 3D scene
         //sceneView.autoenablesDefaultLighting = true
+		setupLighting()
         
         // Make things look prettier
         sceneView.antialiasingMode = SCNAntialiasingMode.multisampling4X

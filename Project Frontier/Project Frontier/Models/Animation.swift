@@ -40,6 +40,11 @@ class Animation {
         node.runAction(action)
     }
     
+    func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: TimeInterval) {
+        let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d))
+        node.runAction(action)
+    }
+    
     func rotate(_ node: SCNNode, d: TimeInterval) {
         var xAxis: Float = node.position.x
         var zAxis: Float = node.position.z

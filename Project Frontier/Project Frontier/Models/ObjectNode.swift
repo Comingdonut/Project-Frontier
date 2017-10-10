@@ -14,13 +14,11 @@ class ObjectNode: SCNNode {
     var dimension: Float // Size 0.025
     var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
     var isBullet: Bool
-	var hasText: Bool
     
     override init() {
         dimension = 0.025
         multiplier = 2.0
         isBullet = false
-		hasText = false
         super.init()
     }
 	
@@ -28,23 +26,13 @@ class ObjectNode: SCNNode {
 		self.dimension = dimension
 		multiplier = 2.0
 		isBullet = false
-		hasText = false
 		super.init()
 	}
-    
-	init(_ dimension: Float, hasText: Bool) {
-        self.dimension = dimension
-        multiplier = 2.0
-        isBullet = false
-		self.hasText = hasText
-        super.init()
-    }
     
     init(_ dimension: Float, _ isBullet: Bool) {
         self.dimension = dimension
         multiplier = 2.0
         self.isBullet = isBullet
-		hasText = false
         super.init()
     }
     
@@ -62,16 +50,7 @@ class ObjectNode: SCNNode {
     
     func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
         self.position = SCNVector3Make(x + xOffSet, y + yOffSet, z + zOffSet)
-		if hasText {
-			let textOffSet: Float = 0.06
-			let text = ObjectNode(dimension)
-			text.setName(to: name!)
-			text.setShape(.text)
-			text.setColor(.white)
-			text.setPosition(0, 0, 0, 0, 0, 0 + textOffSet)
-			self.addChildNode(text)
-		}
-		else if (self.geometry as? SCNText) != nil {
+		if (self.geometry as? SCNText) != nil {
 			let (min, max) = boundingBox
 			let dx = min.x + 0.5 * (max.x - min.x)
 			let dy = min.y + 0.5 * (max.y - min.y)
