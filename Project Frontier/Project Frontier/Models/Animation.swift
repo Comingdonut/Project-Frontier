@@ -49,4 +49,10 @@ class Animation {
         return boom!
     }
     
+    // Mark: - Timer
+    
+    func wait(inSeconds duration: Duration, repeating repeats: Bool, codeBlock: @escaping (Timer) -> Void) {
+        _ = Timer.scheduledTimer(withTimeInterval: duration.rawValue, repeats: repeats, block: codeBlock)
+    }
+    
 }

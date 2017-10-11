@@ -33,8 +33,8 @@ class YellowSun: Subject {
         initObject(3, "Earth", 0.018, .sphere, .green)
         initObject(4, "Mars", 0.016, .sphere, .orange)
         // TODO: Asteroid Belt Here
-        initObject(5, "Jupiter", 0.024, .sphere, 255, 202, 156, 255)
-        initObject(6, "Saturn", 0.023, .sphere, 255, 237, 191, 255)
+        initObject(5, "Jupiter", 0.024, .sphere, 1, 0.79, 0.61, 1)
+        initObject(6, "Saturn", 0.023, .sphere, 1, 0.93, 0.75, 1)
         initObject(7, "Uranus", 0.021, .sphere, .cyan)
         initObject(8, "Neptune", 0.020, .sphere, .blue)
     }

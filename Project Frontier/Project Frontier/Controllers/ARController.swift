@@ -158,7 +158,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		return hasNode
 	}
 	
-	func getNodeIndex(from objects: [SCNNode], by name: String) -> Int{
+	func getNodeIndex(from objects: [SCNNode], by name: String) -> Int {
 		var index = 0
 		for obj in objects {
 			if obj.name == name {
@@ -245,9 +245,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {
-				//anim.disappear(obj, d: Duration.light)
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				anim.disappear(obj, d: Duration.light)
+				anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
+					obj.removeFromParentNode()
+					self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+				})
 			}
 			newSunsMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
