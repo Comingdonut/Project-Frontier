@@ -245,27 +245,31 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			
 		if contact.nodeA.name == "Sun" {
 			for obj in objects {
-				anim.disappear(obj, d: Duration.light)
-				anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
+				//anim.disappear(obj, d: Duration.light)
+				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
 					obj.removeFromParentNode()
-					self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
-				})
+					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				//})
 			}
 			newSunsMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 		else if contact.nodeA.name == "Back" {
 			for obj in objects {
 				//anim.disappear(obj, d: Duration.light)
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
+					obj.removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				//})
 			}
 			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 		else if contact.nodeA.name == "Yellow Sun" {
 			for obj in objects {
 				//anim.disappear(obj, d: Duration.light)
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
+					obj.removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				//})
 			}
 			newYellowSun(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
