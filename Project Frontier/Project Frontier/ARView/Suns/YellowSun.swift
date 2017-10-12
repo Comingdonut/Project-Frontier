@@ -37,7 +37,7 @@ class YellowSun: Subject {
         initObject(6, "Saturn", 0.023, .sphere, 1, 0.93, 0.75, 1)
         initObject(7, "Uranus", 0.021, .sphere, .cyan)
         initObject(8, "Neptune", 0.020, .sphere, .blue)
-        initObject(9, "Plane Info", 0.10, .plane, image: "DialogBoxMedium")
+        initObject(9, "Plane Info", 0.15, .plane, image: "DialogBoxMedium")
     }
     
     func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -70,6 +70,7 @@ class YellowSun: Subject {
     
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float) {
         let textYOffSet: Float = 0.40
+        let textZOffSet: Float = 0.070
         var distance: Float = 0.030
         let offSet: Float = 0.20
         let none: Float = 0.0
@@ -78,7 +79,7 @@ class YellowSun: Subject {
             obj.setPosition(x, y, z, none, offSet, distance*obj.multiplier)
             distance+=0.045
         }
-        objects[9].setPosition(x, y, z, none, textYOffSet, none)
+        objects[9].setPosition(x, y, z, none, textYOffSet, textZOffSet)
     }
     
     func show() {
