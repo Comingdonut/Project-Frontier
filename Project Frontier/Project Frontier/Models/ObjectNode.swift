@@ -118,6 +118,13 @@ class ObjectNode: SCNNode {
 		material?.metalness.contents = 0
 		material?.normal.contents = UIImage(named: "\(prefix)-normal.png")
 	}
+	
+	func setImage(to imageName: String) {
+		if (self.geometry as? SCNPlane) != nil {
+			let material = self.geometry?.firstMaterial
+			material?.diffuse.contents = UIImage(named: "\(imageName).png")
+		}
+	}
     
     func setShape(_ shape: Shape) {
         switch(shape){
@@ -144,6 +151,10 @@ class ObjectNode: SCNNode {
 		case .text:
 			let text = newText(dimension)
 			self.geometry = text
+			break
+		case .plane:
+			let plane = newPlane(dimension)
+			self.geometry = plane
 			break
         }
     }
@@ -210,7 +221,7 @@ class ObjectNode: SCNNode {
 	}
 	
 	func newPill(_ dimension: Float) -> SCNCapsule {
-		let pill = SCNCapsule(capRadius: CGFloat(dimension/3), height: CGFloat(dimension))
+		let pill = SCNCapsule(capRadius: CGFloat(dimension/2), height: CGFloat(dimension))
 		return pill
 	}
 	
@@ -219,5 +230,10 @@ class ObjectNode: SCNNode {
 		self.scale = SCNVector3(dimension, dimension, dimension)
 		text.font = UIFont.init(name: "Helvetica", size: 1)
 		return text
+	}
+	
+	func newPlane(_ dimension: Float) -> SCNPlane {
+		let plane = SCNPlane(width: CGFloat(dimension*multiplier), height: CGFloat(dimension*multiplier))
+		return plane
 	}
 }

@@ -29,7 +29,7 @@ class SurfacePlane: SCNNode{
         let planeNode = SCNNode(geometry: planeGeometry!)
         planeNode.position = SCNVector3Make(anchor.center.x, anchor.center.y, anchor.center.z)
         
-        // Planes in SceneKit are vertical by default so we need to rotate 90degrees to match
+        // Planes in SceneKit are vertical by default so we need to rotate 90 degrees to match
         // planes in ARKit
         planeNode.transform = SCNMatrix4MakeRotation(Float(-.pi / 2.0), 1.0, 0.0, 0.0)
         addChildNode(planeNode)
@@ -67,6 +67,5 @@ class SurfacePlane: SCNNode{
             material.diffuse.wrapS = .repeat
             material.diffuse.wrapT = .repeat
         }
-        
     }
 }

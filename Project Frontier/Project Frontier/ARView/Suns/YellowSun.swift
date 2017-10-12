@@ -15,7 +15,7 @@ class YellowSun: Subject {
     var objects: [ObjectNode]
     
     required init() {
-        size = 9 // TODO: Include astroid belt
+        size = 10 // TODO: Include astroid belt
         objects = []
     }
     
@@ -37,6 +37,7 @@ class YellowSun: Subject {
         initObject(6, "Saturn", 0.023, .sphere, 1, 0.93, 0.75, 1)
         initObject(7, "Uranus", 0.021, .sphere, .cyan)
         initObject(8, "Neptune", 0.020, .sphere, .blue)
+        initObject(9, "Plane Info", 0.10, .plane, image: "DialogBoxMedium")
     }
     
     func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -53,15 +54,31 @@ class YellowSun: Subject {
         objects[index].setColor(r, g, b, a)
     }
     
+    func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, texture: String) {
+        objects[index].setName(to: name)
+        objects[index].setDimension(to: size)
+        objects[index].setShape(geometry)
+        objects[index].setTexture(to: texture)
+    }
+    
+    func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, image: String) {
+        objects[index].setName(to: name)
+        objects[index].setDimension(to: size)
+        objects[index].setShape(geometry)
+        objects[index].setImage(to: image)
+    }
+    
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float) {
+        let textYOffSet: Float = 0.40
         var distance: Float = 0.030
-        let offSet: Float = 0.015
+        let offSet: Float = 0.20
         let none: Float = 0.0
         
         for obj in objects {
             obj.setPosition(x, y, z, none, offSet, distance*obj.multiplier)
             distance+=0.045
         }
+        objects[9].setPosition(x, y, z, none, textYOffSet, none)
     }
     
     func show() {
