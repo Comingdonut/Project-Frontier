@@ -273,6 +273,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 			newYellowSun(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
+		checkYellowSunContact(didObtain: contact)
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
@@ -281,6 +282,31 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
 		print("Contact Ended")
+	}
+	
+	func checkYellowSunContact(didObtain contact: SCNPhysicsContact){
+		if searchNode(for: "Info Panel", from: objects) {
+			objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
+			objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+		}
+		if contact.nodeA.name == "Medium Sun" {
+			let none: Float = 0.0
+			let size: Float = 0.001
+			let sizeToScale: Float = 100.0
+			let textYOffSet: Float = 0.40
+			let textZOffSet: Float = 0.060
+			
+			let node = ObjectNode(size)
+			node.setName(to: "Info Panel")
+			node.setShape(.plane)
+			node.setImage(to: "DialogBoxMedium")
+			node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, textYOffSet, textZOffSet)
+			objects.first?.parent?.addChildNode(node)
+			objects.append(node)
+			
+			let anim: Animation = Animation()
+			anim.scaleUp(node, to: sizeToScale, d: Duration.light)
+		}
 	}
 
     // MARK: - ARSCNViewDelegate

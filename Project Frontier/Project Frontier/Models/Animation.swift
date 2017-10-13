@@ -35,6 +35,11 @@ class Animation {
         node.runAction(action)
     }
     
+    func scaleUp(_ node: SCNNode, to newSize: Float, d: Duration){
+        let action = SCNAction.scale(to: CGFloat(newSize), duration: d.rawValue)
+        node.runAction(action)
+    }
+    
     func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue))
         node.runAction(action)
