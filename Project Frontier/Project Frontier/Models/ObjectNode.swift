@@ -14,11 +14,15 @@ class ObjectNode: SCNNode {
     var dimension: Float // Size 0.025
     var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
     var isBullet: Bool
+	var useNameForText: Bool
+	var customText: String
     
     override init() {
         dimension = 0.025
         multiplier = 2.0
         isBullet = false
+		useNameForText = true
+		customText = ""
         super.init()
     }
 	
@@ -26,6 +30,8 @@ class ObjectNode: SCNNode {
 		self.dimension = dimension
 		multiplier = 2.0
 		isBullet = false
+		useNameForText = true
+		customText = ""
 		super.init()
 	}
     
@@ -33,8 +39,19 @@ class ObjectNode: SCNNode {
         self.dimension = dimension
         multiplier = 2.0
         self.isBullet = isBullet
+		useNameForText = true
+		customText = ""
         super.init()
     }
+	
+	init(_ dimension: Float,_ useName: Bool, _ customText: String) {
+		self.dimension = dimension
+		multiplier = 2.0
+		isBullet = false
+		useNameForText = useName
+		self.customText = customText
+		super.init()
+	}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -226,8 +243,11 @@ class ObjectNode: SCNNode {
 	}
 	
 	func newText(_ dimension: Float) -> SCNText {
-		let text = SCNText(string: self.name, extrusionDepth: CGFloat(dimension))
-		self.scale = SCNVector3(dimension, dimension, dimension)
+		var text = SCNText(string: name, extrusionDepth: CGFloat(dimension))
+		if !useNameForText {
+			text = SCNText(string: customText, extrusionDepth: CGFloat(dimension))
+		}
+		scale = SCNVector3(dimension, dimension, dimension)
 		text.font = UIFont.init(name: "Helvetica", size: 1)
 		return text
 	}

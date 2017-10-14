@@ -20,11 +20,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     let ARPlaneDetectionNone: UInt = 0
 	let framesPerSecond: Float = 60.0
 	
+	var index: Int = 0
 	var bulletsFrames: Float = 0.0
     var isPlacingNodes: Bool = true
     var configuration = ARWorldTrackingConfiguration()
     var planes = [UUID: SurfacePlane]()
     var objects: [ObjectNode] = []
+	var sunFacts: [ObjectNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,18 +89,29 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         sceneView.scene = scene
     }
 	
-	func setupLighting(){
+	func setupLighting() {
 		let env = UIImage(named: "spherical.jpg")
 		sceneView.scene.lightingEnvironment.contents = env
 		sceneView.scene.lightingEnvironment.intensity = 2.0
 	}
     
-    func setupRecognizers(){
+    func setupRecognizers() {
         // Single tap will insert a new piece of geometry into the scene
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
+	
+	func setupSunFacts() {
+		let sunText: [String] = ["Info Text", "The Sun is Yellow", "The Sun is a Sphere"]
+		for x in stride(from: 0, to: 3, by: 1) {
+			let node = ObjectNode(0.001, false, sunText[x])
+			node.setName(to: "Info Text")
+			node.setShape(.text)
+			node.setColor(.white)
+			sunFacts.append(node)
+		}
+	}
     
     @objc func handleTap (from recognizer: UITapGestureRecognizer){
         if isPlacingNodes {
@@ -285,27 +298,44 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	func checkYellowSunContact(didObtain contact: SCNPhysicsContact){
-		if searchNode(for: "Info Panel", from: objects) {
-			objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
-			objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+		if sunFacts.count != 3 {
+			setupSunFacts()
 		}
-		if contact.nodeA.name == "Medium Sun" {
-			let none: Float = 0.0
-			let size: Float = 0.001
-			let sizeToScale: Float = 100.0
-			let textYOffSet: Float = 0.40
-			let textZOffSet: Float = 0.060
-			
-			let node = ObjectNode(size)
-			node.setName(to: "Info Panel")
-			node.setShape(.plane)
-			node.setImage(to: "DialogBoxMedium")
-			node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, textYOffSet, textZOffSet)
-			objects.first?.parent?.addChildNode(node)
-			objects.append(node)
-			
-			let anim: Animation = Animation()
-			anim.scaleUp(node, to: sizeToScale, d: Duration.light)
+		if index != 3 {
+			if contact.nodeA.name == "Medium Sun" {
+				if searchNode(for: "Info Panel", from: objects) && searchNode(for: "Info Text", from: objects) {
+					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+				}
+				let none: Float = 0.0
+				let size: Float = 0.001
+				let sizeToScale: Float = 100.0
+				let yOffSet: Float = 0.40
+				let zOffSet: Float = 0.060
+				let textToScale: Float = 0.030
+				let textZOffSet: Float = 0.062
+				
+				let node = ObjectNode(size)
+				node.setName(to: "Info Panel")
+				node.setShape(.plane)
+				node.setImage(to: "DialogBoxMedium")
+				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
+				objects.first?.parent?.addChildNode(node)
+				objects.append(node)
+				sunFacts[index].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, textZOffSet)
+				objects.first?.parent?.addChildNode(sunFacts[index])
+				objects.append(sunFacts[index])
+				
+				let anim: Animation = Animation()
+				anim.scaleUp(node, to: sizeToScale, d: Duration.light)
+				anim.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
+				index+=1
+			}
+		}
+		else {
+			// TODO: Go back to main menu or sun sub menu
 		}
 	}
 
