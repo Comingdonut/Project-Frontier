@@ -335,7 +335,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 		}
 		else {
-			// TODO: Go back to main menu or sun sub menu
+			for obj in objects {
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			index = 0
+			sunFacts = []
+			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 	}
 
