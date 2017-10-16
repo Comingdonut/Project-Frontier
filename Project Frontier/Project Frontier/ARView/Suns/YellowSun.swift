@@ -27,16 +27,16 @@ class YellowSun: Subject {
             objects.append(node)
         }
         
-        initObject(0, "Medium Sun", 0.030, .sphere, .yellow)
-        initObject(1, "Mercury", 0.015, .sphere, .lightgray)
-        initObject(2, "Venus", 0.017, .sphere, .red)
-        initObject(3, "Earth", 0.018, .sphere, .green)
-        initObject(4, "Mars", 0.016, .sphere, .orange)
+        initObject(0, "Medium Sun", 0.030, .sphere, texture: "yellowsun")
+        initObject(1, "Mercury", 0.015, .sphere, texture: "mercury")
+        initObject(2, "Venus", 0.017, .sphere, texture: "venus")
+        initObject(3, "Earth", 0.018, .sphere, texture: "earth")
+        initObject(4, "Mars", 0.016, .sphere, texture: "mars")
         // TODO: Asteroid Belt Here
-        initObject(5, "Jupiter", 0.024, .sphere, 1, 0.79, 0.61, 1)
-        initObject(6, "Saturn", 0.023, .sphere, 1, 0.93, 0.75, 1)
-        initObject(7, "Uranus", 0.021, .sphere, .cyan)
-        initObject(8, "Neptune", 0.020, .sphere, .blue)
+        initObject(5, "Jupiter", 0.024, .sphere, texture: "jupiter")
+        initObject(6, "Saturn", 0.023, .sphere, texture: "saturn")
+        initObject(7, "Uranus", 0.021, .sphere, texture: "uranus")
+        initObject(8, "Neptune", 0.020, .sphere, texture: "neptune")
     }
     
     func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
