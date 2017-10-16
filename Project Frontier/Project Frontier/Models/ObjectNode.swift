@@ -78,7 +78,7 @@ class ObjectNode: SCNNode {
     
     func setColor(_ color: Color) {
         let material = self.geometry?.firstMaterial
-		switch(color){ // Missing colors: brown, clear
+		switch(color){ // Missing colors: brown
 		case .magenta:
 			material?.diffuse.contents = UIColor.magenta
 			break
