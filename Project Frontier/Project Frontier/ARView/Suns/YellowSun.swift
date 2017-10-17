@@ -96,19 +96,21 @@ class YellowSun: Subject {
 //        anim.spin(objects[7], x: 0, y: 1, z: 0, d: Duration.slow_fast)
 //        anim.spin(objects[8], x: 0, y: 1, z: 0, d: Duration.slow)
         let anim: Animation = Animation()
-        for x in stride(from: 0, to: 3, by: 1){
+        for x in stride(from: 0, to: 4, by: 1){
             if x == 0 {
                 anim.infiniteRotate(objects[0], x: 0, y: 1, z: 0, d: Duration.medium)
                 anim.infiniteRotate(objects[1], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+            }
+            else if x == 1 {
                 anim.infiniteRotate(objects[2], x: 0, y: -1, z: 0, d: Duration.light)
                 anim.infiniteRotate(objects[3], x: 0, y: 1, z: 0, d: Duration.medium)
             }
-            else if x == 1 {
+            else if x == 2 {
                 anim.infiniteRotate(objects[4], x: 0, y: 1, z: 0, d: Duration.medium_fast)
                 anim.infiniteRotate(objects[5], x: 0, y: 1, z: 0, d: Duration.slow)
                 anim.infiniteRotate(objects[6], x: 0, y: 1, z: 0, d: Duration.slow_fast)
             }
-            else if x == 2 {
+            else if x == 3 {
                 anim.infiniteRotate(objects[7], x: 0, y: 0, z: -1, d: Duration.medium_slow)
                 anim.spin(objects[7], x: 1.5, y: 0, z: 0, d: Duration.light)
                 anim.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.medium_slow)
