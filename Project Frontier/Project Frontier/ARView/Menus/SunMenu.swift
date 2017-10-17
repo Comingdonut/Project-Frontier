@@ -21,51 +21,25 @@ class SunMenu: Menu {
     }
     
     func initMenu(_ dimension: Float) {
-        for x in stride(from: 0, to: size, by: 1) {
+        for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode(dimension)
             node.opacity = 0.0
             options.append(node)
-            if x == 0 {
-                initOption(x, "Yellow Sun", .sphere, "yellowsun")
-            }
-            else if x == 1 {
-                initOption(x, "Red Sun", .sphere, "redsun")
-            }
-            else if x == 2 {
-                initOption(x, "Blue Sun", .sphere, "bluesun")
-            }
-            else if x == 3 {
-                initOption(x, "White Dwarf", .sphere, "whitedwarf")
-            }
-            else if x == 4 {
-                initOption(x, "Black Dwarf", .sphere, .black)
-            }
-            else if x == 5 {
-                initOption(x, "Back", .box, .orange)
-            }
-            else if x == 6 {
-                options[x].setDimension(to: 0.030)
-                initOption(x, "Choose a Subject", .text, .white)
-            }
-            else if x == 7 {
-                initOption(x, "Yellow Sun", .text, .white)
-            }
-            else if x == 8 {
-                initOption(x, "Red Sun", .text, .white)
-            }
-            else if x == 9 {
-                initOption(x, "Blue Sun", .text, .white)
-            }
-            else if x == 10 {
-                initOption(x, "White Dwarf", .text, .white)
-            }
-            else if x == 11 {
-                initOption(x, "Black Dwarf", .text, .white)
-            }
-            else if x == 12 {
-                initOption(x, "Back", .text, .white)
-            }
         }
+        initOption(0, "Yellow Sun", .sphere, "yellowsun")
+        initOption(1, "Red Sun", .sphere, "redsun")
+        initOption(2, "Blue Sun", .sphere, "bluesun")
+        initOption(3, "White Dwarf", .sphere, "whitedwarf")
+        initOption(4, "Black Dwarf", .sphere, .black)
+        initOption(5, "Back", .box, .orange)
+        options[6].setDimension(to: 0.030)
+        initOption(6, "Choose a Subject", .text, .white)
+        initOption(7, "Yellow Sun", .text, .white)
+        initOption(8, "Red Sun", .text, .white)
+        initOption(9, "Blue Sun", .text, .white)
+        initOption(10, "White Dwarf", .text, .white)
+        initOption(11, "Black Dwarf", .text, .white)
+        initOption(12, "Back", .text, .white)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

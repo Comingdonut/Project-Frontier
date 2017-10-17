@@ -221,6 +221,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			objects.append(sun.objects[x])
 		}
 		sun.show()
+		sun.rotate()
 	}
     
     func getUserDirection() -> SCNVector3 {

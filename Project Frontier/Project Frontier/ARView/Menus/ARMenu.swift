@@ -20,39 +20,25 @@ class ARMenu: Menu {
     }
     
     func initMenu(_ dimension: Float) {
-        for x in stride(from: 0, to: size, by: 1) {
+        for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode(dimension)
             node.opacity = 0.0
             options.append(node)
-            if x > 2 && x < 6 {
-                initOption(x, "TBA", .box, .gray)
-            }
-            else if x == 0 {
-                initOption(x, "Sun", .sphere, "yellowsun")
-            }
-            else if x == 1 {
-                initOption(x, "Black Hole", .sphere, .gray)
-            }
-            else if x == 2 {
-                initOption(x, "Solar Sytem", .ring, .gray)
-            }
-            else if x == 6 {
-                options[x].setDimension(to: 0.030)
-                initOption(x, "Choose a Category", .text, .white)
-            }
-            else if x == 7 {
-                initOption(x, "Sun", .text, .white)
-            }
-            else if x == 8 {
-                initOption(x, "Black Hole", .text, .white)
-            }
-            else if x == 9 {
-                initOption(x, "Solar System", .text, .white)
-            }
-            else if x > 9 && x < 13 {
-                initOption(x, "TBA", .text, .white)
-            }
         }
+        initOption(0, "Sun", .sphere, "yellowsun")
+        initOption(1, "Black Hole", .sphere, .gray)
+        initOption(2, "Solar Sytem", .ring, .gray)
+        initOption(3, "TBA", .box, .gray)
+        initOption(4, "TBA", .box, .gray)
+        initOption(5, "TBA", .box, .gray)
+        options[6].setDimension(to: 0.030)
+        initOption(6, "Choose a Category", .text, .white)
+        initOption(7, "Sun", .text, .white)
+        initOption(8, "Black Hole", .text, .white)
+        initOption(9, "Solar System", .text, .white)
+        initOption(10, "TBA", .text, .white)
+        initOption(11, "TBA", .text, .white)
+        initOption(12, "TBA", .text, .white)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

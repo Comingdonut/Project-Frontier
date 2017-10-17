@@ -28,15 +28,15 @@ class YellowSun: Subject {
         }
         
         initObject(0, "Medium Sun", 0.030, .sphere, texture: "yellowsun")
-        initObject(1, "Mercury", 0.015, .sphere, texture: "mercury")
-        initObject(2, "Venus", 0.017, .sphere, texture: "venus")
-        initObject(3, "Earth", 0.018, .sphere, texture: "earth")
-        initObject(4, "Mars", 0.016, .sphere, texture: "mars")
+        initObject(1, "Mercury", 0.010, .sphere, texture: "mercury")
+        initObject(2, "Venus", 0.013, .sphere, texture: "venus")
+        initObject(3, "Earth", 0.014, .sphere, texture: "earth")
+        initObject(4, "Mars", 0.012, .sphere, texture: "mars")
         // TODO: Asteroid Belt Here
         initObject(5, "Jupiter", 0.024, .sphere, texture: "jupiter")
-        initObject(6, "Saturn", 0.023, .sphere, texture: "saturn")
-        initObject(7, "Uranus", 0.021, .sphere, texture: "uranus")
-        initObject(8, "Neptune", 0.020, .sphere, texture: "neptune")
+        initObject(6, "Saturn", 0.021, .sphere, texture: "saturn")
+        initObject(7, "Uranus", 0.019, .sphere, texture: "uranus")
+        initObject(8, "Neptune", 0.018, .sphere, texture: "neptune")
     }
     
     func initObject(_ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -74,7 +74,7 @@ class YellowSun: Subject {
         
         for obj in objects {
             obj.setPosition(x, y, z, none, offSet, distance*obj.multiplier)
-            distance+=0.045
+            distance+=0.048
         }
     }
     
@@ -86,9 +86,33 @@ class YellowSun: Subject {
     }
     
     func rotate() {
+//        anim.spin(objects[0], x: 0, y: 1, z: 0, d: Duration.medium)
+//        anim.spin(objects[1], x: 0, y: 1, z: 0, d: Duration.light)
+//        anim.spin(objects[2], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+//        anim.spin(objects[3], x: 0, y: 1, z: 0, d: Duration.fast)
+//        anim.spin(objects[4], x: 0, y: 1, z: 0, d: Duration.fast_slow)
+//        anim.spin(objects[5], x: 0, y: 1, z: 0, d: Duration.medium)
+//        anim.spin(objects[6], x: 0, y: 1, z: 0, d: Duration.medium_slow)
+//        anim.spin(objects[7], x: 0, y: 1, z: 0, d: Duration.slow_fast)
+//        anim.spin(objects[8], x: 0, y: 1, z: 0, d: Duration.slow)
         let anim: Animation = Animation()
-        for obj in objects {
-            anim.infiniteRotate(obj,x: 0.0, y: 1.0, z: 0.0, d: Duration.medium)
+        for x in stride(from: 0, to: 3, by: 1){
+            if x == 0 {
+                anim.infiniteRotate(objects[0], x: 0, y: 1, z: 0, d: Duration.medium)
+                anim.infiniteRotate(objects[1], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                anim.infiniteRotate(objects[2], x: 0, y: -1, z: 0, d: Duration.light)
+                anim.infiniteRotate(objects[3], x: 0, y: 1, z: 0, d: Duration.medium)
+            }
+            else if x == 1 {
+                anim.infiniteRotate(objects[4], x: 0, y: 1, z: 0, d: Duration.medium_fast)
+                anim.infiniteRotate(objects[5], x: 0, y: 1, z: 0, d: Duration.slow)
+                anim.infiniteRotate(objects[6], x: 0, y: 1, z: 0, d: Duration.slow_fast)
+            }
+            else if x == 2 {
+                anim.infiniteRotate(objects[7], x: 0, y: 0, z: -1, d: Duration.medium_slow)
+                anim.spin(objects[7], x: 1.5, y: 0, z: 0, d: Duration.light)
+                anim.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.medium_slow)
+            }
         }
     }
 }
