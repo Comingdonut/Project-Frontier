@@ -9,5 +9,5 @@
 import Foundation
 
 enum Shape{
-    case box, sphere, ring, pill, text, plane
+    case box, sphere, ring, pill, pyramid, text, plane
 }

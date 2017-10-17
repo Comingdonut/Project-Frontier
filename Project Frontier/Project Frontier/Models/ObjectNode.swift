@@ -165,6 +165,11 @@ class ObjectNode: SCNNode {
 			self.geometry = pill
 			setPhysicsBody(Pill: pill)
 			break
+		case .pyramid:
+			let pyramid = newPyramid(dimension)
+			self.geometry = pyramid
+			setPhysicsBody(Pyramid: pyramid)
+			break
 		case .text:
 			let text = newText(dimension)
 			self.geometry = text
@@ -179,7 +184,7 @@ class ObjectNode: SCNNode {
     func setPhysicsBody(Box box: SCNBox) {
         let shape = SCNPhysicsShape(geometry: box, options: nil)
         self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
-        self.physicsBody?.isAffectedByGravity = false;
+        self.physicsBody?.isAffectedByGravity = false
         
         self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
         self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
@@ -188,7 +193,7 @@ class ObjectNode: SCNNode {
     func setPhysicsBody(Sphere sphere: SCNSphere) {
         let shape = SCNPhysicsShape(geometry: sphere, options: nil)
         self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
-        self.physicsBody?.isAffectedByGravity = false;
+        self.physicsBody?.isAffectedByGravity = false
         if isBullet {
             self.physicsBody?.categoryBitMask = CollisionCategory.bullet.rawValue
             self.physicsBody?.contactTestBitMask = CollisionCategory.object.rawValue
@@ -202,7 +207,7 @@ class ObjectNode: SCNNode {
 	func setPhysicsBody(Ring ring: SCNTorus) {
 		let shape = SCNPhysicsShape(geometry: ring, options: nil)
 		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
-		self.physicsBody?.isAffectedByGravity = false;
+		self.physicsBody?.isAffectedByGravity = false
 		
 		self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
 		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
@@ -211,7 +216,16 @@ class ObjectNode: SCNNode {
 	func setPhysicsBody(Pill pill: SCNCapsule) {
 		let shape = SCNPhysicsShape(geometry: pill, options: nil)
 		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
-		self.physicsBody?.isAffectedByGravity = false;
+		self.physicsBody?.isAffectedByGravity = false
+		
+		self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
+		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
+	}
+	
+	func setPhysicsBody(Pyramid pyramid: SCNPyramid) {
+		let shape = SCNPhysicsShape(geometry: pyramid, options: nil)
+		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+		self.physicsBody?.isAffectedByGravity = false
 		
 		self.physicsBody?.categoryBitMask = CollisionCategory.object.rawValue
 		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
@@ -240,6 +254,11 @@ class ObjectNode: SCNNode {
 	func newPill(_ dimension: Float) -> SCNCapsule {
 		let pill = SCNCapsule(capRadius: CGFloat(dimension/2), height: CGFloat(dimension))
 		return pill
+	}
+	
+	func newPyramid(_ dimension: Float) -> SCNPyramid {
+		let pyramid = SCNPyramid(width: CGFloat(dimension), height: CGFloat(dimension), length: CGFloat(dimension))
+		return pyramid
 	}
 	
 	func newText(_ dimension: Float) -> SCNText {

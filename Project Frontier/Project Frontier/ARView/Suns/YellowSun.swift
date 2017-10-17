@@ -112,7 +112,7 @@ class YellowSun: Subject {
             }
             else if x == 3 {
                 anim.infiniteRotate(objects[7], x: 0, y: 0, z: -1, d: Duration.medium_slow)
-                anim.spin(objects[7], x: 1.5, y: 0, z: 0, d: Duration.light)
+                anim.spin(objects[7], x: 1.55, y: 0, z: 0, d: Duration.light)
                 anim.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
         }

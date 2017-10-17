@@ -31,7 +31,7 @@ class SunMenu: Menu {
         initOption(2, "Blue Sun", .sphere, "bluesun")
         initOption(3, "White Dwarf", .sphere, "whitedwarf")
         initOption(4, "Black Dwarf", .sphere, .black)
-        initOption(5, "Back", .box, .orange)
+        initOption(5, "Back", .pyramid, .orange)
         options[6].setDimension(to: 0.030)
         initOption(6, "Choose a Subject", .text, .white)
         initOption(7, "Yellow Sun", .text, .white)
@@ -83,5 +83,6 @@ class SunMenu: Menu {
         anim.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)
         anim.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: Duration.slow)
         anim.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: Duration.light)
+        anim.spin(options[5], x: 0, y: 0, z: 1.55, d: Duration.light)
     }
 }
