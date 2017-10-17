@@ -37,15 +37,6 @@ class YellowSun: Subject {
         initObject(objects, 7, "Uranus Helper", 0.010, .sphere, .clear)
         initObject(objects, 8, "Neptune Helper", 0.010, .sphere, .clear)
         addChildrenNodes()
-//        initObject(1, "Mercury", 0.010, .sphere, texture: "mercury")
-//        initObject(2, "Venus", 0.013, .sphere, texture: "venus")
-//        initObject(3, "Earth", 0.014, .sphere, texture: "earth")
-//        initObject(4, "Mars", 0.012, .sphere, texture: "mars")
-//        // TODO: Asteroid Belt Here
-//        initObject(5, "Jupiter", 0.024, .sphere, texture: "jupiter")
-//        initObject(6, "Saturn", 0.021, .sphere, texture: "saturn")
-//        initObject(7, "Uranus", 0.019, .sphere, texture: "uranus")
-//        initObject(8, "Neptune", 0.018, .sphere, texture: "neptune")
     }
     
     func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -77,19 +68,28 @@ class YellowSun: Subject {
     }
     
     func addChildrenNodes() {
-        let planetNames: [String] = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
-        let planetTextures: [String] = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]
-        let planetSize: [Float] = [0.010, 0.013, 0.014, 0.012, 0.024, 0.021, 0.019, 0.018]
+        let planetNames: [String] =     ["Mercury", "Venus", "Earth",
+                                         "Mars", "Jupiter", "Saturn",
+                                         "Uranus", "Neptune"]
+        let planetTextures: [String] =  ["mercury", "venus", "earth",
+                                         "mars", "jupiter", "saturn",
+                                         "uranus", "neptune"]
+        let planetSize: [Float] =       [  0.010,   0.013,   0.014,
+                                           0.012,   0.024,   0.021,
+                                           0.019,   0.018]
+        var planets: [ObjectNode] = []
+        
+        for _ in stride(from: 1, to: size, by: 1) {
+            let node = ObjectNode()
+            planets.append(node)
+        }
+        
         var distance: Float = 0.078
         let none: Float = 0.0
         for x in stride(from: 1, to: size, by: 1) {
-            let node = ObjectNode()
-            node.setName(to: planetNames[x-1])
-            node.setDimension(to: planetSize[x-1])
-            node.setShape(.sphere)
-            node.setTexture(to: planetTextures[x-1])
-            node.setPosition(none, none, none, none, none, distance*node.multiplier)
-            objects[x].addChildNode(node)
+            initObject(planets, x-1, planetNames[x-1], planetSize[x-1], .sphere, texture: planetTextures[x-1])
+            planets[x-1].setPosition(none, none, none, none, none, distance*planets[x-1].multiplier)
+            objects[x].addChildNode(planets[x-1])
             distance+=0.048
         }
     }
@@ -115,7 +115,7 @@ class YellowSun: Subject {
         let anim: Animation = Animation()
         
         for x in stride(from: 0, to: 9, by: 1){
-            if x == 0 {
+            if x == 0 {//Planet Orbits
                 anim.infiniteRotate(objects[0], x: 0, y: 1, z: 0, d: Duration.medium)
                 anim.infiniteRotate(objects[1], x: 0, y: 1, z: 0, d: Duration.light)
             }
@@ -134,16 +134,15 @@ class YellowSun: Subject {
             else if x == 4 {
                 anim.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.slow)
             }
-            else if x == 5 {
-                //anim.infiniteRotate(objects[0], x: 0, y: 1, z: 0, d: Duration.medium)
+            else if x == 5 {//Planets Rotation
                 anim.infiniteRotate((objects[1].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                anim.infiniteRotate((objects[2].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.light)
             }
             else if x == 6 {
-                anim.infiniteRotate((objects[2].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.light)
                 anim.infiniteRotate((objects[3].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium)
+                anim.infiniteRotate((objects[4].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_fast)
             }
             else if x == 7 {
-                anim.infiniteRotate((objects[4].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_fast)
                 anim.infiniteRotate((objects[5].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow)
                 anim.infiniteRotate((objects[6].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow_fast)
             }
