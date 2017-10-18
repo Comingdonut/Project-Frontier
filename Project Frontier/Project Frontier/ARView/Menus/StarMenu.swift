@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-class SunMenu: Menu {
+class StarMenu: Menu {
     
     var size: Int
     
@@ -26,17 +26,17 @@ class SunMenu: Menu {
             node.opacity = 0.0
             options.append(node)
         }
-        initOption(0, "Yellow Sun", .sphere, "yellowsun")
-        initOption(1, "Red Sun", .sphere, "redsun")
-        initOption(2, "Blue Sun", .sphere, "bluesun")
+        initOption(0, "Yellow Star", .sphere, "yellowstar")
+        initOption(1, "Red Star", .sphere, "redstar")
+        initOption(2, "Blue Star", .sphere, "bluestar")
         initOption(3, "White Dwarf", .sphere, "whitedwarf")
         initOption(4, "Black Dwarf", .sphere, .black)
         initOption(5, "Back", .pyramid, .orange)
         options[6].setDimension(to: 0.030)
         initOption(6, "Choose a Subject", .text, .white)
-        initOption(7, "Yellow Sun", .text, .white)
-        initOption(8, "Red Sun", .text, .white)
-        initOption(9, "Blue Sun", .text, .white)
+        initOption(7, "Yellow Star", .text, .white)
+        initOption(8, "Red Star", .text, .white)
+        initOption(9, "Blue Star", .text, .white)
         initOption(10, "White Dwarf", .text, .white)
         initOption(11, "Black Dwarf", .text, .white)
         initOption(12, "Back", .text, .white)
@@ -76,8 +76,8 @@ class SunMenu: Menu {
     
     func show() {
         let anim: Animation = Animation()
-        for sun in options {
-            anim.appear(sun, d: Duration.light)
+        for star in options {
+            anim.appear(star, d: Duration.light)
         }
         anim.infiniteRotate(options[0], x: 0, y: 1, z: 0, d: Duration.medium)
         anim.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)

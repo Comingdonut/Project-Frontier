@@ -31,10 +31,9 @@
 		D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */; };
 		D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */; };
 		D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */; };
-		D1E1703C1F7BF7900065C54F /* SunMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1703B1F7BF7900065C54F /* SunMenu.swift */; };
+		D1E1703C1F7BF7900065C54F /* StarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1703B1F7BF7900065C54F /* StarMenu.swift */; };
 		D1E1703E1F7C03BC0065C54F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1703D1F7C03BC0065C54F /* Menu.swift */; };
-		D1E3D40E1F9522C000914DA7 /* Arrow.dae in Resources */ = {isa = PBXBuildFile; fileRef = D1E3D40D1F9522C000914DA7 /* Arrow.dae */; };
-		D1F3F0E31F7C3BD60082B4A9 /* YellowSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3F0E21F7C3BD60082B4A9 /* YellowSun.swift */; };
+		D1F3F0E31F7C3BD60082B4A9 /* YellowStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3F0E21F7C3BD60082B4A9 /* YellowStar.swift */; };
 		D1F3F0E61F7C3D780082B4A9 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3F0E51F7C3D780082B4A9 /* Subject.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +65,9 @@
 		D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DFA9561F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DFA9581F5B9CC200B0E4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1E1703B1F7BF7900065C54F /* SunMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunMenu.swift; sourceTree = "<group>"; };
+		D1E1703B1F7BF7900065C54F /* StarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarMenu.swift; sourceTree = "<group>"; };
 		D1E1703D1F7C03BC0065C54F /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		D1E3D40D1F9522C000914DA7 /* Arrow.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Arrow.dae; sourceTree = "<group>"; };
-		D1F3F0E21F7C3BD60082B4A9 /* YellowSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowSun.swift; sourceTree = "<group>"; };
+		D1F3F0E21F7C3BD60082B4A9 /* YellowStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowStar.swift; sourceTree = "<group>"; };
 		D1F3F0E51F7C3D780082B4A9 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D1F3F0E41F7C3CB50082B4A9 /* Menus */,
-				D1F3F0E11F7C3BBA0082B4A9 /* Suns */,
+				D1F3F0E11F7C3BBA0082B4A9 /* Stars */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -200,7 +198,6 @@
 		D1E107D41F5E241A008FC721 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D1E3D40C1F95226300914DA7 /* 3d Models */,
 				D191124B1F79DAA900806D9C /* Audio */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
 				D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */,
@@ -209,27 +206,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D1E3D40C1F95226300914DA7 /* 3d Models */ = {
+		D1F3F0E11F7C3BBA0082B4A9 /* Stars */ = {
 			isa = PBXGroup;
 			children = (
-				D1E3D40D1F9522C000914DA7 /* Arrow.dae */,
+				D1F3F0E21F7C3BD60082B4A9 /* YellowStar.swift */,
 			);
-			path = "3d Models";
-			sourceTree = "<group>";
-		};
-		D1F3F0E11F7C3BBA0082B4A9 /* Suns */ = {
-			isa = PBXGroup;
-			children = (
-				D1F3F0E21F7C3BD60082B4A9 /* YellowSun.swift */,
-			);
-			path = Suns;
+			path = Stars;
 			sourceTree = "<group>";
 		};
 		D1F3F0E41F7C3CB50082B4A9 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
 				D17F10F11F6F0397006800C7 /* ARMenu.swift */,
-				D1E1703B1F7BF7900065C54F /* SunMenu.swift */,
+				D1E1703B1F7BF7900065C54F /* StarMenu.swift */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -294,7 +283,6 @@
 			files = (
 				D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */,
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
-				D1E3D40E1F9522C000914DA7 /* Arrow.dae in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
@@ -311,14 +299,14 @@
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
 				D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */,
-				D1E1703C1F7BF7900065C54F /* SunMenu.swift in Sources */,
+				D1E1703C1F7BF7900065C54F /* StarMenu.swift in Sources */,
 				D1ACCEBA1F6D87D000859CD1 /* ObjectNode.swift in Sources */,
 				D183665E1F6ED32F00E6786E /* CollisionCategory.swift in Sources */,
 				D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */,
 				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
 				D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */,
 				D1E1703E1F7C03BC0065C54F /* Menu.swift in Sources */,
-				D1F3F0E31F7C3BD60082B4A9 /* YellowSun.swift in Sources */,
+				D1F3F0E31F7C3BD60082B4A9 /* YellowStar.swift in Sources */,
 				D17B91581F68437900BB533E /* StartController.swift in Sources */,
 				D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,

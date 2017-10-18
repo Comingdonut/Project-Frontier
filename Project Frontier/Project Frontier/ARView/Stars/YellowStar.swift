@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-class YellowSun: Subject {
+class YellowStar: Subject {
     
     var size: Int
     var objects: [ObjectNode]
@@ -27,7 +27,7 @@ class YellowSun: Subject {
             objects.append(node)
         }
         
-        initObject(objects, 0, "Medium Sun", 0.030, .sphere, texture: "yellowsun")
+        initObject(objects, 0, "Medium Star", 0.030, .sphere, texture: "yellowstar")
         initObject(objects, 1, "Mercury Helper", 0.010, .sphere, .clear)
         initObject(objects, 2, "Venus Helper", 0.010, .sphere, .clear)
         initObject(objects, 3, "Earth Helper", 0.010, .sphere, .clear)

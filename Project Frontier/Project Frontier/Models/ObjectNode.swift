@@ -44,7 +44,7 @@ class ObjectNode: SCNNode {
         super.init()
     }
 	
-	init(_ dimension: Float,_ useName: Bool, _ customText: String) {
+	init(_ dimension: Float, _ useName: Bool, _ customText: String) {
 		self.dimension = dimension
 		multiplier = 2.0
 		isBullet = false

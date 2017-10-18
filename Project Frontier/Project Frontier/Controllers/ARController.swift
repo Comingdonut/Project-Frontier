@@ -103,9 +103,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     }
 	
 	func setupSunFacts() {
-		let sunText: [String] = ["Info Text", "The Sun is Yellow", "The Sun is a Sphere"]
-		for x in stride(from: 0, to: 3, by: 1) {
-			let node = ObjectNode(0.001, false, sunText[x])
+		let starText: [String] = ["Our sun is a medium sized star.",
+								"It appears to look yellow but is actually white.",
+								"Yellow stars are 5,840.33 - 13,040.33 degrees fahrenheit.",
+								"Yellow stars will live up to about 10 billion years.",
+								"Currently, our sun is about 5 billion years old.",
+								"When our sun starts dying it grows into a Giant Star.",
+								"It will grow big enough to swallow earth and burn Mars.",
+								"It will shrink and become a white dwarf star.",
+								"While shrinking, it will leave behind a lot of gas.",
+								"The gas will form a cloud.",
+								"This cloud is called: Planetary Nebula."]
+		for x in stride(from: 0, to: starText.count, by: 1) {
+			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
 			node.setColor(.white)
@@ -196,32 +206,32 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		arMenu.show()
     }
 	
-	func newSunsMenu(x: Float, y: Float, z: Float) {
+	func newStarMenu(x: Float, y: Float, z: Float) {
 		let dimension: Float = 0.025
-		let sunMenu = SunMenu()
+		let starMenu = StarMenu()
 		
-		sunMenu.initMenu(dimension)
-		sunMenu.setOptionPositions(x, y, z)
+		starMenu.initMenu(dimension)
+		starMenu.setOptionPositions(x, y, z)
 		
-		for x in stride(from: 0, to: sunMenu.size, by: 1) {
-			sceneView.scene.rootNode.addChildNode(sunMenu.options[x])
-			objects.append(sunMenu.options[x])
+		for x in stride(from: 0, to: starMenu.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(starMenu.options[x])
+			objects.append(starMenu.options[x])
 		}
-		sunMenu.show()
+		starMenu.show()
 	}
 	
-	func newYellowSun(x: Float, y: Float, z: Float) {
-		let sun: YellowSun = YellowSun()
+	func newYellowStar(x: Float, y: Float, z: Float) {
+		let star: YellowStar = YellowStar()
 		
-		sun.initSubject()
-		sun.setObjectPositions(x, y, z)
+		star.initSubject()
+		star.setObjectPositions(x, y, z)
 		
-		for x in stride(from: 0, to: sun.size, by: 1) {
-			sceneView.scene.rootNode.addChildNode(sun.objects[x])
-			objects.append(sun.objects[x])
+		for x in stride(from: 0, to: star.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(star.objects[x])
+			objects.append(star.objects[x])
 		}
-		sun.show()
-		sun.rotate()
+		star.show()
+		star.rotate()
 	}
     
     func getUserDirection() -> SCNVector3 {
@@ -257,7 +267,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
 		}
 			
-		if contact.nodeA.name == "Sun" {
+		if contact.nodeA.name == "Star" {
 			for obj in objects {
 				//anim.disappear(obj, d: Duration.light)
 				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
@@ -265,7 +275,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 				//})
 			}
-			newSunsMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+			newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 		else if contact.nodeA.name == "Back" {
 			for obj in objects {
@@ -277,7 +287,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
-		else if contact.nodeA.name == "Yellow Sun" {
+		else if contact.nodeA.name == "Yellow Star" {
 			for obj in objects {
 				//anim.disappear(obj, d: Duration.light)
 				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
@@ -285,7 +295,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
 				//})
 			}
-			newYellowSun(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+			newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 		checkYellowSunContact(didObtain: contact)
     }
@@ -299,12 +309,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	func checkYellowSunContact(didObtain contact: SCNPhysicsContact){
-		if sunFacts.count != 3 {
+		if sunFacts.count == 0 {
 			setupSunFacts()
 		}
-		if index != 3 {
-			if contact.nodeA.name == "Medium Sun" {
-				if searchNode(for: "Info Panel", from: objects) && searchNode(for: "Info Text", from: objects) {
+		if contact.nodeA.name == "Medium Star" {
+			if index != sunFacts.count {
+				if searchNode(for: "Info Panel", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
 					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
@@ -313,9 +323,10 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				let none: Float = 0.0
 				let size: Float = 0.001
 				let sizeToScale: Float = 100.0
-				let yOffSet: Float = 0.40
-				let zOffSet: Float = 0.060
 				let textToScale: Float = 0.030
+				let yOffSet: Float = 0.40
+				//let yTopOffSet: Float = 0.45
+				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
 				
 				let node = ObjectNode(size)
@@ -334,15 +345,15 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				anim.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
 				index+=1
 			}
-		}
-		else {
-			for obj in objects {
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			else {
+				for obj in objects {
+					obj.removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				}
+				index = 0
+				sunFacts = []
+				newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 			}
-			index = 0
-			sunFacts = []
-			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		}
 	}
 

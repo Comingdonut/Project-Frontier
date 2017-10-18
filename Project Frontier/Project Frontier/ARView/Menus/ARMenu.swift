@@ -25,7 +25,7 @@ class ARMenu: Menu {
             node.opacity = 0.0
             options.append(node)
         }
-        initOption(0, "Sun", .sphere, "yellowsun")
+        initOption(0, "Star", .sphere, "yellowstar")
         initOption(1, "Black Hole", .sphere, .gray)
         initOption(2, "Solar Sytem", .ring, .gray)
         initOption(3, "TBA", .box, .gray)
@@ -33,7 +33,7 @@ class ARMenu: Menu {
         initOption(5, "TBA", .box, .gray)
         options[6].setDimension(to: 0.030)
         initOption(6, "Choose a Category", .text, .white)
-        initOption(7, "Sun", .text, .white)
+        initOption(7, "Star", .text, .white)
         initOption(8, "Black Hole", .text, .white)
         initOption(9, "Solar System", .text, .white)
         initOption(10, "TBA", .text, .white)
