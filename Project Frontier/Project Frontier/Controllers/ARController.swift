@@ -103,17 +103,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     }
 	
 	func setupSunFacts() {
-		let starText: [String] = ["Our sun is a medium sized star.",
-								"It appears to look yellow but is actually white.",
-								"Yellow stars are 5,840.33 - 13,040.33 degrees fahrenheit.",
-								"Yellow stars will live up to about 10 billion years.",
-								"Currently, our sun is about 5 billion years old.",
-								"When our sun starts dying it grows into a Giant Star.",
-								"It will grow big enough to swallow earth and burn Mars.",
-								"It will shrink and become a white dwarf star.",
-								"While shrinking, it will leave behind a lot of gas.",
-								"The gas will form a cloud.",
-								"This cloud is called: Planetary Nebula."]
+		let starText: [String] = ["Yellow stars are a medium sized star.",
+								  "They are three different colors:",
+								  "Yellow-White, Yellow, and Yellow-Orange",
+								  "Our sun appears to look yellow but is actually white.",
+								  "Yellow stars are 5,840.33 - 13,040.33 degrees fahrenheit.",
+								  "Yellow stars will live up to about 10 billion years.",
+								  "Currently, our sun is about 5 billion years old.",
+								  "When our sun starts dying it grows into a Giant Star.",
+								  "It will grow big enough to consume earth and burn Mars.",
+								  "It will shrink and become a white dwarf star.",
+								  "While shrinking, it will leave behind a lot of gas.",
+								  "The gas will form a cloud.",
+								  "This cloud is called: Planetary Nebula."]
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
