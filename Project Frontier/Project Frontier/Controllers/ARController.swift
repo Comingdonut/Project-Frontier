@@ -106,7 +106,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let starText: [String] = ["Yellow stars are a medium sized star.",
 								  "They are three different colors:",
 								  "Yellow-White, Yellow, and Yellow-Orange",
-								  "Our sun appears to look yellow but is actually white.",
 								  "Yellow stars are 5,840.33 - 13,040.33 degrees fahrenheit.",
 								  "Yellow stars will live up to about 10 billion years.",
 								  "Currently, our sun is about 5 billion years old.",
@@ -327,7 +326,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				let sizeToScale: Float = 100.0
 				let textToScale: Float = 0.030
 				let yOffSet: Float = 0.40
-				//let yTopOffSet: Float = 0.45
+				let yTopOffSet: Float = 0.43
 				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
 				
@@ -338,7 +337,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
 				objects.first?.parent?.addChildNode(node)
 				objects.append(node)
-				sunFacts[index].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, textZOffSet)
+				sunFacts[index].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
 				objects.first?.parent?.addChildNode(sunFacts[index])
 				objects.append(sunFacts[index])
 				

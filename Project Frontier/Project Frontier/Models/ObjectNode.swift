@@ -268,6 +268,12 @@ class ObjectNode: SCNNode {
 		}
 		scale = SCNVector3(dimension, dimension, dimension)
 		text.font = UIFont.init(name: "Helvetica", size: 1)
+		text.containerFrame = CGRect(x: CGFloat(self.position.x),
+									 y: CGFloat(self.position.y),
+									 width: CGFloat(8),
+									 height: CGFloat(6))
+		text.isWrapped = true
+		text.alignmentMode = "j"
 		return text
 	}
 	
