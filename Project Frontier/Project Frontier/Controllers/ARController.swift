@@ -19,6 +19,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     let ARPlaneDetectionNone: UInt = 0
 	let framesPerSecond: Float = 60.0
+	let anim: Animation = Animation()
 	
 	var index: Int = 0
 	var bulletsFrames: Float = 0.0
@@ -106,7 +107,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let starText: [String] = ["Yellow stars are a medium sized star.",
 								  "They are three different colors:",
 								  "Yellow-White, Yellow, and Yellow-Orange",
-								  "Yellow stars are 5,840.33 - 13,040.33 degrees fahrenheit.",
+								  "Yellow stars are 5,840.33 to 13,040.33 degrees fahrenheit.",
 								  "Yellow stars will live up to about 10 billion years.",
 								  "Currently, our sun is about 5 billion years old.",
 								  "When our sun starts dying it grows into a Giant Star.",
@@ -258,7 +259,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
 		//print("Node [\(contact.nodeA.name)] and Node [\(contact.nodeB.name)]")
-		let anim: Animation = Animation()
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
@@ -341,7 +341,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				objects.first?.parent?.addChildNode(sunFacts[index])
 				objects.append(sunFacts[index])
 				
-				let anim: Animation = Animation()
 				anim.scaleUp(node, to: sizeToScale, d: Duration.light)
 				anim.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
 				index+=1
@@ -420,6 +419,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				bulletsFrames = 0.0
 			}
 		}
+//		if searchNode(for: "Info Panel", from: objects) {
+//
+//		}
 	}
     
     // MARK: - Delegate Protocols
