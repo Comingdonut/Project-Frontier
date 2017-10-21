@@ -31,7 +31,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		AudioPlayer.reset()
+		AudioPlayer.pickSong("Midnight Sky", "mp3")
+		AudioPlayer.play()
+		
         setupScene()
         setupRecognizers()
         // Stops screen from dimmming if the application is runnning
