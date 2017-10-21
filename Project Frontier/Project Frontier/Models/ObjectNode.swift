@@ -16,7 +16,6 @@ class ObjectNode: SCNNode {
     var isBullet: Bool
 	var useNameForText: Bool
 	var customText: String
-	var orien: SCNBillboardConstraint
     
     override init() {
         dimension = 0.025
@@ -24,7 +23,6 @@ class ObjectNode: SCNNode {
         isBullet = false
 		useNameForText = true
 		customText = ""
-		orien = SCNBillboardConstraint()
         super.init()
     }
 	
@@ -34,7 +32,6 @@ class ObjectNode: SCNNode {
 		isBullet = false
 		useNameForText = true
 		customText = ""
-		orien = SCNBillboardConstraint()
 		super.init()
 	}
     
@@ -44,7 +41,6 @@ class ObjectNode: SCNNode {
         self.isBullet = isBullet
 		useNameForText = true
 		customText = ""
-		orien = SCNBillboardConstraint()
         super.init()
     }
 	
@@ -54,7 +50,6 @@ class ObjectNode: SCNNode {
 		isBullet = false
 		useNameForText = useName
 		self.customText = customText
-		orien = SCNBillboardConstraint()
 		super.init()
 	}
     
