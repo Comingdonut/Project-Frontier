@@ -35,6 +35,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		AudioPlayer.reset()
 		AudioPlayer.pickSong("Midnight Sky", "mp3")
 		AudioPlayer.play()
+		AudioPlayer.loop()
 		
         setupScene()
         setupRecognizers()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class MainMenuController: UIViewController{
     
@@ -15,6 +14,7 @@ class MainMenuController: UIViewController{
         super.viewDidLoad()
         AudioPlayer.pickSong("Future Discoveries", "mp3")
         AudioPlayer.play()
+        AudioPlayer.loop()
     }
     
     override func didReceiveMemoryWarning() {
