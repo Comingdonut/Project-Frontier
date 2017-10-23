@@ -88,6 +88,8 @@ class YellowStar: Subject {
             planets.append(node)
         }
         
+        addSaturnRings(saturn: planets[5])
+        
         var distance: Float = 0.078
         let none: Float = 0.0
         for j in stride(from: 3, to: size, by: 1) {
@@ -96,6 +98,18 @@ class YellowStar: Subject {
             objects[j].addChildNode(planets[j-3])
             distance+=0.048
         }
+    }
+    
+    func addSaturnRings(saturn: ObjectNode) {
+        let rings: ObjectNode = ObjectNode()
+        rings.setName(to: "Saturn's Rings")
+        let ring = SCNTorus(
+            ringRadius: CGFloat(0.055),
+            pipeRadius: CGFloat(0.008))
+        rings.geometry = ring
+        rings.setColor(1, 0.94, 0.78, 1)
+        rings.setPosition(0, 0, 0, 0, 0, 0)
+        saturn.addChildNode(rings)
     }
     
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float) {
