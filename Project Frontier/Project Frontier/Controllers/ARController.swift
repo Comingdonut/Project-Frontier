@@ -163,6 +163,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				
 				let bulletDirection = self.getUserDirection()
 				bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+				AudioPlayer.pickSound("Bullet_Fired", "wav")
+				AudioPlayer.playSound()
 				sceneView.scene.rootNode.addChildNode(bulletNode)
 				objects.append(bulletNode)
 			}
@@ -267,6 +269,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
+		AudioPlayer.pickSound("Bullet_Contact", "wav")
+		AudioPlayer.playSound()
 		
 		if searchNode(for: "Bullet", from: objects) {
 			contact.nodeB.removeFromParentNode()
