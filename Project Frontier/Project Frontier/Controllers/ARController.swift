@@ -32,10 +32,10 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		AudioPlayer.reset()
+		AudioPlayer.resetMusic()
 		AudioPlayer.pickSong("Midnight Sky", "mp3")
-		AudioPlayer.play()
-		AudioPlayer.loop()
+		AudioPlayer.playMusic()
+		AudioPlayer.loopMusic()
 		
         setupScene()
         setupRecognizers()

@@ -13,8 +13,8 @@ class MainMenuController: UIViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         AudioPlayer.pickSong("Future Discoveries", "mp3")
-        AudioPlayer.play()
-        AudioPlayer.loop()
+        AudioPlayer.playMusic()
+        AudioPlayer.loopMusic()
     }
     
     override func didReceiveMemoryWarning() {
