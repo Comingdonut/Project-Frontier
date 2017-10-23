@@ -11,11 +11,11 @@ import SceneKit
 
 class ObjectNode: SCNNode {
     
-    var dimension: Float // Size 0.025
-    var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
-    var isBullet: Bool
-	var useNameForText: Bool
-	var customText: String
+    private var dimension: Float // Size 0.025
+    public var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
+    private var isBullet: Bool
+	public var useNameForText: Bool
+	public var customText: String
     
     override init() {
         dimension = 0.025
@@ -57,15 +57,15 @@ class ObjectNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 	
-	func setDimension(to dimension: Float) {
+	public func setDimension(to dimension: Float) {
 		self.dimension = dimension
 	}
 	
-	func setName(to name: String) {
+	public func setName(to name: String) {
 		self.name = name
 	}
     
-    func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
+    public func setPosition(_ x: Float, _ y: Float, _ z: Float, _ xOffSet: Float, _ yOffSet: Float, _ zOffSet: Float) {
         self.position = SCNVector3Make(x + xOffSet, y + yOffSet, z + zOffSet)
 		if (self.geometry as? SCNText) != nil {
 			let (min, max) = boundingBox
@@ -76,7 +76,7 @@ class ObjectNode: SCNNode {
 		}
     }
     
-    func setColor(_ color: Color) {
+    public func setColor(_ color: Color) {
         let material = self.geometry?.firstMaterial
 		switch(color){ // Missing colors: brown
 		case .magenta:
@@ -123,12 +123,12 @@ class ObjectNode: SCNNode {
         }
     }
 	
-	func setColor(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
+	public func setColor(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
 		let material = self.geometry?.firstMaterial
 		material?.diffuse.contents = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
 	}
 	
-	func setTexture(to prefix: String) {
+	public func setTexture(to prefix: String) {
 		let material = self.geometry?.firstMaterial
 		material?.diffuse.contents = UIImage(named: "\(prefix)-albedo.png")
 		material?.roughness.contents = UIImage(named: "\(prefix)-roughness.png")
@@ -136,14 +136,14 @@ class ObjectNode: SCNNode {
 		material?.normal.contents = UIImage(named: "\(prefix)-normal.png")
 	}
 	
-	func setImage(to imageName: String) {
+	public func setImage(to imageName: String) {
 		if (self.geometry as? SCNPlane) != nil {
 			let material = self.geometry?.firstMaterial
 			material?.diffuse.contents = UIImage(named: "\(imageName).png")
 		}
 	}
     
-    func setShape(_ shape: Shape) {
+    public func setShape(_ shape: Shape) {
         switch(shape){
         case .box:
             let box = newBox(dimension)
@@ -181,7 +181,7 @@ class ObjectNode: SCNNode {
         }
     }
     
-    func setPhysicsBody(Box box: SCNBox) {
+    private func setPhysicsBody(Box box: SCNBox) {
         let shape = SCNPhysicsShape(geometry: box, options: nil)
         self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
         self.physicsBody?.isAffectedByGravity = false
@@ -190,7 +190,7 @@ class ObjectNode: SCNNode {
         self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
     }
     
-    func setPhysicsBody(Sphere sphere: SCNSphere) {
+    private func setPhysicsBody(Sphere sphere: SCNSphere) {
         let shape = SCNPhysicsShape(geometry: sphere, options: nil)
         self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
         self.physicsBody?.isAffectedByGravity = false
@@ -204,7 +204,7 @@ class ObjectNode: SCNNode {
         }
     }
 	
-	func setPhysicsBody(Ring ring: SCNTorus) {
+	private func setPhysicsBody(Ring ring: SCNTorus) {
 		let shape = SCNPhysicsShape(geometry: ring, options: nil)
 		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
 		self.physicsBody?.isAffectedByGravity = false
@@ -213,7 +213,7 @@ class ObjectNode: SCNNode {
 		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
 	}
 	
-	func setPhysicsBody(Pill pill: SCNCapsule) {
+	private func setPhysicsBody(Pill pill: SCNCapsule) {
 		let shape = SCNPhysicsShape(geometry: pill, options: nil)
 		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
 		self.physicsBody?.isAffectedByGravity = false
@@ -222,7 +222,7 @@ class ObjectNode: SCNNode {
 		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
 	}
 	
-	func setPhysicsBody(Pyramid pyramid: SCNPyramid) {
+	private func setPhysicsBody(Pyramid pyramid: SCNPyramid) {
 		let shape = SCNPhysicsShape(geometry: pyramid, options: nil)
 		self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
 		self.physicsBody?.isAffectedByGravity = false
@@ -231,7 +231,7 @@ class ObjectNode: SCNNode {
 		self.physicsBody?.contactTestBitMask = CollisionCategory.bullet.rawValue
 	}
     
-    func newBox(_ dimension: Float) -> SCNBox {
+    private func newBox(_ dimension: Float) -> SCNBox {
         let box = SCNBox(width: CGFloat(dimension * multiplier),
                      height: CGFloat(dimension * multiplier) ,
                      length: CGFloat(dimension * multiplier),
@@ -239,29 +239,29 @@ class ObjectNode: SCNNode {
         return box
     }
 	
-	func newSphere(_ dimension: Float) -> SCNSphere {
+	private func newSphere(_ dimension: Float) -> SCNSphere {
 		let sphere = SCNSphere(radius: CGFloat(dimension * multiplier))
 		return sphere
 	}
 	
-	func newRing(_ dimension: Float) -> SCNTorus {
+	private func newRing(_ dimension: Float) -> SCNTorus {
 		let ring = SCNTorus(
 			ringRadius: CGFloat(dimension),
 			pipeRadius: CGFloat(dimension/2))
 		return ring
 	}
 	
-	func newPill(_ dimension: Float) -> SCNCapsule {
+	private func newPill(_ dimension: Float) -> SCNCapsule {
 		let pill = SCNCapsule(capRadius: CGFloat(dimension/2), height: CGFloat(dimension))
 		return pill
 	}
 	
-	func newPyramid(_ dimension: Float) -> SCNPyramid {
+	private func newPyramid(_ dimension: Float) -> SCNPyramid {
 		let pyramid = SCNPyramid(width: CGFloat(dimension), height: CGFloat(dimension), length: CGFloat(dimension))
 		return pyramid
 	}
 	
-	func newText(_ dimension: Float) -> SCNText {
+	private func newText(_ dimension: Float) -> SCNText {
 		var text = SCNText(string: name, extrusionDepth: CGFloat(dimension))
 		if !useNameForText {
 			text = SCNText(string: customText, extrusionDepth: CGFloat(dimension))
@@ -281,7 +281,7 @@ class ObjectNode: SCNNode {
 		return text
 	}
 	
-	func newPlane(_ dimension: Float) -> SCNPlane {
+	private func newPlane(_ dimension: Float) -> SCNPlane {
 		let plane = SCNPlane(width: CGFloat(dimension*multiplier), height: CGFloat(dimension*multiplier))
 		return plane
 	}

@@ -19,7 +19,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     private let ARPlaneDetectionNone: UInt = 0
 	private let framesPerSecond: Float = 60.0
-	private let anim: Animation = Animation()
 	
 	private var index: Int = 0
 	private var bulletsFrames: Float = 0.0
@@ -267,7 +266,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
 		bulletsFrames = 0.0
 		
-		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
+		contact.nodeA.addParticleSystem(Animation.explode(color: .white, geometry: contact.nodeA.geometry!))
 		AudioPlayer.pickSound("Bullet_Contact", "wav")
 		AudioPlayer.playSound()
 		
@@ -352,8 +351,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				objects.first?.parent?.addChildNode(sunFacts[index])
 				objects.append(sunFacts[index])
 				
-				anim.scaleUp(node, to: sizeToScale, d: Duration.light)
-				anim.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
+				Animation.scaleUp(node, to: sizeToScale, d: Duration.light)
+				Animation.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
 				index+=1
 			}
 			else {
@@ -430,9 +429,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				bulletsFrames = 0.0
 			}
 		}
-//		if searchNode(for: "Info Panel", from: objects) {
-//
-//		}
 	}
     
     // MARK: - Delegate Protocols

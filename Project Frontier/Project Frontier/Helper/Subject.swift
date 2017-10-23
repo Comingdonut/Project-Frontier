@@ -9,14 +9,18 @@
 import Foundation
 
 protocol Subject {
-    var size: Int { get set}
-    var objects: [ObjectNode] { get set}
+    var size: Int { get set }
+    var objects: [ObjectNode] { get set }
     init()
     func initSubject()
-    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color)
-    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ r: Float, _ g: Float, _ b: Float, _ a: Float)
-    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, texture: String)
-    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, image: String)
+    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape,
+                    _ color: Color)
+    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape,
+                    _ r: Float, _ g: Float, _ b: Float, _ a: Float)
+    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape,
+                    texture: String)
+    func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape,
+                    image: String)
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float)
     func show()
 }

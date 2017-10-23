@@ -15,39 +15,39 @@ class Animation {
         
     }
     
-    func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    static func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    func disappear(_ node: SCNNode, d: Duration) {
+    static func disappear(_ node: SCNNode, d: Duration) {
         let action = SCNAction.fadeOut(duration: d.rawValue)
         node.runAction(action)
     }
     
-    func appear(_ node: SCNNode, d: Duration) {
+    static func appear(_ node: SCNNode, d: Duration) {
         let action = SCNAction.fadeIn(duration: d.rawValue)
         node.runAction(action)
     }
     
-    func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    static func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.moveBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    func scaleUp(_ node: SCNNode, to newSize: Float, d: Duration){
+    static func scaleUp(_ node: SCNNode, to newSize: Float, d: Duration){
         let action = SCNAction.scale(to: CGFloat(newSize), duration: d.rawValue)
         node.runAction(action)
     }
     
-    func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    static func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue))
         node.runAction(action)
     }
     
     // Mark: - Particle Effects
     
-    func explode(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+    static func explode(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
         let boom = SCNParticleSystem(named: "BulletParticle.scnp", inDirectory: nil)
         boom?.particleColor = color
         boom?.emitterShape = geometry
@@ -56,7 +56,7 @@ class Animation {
     
     // Mark: - Timer
     
-    func wait(inSeconds duration: Duration, repeating repeats: Bool, codeBlock: @escaping (Timer) -> Void) {
+    static func wait(inSeconds duration: Duration, repeating repeats: Bool, codeBlock: @escaping (Timer) -> Void) {
         _ = Timer.scheduledTimer(withTimeInterval: duration.rawValue, repeats: repeats, block: codeBlock)
     }
     

@@ -71,7 +71,7 @@ class YellowStar: Subject {
         objects[index].setImage(to: image)
     }
     
-    func addChildrenNodes() {
+    private func addChildrenNodes() {
         let planetNames: [String] =     ["Mercury", "Venus", "Earth",
                                          "Mars", "Jupiter", "Saturn",
                                          "Uranus", "Neptune"]
@@ -100,7 +100,7 @@ class YellowStar: Subject {
         }
     }
     
-    func addSaturnRings(saturn: ObjectNode) {
+    private func addSaturnRings(saturn: ObjectNode) {
         let rings: ObjectNode = ObjectNode()
         rings.setName(to: "Saturn's Rings")
         let ring = SCNTorus(
@@ -125,53 +125,50 @@ class YellowStar: Subject {
     }
     
     func show() {
-        let anim: Animation = Animation()
         for obj in objects {
-            anim.appear(obj, d: Duration.light)
+            Animation.appear(obj, d: Duration.light)
         }
     }
     
-    func animate() {
-        let anim: Animation = Animation()
-        
-        for x in stride(from: 0, to: 9, by: 1){
+    public func animate() {
+        for x in stride(from: 0, to: 9, by: 1) {
             if x == 0 {//Instructions
-                anim.scaleUp(objects[0], to: 0.030, d: Duration.light)
-                anim.scaleUp(objects[1], to: 3.0, d: Duration.light)
+                Animation.scaleUp(objects[0], to: 0.030, d: Duration.light)
+                Animation.scaleUp(objects[1], to: 3.0, d: Duration.light)
             }
             else if x == 1 {//Planet Orbits
-                anim.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.medium)
-                anim.infiniteRotate(objects[3], x: 0, y: 1, z: 0, d: Duration.light)
+                Animation.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.medium)
+                Animation.infiniteRotate(objects[3], x: 0, y: 1, z: 0, d: Duration.light)
             }
             else if x == 2 {
-                anim.infiniteRotate(objects[4], x: 0, y: 1, z: 0, d: Duration.fast_fast)
-                anim.infiniteRotate(objects[5], x: 0, y: 1, z: 0, d: Duration.fast)
+                Animation.infiniteRotate(objects[4], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                Animation.infiniteRotate(objects[5], x: 0, y: 1, z: 0, d: Duration.fast)
             }
             else if x == 3 {
-                anim.infiniteRotate(objects[6], x: 0, y: 1, z: 0, d: Duration.fast_slow)
-                anim.infiniteRotate(objects[7], x: 0, y: 1, z: 0, d: Duration.medium)
+                Animation.infiniteRotate(objects[6], x: 0, y: 1, z: 0, d: Duration.fast_slow)
+                Animation.infiniteRotate(objects[7], x: 0, y: 1, z: 0, d: Duration.medium)
             }
             else if x == 4 {
-                anim.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.medium_slow)
-                anim.infiniteRotate(objects[9], x: 0, y: 1, z: 0, d: Duration.slow_fast)
-                anim.infiniteRotate(objects[10], x: 0, y: 1, z: 0, d: Duration.slow)
+                Animation.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.medium_slow)
+                Animation.infiniteRotate(objects[9], x: 0, y: 1, z: 0, d: Duration.slow_fast)
+                Animation.infiniteRotate(objects[10], x: 0, y: 1, z: 0, d: Duration.slow)
             }
             else if x == 5 {//Planets Rotation
-                anim.infiniteRotate((objects[3].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.fast_fast)
-                anim.infiniteRotate((objects[4].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.light)
+                Animation.infiniteRotate((objects[3].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                Animation.infiniteRotate((objects[4].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.light)
             }
             else if x == 6 {
-                anim.infiniteRotate((objects[5].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium)
-                anim.infiniteRotate((objects[6].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_fast)
+                Animation.infiniteRotate((objects[5].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium)
+                Animation.infiniteRotate((objects[6].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_fast)
             }
             else if x == 7 {
-                anim.infiniteRotate((objects[7].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow)
-                anim.infiniteRotate((objects[8].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow_fast)
+                Animation.infiniteRotate((objects[7].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow)
+                Animation.infiniteRotate((objects[8].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow_fast)
             }
             else if x == 8 {
-                anim.infiniteRotate((objects[9].childNodes.first)!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
-                anim.spin((objects[9].childNodes.first)!, x: 1.55, y: 0, z: 0, d: Duration.light)
-                anim.infiniteRotate((objects[10].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
+                Animation.infiniteRotate((objects[9].childNodes.first)!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
+                Animation.spin((objects[9].childNodes.first)!, x: 1.55, y: 0, z: 0, d: Duration.light)
+                Animation.infiniteRotate((objects[10].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
         }
     }

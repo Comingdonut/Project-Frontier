@@ -76,12 +76,11 @@ class ARMenu: Menu {
     func show() {
         let none: Float = 0.0
         let y_axis: Float = 1.0
-        let anim: Animation = Animation()
         for opt in options {
-            anim.appear(opt, d: Duration.light)
+            Animation.appear(opt, d: Duration.light)
         }
         for j in stride(from: 0, to: 6, by: 1){
-            anim.infiniteRotate(options[j], x: none, y: y_axis, z: none, d: Duration.medium)
+            Animation.infiniteRotate(options[j], x: none, y: y_axis, z: none, d: Duration.medium)
         }
     }
 }

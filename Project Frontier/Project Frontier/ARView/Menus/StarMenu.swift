@@ -12,7 +12,6 @@ import SceneKit
 class StarMenu: Menu {
     
     var size: Int
-    
     var options: [ObjectNode]
     
     required init() {
@@ -75,14 +74,13 @@ class StarMenu: Menu {
     }
     
     func show() {
-        let anim: Animation = Animation()
         for star in options {
-            anim.appear(star, d: Duration.light)
+            Animation.appear(star, d: Duration.light)
         }
-        anim.infiniteRotate(options[0], x: 0, y: 1, z: 0, d: Duration.medium)
-        anim.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)
-        anim.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: Duration.slow)
-        anim.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: Duration.light)
-        anim.spin(options[5], x: 0, y: 0, z: 1.55, d: Duration.light)
+        Animation.infiniteRotate(options[0], x: 0, y: 1, z: 0, d: Duration.medium)
+        Animation.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)
+        Animation.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: Duration.slow)
+        Animation.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: Duration.light)
+        Animation.spin(options[5], x: 0, y: 0, z: 1.55, d: Duration.light)
     }
 }
