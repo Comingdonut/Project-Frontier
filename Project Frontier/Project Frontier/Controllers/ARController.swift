@@ -265,7 +265,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-		//print("Node [\(contact.nodeA.name)] and Node [\(contact.nodeB.name)]")
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
@@ -276,38 +275,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			contact.nodeB.removeFromParentNode()
 			objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
 		}
-			
-		if contact.nodeA.name == "Star" {
-			for obj in objects {
-				//anim.disappear(obj, d: Duration.light)
-				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
-					obj.removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
-				//})
-			}
-			newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-		}
-		else if contact.nodeA.name == "Back" {
-			for obj in objects {
-				//anim.disappear(obj, d: Duration.light)
-				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
-					obj.removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
-				//})
-			}
-			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-		}
-		else if contact.nodeA.name == "Yellow Star" {
-			for obj in objects {
-				//anim.disappear(obj, d: Duration.light)
-				//anim.wait(inSeconds: Duration.light, repeating: false, codeBlock: {_ in
-					obj.removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
-				//})
-			}
-			newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-		}
-		checkYellowSunContact(didObtain: contact)
+		
+		checkForMenuStarContact(contact.nodeA)
+		checkForMenuBackContact(contact.nodeA)
+		checkForMenuYellowStarContact(contact.nodeA)
+		checkYellowStarContact(contact.nodeA)
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
@@ -318,11 +290,41 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		print("Contact Ended")
 	}
 	
-	func checkYellowSunContact(didObtain contact: SCNPhysicsContact){
+	func checkForMenuStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Star" {
+			for obj in objects {
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		}
+	}
+	
+	func checkForMenuBackContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Back" {
+			for obj in objects {
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		}
+	}
+	
+	func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Yellow Star" {
+			for obj in objects {
+				obj.removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+			}
+			newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+		}
+	}
+	
+	func checkYellowStarContact(_ nodeA: SCNNode){
 		if sunFacts.count == 0 {
 			setupSunFacts()
 		}
-		if contact.nodeA.name == "Medium Star" {
+		if nodeA.name == "Medium Star" {
 			if index != sunFacts.count {
 				if searchNode(for: "Info Panel", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
