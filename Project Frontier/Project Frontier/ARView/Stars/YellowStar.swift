@@ -133,8 +133,8 @@ class YellowStar: Subject {
     public func animate() {
         for x in stride(from: 0, to: 9, by: 1) {
             if x == 0 {//Instructions
-                Animation.scaleUp(objects[0], to: 0.030, d: Duration.light)
-                Animation.scaleUp(objects[1], to: 3.0, d: Duration.light)
+                Animation.scale(objects[0], to: 0.030, d: Duration.light)
+                Animation.scale(objects[1], to: 3.0, d: Duration.light)
             }
             else if x == 1 {//Planet Orbits
                 Animation.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.medium)

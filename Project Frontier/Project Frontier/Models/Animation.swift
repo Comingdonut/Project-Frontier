@@ -35,7 +35,7 @@ class Animation {
         node.runAction(action)
     }
     
-    static func scaleUp(_ node: SCNNode, to newSize: Float, d: Duration){
+    static func scale(_ node: SCNNode, to newSize: Float, d: Duration){
         let action = SCNAction.scale(to: CGFloat(newSize), duration: d.rawValue)
         node.runAction(action)
     }

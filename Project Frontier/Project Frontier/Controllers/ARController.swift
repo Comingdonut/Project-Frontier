@@ -351,8 +351,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				objects.first?.parent?.addChildNode(sunFacts[index])
 				objects.append(sunFacts[index])
 				
-				Animation.scaleUp(node, to: sizeToScale, d: Duration.light)
-				Animation.scaleUp(sunFacts[index], to: textToScale, d: Duration.light)
+				Animation.scale(node, to: sizeToScale, d: Duration.light)
+				Animation.scale(sunFacts[index], to: textToScale, d: Duration.light)
 				index+=1
 			}
 			else {
