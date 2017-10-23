@@ -73,12 +73,12 @@ class StartController: UIViewController {
         }
     }
     
-    func changeView(current view1: UIView, new view2: UIView){
+    private func changeView(current view1: UIView, new view2: UIView){
         view1.isHidden = true
         view2.isHidden = false
     }
     
-    func findCurrentView() -> UIView{
+    private func findCurrentView() -> UIView{
         var currentView: UIView = viewOne
         if !viewTwo.isHidden {
             currentView = viewTwo
@@ -92,13 +92,13 @@ class StartController: UIViewController {
         return currentView
     }
     
-    func changeSelectedIndex(index num: Int){
+    private func changeSelectedIndex(index num: Int){
         if num >= 0 && num <= 3 {
             segmentedControl.selectedSegmentIndex = num
         }
     }
     
-    func exitView(){
+    private func exitView(){
         delegate?.close()
     }
     

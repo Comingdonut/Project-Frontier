@@ -17,17 +17,17 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBOutlet weak var scopeImage: UIImageView!
     @IBOutlet weak var startContainer: UIView!
     
-    let ARPlaneDetectionNone: UInt = 0
-	let framesPerSecond: Float = 60.0
-	let anim: Animation = Animation()
+    private let ARPlaneDetectionNone: UInt = 0
+	private let framesPerSecond: Float = 60.0
+	private let anim: Animation = Animation()
 	
-	var index: Int = 0
-	var bulletsFrames: Float = 0.0
-    var isPlacingNodes: Bool = true
-    var configuration = ARWorldTrackingConfiguration()
-    var planes = [UUID: SurfacePlane]()
-    var objects: [ObjectNode] = []
-	var sunFacts: [ObjectNode] = []
+	private var index: Int = 0
+	private var bulletsFrames: Float = 0.0
+    private var isPlacingNodes: Bool = true
+    private var configuration = ARWorldTrackingConfiguration()
+    private var planes = [UUID: SurfacePlane]()
+    private var objects: [ObjectNode] = []
+	private var sunFacts: [ObjectNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         
     }
     
-    func setupSession(){
+    private func setupSession(){
         //configuration.isLightEstimationEnabled = true
         configuration.planeDetection = .horizontal
         
@@ -70,7 +70,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         sceneView.session.run(configuration)
     }
     
-    func setupScene(){
+    private func setupScene(){
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -95,20 +95,20 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         sceneView.scene = scene
     }
 	
-	func setupLighting() {
+	private func setupLighting() {
 		let env = UIImage(named: "spherical.jpg")
 		sceneView.scene.lightingEnvironment.contents = env
 		sceneView.scene.lightingEnvironment.intensity = 2.0
 	}
     
-    func setupRecognizers() {
+    private func setupRecognizers() {
         // Single tap will insert a new piece of geometry into the scene
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
 	
-	func setupSunFacts() {
+	private func setupSunFacts() {
 		let starText: [String] = ["Yellow stars are a medium sized star.",
 								  "They are three different colors:",
 								  "Yellow-White, Yellow, and Yellow-Orange",
@@ -130,7 +130,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
     
-    @objc func handleTap (from recognizer: UITapGestureRecognizer){
+	@objc func handleTap (from recognizer: UITapGestureRecognizer){
         if isPlacingNodes {
             // Take the screen tap coordinates and pass them to the hitTest method on the ARSCNView instance
             let tapPoint: CGPoint = recognizer.location(in: sceneView)
@@ -171,7 +171,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         }
     }
 	
-	func initAR(){
+	private func initAR(){
 		isPlacingNodes = false
 		plusButton.isHidden = true
 		scopeImage.isHidden = false
@@ -179,7 +179,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		hidePlanes()
 	}
 	
-	func searchNode(for name: String, from objects: [SCNNode]) -> Bool {
+	private func searchNode(for name: String, from objects: [SCNNode]) -> Bool {
 		var hasNode = false
 		for obj in objects {
 			if obj.name == name {
@@ -190,7 +190,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		return hasNode
 	}
 	
-	func getNodeIndex(from objects: [SCNNode], by name: String) -> Int {
+	private func getNodeIndex(from objects: [SCNNode], by name: String) -> Int {
 		var index = 0
 		for obj in objects {
 			if obj.name == name {
@@ -201,7 +201,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		return -1
 	}
     
-    func newARMenu(x: Float, y: Float, z: Float) {
+    private func newARMenu(x: Float, y: Float, z: Float) {
         let dimension: Float = 0.025
         let arMenu = ARMenu()
         
@@ -215,7 +215,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		arMenu.show()
     }
 	
-	func newStarMenu(x: Float, y: Float, z: Float) {
+	private func newStarMenu(x: Float, y: Float, z: Float) {
 		let dimension: Float = 0.025
 		let starMenu = StarMenu()
 		
@@ -229,7 +229,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		starMenu.show()
 	}
 	
-	func newYellowStar(x: Float, y: Float, z: Float) {
+	private func newYellowStar(x: Float, y: Float, z: Float) {
 		let star: YellowStar = YellowStar()
 		
 		star.initSubject()
@@ -243,7 +243,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		star.animate()
 	}
     
-    func getUserDirection() -> SCNVector3 {
+    private func getUserDirection() -> SCNVector3 {
         if let frame = self.sceneView.session.currentFrame {
             let mat = SCNMatrix4(frame.camera.transform)
             return SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33)
@@ -251,7 +251,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         return SCNVector3(0, 0, -1)
     }
     
-    func hidePlanes(){
+    private func hidePlanes(){
         // Hide all planes
         for planeId in planes {
             planes[planeId.key]?.isHidden = true
@@ -264,7 +264,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     // MARK: - SCNPhysicsContactDelegate
     
-    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(anim.explode(color: .white, geometry: contact.nodeA.geometry!))
@@ -290,7 +290,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		print("Contact Ended")
 	}
 	
-	func checkForMenuStarContact(_ nodeA: SCNNode) {
+	private func checkForMenuStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Star" {
 			for obj in objects {
 				obj.removeFromParentNode()
@@ -300,7 +300,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	func checkForMenuBackContact(_ nodeA: SCNNode) {
+	private func checkForMenuBackContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Back" {
 			for obj in objects {
 				obj.removeFromParentNode()
@@ -310,7 +310,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
+	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Yellow Star" {
 			for obj in objects {
 				obj.removeFromParentNode()
@@ -320,7 +320,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	func checkYellowStarContact(_ nodeA: SCNNode){
+	private func checkYellowStarContact(_ nodeA: SCNNode){
 		if sunFacts.count == 0 {
 			setupSunFacts()
 		}

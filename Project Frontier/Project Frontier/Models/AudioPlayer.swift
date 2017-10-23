@@ -11,15 +11,15 @@ import AVFoundation
 
 class AudioPlayer {
     
-    static var music: AVAudioPlayer = AVAudioPlayer()
-    static var sound: AVAudioPlayer = AVAudioPlayer()
-    static var filePath: String = ""
+    private static var music: AVAudioPlayer = AVAudioPlayer()
+    private static var sound: AVAudioPlayer = AVAudioPlayer()
+    private static var filePath: String = ""
     
     init() {
         
     }
     
-    static func pickSong(_ fileName: String, _ fileType: String) {
+    public static func pickSong(_ fileName: String, _ fileType: String) {
         do {
             if fileName != filePath {
                 music = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: fileName, ofType: fileType)!))
@@ -32,20 +32,20 @@ class AudioPlayer {
         }
     }
     
-    static func playMusic() {
+    public static func playMusic() {
         music.play()
     }
     
-    static func resetMusic() {
+    public static func resetMusic() {
         music.stop()
         music.currentTime = 0
     }
     
-    static func loopMusic() {
+    public static func loopMusic() {
         music.numberOfLoops = -1
     }
     
-    static func pickSound(_ fileName: String, _ fileType: String) {
+    public static func pickSound(_ fileName: String, _ fileType: String) {
         do {
             sound = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: fileName, ofType: fileType)!))
             sound.prepareToPlay()
@@ -55,7 +55,7 @@ class AudioPlayer {
         }
     }
     
-    static func playSound() {
+    public static func playSound() {
         sound.play()
     }
 }
