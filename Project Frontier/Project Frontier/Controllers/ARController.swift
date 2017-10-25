@@ -23,6 +23,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	private var index: Int = 0
 	private var bulletsFrames: Float = 0.0
     private var isPlacingNodes: Bool = true
+	private var ableToShoot: Bool = true
     private var configuration = ARWorldTrackingConfiguration()
     private var planes = [UUID: SurfacePlane]()
     private var objects: [ObjectNode] = []
@@ -149,23 +150,25 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			
 			initAR()
         } else {
-			if !searchNode(for: "Bullet", from: objects) {
-				let dimensions: Float = 0.010
-				let bulletNode = ObjectNode(dimensions, true)
-				bulletNode.setName(to: "Bullet")
-				bulletNode.setShape(.sphere)
-				bulletNode.setColor(.white)
-				bulletNode.setPosition(
-					(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
-					(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
-					(sceneView.session.currentFrame?.camera.transform.columns.3.z)!, 0, 0, 0)
-				
-				let bulletDirection = self.getUserDirection()
-				bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
-				AudioPlayer.pickSound("Bullet_Fired", "wav")
-				AudioPlayer.playSound()
-				sceneView.scene.rootNode.addChildNode(bulletNode)
-				objects.append(bulletNode)
+			if ableToShoot {
+				if !searchNode(for: "Bullet", from: objects) {
+					let dimensions: Float = 0.010
+					let bulletNode = ObjectNode(dimensions, true)
+					bulletNode.setName(to: "Bullet")
+					bulletNode.setShape(.sphere)
+					bulletNode.setColor(.white)
+					bulletNode.setPosition(
+						(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
+						(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
+						(sceneView.session.currentFrame?.camera.transform.columns.3.z)!, 0, 0, 0)
+					
+					let bulletDirection = self.getUserDirection()
+					bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+					AudioPlayer.pickSound("Bullet_Fired", "wav")
+					AudioPlayer.playSound()
+					sceneView.scene.rootNode.addChildNode(bulletNode)
+					objects.append(bulletNode)
+				}
 			}
         }
     }
@@ -293,6 +296,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let dispatchGroup = DispatchGroup()
 		
 		if nodeA.name == "Star" {
+			ableToShoot = false
 			dispatchGroup.enter()
 			for obj in objects {
 				Animation.disappear(obj, d: Duration.light)
@@ -308,6 +312,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					}
 					self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 					
+					self.ableToShoot = true
 				})
 			})
 		}
@@ -317,6 +322,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let dispatchGroup = DispatchGroup()
 		
 		if nodeA.name == "Back" {
+			ableToShoot = false
 			dispatchGroup.enter()
 			for obj in objects {
 				Animation.disappear(obj, d: Duration.light)
@@ -332,6 +338,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					}
 					self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 					
+					self.ableToShoot = true
 				})
 			})
 		}
@@ -341,6 +348,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let dispatchGroup = DispatchGroup()
 		
 		if nodeA.name == "Yellow Star" {
+			ableToShoot = false
 			dispatchGroup.enter()
 			for obj in objects {
 				Animation.disappear(obj, d: Duration.light)
@@ -356,6 +364,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					}
 					self.newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 					
+					self.ableToShoot = true
 				})
 			})
 		}
@@ -401,6 +410,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 			else {
 				let dispatchGroup = DispatchGroup()
+				ableToShoot = false
 				dispatchGroup.enter()
 				for obj in objects {
 					Animation.disappear(obj, d: Duration.light)
@@ -418,6 +428,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.sunFacts = []
 						self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
+						self.ableToShoot = true
 					})
 				})
 			}
