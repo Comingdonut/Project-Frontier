@@ -274,15 +274,17 @@ class ObjectNode: SCNNode {
 									 height: CGFloat(6))
 		text.isWrapped = true
 		text.alignmentMode = kCAAlignmentCenter
-		// TODO: Add constraints?
-//		let constraint = SCNBillboardConstraint()
-//		constraint.freeAxes = .Y
-//		constraints = [constraint]
 		return text
 	}
 	
 	private func newPlane(_ dimension: Float) -> SCNPlane {
 		let plane = SCNPlane(width: CGFloat(dimension*multiplier), height: CGFloat(dimension*multiplier))
 		return plane
+	}
+	
+	public func followCamera(_ node: SCNNode) {
+		let constraint = SCNBillboardConstraint()
+		constraint.freeAxes = .Y
+		constraints = [constraint]
 	}
 }

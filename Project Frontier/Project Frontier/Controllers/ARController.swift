@@ -290,32 +290,74 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	private func checkForMenuStarContact(_ nodeA: SCNNode) {
+		let dispatchGroup = DispatchGroup()
+		
 		if nodeA.name == "Star" {
+			dispatchGroup.enter()
 			for obj in objects {
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				Animation.disappear(obj, d: Duration.light)
 			}
-			newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+				})
+			})
 		}
 	}
 	
 	private func checkForMenuBackContact(_ nodeA: SCNNode) {
+		let dispatchGroup = DispatchGroup()
+		
 		if nodeA.name == "Back" {
+			dispatchGroup.enter()
 			for obj in objects {
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				Animation.disappear(obj, d: Duration.light)
 			}
-			newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+				})
+			})
 		}
 	}
 	
 	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
+		let dispatchGroup = DispatchGroup()
+		
 		if nodeA.name == "Yellow Star" {
+			dispatchGroup.enter()
 			for obj in objects {
-				obj.removeFromParentNode()
-				objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+				Animation.disappear(obj, d: Duration.light)
 			}
-			newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+				})
+			})
 		}
 	}
 	
@@ -354,15 +396,30 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				Animation.scale(node, to: sizeToScale, d: Duration.light)
 				Animation.scale(sunFacts[index], to: textToScale, d: Duration.light)
 				index+=1
+				
+				//sunFacts[index].followCamera(sceneView.scene.rootNode)
 			}
 			else {
+				let dispatchGroup = DispatchGroup()
+				dispatchGroup.enter()
 				for obj in objects {
-					obj.removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: obj.name!))
+					Animation.disappear(obj, d: Duration.light)
 				}
-				index = 0
-				sunFacts = []
-				newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+				dispatchGroup.leave()
+				
+				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+						for obj in self.objects {
+							obj.removeFromParentNode()
+							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+						}
+						self.index = 0
+						self.sunFacts = []
+						self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						
+					})
+				})
 			}
 		}
 	}
