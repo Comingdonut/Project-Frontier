@@ -84,7 +84,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         sceneView.antialiasingMode = SCNAntialiasingMode.multisampling4X
         
         // Debug plane
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Create a new scene
         let scene = SCNScene()
@@ -513,17 +513,15 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - Button Outlets
     
     @IBAction func resetView(_ sender: Any) {
-        if !isPlacingNodes {
-            isPlacingNodes = true
-            scopeImage.isHidden = true
-            PointOnPlane.reset()
-            for object in objects {
-                object.removeFromParentNode()
-            }
-            objects = []
-            sceneView.session.run(configuration, options: .removeExistingAnchors)
-            sceneView.session.run(configuration, options: .resetTracking)
-        }
+		isPlacingNodes = true
+		scopeImage.isHidden = true
+		PointOnPlane.reset()
+		for object in objects {
+			object.removeFromParentNode()
+		}
+		objects = []
+		sceneView.session.run(configuration, options: .removeExistingAnchors)
+		sceneView.session.run(configuration, options: .resetTracking)
     }
     
     @IBAction func initModels(_ sender: Any) {
