@@ -19,11 +19,39 @@ class StartController: UIViewController {
     @IBOutlet weak var viewTwo: UIView!
     @IBOutlet weak var viewThree: UIView!
     @IBOutlet weak var viewFour: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textSurface: UILabel!
+    @IBOutlet weak var textLight: UILabel!
+    @IBOutlet weak var textTexture: UILabel!
+    @IBOutlet weak var textMotion: UILabel!
+    @IBOutlet weak var textMovement: UILabel!
+    @IBOutlet weak var textStrain: UILabel!
+    @IBOutlet weak var textScan: UILabel!
+    @IBOutlet weak var textTap: UILabel!
+    @IBOutlet weak var textReset: UILabel!
+    @IBOutlet weak var continueLabel: UILabel!
     
     var delegate: ContainerDelegateProtocol?
+    private let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        if index == 1 {
+            segmentedControl.tintColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            titleLabel.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textSurface.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textLight.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textTexture.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textMotion.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textMovement.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textStrain.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textScan.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textTap.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            textReset.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            continueLabel.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+        }
     }
     
     override func didReceiveMemoryWarning() {

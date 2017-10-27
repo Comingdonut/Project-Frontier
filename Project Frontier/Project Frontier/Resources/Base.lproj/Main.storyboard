@@ -578,7 +578,7 @@
                                 <rect key="frame" x="0.0" y="102" width="320" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The surface should have some texture to make it recognizable." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHM-gW-fId" userLabel="Description Surface">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The surface should have some texture to make it recognizable." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHM-gW-fId" userLabel="Description Texture">
                                         <rect key="frame" x="8" y="8" width="304" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
@@ -589,7 +589,7 @@
                                         <rect key="frame" x="8" y="63" width="304" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moving the device too fast can reduce the experience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mv-WR-EvY" userLabel="Description Movement">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moving the device too fast can reduce the experience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mv-WR-EvY" userLabel="Description Motion">
                                         <rect key="frame" x="8" y="228" width="304" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
@@ -614,7 +614,7 @@
                                         <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MovementExample" translatesAutoresizingMaskIntoConstraints="NO" id="6Lm-LG-Nhu" userLabel="Surface Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MovementExample" translatesAutoresizingMaskIntoConstraints="NO" id="6Lm-LG-Nhu" userLabel="Movement Image">
                                         <rect key="frame" x="8" y="71" width="304" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -625,7 +625,7 @@
                                         <color key="textColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EyeExample" translatesAutoresizingMaskIntoConstraints="NO" id="3nl-WU-ffr" userLabel="Surface Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EyeExample" translatesAutoresizingMaskIntoConstraints="NO" id="3nl-WU-ffr" userLabel="Eye Image">
                                         <rect key="frame" x="8" y="269" width="304" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -688,7 +688,18 @@
                         <viewLayoutGuide key="safeArea" id="VN4-dz-TSW"/>
                     </view>
                     <connections>
+                        <outlet property="continueLabel" destination="qe7-f4-yRH" id="Nt3-oC-em3"/>
                         <outlet property="segmentedControl" destination="f6d-ld-hBv" id="QzP-Wd-kbg"/>
+                        <outlet property="textLight" destination="Hpf-at-Qup" id="xvr-kg-AYU"/>
+                        <outlet property="textMotion" destination="6mv-WR-EvY" id="efL-WB-v0X"/>
+                        <outlet property="textMovement" destination="bVJ-vO-eSB" id="Zy9-lh-7QG"/>
+                        <outlet property="textReset" destination="a7b-z1-0fh" id="EKA-3X-ckD"/>
+                        <outlet property="textScan" destination="RWh-T2-Lgf" id="FNm-3d-8Gn"/>
+                        <outlet property="textStrain" destination="t1m-VR-Qpd" id="RGd-uu-OyD"/>
+                        <outlet property="textSurface" destination="AdC-Dt-MgY" id="Byo-Yv-i8A"/>
+                        <outlet property="textTap" destination="HPQ-cw-TLN" id="XeA-bf-iei"/>
+                        <outlet property="textTexture" destination="aHM-gW-fId" id="sl3-0Z-Dd8"/>
+                        <outlet property="titleLabel" destination="LDa-KY-3G0" id="GJa-c7-TMl"/>
                         <outlet property="viewFour" destination="j1U-Gg-Uo4" id="PBs-NC-gMe"/>
                         <outlet property="viewOne" destination="HWF-EK-s4c" id="8Ut-6V-1f0"/>
                         <outlet property="viewThree" destination="aAp-fL-VHK" id="6Wl-Fa-htj"/>
