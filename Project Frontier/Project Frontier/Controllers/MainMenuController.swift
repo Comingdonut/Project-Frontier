@@ -10,8 +10,24 @@ import UIKit
 
 class MainMenuController: UIViewController{
     
+    @IBOutlet weak var mainMenuBackground: UIImageView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var optionsButton: UIButton!
+    @IBOutlet weak var aboutButton: UIButton!
+    
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad(){
         super.viewDidLoad()
+        let theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        if theme == 1 {
+            mainMenuBackground.image = UIImage(named: "BackgroundLight")
+            startButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            helpButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            optionsButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            aboutButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+        }
         AudioPlayer.pickSong("Future Discoveries", "mp3")
         AudioPlayer.playMusic()
         AudioPlayer.loopMusic()
@@ -22,4 +38,3 @@ class MainMenuController: UIViewController{
     }
     
 }
-

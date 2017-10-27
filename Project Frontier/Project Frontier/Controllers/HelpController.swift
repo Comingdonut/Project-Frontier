@@ -10,8 +10,19 @@ import UIKit
 
 class HelpController: UIViewController{
     
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var backButton: UIButton!
+    
+    private let defaults = UserDefaults.standard
+    
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        if index == 1 {
+            background.image = UIImage(named: "DimBackgroundLight")
+            backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+        }
     }
     
     override func didReceiveMemoryWarning() {
