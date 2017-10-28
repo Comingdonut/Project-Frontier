@@ -30,27 +30,35 @@ class StartController: UIViewController {
     @IBOutlet weak var textTap: UILabel!
     @IBOutlet weak var textReset: UILabel!
     @IBOutlet weak var continueLabel: UILabel!
+    @IBOutlet weak var imageGrid: UIImageView!
+    @IBOutlet weak var imageReset: UIImageView!
     
     var delegate: ContainerDelegateProtocol?
     private let defaults = UserDefaults.standard
+    private let r: CGFloat = 1.0
+    private let g: CGFloat = 0.8
+    private let b: CGFloat = 0.0
+    private let a: CGFloat = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
         if index == 1 {
-            segmentedControl.tintColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            titleLabel.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textSurface.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textLight.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textTexture.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textMotion.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textMovement.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textStrain.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textScan.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textTap.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            textReset.textColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
-            continueLabel.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
+            segmentedControl.tintColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            titleLabel.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textSurface.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textLight.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textTexture.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textMotion.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textMovement.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textStrain.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textScan.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textTap.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            textReset.textColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            continueLabel.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: a)
+            imageGrid.image = UIImage(named: "PlaneGridLight")
+            imageReset.image = UIImage(named: "RefreshLight")
         }
     }
     
@@ -129,5 +137,4 @@ class StartController: UIViewController {
     private func exitView(){
         delegate?.close()
     }
-    
 }

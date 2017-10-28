@@ -11,6 +11,8 @@ import SceneKit
 
 class YellowStar: Subject {
     
+    private let defaults = UserDefaults.standard
+    
     var size: Int
     var objects: [ObjectNode]
     
@@ -20,6 +22,8 @@ class YellowStar: Subject {
     }
     
     func initSubject() {
+        
+        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
         
         for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode()
@@ -31,6 +35,9 @@ class YellowStar: Subject {
         objects[0].customText = "Shoot Me!"
         initObject(objects, 0, "Info Text" ,0.001, .text, .white)
         initObject(objects, 1, "Info Panel", 0.030, .plane, image: "DialogBoxMedium")
+        if index == 1 {
+            objects[1].setImage(to: "DialogBoxMediumLight")
+        }
         initObject(objects, 2, "Medium Star", 0.030, .sphere, texture: "yellowstar")
         initObject(objects, 3, "Mercury Helper", 0.010, .sphere, .clear)
         initObject(objects, 4, "Venus Helper", 0.010, .sphere, .clear)

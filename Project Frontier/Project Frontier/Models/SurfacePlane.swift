@@ -10,22 +10,28 @@ import ARKit
 import SceneKit
 
 class SurfacePlane: SCNNode{
-    var anchor: ARPlaneAnchor?
-    var planeGeometry: SCNPlane?
+    
+    private let defaults = UserDefaults.standard
+    
+    private var anchor: ARPlaneAnchor?
+    private var planeGeometry: SCNPlane?
     
     init(with anchor: ARPlaneAnchor) {
         super.init()
         
+        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
         self.anchor = anchor
         self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.y))
         
-        // Instead of just visualizing the grid as a gray plane, we will render
-        // it in some space style colours.
         let material = SCNMaterial()
-        let img = UIImage(named: "PlaneGrid")
+        var img = UIImage(named: "PlaneGrid")
+        if index == 1 {
+            img = UIImage(named: "PlaneGridLight")
+        }
         material.diffuse.contents = img
         self.planeGeometry!.materials = [material]
         
+        //Child Node
         let planeNode = SCNNode(geometry: planeGeometry!)
         planeNode.position = SCNVector3Make(anchor.center.x, anchor.center.y, anchor.center.z)
         
