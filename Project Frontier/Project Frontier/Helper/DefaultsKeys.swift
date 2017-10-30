@@ -10,4 +10,6 @@ import Foundation
 
 struct DefaultsKeys {
     static let key1_theme = "Theme"
+    static let key2_music = "Music"
+    static let key3_sound = "Sound"
 }

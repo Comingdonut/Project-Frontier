@@ -12,6 +12,8 @@ class OptionsController: UIViewController{
     
     @IBOutlet weak var themeControl: UISegmentedControl!
     @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var switchMusic: UISwitch!
+    @IBOutlet weak var switchSound: UISwitch!
     @IBOutlet weak var backButton: UIButton!
     
     private let defaults = UserDefaults.standard
@@ -23,6 +25,16 @@ class OptionsController: UIViewController{
         if index == 1 {
             background.image = UIImage(named: "DimBackgroundLight")
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+        }
+        let mOn = defaults.bool(forKey: DefaultsKeys.key2_music)
+        let sOn = defaults.bool(forKey: DefaultsKeys.key3_sound)
+        if !mOn {
+            switchMusic.isOn = mOn
+        }
+        if !sOn {
+            switchSound.isOn = sOn
         }
     }
     
@@ -36,14 +48,38 @@ class OptionsController: UIViewController{
             defaults.set(0, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackground")
             backButton.setBackgroundImage(UIImage(named: "ButtonBackground"), for: UIControlState.normal)
+            switchMusic.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
+            switchSound.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             break
         case 1:
             defaults.set(1, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackgroundLight")
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             break
         default:
             print("Error")
+        }
+    }
+    
+    @IBAction func musicSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key2_music)
+        if sender.isOn {
+            
+        }
+        else {
+            
+        }
+    }
+    
+    @IBAction func soundSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key3_sound)
+        if sender.isOn {
+            
+        }
+        else {
+            
         }
     }
     
