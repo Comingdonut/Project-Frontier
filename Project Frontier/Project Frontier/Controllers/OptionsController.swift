@@ -36,6 +36,7 @@ class OptionsController: UIViewController{
         if !sOn {
             switchSound.isOn = sOn
         }
+        print("Before: \(switchMusic.isOn)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,23 +65,21 @@ class OptionsController: UIViewController{
     }
     
     @IBAction func musicSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: DefaultsKeys.key2_music)
         if sender.isOn {
-            
+            AudioPlayer.pickSong("Future Discoveries", "mp3")
+            AudioPlayer.playMusic()
+            AudioPlayer.loopMusic()
+            defaults.set(true, forKey: DefaultsKeys.key2_music)
         }
         else {
-            
+            AudioPlayer.stopMusic()
+            defaults.set(false, forKey: DefaultsKeys.key2_music)
         }
+        print("After: \(switchMusic.isOn)")
     }
     
     @IBAction func soundSwitch(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: DefaultsKeys.key3_sound)
-        if sender.isOn {
-            
-        }
-        else {
-            
-        }
     }
     
 }

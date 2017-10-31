@@ -28,9 +28,13 @@ class MainMenuController: UIViewController{
             optionsButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             aboutButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
-        AudioPlayer.pickSong("Future Discoveries", "mp3")
-        AudioPlayer.playMusic()
-        AudioPlayer.loopMusic()
+        let musicOn = defaults.bool(forKey: DefaultsKeys.key2_music)
+        
+        if musicOn {
+            AudioPlayer.pickSong("Future Discoveries", "mp3")
+            AudioPlayer.playMusic()
+            AudioPlayer.loopMusic()
+        }
     }
     
     override func didReceiveMemoryWarning() {

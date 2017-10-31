@@ -27,6 +27,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	private var bulletsFrames: Float = 0.0
     private var isPlacingNodes: Bool = true
 	private var ableToShoot: Bool = true
+	private var soundOn: Bool = true
     private var configuration = ARWorldTrackingConfiguration()
     private var planes = [UUID: SurfacePlane]()
     private var objects: [ObjectNode] = []
@@ -35,12 +36,15 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		AudioPlayer.resetMusic()
-		AudioPlayer.pickSong("Midnight Sky", "mp3")
-		AudioPlayer.playMusic()
-		AudioPlayer.loopMusic()
-        
-        theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
+		let musicOn = defaults.bool(forKey: DefaultsKeys.key2_music)
+		if musicOn {
+			AudioPlayer.resetMusic()
+			AudioPlayer.pickSong("Midnight Sky", "mp3")
+			AudioPlayer.playMusic()
+			AudioPlayer.loopMusic()
+		}
+		
+		soundOn = defaults.bool(forKey: DefaultsKeys.key3_sound)
         
         if theme == 1 {
             resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
@@ -173,8 +177,11 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 					
 					let bulletDirection = self.getUserDirection()
 					bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
-					AudioPlayer.pickSound("Bullet_Fired", "wav")
-					AudioPlayer.playSound()
+					
+					if soundOn {
+						AudioPlayer.pickSound("Bullet_Fired", "wav")
+						AudioPlayer.playSound()
+					}
 					sceneView.scene.rootNode.addChildNode(bulletNode)
 					objects.append(bulletNode)
 				}
@@ -279,12 +286,15 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(Animation.explode(color: .white, geometry: contact.nodeA.geometry!))
-		AudioPlayer.pickSound("Bullet_Contact", "wav")
-		AudioPlayer.playSound()
+		
+		if soundOn {
+			AudioPlayer.pickSound("Bullet_Contact", "wav")
+			AudioPlayer.playSound()
+		}
 		
 		if searchNode(for: "Bullet", from: objects) {
 			contact.nodeB.removeFromParentNode()
-			objects.remove(at: getNodeIndex(from: objects, by: "Bullet")) // TODO: BulletNode exist remove it
+			objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
 		}
 		
 		checkForMenuStarContact(contact.nodeA)

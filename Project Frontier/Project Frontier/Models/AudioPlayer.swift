@@ -37,12 +37,16 @@ class AudioPlayer {
     }
     
     public static func resetMusic() {
-        music.stop()
+        music.pause()
         music.currentTime = 0
     }
     
     public static func loopMusic() {
         music.numberOfLoops = -1
+    }
+    
+    public static func stopMusic() {
+        music.stop()
     }
     
     public static func pickSound(_ fileName: String, _ fileType: String) {
