@@ -15,7 +15,7 @@ class HelpController: UIViewController{
     
     private let defaults = UserDefaults.standard
     
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
