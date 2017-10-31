@@ -41,7 +41,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			scopeImage.image = UIImage(named: "ScopeLight")
 		}
 		
-		let musicOn = defaults.bool(forKey: DefaultsKeys.key3_music)
+		let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
 		if musicOn {
 			AudioPlayer.resetMusic()
 			AudioPlayer.pickSong("Midnight Sky", "mp3")
@@ -49,7 +49,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			AudioPlayer.loopMusic()
 		}
 		
-		soundOn = defaults.bool(forKey: DefaultsKeys.key4_sound)
+		soundOn = defaults.bool(forKey: DefaultsKeys.key5_sound)
 		
         setupScene()
         setupRecognizers()

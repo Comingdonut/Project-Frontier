@@ -39,6 +39,11 @@ class StartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tOn = defaults.bool(forKey: DefaultsKeys.key3_tutorial)
+        if !tOn {
+            exitView()
+        }
+        
         let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
         if index == 1 {
             segmentedControl.tintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)

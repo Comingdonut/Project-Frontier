@@ -13,6 +13,7 @@ class OptionsController: UIViewController{
     @IBOutlet weak var themeControl: UISegmentedControl!
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var switchStatus: UISwitch!
+    @IBOutlet weak var switchTutorial: UISwitch!
     @IBOutlet weak var switchMusic: UISwitch!
     @IBOutlet weak var switchSound: UISwitch!
     @IBOutlet weak var backButton: UIButton!
@@ -26,15 +27,18 @@ class OptionsController: UIViewController{
         if index == 1 {
             background.image = UIImage(named: "DimBackgroundLight")
             switchStatus.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            switchTutorial.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
         
         let sbOn = defaults.bool(forKey: DefaultsKeys.key2_statusbar)
-        let mOn = defaults.bool(forKey: DefaultsKeys.key3_music)
-        let sOn = defaults.bool(forKey: DefaultsKeys.key4_sound)
+        let tOn = defaults.bool(forKey: DefaultsKeys.key3_tutorial)
+        let mOn = defaults.bool(forKey: DefaultsKeys.key4_music)
+        let sOn = defaults.bool(forKey: DefaultsKeys.key5_sound)
         switchStatus.isOn = sbOn
+        switchTutorial.isOn = tOn
         switchMusic.isOn = mOn
         switchSound.isOn = sOn
     }
@@ -49,6 +53,7 @@ class OptionsController: UIViewController{
             defaults.set(0, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackground")
             switchStatus.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
+            switchTutorial.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             backButton.setBackgroundImage(UIImage(named: "ButtonBackground"), for: UIControlState.normal)
@@ -57,6 +62,7 @@ class OptionsController: UIViewController{
             defaults.set(1, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackgroundLight")
             switchStatus.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            switchTutorial.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
@@ -75,8 +81,12 @@ class OptionsController: UIViewController{
         }
     }
     
+    @IBAction func tutorialSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key3_tutorial)
+    }
+    
     @IBAction func musicSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: DefaultsKeys.key3_music)
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key4_music)
         if sender.isOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()
@@ -88,6 +98,6 @@ class OptionsController: UIViewController{
     }
     
     @IBAction func soundSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: DefaultsKeys.key4_sound)
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key5_sound)
     }
 }

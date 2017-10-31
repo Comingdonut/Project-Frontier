@@ -36,7 +36,7 @@ class MainMenuController: UIViewController{
             })
         }
         
-        let musicOn = defaults.bool(forKey: DefaultsKeys.key3_music)
+        let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
         if musicOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()
