@@ -12,6 +12,7 @@ class OptionsController: UIViewController{
     
     @IBOutlet weak var themeControl: UISegmentedControl!
     @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var switchStatus: UISwitch!
     @IBOutlet weak var switchMusic: UISwitch!
     @IBOutlet weak var switchSound: UISwitch!
     @IBOutlet weak var backButton: UIButton!
@@ -24,19 +25,18 @@ class OptionsController: UIViewController{
         themeControl.selectedSegmentIndex = index
         if index == 1 {
             background.image = UIImage(named: "DimBackgroundLight")
-            backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            switchStatus.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
-        let mOn = defaults.bool(forKey: DefaultsKeys.key2_music)
-        let sOn = defaults.bool(forKey: DefaultsKeys.key3_sound)
-        if !mOn {
-            switchMusic.isOn = mOn
-        }
-        if !sOn {
-            switchSound.isOn = sOn
-        }
-        print("Before: \(switchMusic.isOn)")
+        
+        let sbOn = defaults.bool(forKey: DefaultsKeys.key2_statusbar)
+        let mOn = defaults.bool(forKey: DefaultsKeys.key3_music)
+        let sOn = defaults.bool(forKey: DefaultsKeys.key4_sound)
+        switchStatus.isOn = sbOn
+        switchMusic.isOn = mOn
+        switchSound.isOn = sOn
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,38 +48,46 @@ class OptionsController: UIViewController{
         case 0:
             defaults.set(0, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackground")
-            backButton.setBackgroundImage(UIImage(named: "ButtonBackground"), for: UIControlState.normal)
+            switchStatus.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.d_r, green: Theme.d_g, blue: Theme.d_b, alpha: Theme.a)
+            backButton.setBackgroundImage(UIImage(named: "ButtonBackground"), for: UIControlState.normal)
             break
         case 1:
             defaults.set(1, forKey: DefaultsKeys.key1_theme)
             background.image = UIImage(named: "DimBackgroundLight")
-            backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            switchStatus.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchMusic.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             switchSound.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
+            backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             break
         default:
             print("Error")
         }
     }
     
+    @IBAction func statusSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key2_statusbar)
+        if sender.isOn {
+            UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelNormal
+        } else {
+            UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
+        }
+    }
+    
     @IBAction func musicSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key3_music)
         if sender.isOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()
             AudioPlayer.loopMusic()
-            defaults.set(true, forKey: DefaultsKeys.key2_music)
         }
         else {
             AudioPlayer.stopMusic()
-            defaults.set(false, forKey: DefaultsKeys.key2_music)
         }
-        print("After: \(switchMusic.isOn)")
     }
     
     @IBAction func soundSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: DefaultsKeys.key3_sound)
+        defaults.set(sender.isOn, forKey: DefaultsKeys.key4_sound)
     }
-    
 }

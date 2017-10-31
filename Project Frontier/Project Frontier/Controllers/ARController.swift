@@ -36,7 +36,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		let musicOn = defaults.bool(forKey: DefaultsKeys.key2_music)
+		if theme == 1 {
+			resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
+			scopeImage.image = UIImage(named: "ScopeLight")
+		}
+		
+		let musicOn = defaults.bool(forKey: DefaultsKeys.key3_music)
 		if musicOn {
 			AudioPlayer.resetMusic()
 			AudioPlayer.pickSong("Midnight Sky", "mp3")
@@ -44,12 +49,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			AudioPlayer.loopMusic()
 		}
 		
-		soundOn = defaults.bool(forKey: DefaultsKeys.key3_sound)
-        
-        if theme == 1 {
-            resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
-            scopeImage.image = UIImage(named: "ScopeLight")
-        }
+		soundOn = defaults.bool(forKey: DefaultsKeys.key4_sound)
 		
         setupScene()
         setupRecognizers()

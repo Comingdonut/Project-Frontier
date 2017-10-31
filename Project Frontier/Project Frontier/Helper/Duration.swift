@@ -19,4 +19,5 @@ enum Duration: TimeInterval {
     case fast_fast = 3.0
     case light_slow = 2.0
     case light = 1.0
+    case light_speed = 0.1
 }

@@ -28,8 +28,15 @@ class MainMenuController: UIViewController{
             optionsButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             aboutButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
-        let musicOn = defaults.bool(forKey: DefaultsKeys.key2_music)
         
+        let statusOn = defaults.bool(forKey: DefaultsKeys.key2_statusbar)
+        if !statusOn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light_speed.rawValue, execute: {//Wait
+                UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
+            })
+        }
+        
+        let musicOn = defaults.bool(forKey: DefaultsKeys.key3_music)
         if musicOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()
