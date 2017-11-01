@@ -36,6 +36,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
 		if theme == 1 {
 			resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
 			scopeImage.image = UIImage(named: "ScopeLight")
@@ -260,6 +261,20 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		star.show()
 		star.animate()
 	}
+	
+	private func newWhiteDwarfStar(x: Float, y: Float, z: Float) {
+		let star: WhiteStar = WhiteStar()
+		
+		star.initSubject()
+		star.setObjectPositions(x, y, z)
+		
+		for obj in star.objects {
+			sceneView.scene.rootNode.addChildNode(obj)
+			objects.append(obj)
+		}
+		star.show()
+		star.animate()
+	}
     
     private func getUserDirection() -> SCNVector3 {
         if let frame = self.sceneView.session.currentFrame {
@@ -300,6 +315,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		checkForMenuStarContact(contact.nodeA)
 		checkForMenuBackContact(contact.nodeA)
 		checkForMenuYellowStarContact(contact.nodeA)
+		checkForMenuWhiteStarContact(contact.nodeA)
 		checkYellowStarContact(contact.nodeA)
     }
 	
@@ -387,6 +403,33 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				})
 			})
 		}
+	}
+	
+	private func checkForMenuWhiteStarContact(_ nodeA: SCNNode) {
+		let dispatchGroup = DispatchGroup()
+		
+		if nodeA.name == "White Dwarf" {
+			ableToShoot = false
+			dispatchGroup.enter()
+			for obj in objects {
+				Animation.disappear(obj, d: Duration.light)
+			}
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newWhiteDwarfStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+					self.ableToShoot = true
+				})
+			})
+		}
+		
 	}
 	
 	private func checkYellowStarContact(_ nodeA: SCNNode){
