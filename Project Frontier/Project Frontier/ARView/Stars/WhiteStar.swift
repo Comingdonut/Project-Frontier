@@ -37,7 +37,7 @@ class WhiteStar: Subject {
         if index == 1 {
             objects[1].setImage(to: "DialogBoxMediumLight")
         }
-        initObject(objects, 2, "Small Dwarf Star", 0.030, .sphere, texture: "whitedwarf")
+        initObject(objects, 2, "White Dwarf Star", 0.030, .sphere, texture: "whitedwarf")
         initObject(objects, 3, "Planet Helper", 0.010, .sphere, .clear)
         addChildrenNodes()
     }

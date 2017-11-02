@@ -44,7 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D1193DEC1F74B1C50037402F /* BulletParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BulletParticle.png; path = "Project Frontier/Resources/Assets.xcassets/Images/BulletParticle.imageset/BulletParticle.png"; sourceTree = SOURCE_ROOT; };
 		D11CA96C1FA790E400FDECC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteStar.swift; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 		D14D6F201F73006A00F34B16 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				D1193DEC1F74B1C50037402F /* BulletParticle.png */,
 				D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */,
 			);
 			path = Particles;
