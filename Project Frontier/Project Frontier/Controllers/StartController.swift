@@ -19,6 +19,7 @@ class StartController: UIViewController {
     @IBOutlet weak var viewTwo: UIView!
     @IBOutlet weak var viewThree: UIView!
     @IBOutlet weak var viewFour: UIView!
+    @IBOutlet weak var buttonView: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textSurface: UILabel!
     @IBOutlet weak var textLight: UILabel!
@@ -32,6 +33,7 @@ class StartController: UIViewController {
     @IBOutlet weak var continueLabel: UILabel!
     @IBOutlet weak var imageGrid: UIImageView!
     @IBOutlet weak var imageReset: UIImageView!
+    @IBOutlet weak var buttonClose: UIButton!
     
     var delegate: ContainerDelegateProtocol?
     private let defaults = UserDefaults.standard
@@ -41,7 +43,17 @@ class StartController: UIViewController {
         
         let tOn = defaults.bool(forKey: DefaultsKeys.key3_tutorial)
         if !tOn {
-            exitView()
+            DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light_speed.rawValue, execute: {//Wait
+                self.buttonClose.sendActions(for: .touchUpInside)
+            })
+        }
+        
+        let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
+        if musicOn {
+            AudioPlayer.resetMusic()
+            AudioPlayer.pickSong("Midnight Sky", "mp3")
+            AudioPlayer.playMusic()
+            AudioPlayer.loopMusic()
         }
         
         let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
@@ -68,6 +80,7 @@ class StartController: UIViewController {
     }
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
+        buttonView.isHidden = false
         let currentView = findCurrentView()
         switch sender.selectedSegmentIndex {
         case 0:
@@ -81,6 +94,7 @@ class StartController: UIViewController {
             break
         case 3:
             changeView(current: currentView, new: viewFour)
+            buttonView.isHidden = true
             break
         default:
             break
@@ -101,10 +115,10 @@ class StartController: UIViewController {
         case 2:
             changeView(current: currentView, new: viewFour)
             changeSelectedIndex(index: 3)
+            buttonView.isHidden = true
             break
-        case 3:
-            exitView()
-            break
+//        case 3:
+//            break
         default:
             break
         }
@@ -133,9 +147,5 @@ class StartController: UIViewController {
         if num >= 0 && num <= 3 {
             segmentedControl.selectedSegmentIndex = num
         }
-    }
-    
-    private func exitView(){
-        delegate?.close()
     }
 }

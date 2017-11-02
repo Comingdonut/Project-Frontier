@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cya-oo-3F5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cya-oo-3F5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -475,7 +475,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IyX-gc-yOg" kind="presentation" modalTransitionStyle="flipHorizontal" id="rUH-da-9dC"/>
+                                    <segue destination="2JK-Oe-m9c" kind="presentation" modalTransitionStyle="flipHorizontal" id="C17-zt-AxO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK9-iu-ln5" userLabel="Button Back">
@@ -550,13 +550,6 @@
                                 <rect key="frame" x="128" y="252" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SN6-38-iVs" userLabel="Getting Started Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="2JK-Oe-m9c" kind="embed" id="2w4-eh-mlH"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -572,12 +565,11 @@
                         <outlet property="resetButton" destination="eY0-ir-hhp" id="9vi-qp-DW7"/>
                         <outlet property="sceneView" destination="oVh-6k-ta9" id="u96-gL-wl0"/>
                         <outlet property="scopeImage" destination="L6L-Q5-RUC" id="Fqd-e1-PRq"/>
-                        <outlet property="startContainer" destination="SN6-38-iVs" id="pq3-eQ-t6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahj-PL-byd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.625" y="92.957746478873247"/>
+            <point key="canvasLocation" x="1644" y="93"/>
         </scene>
         <!--Start Controller-->
         <scene sceneID="mpW-36-G2W">
@@ -738,6 +730,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdC-8w-RaC">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="466"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <segue destination="IyX-gc-yOg" kind="presentation" modalTransitionStyle="crossDissolve" id="gMa-Ys-sBV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -753,6 +752,8 @@
                         <viewLayoutGuide key="safeArea" id="VN4-dz-TSW"/>
                     </view>
                     <connections>
+                        <outlet property="buttonClose" destination="KdC-8w-RaC" id="Tef-Fp-fBu"/>
+                        <outlet property="buttonView" destination="7Yz-s8-iCW" id="nQk-OX-nL0"/>
                         <outlet property="continueLabel" destination="qe7-f4-yRH" id="Nt3-oC-em3"/>
                         <outlet property="imageGrid" destination="V8U-S3-0AW" id="7gQ-Lf-8o0"/>
                         <outlet property="imageReset" destination="ngg-B1-s5B" id="GEd-fk-tiB"/>
@@ -775,7 +776,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWg-xo-Sad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638.75" y="92.957746478873247"/>
+            <point key="canvasLocation" x="808" y="93"/>
         </scene>
     </scenes>
     <resources>
@@ -795,7 +796,7 @@
         <image name="TextureExample" width="125" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8gd-KM-gdA"/>
-        <segue reference="Src-dw-F6L"/>
+        <segue reference="3fP-2r-61p"/>
+        <segue reference="tzJ-AZ-ygO"/>
     </inferredMetricsTieBreakers>
 </document>

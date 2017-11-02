@@ -10,13 +10,12 @@ import UIKit
 import ARKit
 import SceneKit
 
-class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate, UIGestureRecognizerDelegate, ContainerDelegateProtocol {
+class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scopeImage: UIImageView!
-    @IBOutlet weak var startContainer: UIView!
     
     private let ARPlaneDetectionNone: UInt = 0
 	private let framesPerSecond: Float = 60.0
@@ -41,14 +40,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if theme == 1 {
 			resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
 			scopeImage.image = UIImage(named: "ScopeLight")
-		}
-		
-		let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
-		if musicOn {
-			AudioPlayer.resetMusic()
-			AudioPlayer.pickSong("Midnight Sky", "mp3")
-			AudioPlayer.playMusic()
-			AudioPlayer.loopMusic()
 		}
 		
 		soundOn = defaults.bool(forKey: DefaultsKeys.key5_sound)
@@ -650,17 +641,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 		}
 	}
-    
-    // MARK: - Delegate Protocols
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //Check for the right segue by name
-        (segue.destination as! StartController).delegate = self
-    }
-    
-    func close() {
-        startContainer.isHidden = true
-    }
     
     // MARK: - Button Outlets
     
