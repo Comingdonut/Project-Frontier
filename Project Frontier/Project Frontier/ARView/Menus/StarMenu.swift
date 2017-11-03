@@ -15,7 +15,7 @@ class StarMenu: Menu {
     var options: [ObjectNode]
     
     required init() {
-        size = 13
+        size = 15
         options = []
     }
     
@@ -30,15 +30,17 @@ class StarMenu: Menu {
         initOption(2, "Blue Star", .sphere, "bluestar")
         initOption(3, "White Dwarf", .sphere, "whitedwarf")
         initOption(4, "Black Dwarf", .sphere, .black)
-        initOption(5, "Back", .pyramid, .orange)
-        options[6].setDimension(to: 0.030)
-        initOption(6, "Choose a Subject", .text, .white)
-        initOption(7, "Yellow Star", .text, .white)
-        initOption(8, "Red Star", .text, .white)
-        initOption(9, "Blue Star", .text, .white)
-        initOption(10, "White Dwarf", .text, .white)
-        initOption(11, "Black Dwarf", .text, .white)
-        initOption(12, "Back", .text, .white)
+        initOption(5, "Brown Dwarf", .sphere, "browndwarf")
+        initOption(6, "Back", .pyramid, .orange)
+        options[7].setDimension(to: 0.030)
+        initOption(7, "Choose a Subject", .text, .white)
+        initOption(8, "Yellow Star", .text, .white)
+        initOption(9, "Red Star", .text, .white)
+        initOption(10, "Blue Star", .text, .white)
+        initOption(11, "White Dwarf", .text, .white)
+        initOption(12, "Black Dwarf", .text, .white)
+        initOption(13, "Brown Dwarf", .text, .white)
+        initOption(14, "Back", .text, .white)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {
@@ -57,20 +59,24 @@ class StarMenu: Menu {
         let textYOffSet: Float = 0.40
         let textZOffSet: Float = 0.06
         let offSet: Float = 0.15
+        let offBSet: Float = 0.23
+        let offB2Set: Float = 0.08
         let none: Float = 0.0
-        options[0].setPosition(x, y, z, none, offSet, none)
+        options[0].setPosition(x, y, z, none, offSet, none) //Front
         options[1].setPosition(x, y, z, offSet, offSet, none)
         options[2].setPosition(x, y, z, -offSet, offSet, none)
-        options[3].setPosition(x, y, z, none, offSet, -offSet)
-        options[4].setPosition(x, y, z, offSet, offSet, -offSet)
-        options[5].setPosition(x, y, z, -offSet, offSet, -offSet)
-        options[6].setPosition(x, y, z, none, textYOffSet, none)
-        options[7].setPosition(x, y, z, none, offSet, none+textZOffSet)
-        options[8].setPosition(x, y, z, offSet, offSet, none+textZOffSet)
-        options[9].setPosition(x, y, z, -offSet, offSet, none+textZOffSet)
-        options[10].setPosition(x, y, z, none, offSet, -offSet+textZOffSet)
-        options[11].setPosition(x, y, z, offSet, offSet, -offSet+textZOffSet)
-        options[12].setPosition(x, y, z, -offSet, offSet, -offSet+textZOffSet)
+        options[3].setPosition(x, y, z, -offB2Set, offSet, -offSet)//Back
+        options[4].setPosition(x, y, z, offB2Set, offSet, -offSet)
+        options[5].setPosition(x, y, z, offBSet, offSet, -offSet)
+        options[6].setPosition(x, y, z, -offBSet, offSet, -offSet)
+        options[7].setPosition(x, y, z, none, textYOffSet, none)//Text
+        options[8].setPosition(x, y, z, none, offSet, none+textZOffSet)//Front Text
+        options[9].setPosition(x, y, z, offSet, offSet, none+textZOffSet)
+        options[10].setPosition(x, y, z, -offSet, offSet, none+textZOffSet)
+        options[11].setPosition(x, y, z, -offB2Set, offSet, -offSet+textZOffSet)//Back Text
+        options[12].setPosition(x, y, z, offB2Set, offSet, -offSet+textZOffSet)
+        options[13].setPosition(x, y, z, offBSet, offSet, -offSet+textZOffSet)
+        options[14].setPosition(x, y, z, -offBSet, offSet, -offSet+textZOffSet)
     }
     
     func show() {
@@ -81,6 +87,8 @@ class StarMenu: Menu {
         Animation.infiniteRotate(options[1], x: 0, y: 1, z: 0, d: Duration.fast)
         Animation.infiniteRotate(options[2], x: 0, y: 1, z: 0, d: Duration.slow)
         Animation.infiniteRotate(options[3], x: 0, y: 1, z: 0, d: Duration.light)
-        Animation.spin(options[5], x: 0, y: 0, z: 1.55, d: Duration.light)
+        Animation.infiniteRotate(options[5], x: 0, y: 1, z: 0, d: Duration.medium_fast)
+        Animation.spin(options[6], x: 0, y: 0, z: 1.55, d: Duration.light)
     }
 }
+
