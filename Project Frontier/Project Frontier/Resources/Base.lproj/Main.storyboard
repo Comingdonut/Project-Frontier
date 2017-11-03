@@ -550,6 +550,12 @@
                                 <rect key="frame" x="128" y="252" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uam-h8-act">
+                                <rect key="frame" x="85" y="469" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="progressTintColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -562,6 +568,7 @@
                     </view>
                     <connections>
                         <outlet property="plusButton" destination="uwv-3l-HVI" id="DCV-KI-wIf"/>
+                        <outlet property="progressBar" destination="uam-h8-act" id="Lwu-Gs-wH7"/>
                         <outlet property="resetButton" destination="eY0-ir-hhp" id="9vi-qp-DW7"/>
                         <outlet property="sceneView" destination="oVh-6k-ta9" id="u96-gL-wl0"/>
                         <outlet property="scopeImage" destination="L6L-Q5-RUC" id="Fqd-e1-PRq"/>

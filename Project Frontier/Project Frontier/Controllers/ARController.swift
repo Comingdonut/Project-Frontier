@@ -16,6 +16,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scopeImage: UIImageView!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     private let ARPlaneDetectionNone: UInt = 0
 	private let framesPerSecond: Float = 60.0
@@ -32,6 +33,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     private var objects: [ObjectNode] = []
 	private var sunFacts: [ObjectNode] = []
 	private var wDwarfFacts: [ObjectNode] = []
+    private var counter: Int = 0 {
+        didSet {
+            let fractionalProgress = Float(counter) / 100.0
+            let animated = counter != 0
+            progressBar.setProgress(fractionalProgress, animated: animated)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +48,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if theme == 1 {
 			resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
 			scopeImage.image = UIImage(named: "ScopeLight")
+            progressBar.progressTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
 		}
 		
+        setupProgressBar()
+        
 		soundOn = defaults.bool(forKey: DefaultsKeys.key5_sound)
-		
+        
         setupScene()
         setupRecognizers()
         // Stops screen from dimmming if the application is runnning
@@ -113,6 +124,24 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func setupProgressBar() {
+        progressBar.isHidden = false
+        progressBar.setProgress(0, animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+            self.counter = 0
+            for _ in 0..<100 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+                    self.counter+=1
+                    return
+                })
+            }
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Duration.fast.rawValue, execute: {//Wait
+            self.progressBar.isHidden = true
+        })
     }
 	
 	private func setupSunFacts() {
@@ -654,6 +683,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		objects = []
 		sceneView.session.run(configuration, options: .removeExistingAnchors)
 		sceneView.session.run(configuration, options: .resetTracking)
+        setupProgressBar()
     }
     
     @IBAction func initModels(_ sender: Any) {
