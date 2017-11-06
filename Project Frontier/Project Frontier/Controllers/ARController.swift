@@ -17,6 +17,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scopeImage: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var imageDetail: UIImageView!
     
     private let ARPlaneDetectionNone: UInt = 0
 	private let framesPerSecond: Float = 60.0
@@ -148,10 +149,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		let starText: [String] = ["Yellow stars are a medium sized star.",
 								  "They are three different colors:",
 								  "Yellow-White, Yellow, and Yellow-Orange",
-								  "Yellow stars are 5,840 to 13,040 degrees fahrenheit.",
-								  "Yellow stars will live up to about 10 billion years.",
+								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
+								  "Yellow stars will live about 10 billion years.",
 								  "When a yellow star starts dying it grows into a Giant Star.",
-								  "It will grow big enough to consume earth and burn Mars.",
 								  "It will shrink and become a white dwarf star.",
 								  "While shrinking, it will leave behind a lot of gas.",
 								  "The gas will form a cloud.",
@@ -203,28 +203,34 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			
 			initAR()
         } else {
-			if ableToShoot {
-				if !searchNode(for: "Bullet", from: objects) {
-					let dimensions: Float = 0.010
-					let bulletNode = ObjectNode(dimensions, true)
-					bulletNode.setName(to: "Bullet")
-					bulletNode.setShape(.sphere)
-					bulletNode.setColor(.white)
-					bulletNode.setPosition(
-						(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
-						(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
-						(sceneView.session.currentFrame?.camera.transform.columns.3.z)!, 0, 0, 0)
-					
-					let bulletDirection = self.getUserDirection()
-					bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
-					
-					if soundOn {
-						AudioPlayer.pickSound("Bullet_Fired", "wav")
-						AudioPlayer.playSound()
+			if imageDetail.isHidden {
+				if ableToShoot {
+					if !searchNode(for: "Bullet", from: objects) {
+						let dimensions: Float = 0.010
+						let bulletNode = ObjectNode(dimensions, true)
+						bulletNode.setName(to: "Bullet")
+						bulletNode.setShape(.sphere)
+						bulletNode.setColor(.white)
+						bulletNode.setPosition(
+							(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
+							(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
+							(sceneView.session.currentFrame?.camera.transform.columns.3.z)!, 0, 0, 0)
+						
+						let bulletDirection = self.getUserDirection()
+						bulletNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+						
+						if soundOn {
+							AudioPlayer.pickSound("Bullet_Fired", "wav")
+							AudioPlayer.playSound()
+						}
+						sceneView.scene.rootNode.addChildNode(bulletNode)
+						objects.append(bulletNode)
 					}
-					sceneView.scene.rootNode.addChildNode(bulletNode)
-					objects.append(bulletNode)
 				}
+			}
+			else {
+				imageDetail.isHidden = true
+				resetButton.isEnabled = true
 			}
         }
     }
@@ -356,6 +362,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		checkForMenuYellowStarContact(contact.nodeA)
 		checkWhiteDwarfContact(contact.nodeA)
 		checkYellowStarContact(contact.nodeA)
+		checkForPlanets(contact.nodeA)
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
@@ -545,6 +552,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		if nodeA.name == "Medium Star" {
 			if starIndex != sunFacts.count {
+				ableToShoot = false
 				if searchNode(for: "Info Panel", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
@@ -578,7 +586,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				Animation.scale(sunFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
-				//sunFacts[index].followCamera(sceneView.scene.rootNode)
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					self.ableToShoot = true
+				})
 			}
 			else {
 				let dispatchGroup = DispatchGroup()
@@ -605,6 +615,45 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				})
 			}
 		}
+	}
+	
+	private func checkForPlanets(_ nodeA: SCNNode) { // TODO: Refactor
+		DispatchQueue.main.async{
+			switch nodeA.name {
+			case "Mercury"?:
+				self.setBonusDetail("MercuryDetail")
+				break
+			case "Venus"?:
+				self.setBonusDetail("VenusDetail")
+				break
+			case "Earth"?:
+				self.setBonusDetail("EarthDetail")
+				break
+			case "Mars"?:
+				self.setBonusDetail("MarsDetail")
+				break
+			case "Jupiter"?:
+				self.setBonusDetail("JupiterDetail")
+				break
+			case "Saturn"?:
+				self.setBonusDetail("SaturnDetail")
+				break
+			case "Uranus"?:
+				self.setBonusDetail("UranusDetail")
+				break
+			case "Neptune"?:
+				self.setBonusDetail("NeptuneDetail")
+				break
+			default:
+				break
+			}
+		}
+	}
+	
+	private func setBonusDetail(_ detail: String) {
+		self.resetButton.isEnabled = false
+		self.imageDetail.isHidden = false
+		self.imageDetail.image = UIImage(named: detail)
 	}
 
     // MARK: - ARSCNViewDelegate
