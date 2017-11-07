@@ -13,6 +13,7 @@ class SelectModeController: UIViewController{
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var buttonSmall: UIButton!
     @IBOutlet weak var buttonMedium: UIButton!
+    @IBOutlet weak var buttonLarge: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     
@@ -27,6 +28,7 @@ class SelectModeController: UIViewController{
             background.image = UIImage(named: "BackgroundLight")
             buttonSmall.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             buttonMedium.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
+            buttonLarge.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             infoButton.setBackgroundImage(UIImage(named: "SmallButtonBackgroundLight"), for: UIControlState.normal)
         }

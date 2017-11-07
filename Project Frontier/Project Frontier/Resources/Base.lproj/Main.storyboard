@@ -295,17 +295,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-Jv-VXc" userLabel="Single Tap Button">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restoreView:" destination="ZgP-xr-24X" eventType="touchUpInside" id="6pq-5n-n2m"/>
-                                    <segue destination="ZgP-xr-24X" kind="presentation" modalTransitionStyle="crossDissolve" id="8gd-KM-gdA"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Small: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bj-Ea-XEt" userLabel="Term Small">
                                 <rect key="frame" x="36" y="84" width="60" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -348,6 +337,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-Jv-VXc" userLabel="Single Tap Button">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restoreView:" destination="ZgP-xr-24X" eventType="touchUpInside" id="6pq-5n-n2m"/>
+                                    <segue destination="ZgP-xr-24X" kind="presentation" modalTransitionStyle="crossDissolve" id="8gd-KM-gdA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="xTb-IV-v2M"/>
@@ -537,6 +537,7 @@
                     <connections>
                         <outlet property="backButton" destination="KK9-iu-ln5" id="Ssx-Da-FEG"/>
                         <outlet property="background" destination="Dgm-Gt-t6K" id="R0r-ge-zeH"/>
+                        <outlet property="buttonLarge" destination="bw0-gj-ZZ5" id="yl4-Ng-18m"/>
                         <outlet property="buttonMedium" destination="6hM-Pc-P2L" id="kjg-Xh-X4b"/>
                         <outlet property="buttonSmall" destination="eBV-1P-x7M" id="KtW-Iq-6wh"/>
                         <outlet property="infoButton" destination="xm4-ap-30t" id="C0a-JS-UUg"/>
@@ -834,12 +835,13 @@
         <image name="PlaneGrid" width="256" height="256"/>
         <image name="Plus" width="64" height="64"/>
         <image name="Refresh" width="64" height="64"/>
-        <image name="Scope" width="45" height="45"/>
+        <image name="Scope" width="90" height="90"/>
         <image name="SmallButtonBackground" width="45" height="45"/>
         <image name="SurfaceExample" width="125" height="64"/>
         <image name="TextureExample" width="125" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Oj-Y6-b4D"/>
         <segue reference="8gd-KM-gdA"/>
         <segue reference="tzJ-AZ-ygO"/>
     </inferredMetricsTieBreakers>
