@@ -483,6 +483,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		if nodeA.name == "White Dwarf Star" {
 			if starIndex != wDwarfFacts.count {
+				ableToShoot = false
 				if searchNode(for: "Info Panel", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
@@ -517,7 +518,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				Animation.scale(wDwarfFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
-				//sunFacts[index].followCamera(sceneView.scene.rootNode)
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					self.ableToShoot = true
+				})
 			}
 			else {
 				let dispatchGroup = DispatchGroup()

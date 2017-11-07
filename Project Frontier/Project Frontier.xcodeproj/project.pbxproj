@@ -10,6 +10,7 @@
 		D11CA96D1FA790E400FDECC5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11CA96C1FA790E400FDECC5 /* Theme.swift */; };
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
 		D128DE9C1FA942A9000BFB25 /* WhiteStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */; };
+		D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = D12939F91FB13F19001B6BED /* BulletParticle.png */; };
 		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
 		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
 		D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D6F1E1F72C5FF00F34B16 /* Animation.swift */; };
@@ -47,6 +48,7 @@
 		D11CA96C1FA790E400FDECC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteStar.swift; sourceTree = "<group>"; };
+		D12939F91FB13F19001B6BED /* BulletParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BulletParticle.png; path = "Project Frontier/Resources/Assets.xcassets/Particle/BulletParticle.imageset/BulletParticle.png"; sourceTree = SOURCE_ROOT; };
 		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
 		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		D14D6F1E1F72C5FF00F34B16 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		D14D6F201F73006A00F34B16 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				D12939F91FB13F19001B6BED /* BulletParticle.png */,
 				D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */,
 			);
 			path = Particles;
@@ -199,7 +202,6 @@
 		D1DFA9491F5B9CC200B0E4D9 /* Project Frontier */ = {
 			isa = PBXGroup;
 			children = (
-				D14D6F201F73006A00F34B16 /* Particles */,
 				D1A2D1FD1F6F704000F5677F /* Helper */,
 				D1A2D9701F6097F6004C1162 /* Models */,
 				D1DFA9581F5B9CC200B0E4D9 /* Info.plist */,
@@ -213,6 +215,7 @@
 		D1E107D41F5E241A008FC721 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D14D6F201F73006A00F34B16 /* Particles */,
 				D191124B1F79DAA900806D9C /* Audio */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
 				D1DFA9551F5B9CC200B0E4D9 /* LaunchScreen.storyboard */,
@@ -301,6 +304,7 @@
 				D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */,
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
+				D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
 				D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */,
