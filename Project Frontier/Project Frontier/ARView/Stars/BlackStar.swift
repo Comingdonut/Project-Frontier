@@ -1,15 +1,15 @@
 //
-//  WhiteStar.swift
+//  BlackStar.swift
 //  Project Frontier
 //
-//  Created by James Castrejon on 10/31/17.
+//  Created by James Castrejon on 11/6/17.
 //  Copyright © 2017 James Castrejon. All rights reserved.
 //
 
 import Foundation
 import SceneKit
 
-class WhiteStar: Subject {
+class BlackStar: Subject {
     
     private let defaults = UserDefaults.standard
     
@@ -17,7 +17,7 @@ class WhiteStar: Subject {
     var objects: [ObjectNode]
     
     required init() {
-        size = 4
+        size = 3
         objects = []
     }
     
@@ -32,14 +32,12 @@ class WhiteStar: Subject {
         
         objects[0].useNameForText = false
         objects[0].customText = "Shoot Me!"
-        initObject(objects, 0, "Info Text" ,0.001, .text, .white)
+        initObject(objects, 0, "Info Text", 0.001, .text, .white)
         initObject(objects, 1, "Info Panel", 0.001, .plane, image: "DialogBoxMedium")
         if index == 1 {
             objects[1].setImage(to: "DialogBoxMediumLight")
         }
-        initObject(objects, 2, "White Dwarf Star", 0.030, .sphere, texture: "whitedwarf")
-        initObject(objects, 3, "Planet Helper", 0.010, .sphere, .clear)
-        addChildrenNodes()
+        initObject(objects, 2, "Black Dwarf Star", 0.030, .sphere, .black)
     }
     
     func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -70,20 +68,6 @@ class WhiteStar: Subject {
         objects[index].setImage(to: image)
     }
     
-    private func addChildrenNodes() {
-        let node = ObjectNode()
-        node.setName(to: "Planet")
-        node.setDimension(to: 0.010)
-        node.setShape(.sphere)
-        node.setTexture(to: "planet")
-        
-        let distance: Float = 0.078
-        let none: Float = 0.0
-        node.setPosition(none, none, none, none, none, distance*node.multiplier)
-        
-        objects[3].addChildNode(node)
-    }
-    
     func setObjectPositions(_ x: Float, _ y: Float, _ z: Float) {
         let distance: Float = 0.030
         let offSet: Float = 0.20
@@ -105,8 +89,6 @@ class WhiteStar: Subject {
     func animate() {
         Animation.scale(objects[0], to: 0.030, d: Duration.light)
         Animation.scale(objects[1], to: 3.0, d: Duration.light)
-        Animation.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.light)
-        Animation.infiniteRotate(objects[3], x: 0, y: -1, z: 0, d: Duration.fast_fast)
-        Animation.infiniteRotate((objects[3].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.fast_slow)
     }
+    
 }
