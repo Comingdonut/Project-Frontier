@@ -149,7 +149,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	private func setupWDwarfFacts() {
 		let starText: [String] = ["White Dwarf Stars are dead stars.",
 								  "They use to be Red Dwarf Stars or Yellow Stars.",
-								  "White Dwarf Stars are smaller than Red Dwarf Stars.",
+								  "White Dwarf Stars are tinier than Red Dwarf Stars.",
 								  "And bigger than Brown Dwarf Stars.",
 								  "White Dwarf Stars are slowly cooling down.",
 								  "After billions or trillions of years they will stop glowing.",
@@ -166,7 +166,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func setupBDwarfFacts() {
 		let starText: [String] = ["Black Dwarf Stars are dead stars.",
-								  "They use to be white dwarf stars."]
+								  "They use to be White Dwarf Stars.",
+								  "White Dwarf Stars will run out of fuel.",
+								  "They will become darker and darker.",
+								  "Until there is no more fuel to burn.",
+								  "They then become Black Dwarf Stars",
+								  "White Dwarf Stars take a long time to run out of fuel.",
+								  "Currently, there are no Black Dwarf Stars."]
 		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
@@ -183,7 +189,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 								  "Yellow-White, Yellow, and Yellow-Orange",
 								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
 								  "Yellow stars will live about 10 billion years.",
-								  "When a yellow star starts dying it grows into a Giant Star.",
+								  "A dieing Yellow star starts to grow into a Giant Star.",
 								  "It will shrink and become a white dwarf star.",
 								  "While shrinking, it will leave behind a lot of gas.",
 								  "The gas will form a cloud.",
@@ -548,7 +554,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				}
 				let none: Float = 0.0
 				let size: Float = 0.001
-				let sizeToScale: Float = 100.0
+				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
 				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
@@ -596,7 +602,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						}
 						self.starIndex = 0
 						self.wDwarfFacts = []
-						self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
 						self.ableToShoot = true
 					})
@@ -620,7 +626,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				}
 				let none: Float = 0.0
 				let size: Float = 0.001
-				let sizeToScale: Float = 100.0
+				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
 				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
@@ -668,7 +674,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						}
 						self.starIndex = 0
 						self.bDwarfFacts = []
-						self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
 						self.ableToShoot = true
 					})
@@ -692,7 +698,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				}
 				let none: Float = 0.0
 				let size: Float = 0.001
-				let sizeToScale: Float = 100.0
+				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
 				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
@@ -739,7 +745,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						}
 						self.starIndex = 0
 						self.sunFacts = []
-						self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
 						self.ableToShoot = true
 					})

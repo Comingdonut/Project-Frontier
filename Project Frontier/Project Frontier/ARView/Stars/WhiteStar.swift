@@ -33,7 +33,7 @@ class WhiteStar: Subject {
         objects[0].useNameForText = false
         objects[0].customText = "Shoot Me!"
         initObject(objects, 0, "Info Text" ,0.001, .text, .white)
-        initObject(objects, 1, "Info Panel", 0.001, .plane, image: "DialogBoxMedium")
+        initObject(objects, 1, "Info Panel", 0.030, .plane, image: "DialogBoxMedium")
         if index == 1 {
             objects[1].setImage(to: "DialogBoxMediumLight")
         }
