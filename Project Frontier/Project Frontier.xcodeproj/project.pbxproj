@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D11CA96D1FA790E400FDECC5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11CA96C1FA790E400FDECC5 /* Theme.swift */; };
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
+		D12593001FB28B4700FA6D14 /* BrownStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12592FF1FB28B4700FA6D14 /* BrownStar.swift */; };
 		D128DE9C1FA942A9000BFB25 /* WhiteStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */; };
 		D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = D12939F91FB13F19001B6BED /* BulletParticle.png */; };
 		D12939FC1FB16453001B6BED /* BlackStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12939FB1FB16453001B6BED /* BlackStar.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		D11CA96C1FA790E400FDECC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		D12592FF1FB28B4700FA6D14 /* BrownStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownStar.swift; sourceTree = "<group>"; };
 		D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteStar.swift; sourceTree = "<group>"; };
 		D12939F91FB13F19001B6BED /* BulletParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BulletParticle.png; path = "Project Frontier/Resources/Assets.xcassets/Particle/BulletParticle.imageset/BulletParticle.png"; sourceTree = SOURCE_ROOT; };
 		D12939FB1FB16453001B6BED /* BlackStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackStar.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				D1F3F0E21F7C3BD60082B4A9 /* YellowStar.swift */,
 				D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */,
 				D12939FB1FB16453001B6BED /* BlackStar.swift */,
+				D12592FF1FB28B4700FA6D14 /* BrownStar.swift */,
 			);
 			path = Stars;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				D1F3F0E31F7C3BD60082B4A9 /* YellowStar.swift in Sources */,
 				D11CA96D1FA790E400FDECC5 /* Theme.swift in Sources */,
 				D17B91581F68437900BB533E /* StartController.swift in Sources */,
+				D12593001FB28B4700FA6D14 /* BrownStar.swift in Sources */,
 				D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D17F10F21F6F0398006800C7 /* ARMenu.swift in Sources */,

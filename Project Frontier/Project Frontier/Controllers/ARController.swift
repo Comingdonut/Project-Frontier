@@ -35,6 +35,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	private var sunFacts: [ObjectNode] = []
 	private var wDwarfFacts: [ObjectNode] = []
 	private var bDwarfFacts: [ObjectNode] = []
+	private var brDwarfFacts: [ObjectNode] = []
+	
     private var counter: Int = 0 {
         didSet {
             let fractionalProgress = Float(counter) / 100.0
@@ -146,6 +148,26 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         })
     }
 	
+	private func setupSunFacts() {
+		let starText: [String] = ["Yellow stars are a medium sized star.",
+								  "They are three different colors:",
+								  "Yellow-White, Yellow, and Yellow-Orange",
+								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
+								  "Yellow stars will live about 10 billion years.",
+								  "A dieing Yellow star starts to grow into a Giant Star.",
+								  "It will shrink and become a white dwarf star.",
+								  "While shrinking, it will leave behind a lot of gas.",
+								  "The gas will form a cloud.",
+								  "This cloud is called: Planetary Nebula."]
+		for x in stride(from: 0, to: starText.count, by: 1) {
+			let node = ObjectNode(0.001, false, starText[x])
+			node.setName(to: "Info Text")
+			node.setShape(.text)
+			node.setColor(.white)
+			sunFacts.append(node)
+		}
+	}
+	
 	private func setupWDwarfFacts() {
 		let starText: [String] = ["White Dwarf Stars are dead stars.",
 								  "They use to be Red Dwarf Stars or Yellow Stars.",
@@ -183,23 +205,21 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	private func setupSunFacts() {
-		let starText: [String] = ["Yellow stars are a medium sized star.",
-								  "They are three different colors:",
-								  "Yellow-White, Yellow, and Yellow-Orange",
-								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
-								  "Yellow stars will live about 10 billion years.",
-								  "A dieing Yellow star starts to grow into a Giant Star.",
-								  "It will shrink and become a white dwarf star.",
-								  "While shrinking, it will leave behind a lot of gas.",
-								  "The gas will form a cloud.",
-								  "This cloud is called: Planetary Nebula."]
+	private func setupBrDwarfFacts() {
+		let starText: [String] = ["Brown Dwarf Stars are failed stars.",
+								  "They are smaller than stars.",
+								  "And they are bigger than a planet.",
+								  "Brown Dwarf Stars are born like a star.",
+								  "But they can't produce starlight.",
+								  "They can orbit a actual star.",
+								  "And they can have a planet orbit them."]
+		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
 			node.setColor(.white)
-			sunFacts.append(node)
+			brDwarfFacts.append(node)
 		}
 	}
     
@@ -313,6 +333,20 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		starMenu.show()
 	}
 	
+	private func newYellowStar(x: Float, y: Float, z: Float) {
+		let star: YellowStar = YellowStar()
+		
+		star.initSubject()
+		star.setObjectPositions(x, y, z)
+		
+		for x in stride(from: 0, to: star.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(star.objects[x])
+			objects.append(star.objects[x])
+		}
+		star.show()
+		star.animate()
+	}
+	
 	private func newWhiteDwarfStar(x: Float, y: Float, z: Float) {
 		let star: WhiteStar = WhiteStar()
 		
@@ -341,20 +375,20 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		star.animate()
 	}
 	
-	private func newYellowStar(x: Float, y: Float, z: Float) {
-		let star: YellowStar = YellowStar()
+	private func newBrownDwarfStar(x: Float, y: Float, z: Float) {
+		let star: BrownStar = BrownStar()
 		
 		star.initSubject()
 		star.setObjectPositions(x, y, z)
 		
-		for x in stride(from: 0, to: star.size, by: 1) {
-			sceneView.scene.rootNode.addChildNode(star.objects[x])
-			objects.append(star.objects[x])
+		for obj in star.objects {
+			sceneView.scene.rootNode.addChildNode(obj)
+			objects.append(obj)
 		}
 		star.show()
 		star.animate()
 	}
-    
+	
     private func getUserDirection() -> SCNVector3 {
         if let frame = self.sceneView.session.currentFrame {
             let mat = SCNMatrix4(frame.camera.transform)
@@ -392,12 +426,14 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		
 		checkForMenuStarContact(contact.nodeA)
 		checkForMenuBackContact(contact.nodeA)
+		checkForMenuYellowStarContact(contact.nodeA)
 		checkForMenuWhiteStarContact(contact.nodeA)
 		checkForMenuBlackStarContact(contact.nodeA)
-		checkForMenuYellowStarContact(contact.nodeA)
+		checkForMenuBrownStarContact(contact.nodeA)
+		checkYellowStarContact(contact.nodeA)
 		checkWhiteDwarfContact(contact.nodeA)
 		checkBlackDwarfContact(contact.nodeA)
-		checkYellowStarContact(contact.nodeA)
+		checkBrownDwarfContact(contact.nodeA)
 		checkForPlanets(contact.nodeA)
     }
 	
@@ -461,6 +497,32 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
+	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Yellow Star" {
+			let dispatchGroup = DispatchGroup()
+			
+			ableToShoot = false
+			dispatchGroup.enter()
+			for obj in objects {
+				Animation.disappear(obj, d: Duration.light)
+			}
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+					self.ableToShoot = true
+				})
+			})
+		}
+	}
+	
 	private func checkForMenuWhiteStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "White Dwarf" {
 			let dispatchGroup = DispatchGroup()
@@ -513,8 +575,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
-		if nodeA.name == "Yellow Star" {
+	private func checkForMenuBrownStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Brown Dwarf" {
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -524,18 +586,89 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			}
 			dispatchGroup.leave()
 			
-			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
-				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
 					
 					for obj in self.objects {
 						obj.removeFromParentNode()
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
-					self.newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					self.newBrownDwarfStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 					
 					self.ableToShoot = true
 				})
 			})
+		}
+	}
+	
+	private func checkYellowStarContact(_ nodeA: SCNNode) {
+		if sunFacts.count == 0 {
+			setupSunFacts()
+		}
+		if nodeA.name == "Medium Star" {
+			if starIndex != sunFacts.count {
+				ableToShoot = false
+				if searchNode(for: "Info Panel", from: objects) {
+					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+				}
+				let none: Float = 0.0
+				let size: Float = 0.001
+				let sizeToScale: Float = 110.0
+				let textToScale: Float = 0.030
+				let yOffSet: Float = 0.40
+				let yTopOffSet: Float = 0.43
+				let zOffSet: Float = 0.060
+				let textZOffSet: Float = 0.062
+				
+				let node = ObjectNode(size)
+				node.setName(to: "Info Panel")
+				node.setShape(.plane)
+				node.setImage(to: "DialogBoxMedium")
+				if theme == 1 {
+					node.setImage(to: "DialogBoxMediumLight")
+				}
+				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
+				objects.first?.parent?.addChildNode(node)
+				objects.append(node)
+				sunFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
+				objects.first?.parent?.addChildNode(sunFacts[starIndex])
+				objects.append(sunFacts[starIndex])
+				
+				Animation.scale(node, to: sizeToScale, d: Duration.light)
+				Animation.scale(sunFacts[starIndex], to: textToScale, d: Duration.light)
+				starIndex+=1
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					self.ableToShoot = true
+				})
+			}
+			else {
+				let dispatchGroup = DispatchGroup()
+				ableToShoot = false
+				dispatchGroup.enter()
+				for obj in objects {
+					Animation.disappear(obj, d: Duration.light)
+				}
+				dispatchGroup.leave()
+				
+				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					
+						for obj in self.objects {
+							obj.removeFromParentNode()
+							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+						}
+						self.starIndex = 0
+						self.sunFacts = []
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						
+						self.ableToShoot = true
+					})
+				})
+			}
 		}
 	}
 	
@@ -683,12 +816,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	private func checkYellowStarContact(_ nodeA: SCNNode) {
-		if sunFacts.count == 0 {
-			setupSunFacts()
+	private func checkBrownDwarfContact(_ nodeA: SCNNode) {
+		if brDwarfFacts.count == 0 {
+			setupBrDwarfFacts()
 		}
-		if nodeA.name == "Medium Star" {
-			if starIndex != sunFacts.count {
+		if nodeA.name == "Brown Dwarf Star" {
+			if starIndex != brDwarfFacts.count {
 				ableToShoot = false
 				if searchNode(for: "Info Panel", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
@@ -715,12 +848,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
 				objects.first?.parent?.addChildNode(node)
 				objects.append(node)
-				sunFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
-				objects.first?.parent?.addChildNode(sunFacts[starIndex])
-				objects.append(sunFacts[starIndex])
+				
+				brDwarfFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
+				objects.first?.parent?.addChildNode(brDwarfFacts[starIndex])
+				objects.append(brDwarfFacts[starIndex])
 				
 				Animation.scale(node, to: sizeToScale, d: Duration.light)
-				Animation.scale(sunFacts[starIndex], to: textToScale, d: Duration.light)
+				Animation.scale(brDwarfFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
 				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
@@ -738,13 +872,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				
 				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
 					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
-					
+						
 						for obj in self.objects {
 							obj.removeFromParentNode()
 							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 						}
 						self.starIndex = 0
-						self.sunFacts = []
+						self.brDwarfFacts = []
 						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
 						self.ableToShoot = true
@@ -754,7 +888,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
-	private func checkForPlanets(_ nodeA: SCNNode) { // TODO: Refactor
+	private func checkForPlanets(_ nodeA: SCNNode) {
 		DispatchQueue.main.async{
 			switch nodeA.name {
 			case "Mercury"?:
