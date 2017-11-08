@@ -212,7 +212,10 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 								  "Brown Dwarf Stars are born like a star.",
 								  "But they can't produce starlight.",
 								  "They can orbit a actual star.",
-								  "And they can have a planet orbit them."]
+								  "And they can have a planet orbit them.",
+								  "Brown Dwarf Stars are not brown either",
+								  "They have various colors between red and black.",
+								  "Some can even be magenta or orange."]
 		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
