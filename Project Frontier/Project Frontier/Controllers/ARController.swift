@@ -154,7 +154,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 								  "Yellow-White, Yellow, and Yellow-Orange",
 								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
 								  "Yellow stars will live about 10 billion years.",
-								  "A dieing Yellow star starts to grow into a Giant Star.",
+								  "A dying Yellow star starts to grow into a Giant Star.",
 								  "It will shrink and become a white dwarf star.",
 								  "While shrinking, it will leave behind a lot of gas.",
 								  "The gas will form a cloud.",
@@ -188,7 +188,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func setupBDwarfFacts() {
 		let starText: [String] = ["Black Dwarf Stars are dead stars.",
-								  "They use to be White Dwarf Stars.",
+								  "They used to be White Dwarf Stars.",
 								  "White Dwarf Stars will run out of fuel.",
 								  "They will become darker and darker.",
 								  "Until there is no more fuel to burn.",
@@ -211,7 +211,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 								  "And they are bigger than a planet.",
 								  "Brown Dwarf Stars are born like a star.",
 								  "But they can't produce starlight.",
-								  "They can orbit a actual star.",
+								  "They can orbit an actual star.",
 								  "And they can have a planet orbit them.",
 								  "Brown Dwarf Stars are not brown either",
 								  "They have various colors between red and black.",
