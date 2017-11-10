@@ -31,6 +31,7 @@ class StarMenu: Menu {
         initOption(3, "White Dwarf", .sphere, "whitedwarf")
         initOption(4, "Black Dwarf", .sphere, .black)
         initOption(5, "Brown Dwarf", .sphere, "browndwarf")
+        options[6].setDimension(to: dimension*options[6].multiplier)
         initOption(6, "Back", .pyramid, .orange)
         options[7].setDimension(to: 0.030)
         initOption(7, "Choose a Subject", .text, .white)

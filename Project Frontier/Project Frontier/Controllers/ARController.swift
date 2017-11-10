@@ -13,7 +13,8 @@ import SceneKit
 class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scopeImage: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -50,6 +51,8 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		
 		theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
 		if theme == 1 {
+			homeButton.setImage(UIImage(named: "HomeButtonLight"), for: UIControlState.normal)
+			backButton.setImage(UIImage(named: "BackButtonLight"), for: UIControlState.normal)
 			resetButton.setImage(UIImage(named: "RefreshLight"), for: UIControlState.normal)
 			scopeImage.image = UIImage(named: "ScopeLight")
             progressBar.progressTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
@@ -280,7 +283,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func initAR(){
 		isPlacingNodes = false
-		plusButton.isHidden = true
+//        backButton.isHidden = true
 		scopeImage.isHidden = false
 		newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		hidePlanes()
@@ -319,6 +322,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             sceneView.scene.rootNode.addChildNode(arMenu.options[x])
             objects.append(arMenu.options[x])
         }
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            self.homeButton.isHidden = false
+        })
 		arMenu.show()
     }
 	
@@ -450,6 +456,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func checkForMenuStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Star" {
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                self.homeButton.isHidden = true
+            })
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -502,6 +511,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Yellow Star" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -519,7 +531,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
 					self.newYellowStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-					
+                    if self.backButton.isHidden {
+                        self.backButton.isHidden = false
+                    }
 					self.ableToShoot = true
 				})
 			})
@@ -528,6 +542,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func checkForMenuWhiteStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "White Dwarf" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -545,7 +562,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
 					self.newWhiteDwarfStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-					
+                    if self.backButton.isHidden {
+                        self.backButton.isHidden = false
+                    }
 					self.ableToShoot = true
 				})
 			})
@@ -554,6 +573,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func checkForMenuBlackStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Black Dwarf" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -571,7 +593,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
 					self.newBlackDwarfStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-					
+                    if self.backButton.isHidden {
+                        self.backButton.isHidden = false
+                    }
 					self.ableToShoot = true
 				})
 			})
@@ -580,6 +604,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func checkForMenuBrownStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Brown Dwarf" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
 			let dispatchGroup = DispatchGroup()
 			
 			ableToShoot = false
@@ -597,7 +624,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
 					self.newBrownDwarfStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-					
+                    if self.backButton.isHidden {
+                        self.backButton.isHidden = false
+                    }
 					self.ableToShoot = true
 				})
 			})
@@ -660,6 +689,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
 					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
 					
+                        self.backButton.isHidden = true
 						for obj in self.objects {
 							obj.removeFromParentNode()
 							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
@@ -732,6 +762,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
 					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
 						
+                        self.backButton.isHidden = true
 						for obj in self.objects {
 							obj.removeFromParentNode()
 							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
@@ -751,7 +782,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if bDwarfFacts.count == 0 {
 			setupBDwarfFacts()
 		}
-		if nodeA.name == "Black Dwarf Star" {
+        if nodeA.name == "Black Dwarf Star" {
 			if starIndex != bDwarfFacts.count {
 				ableToShoot = false
 				if searchNode(for: "Info Panel", from: objects) {
@@ -804,6 +835,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
 					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
 						
+                        self.backButton.isHidden = true
 						for obj in self.objects {
 							obj.removeFromParentNode()
 							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
@@ -998,6 +1030,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     @IBAction func resetView(_ sender: Any) {
 		isPlacingNodes = true
+		backButton.isHidden = true
 		scopeImage.isHidden = true
 		PointOnPlane.reset()
 		for object in objects {
@@ -1009,8 +1042,29 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         setupProgressBar()
     }
     
-    @IBAction func initModels(_ sender: Any) {
-		// TODO: The plus button
+    @IBAction func returnToPreviousMenu(_ sender: Any) {
+        self.backButton.isHidden = true
+        let dispatchGroup = DispatchGroup()
+        
+        ableToShoot = false
+        dispatchGroup.enter()
+        for obj in objects {
+            Animation.disappear(obj, d: Duration.light)
+        }
+        dispatchGroup.leave()
+        
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+            DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+                
+                for obj in self.objects {
+                    obj.removeFromParentNode()
+                    self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+                }
+                self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+                
+                self.ableToShoot = true
+            })
+        })
     }
     
 }
