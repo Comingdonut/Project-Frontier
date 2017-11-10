@@ -277,6 +277,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			else {
 				imageDetail.isHidden = true
 				resetButton.isEnabled = true
+				backButton.isEnabled = true
 			}
         }
     }
@@ -958,6 +959,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func setBonusDetail(_ detail: String) {
 		self.resetButton.isEnabled = false
+		self.backButton.isEnabled = false
 		self.imageDetail.isHidden = false
 		self.imageDetail.image = UIImage(named: detail)
 	}
