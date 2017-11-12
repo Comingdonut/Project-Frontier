@@ -271,7 +271,7 @@ class ObjectNode: SCNNode {
 		if customText != "" {
 			text.containerFrame = CGRect(x: CGFloat(self.position.x),
 										 y: CGFloat(self.position.y),
-										 width: CGFloat(7),
+										 width: CGFloat(9),
 										 height: CGFloat(6))
 		}
 		text.isWrapped = true
