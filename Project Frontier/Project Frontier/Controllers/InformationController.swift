@@ -11,15 +11,17 @@ import UIKit
 class InformationController: UIViewController{
     
     @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var buttonBack: UIButton!
     
     private let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let index = defaults.integer(forKey: KeysData.key1_theme)
         if index == 1 {
             background.image = UIImage(named: "DimBackgroundLight")
+            buttonBack.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
     }
     

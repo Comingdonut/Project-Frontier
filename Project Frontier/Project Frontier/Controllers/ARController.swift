@@ -49,7 +49,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
+		theme = defaults.integer(forKey: KeysData.key1_theme)
 		if theme == 1 {
 			homeButton.setImage(UIImage(named: "HomeButtonLight"), for: UIControlState.normal)
 			backButton.setImage(UIImage(named: "BackButtonLight"), for: UIControlState.normal)
@@ -60,7 +60,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		
         setupProgressBar()
         
-		soundOn = defaults.bool(forKey: DefaultsKeys.key5_sound)
+		soundOn = defaults.bool(forKey: KeysData.key5_sound)
         
         setupScene()
         setupRecognizers()
@@ -152,16 +152,16 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     }
 	
 	private func setupSunFacts() {
-		let starText: [String] = ["Yellow stars are a medium sized star.",
-								  "They are three different colors:",
-								  "Yellow-White, Yellow, and Yellow-Orange",
-								  "Yellow stars are 5,840 - 13,040 degrees fahrenheit.",
-								  "Yellow stars will live about 10 billion years.",
-								  "A dying Yellow star starts to grow into a Giant Star.",
-								  "It will shrink and become a white dwarf star.",
-								  "While shrinking, it will leave behind a lot of gas.",
-								  "The gas will form a cloud.",
-								  "This cloud is called: Planetary Nebula."]
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact8_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact9_Yellow, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact10_Yellow, comment: "")]
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
@@ -172,13 +172,13 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	private func setupWDwarfFacts() {
-		let starText: [String] = ["White Dwarf Stars are dead stars.",
-								  "They use to be Red Dwarf Stars or Yellow Stars.",
-								  "White Dwarf Stars are tinier than Red Dwarf Stars.",
-								  "And bigger than Brown Dwarf Stars.",
-								  "White Dwarf Stars are slowly cooling down.",
-								  "After billions or trillions of years they will stop glowing.",
-								  "They will then become Black Dwarf Stars."]
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_White, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_White, comment: "")]
 		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
@@ -190,14 +190,14 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	private func setupBDwarfFacts() {
-		let starText: [String] = ["Black Dwarf Stars are dead stars.",
-								  "They used to be White Dwarf Stars.",
-								  "White Dwarf Stars will run out of fuel.",
-								  "They will become darker and darker.",
-								  "Until there is no more fuel to burn.",
-								  "They then become Black Dwarf Stars",
-								  "White Dwarf Stars take a long time to run out of fuel.",
-								  "Currently, there are no Black Dwarf Stars."]
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_Black, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact8_Black, comment: "")]
 		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])
@@ -209,16 +209,16 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	}
 	
 	private func setupBrDwarfFacts() {
-		let starText: [String] = ["Brown Dwarf Stars are failed stars.",
-								  "They are smaller than stars.",
-								  "And they are bigger than a planet.",
-								  "Brown Dwarf Stars are born like a star.",
-								  "But they can't produce starlight.",
-								  "They can orbit an actual star.",
-								  "And they can have a planet orbit them.",
-								  "Brown Dwarf Stars are not brown either",
-								  "They have various colors between red and black.",
-								  "Some can even be magenta or orange."]
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact8_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact9_Brown, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact10_Brown, comment: "")]
 		
 		for x in stride(from: 0, to: starText.count, by: 1) {
 			let node = ObjectNode(0.001, false, starText[x])

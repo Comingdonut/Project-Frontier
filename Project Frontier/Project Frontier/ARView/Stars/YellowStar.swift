@@ -23,7 +23,7 @@ class YellowStar: Subject {
     
     func initSubject() {
         
-        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let index = defaults.integer(forKey: KeysData.key1_theme)
         
         for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode()

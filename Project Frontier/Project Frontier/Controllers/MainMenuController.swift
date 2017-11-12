@@ -20,7 +20,7 @@ class MainMenuController: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        let theme = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let theme = defaults.integer(forKey: KeysData.key1_theme)
         if theme == 1 {
             mainMenuBackground.image = UIImage(named: "BackgroundLight")
             startButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
@@ -29,14 +29,14 @@ class MainMenuController: UIViewController{
             aboutButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
         }
         
-        let statusOn = defaults.bool(forKey: DefaultsKeys.key2_statusbar)
+        let statusOn = defaults.bool(forKey: KeysData.key2_statusbar)
         if !statusOn {
             DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light_speed.rawValue, execute: {//Wait
                 UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
             })
         }
         
-        let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
+        let musicOn = defaults.bool(forKey: KeysData.key4_music)
         if musicOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()

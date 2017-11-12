@@ -19,7 +19,7 @@ class SurfacePlane: SCNNode{
     init(with anchor: ARPlaneAnchor) {
         super.init()
         
-        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let index = defaults.integer(forKey: KeysData.key1_theme)
         self.anchor = anchor
         self.planeGeometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.y))
         

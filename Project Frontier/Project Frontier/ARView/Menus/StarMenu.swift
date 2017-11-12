@@ -34,14 +34,14 @@ class StarMenu: Menu {
         options[6].setDimension(to: dimension*options[6].multiplier)
         initOption(6, "Back", .pyramid, .orange)
         options[7].setDimension(to: 0.030)
-        initOption(7, "Choose a Subject", .text, .white)
-        initOption(8, "Yellow Star", .text, .white)
-        initOption(9, "Red Star", .text, .white)
-        initOption(10, "Blue Star", .text, .white)
-        initOption(11, "White Dwarf", .text, .white)
-        initOption(12, "Black Dwarf", .text, .white)
-        initOption(13, "Brown Dwarf", .text, .white)
-        initOption(14, "Back", .text, .white)
+        initOption(7, NSLocalizedString(KeysLocalize.DefaultKey2_Subject, comment: ""), .text, .white)
+        initOption(8, NSLocalizedString(KeysLocalize.StarKey1_Yellow, comment: ""), .text, .white)
+        initOption(9, NSLocalizedString(KeysLocalize.StarKey3_Red, comment: ""), .text, .white)
+        initOption(10, NSLocalizedString(KeysLocalize.StarKey2_Blue, comment: ""), .text, .white)
+        initOption(11, NSLocalizedString(KeysLocalize.StarKey4_White, comment: ""), .text, .white)
+        initOption(12, NSLocalizedString(KeysLocalize.StarKey5_Black, comment: ""), .text, .white)
+        initOption(13, NSLocalizedString(KeysLocalize.StarKey6_Brown, comment: ""), .text, .white)
+        initOption(14, NSLocalizedString(KeysLocalize.DefaultKey4_Back, comment: ""), .text, .white)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

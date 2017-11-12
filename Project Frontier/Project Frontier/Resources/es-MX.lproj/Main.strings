@@ -1,0 +1,186 @@
+
+/* Class = "UILabel"; text = "Medium:  "; ObjectID = "0G1-L7-iSF"; */
+"0G1-L7-iSF.text" = "Medio:  ";
+
+/* Class = "UILabel"; text = "Small: "; ObjectID = "0bj-Ea-XEt"; */
+"0bj-Ea-XEt.text" = "Chico: ";
+
+/* Class = "UIViewController"; title = "Information"; ObjectID = "1Qd-qt-fWe"; */
+"1Qd-qt-fWe.title" = "Información";
+
+/* Class = "UIButton"; normalTitle = "Options"; ObjectID = "2Xz-qW-82h"; */
+"2Xz-qW-82h.normalTitle" = "Opciones";
+
+/* Class = "UILabel"; text = "Help"; ObjectID = "31n-P1-pbA"; */
+"31n-P1-pbA.text" = "Ayuda";
+
+/* Class = "UIButton"; normalTitle = "Medium"; ObjectID = "6hM-Pc-P2L"; */
+"6hM-Pc-P2L.normalTitle" = "Medio";
+
+/* Class = "UILabel"; text = "Moving the device too fast can reduce the experience."; ObjectID = "6mv-WR-EvY"; */
+"6mv-WR-EvY.text" = "Mover el dispositivo rápido puede reducir la experiencia.";
+
+/* Class = "UILabel"; text = "Objects are larger in favor of the camera being far away from a flat surface."; ObjectID = "9TB-wv-LQA"; */
+"9TB-wv-LQA.text" = "Objetos son más grandes a favor de que la cámara se aleje de una superficie plana.";
+
+/* Class = "UILabel"; text = "    Try using the reset button"; ObjectID = "AVG-td-6He"; */
+"AVG-td-6He.text" = "    Usar el botón de reinicio";
+
+/* Class = "UILabel"; text = "Project Frontier"; ObjectID = "AcI-m6-vHh"; */
+"AcI-m6-vHh.text" = "Proyecto Frontera";
+
+/* Class = "UILabel"; text = "Point the camera at a flat HORIZONTAL surface."; ObjectID = "AdC-Dt-MgY"; */
+"AdC-Dt-MgY.text" = "Apunte la cámara hacia una superficie HORIZONTAL plana.";
+
+/* Class = "UILabel"; text = "Music"; ObjectID = "BEX-rq-d1n"; */
+"BEX-rq-d1n.text" = "Música";
+
+/* Class = "UILabel"; text = "Options"; ObjectID = "BZS-5x-x1j"; */
+"BZS-5x-x1j.text" = "Opciones";
+
+/* Class = "UILabel"; text = "Objects are of decent size in favor of the camera being away from a flat surface."; ObjectID = "CmX-mz-fPt"; */
+"CmX-mz-fPt.text" = "Objetos son de un tamaño decente a favor de que la cámara se aleje de una superficie plana.";
+
+/* Class = "UIViewController"; title = "Main Menu"; ObjectID = "Cya-oo-3F5"; */
+"Cya-oo-3F5.title" = "Menú Principal";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "FVn-J4-Yqe"; */
+"FVn-J4-Yqe.text" = "Detalle";
+
+/* Class = "UILabel"; text = "Theme"; ObjectID = "GVk-a7-veX"; */
+"GVk-a7-veX.text" = "Tema";
+
+/* Class = "UILabel"; text = "If nothing shows up try a different surface. Then tap somewhere on the grid to start."; ObjectID = "HPQ-cw-TLN"; */
+"HPQ-cw-TLN.text" = "Si no aparece nada, pruebe con una superficie diferente. Luego toca en algún lugar de la grilla para comenzar.";
+
+/* Class = "UILabel"; text = "Make sure the surface has decent lighting"; ObjectID = "Hpf-at-Qup"; */
+"Hpf-at-Qup.text" = "Asegúrate de que la superficie tenga iluminación decente.";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "Iuk-zI-gap"; */
+"Iuk-zI-gap.normalTitle" = "Regreso";
+
+/* Class = "UIViewController"; title = "AR"; ObjectID = "IyX-gc-yOg"; */
+"IyX-gc-yOg.title" = "AR";
+
+/* Class = "UIButton"; normalTitle = "Help"; ObjectID = "JFg-hn-jFA"; */
+"JFg-hn-jFA.normalTitle" = "Ayuda";
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "JbR-Ct-DCV"; */
+"JbR-Ct-DCV.title" = "Detalle";
+
+/* Class = "UISegmentedControl"; Jhr-Cg-xpP.segmentTitles[0] = "Dark"; ObjectID = "Jhr-Cg-xpP"; */
+"Jhr-Cg-xpP.segmentTitles[0]" = "Oscuro";
+
+/* Class = "UISegmentedControl"; Jhr-Cg-xpP.segmentTitles[1] = "Light"; ObjectID = "Jhr-Cg-xpP"; */
+"Jhr-Cg-xpP.segmentTitles[1]" = "Ligero";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "KK9-iu-ln5"; */
+"KK9-iu-ln5.normalTitle" = "Regreso";
+
+/* Class = "UILabel"; text = "    Point camera at a     HORIZONTAL surface"; ObjectID = "KZA-LB-6tF"; */
+"KZA-LB-6tF.text" = "    Apunte la cámara a una superficie HORIZONTAL";
+
+/* Class = "UILabel"; text = "Getting Started"; ObjectID = "LDa-KY-3G0"; */
+"LDa-KY-3G0.text" = "Para Comenzar";
+
+/* Class = "UILabel"; text = "Introduction"; ObjectID = "POk-Y8-Jph"; */
+"POk-Y8-Jph.text" = "Introducción";
+
+/* Class = "UILabel"; text = "Point the camera at a flat surface and move around the surface until a grid appears. "; ObjectID = "RWh-T2-Lgf"; */
+"RWh-T2-Lgf.text" = "Apunte la cámara hacia una superficie y muévase hasta que aparezca una cuadrícula.";
+
+/* Class = "UILabel"; text = "Objects are smaller in favor of the camera being close to a flat surface."; ObjectID = "SUA-eU-2nn"; */
+"SUA-eU-2nn.text" = "Objetos son más pequeños a favor de que la cámara esté cerca de una superficie plana.";
+
+/* Class = "UILabel"; text = "Status Bar"; ObjectID = "Uga-wY-hsY"; */
+"Uga-wY-hsY.text" = "Barra de Estado";
+
+/* Class = "UILabel"; text = "Select a Mode"; ObjectID = "WsQ-eX-jbc"; */
+"WsQ-eX-jbc.text" = "Seleccione un Modo";
+
+/* Class = "UIViewController"; title = "Help"; ObjectID = "Z5B-OT-Gka"; */
+"Z5B-OT-Gka.title" = "Ayuda";
+
+/* Class = "UIViewController"; title = "Select Mode"; ObjectID = "ZgP-xr-24X"; */
+"ZgP-xr-24X.title" = "Seleccionar Modo";
+
+/* Class = "UILabel"; text = "Tap on the reset button to restart."; ObjectID = "a7b-z1-0fh"; */
+"a7b-z1-0fh.text" = "Toca el botón de reinicio para reiniciar.";
+
+/* Class = "UILabel"; text = "The surface should have some texture to make it recognizable."; ObjectID = "aHM-gW-fId"; */
+"aHM-gW-fId.text" = "La superficie debe tener algo de textura para que sea reconocible.";
+
+/* Class = "UILabel"; text = "Tutorial"; ObjectID = "agB-Wr-XJ5"; */
+"agB-Wr-XJ5.text" = "Tutorial";
+
+/* Class = "UILabel"; text = "You can move around for a different view. Watch your step!"; ObjectID = "bVJ-vO-eSB"; */
+"bVJ-vO-eSB.text" = "Puedes moverte para obtener una vista diferente. ¡Cuida tu paso!";
+
+/* Class = "UIButton"; normalTitle = "Large"; ObjectID = "bw0-gj-ZZ5"; */
+"bw0-gj-ZZ5.normalTitle" = "Grande";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "c8f-LK-Ell"; */
+"c8f-LK-Ell.normalTitle" = "Regreso";
+
+/* Class = "UIButton"; normalTitle = "Small"; ObjectID = "eBV-1P-x7M"; */
+"eBV-1P-x7M.normalTitle" = "Chico";
+
+/* Class = "UIButton"; normalTitle = "Reset Button"; ObjectID = "eY0-ir-hhp"; */
+"eY0-ir-hhp.normalTitle" = "Botón de Reinicio";
+
+/* Class = "UISegmentedControl"; f6d-ld-hBv.segmentTitles[0] = "1"; ObjectID = "f6d-ld-hBv"; */
+"f6d-ld-hBv.segmentTitles[0]" = "1";
+
+/* Class = "UISegmentedControl"; f6d-ld-hBv.segmentTitles[1] = "2"; ObjectID = "f6d-ld-hBv"; */
+"f6d-ld-hBv.segmentTitles[1]" = "2";
+
+/* Class = "UISegmentedControl"; f6d-ld-hBv.segmentTitles[2] = "3"; ObjectID = "f6d-ld-hBv"; */
+"f6d-ld-hBv.segmentTitles[2]" = "3";
+
+/* Class = "UISegmentedControl"; f6d-ld-hBv.segmentTitles[3] = "4"; ObjectID = "f6d-ld-hBv"; */
+"f6d-ld-hBv.segmentTitles[3]" = "4";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "fFs-Wi-x3n"; */
+"fFs-Wi-x3n.normalTitle" = "Regreso";
+
+/* Class = "UILabel"; text = "Software Versions     IDE: Xcode 9 (Beta 5-6)     Language: Swift 4     OS: iOS 11 (Beta 8-9)     Framework: ARKit (Beta)"; ObjectID = "fHh-ps-y7q"; */
+"fHh-ps-y7q.text" = "Software Versions     IDE: Xcode 9 (Beta 5-6)     Language: Swift 4     OS: iOS 11 (Beta 8-9)     Framework: ARKit (Beta)";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g5m-Jv-VXc"; */
+"g5m-Jv-VXc.normalTitle" = "Botón";
+
+/* Class = "UILabel"; text = "SFX"; ObjectID = "hMS-1w-xmL"; */
+"hMS-1w-xmL.text" = "SFX";
+
+/* Class = "UILabel"; text = "    Use app in decent lighting\n    Make sure the flat surface          has texture     Use slight movements"; ObjectID = "iu3-qk-e17"; */
+"iu3-qk-e17.text" = "    Usa la aplicación con iluminación decente. Asegúrate de que la superficie plana tenga textura. Usa movimientos leve.";
+
+/* Class = "UIButton"; normalTitle = "About"; ObjectID = "ndb-rg-coh"; */
+"ndb-rg-coh.normalTitle" = "Detalle";
+
+/* Class = "UILabel"; text = "Large:"; ObjectID = "p2h-gZ-q0X"; */
+"p2h-gZ-q0X.text" = "Grande:";
+
+/* Class = "UILabel"; text = "TAP anywhere to continue..."; ObjectID = "qe7-f4-yRH"; */
+"qe7-f4-yRH.text" = "PULSE para continuar";
+
+/* Class = "UIViewController"; title = "Options"; ObjectID = "rac-jO-kOH"; */
+"rac-jO-kOH.title" = "Opciones";
+
+/* Class = "UILabel"; text = "Take a break every hour to potentially prevent eye strain. "; ObjectID = "t1m-VR-Qpd"; */
+"t1m-VR-Qpd.text" = "Tómese un descanso cada hora para evitar potencialmente la fatiga visual. ";
+
+/* Class = "UILabel"; text = "For more surface detail"; ObjectID = "tNB-f8-5fw"; */
+"tNB-f8-5fw.text" = "Para más detalles superficiales";
+
+/* Class = "UILabel"; text = "If problems still persist"; ObjectID = "v8M-bx-Dd3"; */
+"v8M-bx-Dd3.text" = "Si los problemas aún persisten";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "vG1-kL-Tjz"; */
+"vG1-kL-Tjz.normalTitle" = "Comienzo";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wAu-6z-F6r"; */
+"wAu-6z-F6r.normalTitle" = "Regreso";
+
+/* Class = "UIButton"; normalTitle = "?"; ObjectID = "xm4-ap-30t"; */
+"xm4-ap-30t.normalTitle" = "?";

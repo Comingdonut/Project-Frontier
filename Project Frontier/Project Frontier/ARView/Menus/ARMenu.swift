@@ -32,13 +32,13 @@ class ARMenu: Menu {
         initOption(4, "TBA", .box, .gray)
         initOption(5, "TBA", .box, .gray)
         options[6].setDimension(to: 0.030)
-        initOption(6, "Choose a Category", .text, .white)
-        initOption(7, "Star", .text, .white)
-        initOption(8, "Black Hole", .text, .white)
-        initOption(9, "Solar System", .text, .white)
-        initOption(10, "TBA", .text, .white)
-        initOption(11, "TBA", .text, .white)
-        initOption(12, "TBA", .text, .white)
+        initOption(6, NSLocalizedString(KeysLocalize.DefaultKey1_Category, comment: ""), .text, .white)
+        initOption(7, NSLocalizedString(KeysLocalize.MenuKey1_Star, comment: ""), .text, .white)
+        initOption(8, NSLocalizedString(KeysLocalize.MenuKey3_BlackHole, comment: ""), .text, .white)
+        initOption(9, NSLocalizedString(KeysLocalize.MenuKey2_SolarSystem, comment: ""), .text, .white)
+        initOption(10, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
+        initOption(11, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
+        initOption(12, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

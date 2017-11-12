@@ -22,7 +22,7 @@ class SelectModeController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let index = defaults.integer(forKey: KeysData.key1_theme)
         
         if index == 1 {
             background.image = UIImage(named: "BackgroundLight")

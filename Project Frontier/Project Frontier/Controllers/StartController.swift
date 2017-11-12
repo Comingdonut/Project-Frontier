@@ -41,14 +41,14 @@ class StartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tOn = defaults.bool(forKey: DefaultsKeys.key3_tutorial)
+        let tOn = defaults.bool(forKey: KeysData.key3_tutorial)
         if !tOn {
             DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light_speed.rawValue, execute: {//Wait
                 self.buttonClose.sendActions(for: .touchUpInside)
             })
         }
         
-        let musicOn = defaults.bool(forKey: DefaultsKeys.key4_music)
+        let musicOn = defaults.bool(forKey: KeysData.key4_music)
         if musicOn {
             AudioPlayer.resetMusic()
             AudioPlayer.pickSong("Midnight Sky", "mp3")
@@ -56,7 +56,7 @@ class StartController: UIViewController {
             AudioPlayer.loopMusic()
         }
         
-        let index = defaults.integer(forKey: DefaultsKeys.key1_theme)
+        let index = defaults.integer(forKey: KeysData.key1_theme)
         if index == 1 {
             segmentedControl.tintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
             titleLabel.backgroundColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)

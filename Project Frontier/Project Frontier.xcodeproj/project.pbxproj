@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D115D4291FB6178800BB74B4 /* Localizable.strings */; };
+		D115D42E1FB6277F00BB74B4 /* KeysLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */; };
 		D11CA96D1FA790E400FDECC5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11CA96C1FA790E400FDECC5 /* Theme.swift */; };
 		D12579491F5C6B9D000A3EF3 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */; };
 		D12593001FB28B4700FA6D14 /* BrownStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12592FF1FB28B4700FA6D14 /* BrownStar.swift */; };
@@ -16,7 +18,7 @@
 		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
 		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
 		D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D6F1E1F72C5FF00F34B16 /* Animation.swift */; };
-		D15AFDC31FA16576006D6CFE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15AFDC21FA16576006D6CFE /* DefaultsKeys.swift */; };
+		D15AFDC31FA16576006D6CFE /* KeysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15AFDC21FA16576006D6CFE /* KeysData.swift */; };
 		D17413231F9ADDF50090C8DD /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17413221F9ADDF50090C8DD /* AudioPlayer.swift */; };
 		D17B91581F68437900BB533E /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B91571F68437800BB533E /* StartController.swift */; };
 		D17F10F21F6F0398006800C7 /* ARMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F10F11F6F0397006800C7 /* ARMenu.swift */; };
@@ -47,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D115D4281FB6178800BB74B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D115D42A1FB617B600BB74B4 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D115D42C1FB617B700BB74B4 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysLocalize.swift; sourceTree = "<group>"; };
 		D11CA96C1FA790E400FDECC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		D12592FF1FB28B4700FA6D14 /* BrownStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownStar.swift; sourceTree = "<group>"; };
@@ -56,7 +62,7 @@
 		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
 		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		D14D6F1E1F72C5FF00F34B16 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		D15AFDC21FA16576006D6CFE /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		D15AFDC21FA16576006D6CFE /* KeysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysData.swift; sourceTree = "<group>"; };
 		D17413221F9ADDF50090C8DD /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		D17B91571F68437800BB533E /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		D17F10F11F6F0397006800C7 /* ARMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMenu.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1BF8E251F8C742D000FF09B /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		D1D228891FB7D88B007C777B /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DFA9511F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D115D4241FB6168900BB74B4 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				D115D4291FB6178800BB74B4 /* Localizable.strings */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
 		D125794A1F5C78DF000A3EF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,8 +184,9 @@
 				D1B486C01F6DCD2C00031E86 /* Color.swift */,
 				D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */,
 				D1BF8E251F8C742D000FF09B /* Duration.swift */,
-				D15AFDC21FA16576006D6CFE /* DefaultsKeys.swift */,
+				D15AFDC21FA16576006D6CFE /* KeysData.swift */,
 				D11CA96C1FA790E400FDECC5 /* Theme.swift */,
+				D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -219,6 +235,7 @@
 		D1E107D41F5E241A008FC721 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D115D4241FB6168900BB74B4 /* Localize */,
 				D14D6F201F73006A00F34B16 /* Particles */,
 				D191124B1F79DAA900806D9C /* Audio */,
 				D1DFA9531F5B9CC200B0E4D9 /* Assets.xcassets */,
@@ -290,6 +307,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-MX",
 			);
 			mainGroup = D1DFA93E1F5B9CC200B0E4D9;
 			productRefGroup = D1DFA9481F5B9CC200B0E4D9 /* Products */;
@@ -311,6 +329,7 @@
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */,
+				D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
 				D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */,
@@ -326,7 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
-				D15AFDC31FA16576006D6CFE /* DefaultsKeys.swift in Sources */,
+				D15AFDC31FA16576006D6CFE /* KeysData.swift in Sources */,
 				D12939FC1FB16453001B6BED /* BlackStar.swift in Sources */,
 				D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */,
 				D1E1703C1F7BF7900065C54F /* StarMenu.swift in Sources */,
@@ -343,6 +362,7 @@
 				D17B91581F68437900BB533E /* StartController.swift in Sources */,
 				D12593001FB28B4700FA6D14 /* BrownStar.swift in Sources */,
 				D1B486C11F6DCD2C00031E86 /* Color.swift in Sources */,
+				D115D42E1FB6277F00BB74B4 /* KeysLocalize.swift in Sources */,
 				D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */,
 				D17F10F21F6F0398006800C7 /* ARMenu.swift in Sources */,
 				D1ACCEBC1F6D8BA100859CD1 /* Shape.swift in Sources */,
@@ -359,10 +379,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D115D4291FB6178800BB74B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D115D4281FB6178800BB74B4 /* en */,
+				D115D42C1FB617B700BB74B4 /* es-MX */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D1DFA9511F5B9CC200B0E4D9 /* Base */,
+				D1D228891FB7D88B007C777B /* es-MX */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -371,6 +401,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D1DFA9561F5B9CC200B0E4D9 /* Base */,
+				D115D42A1FB617B600BB74B4 /* es-MX */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -382,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -439,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

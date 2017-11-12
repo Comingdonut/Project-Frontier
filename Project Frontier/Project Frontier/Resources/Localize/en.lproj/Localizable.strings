@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  Project Frontier
+
+  Created by James Castrejon on 11/10/17.
+  Copyright © 2017 James Castrejon. All rights reserved.
+*/
+"DefaultKey1_Category" = "Choose a Category";
+"DefaultKey2_Subject" = "Choose a Subject";
+"DefaultKey3_TBA" = "TBA";
+"DefaultKey4_Back" = "Back";
+
+"MenuKey1_Star" = "Star";
+"MenuKey2_SolarSystem" = "Solar System";
+"MenuKey3_BlackHole" = "Black Hole";
+
+"StarKey1_Yellow" = "Yellow Star";
+"StarKey2_Blue" = "Blue Star";
+"StarKey3_Red" = "Red Star";
+"StarKey4_White" = "White Dwarf";
+"StarKey5_Black" = "Black Dwarf";
+"StarKey6_Brown" = "Brown Dwarf";
+
+"StarFact1_Yellow" = "Yellow stars are a medium sized star.";
+"StarFact2_Yellow" = "They are three different colors:";
+"StarFact3_Yellow" = "Yellow-White, Yellow, and Yellow-Orange";
+"StarFact4_Yellow" = "Yellow stars are 5,840 - 13,040 degrees fahrenheit.";
+"StarFact5_Yellow" = "Yellow stars will live about 10 billion years.";
+"StarFact6_Yellow" = "A dying Yellow star starts to grow into a Giant Star.";
+"StarFact7_Yellow" = "It will shrink and become a white dwarf star.";
+"StarFact8_Yellow" = "While shrinking, it will leave behind a lot of gas.";
+"StarFact9_Yellow" = "The gas will form a cloud.";
+"StarFact10_Yellow" = "This cloud is called: Planetary Nebula.";
+
+"StarFact1_White" = "White Dwarf Stars are dead stars.";
+"StarFact2_White" = "They use to be Red Dwarf Stars or Yellow Stars.";
+"StarFact3_White" = "White Dwarf Stars are tinier than Red Dwarf Stars.";
+"StarFact4_White" = "And bigger than Brown Dwarf Stars.";
+"StarFact5_White" = "White Dwarf Stars are slowly cooling down.";
+"StarFact6_White" =  "After billions or trillions of years they will stop glowing.";
+"StarFact7_White" = "They will then become Black Dwarf Stars.";
+
+"StarFact1_Black" = "Black Dwarf Stars are dead stars.";
+"StarFact2_Black" = "They used to be White Dwarf Stars.";
+"StarFact3_Black" = "White Dwarf Stars will run out of fuel.";
+"StarFact4_Black" = "They will become darker and darker.";
+"StarFact5_Black" = "Until there is no more fuel to burn.";
+"StarFact6_Black" =  "They then become Black Dwarf Stars";
+"StarFact7_Black" = "White Dwarf Stars take a long time to run out of fuel.";
+"StarFact8_Black" = "Currently, there are no Black Dwarf Stars.";
+
+"StarFact1_Brown" = "Brown Dwarf Stars are failed stars.";
+"StarFact2_Brown" = "They are smaller than stars.";
+"StarFact3_Brown" = "And they are bigger than a planet.";
+"StarFact4_Brown" = "Brown Dwarf Stars are born like a star.";
+"StarFact5_Brown" = "But they can't produce starlight.";
+"StarFact6_Brown" = "They can orbit an actual star.";
+"StarFact7_Brown" = "And they can have a planet orbit them.";
+"StarFact8_Brown" = "Brown Dwarf Stars are not brown either.";
+"StarFact9_Brown" = "They have various colors between red and black.";
+"StarFact10_Brown" = "Some can even be magenta or orange.";

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DefaultsKeys {
+struct KeysData {
     static let key1_theme = "Theme"
     static let key2_statusbar = "Status Bar"
     static let key3_tutorial = "Tutorial"
