@@ -13,6 +13,7 @@ struct KeysLocalize {
     static let DefaultKey2_Subject = "DefaultKey2_Subject"
     static let DefaultKey3_TBA = "DefaultKey3_TBA"
     static let DefaultKey4_Back = "DefaultKey4_Back"
+    static let DefaultKey5_Shoot = "DefaultKey5_Shoot"
     
     static let MenuKey1_Star = "MenuKey1_Star"
     static let MenuKey2_SolarSystem = "MenuKey2_SolarSystem"

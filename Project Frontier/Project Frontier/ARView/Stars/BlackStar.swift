@@ -30,7 +30,7 @@ class BlackStar: Subject {
         }
         
         objects[0].useNameForText = false
-        objects[0].customText = "Shoot Me!"
+        objects[0].customText = NSLocalizedString(KeysLocalize.DefaultKey5_Shoot, comment: "")
         initObject(objects, 0, "Info Text", 0.001, .text, .white)
         initObject(objects, 1, "Black Dwarf Star", 0.030, .sphere, .black)
     }

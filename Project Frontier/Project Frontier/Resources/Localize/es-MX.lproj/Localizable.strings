@@ -9,14 +9,15 @@
 "DefaultKey2_Subject" = "Elige un Sujeto";
 "DefaultKey3_TBA" = "SA";
 "DefaultKey4_Back" = "Regreso";
+"DefaultKey5_Shoot" = "¡Dispararme!";
 
-"MenuKey1_Star" = "Estrella";
+"MenuKey1_Star" = "Astro";
 "MenuKey2_SolarSystem" = "Sistema Solar";
 "MenuKey3_BlackHole" = "Calabozo";
 
-"StarKey1_Yellow" = "Estrella Amarilla";
-"StarKey2_Blue" = "Estrella Azul";
-"StarKey3_Red" = "Estrella Roja";
+"StarKey1_Yellow" = "Astro Amarilla";
+"StarKey2_Blue" = "Astro Azul";
+"StarKey3_Red" = "Astro Roja";
 "StarKey4_White" = "Enano Blanco";
 "StarKey5_Black" = "Enano Negro";
 "StarKey6_Brown" = "Enano Marrón";

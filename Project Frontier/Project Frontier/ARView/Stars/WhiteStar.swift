@@ -30,7 +30,7 @@ class WhiteStar: Subject {
         }
         
         objects[0].useNameForText = false
-        objects[0].customText = "Shoot Me!"
+        objects[0].customText = NSLocalizedString(KeysLocalize.DefaultKey5_Shoot, comment: "")
         initObject(objects, 0, "Info Text" ,0.001, .text, .white)
         initObject(objects, 1, "White Dwarf Star", 0.030, .sphere, texture: "whitedwarf")
         initObject(objects, 2, "Planet Helper", 0.010, .sphere, .clear)
