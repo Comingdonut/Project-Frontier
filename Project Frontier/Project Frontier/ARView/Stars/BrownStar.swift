@@ -17,12 +17,11 @@ class BrownStar: Subject {
     var objects: [ObjectNode]
     
     required init() {
-        size = 3
+        size = 2
         objects = []
     }
     
     func initSubject() {
-        let index = defaults.integer(forKey: KeysData.key1_theme)
         
         for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode()
@@ -33,11 +32,7 @@ class BrownStar: Subject {
         objects[0].useNameForText = false
         objects[0].customText = "Shoot Me!"
         initObject(objects, 0, "Info Text", 0.001, .text, .white)
-        initObject(objects, 1, "Info Panel", 0.030, .plane, image: "DialogBoxMedium")
-        if index == 1 {
-            objects[1].setImage(to: "DialogBoxMediumLight")
-        }
-        initObject(objects, 2, "Brown Dwarf Star", 0.030, .sphere, texture: "browndwarf")
+        initObject(objects, 1, "Brown Dwarf Star", 0.030, .sphere, texture: "browndwarf")
     }
     
     func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -73,11 +68,10 @@ class BrownStar: Subject {
         let offSet: Float = 0.20
         let none: Float = 0.0
         
-        for j in stride(from: 2, to: size, by: 1) {
+        for j in stride(from: 1, to: size, by: 1) {
             objects[j].setPosition(x, y, z, none, offSet, distance*objects[j].multiplier)
         }
         objects[0].setPosition(x, y, z, none, 0.43, 0.062)
-        objects[1].setPosition(x, y, z, none, 0.40, 0.060)
     }
     
     func show() {
@@ -88,7 +82,6 @@ class BrownStar: Subject {
     
     func animate() {
         Animation.scale(objects[0], to: 0.030, d: Duration.light)
-        Animation.scale(objects[1], to: 3.0, d: Duration.light)
-        Animation.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.medium)
+        Animation.infiniteRotate(objects[1], x: 0, y: 1, z: 0, d: Duration.medium)
     }
 }

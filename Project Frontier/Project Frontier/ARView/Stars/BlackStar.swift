@@ -17,12 +17,11 @@ class BlackStar: Subject {
     var objects: [ObjectNode]
     
     required init() {
-        size = 3
+        size = 2
         objects = []
     }
     
     func initSubject() {
-        let index = defaults.integer(forKey: KeysData.key1_theme)
         
         for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode()
@@ -33,11 +32,7 @@ class BlackStar: Subject {
         objects[0].useNameForText = false
         objects[0].customText = "Shoot Me!"
         initObject(objects, 0, "Info Text", 0.001, .text, .white)
-        initObject(objects, 1, "Info Panel", 0.030, .plane, image: "DialogBoxMedium")
-        if index == 1 {
-            objects[1].setImage(to: "DialogBoxMediumLight")
-        }
-        initObject(objects, 2, "Black Dwarf Star", 0.030, .sphere, .black)
+        initObject(objects, 1, "Black Dwarf Star", 0.030, .sphere, .black)
     }
     
     func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -73,11 +68,10 @@ class BlackStar: Subject {
         let offSet: Float = 0.20
         let none: Float = 0.0
         
-        for j in stride(from: 2, to: size, by: 1) {
+        for j in stride(from: 1, to: size, by: 1) {
             objects[j].setPosition(x, y, z, none, offSet, distance*objects[j].multiplier)
         }
         objects[0].setPosition(x, y, z, none, 0.43, 0.062)
-        objects[1].setPosition(x, y, z, none, 0.40, 0.060)
     }
     
     func show() {
@@ -88,7 +82,6 @@ class BlackStar: Subject {
     
     func animate() {
         Animation.scale(objects[0], to: 0.030, d: Duration.light)
-        Animation.scale(objects[1], to: 3.0, d: Duration.light)
     }
     
 }

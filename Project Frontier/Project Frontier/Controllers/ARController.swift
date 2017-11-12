@@ -641,36 +641,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if nodeA.name == "Medium Star" {
 			if starIndex != sunFacts.count {
 				ableToShoot = false
-				if searchNode(for: "Info Panel", from: objects) {
-					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+				if searchNode(for: "Info Text", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
 				}
 				let none: Float = 0.0
-				let size: Float = 0.001
-				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
-				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
-				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
 				
-				let node = ObjectNode(size)
-				node.setName(to: "Info Panel")
-				node.setShape(.plane)
-				node.setImage(to: "DialogBoxMedium")
-				if theme == 1 {
-					node.setImage(to: "DialogBoxMediumLight")
-				}
-				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
-				objects.first?.parent?.addChildNode(node)
-				objects.append(node)
 				sunFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
 				objects.first?.parent?.addChildNode(sunFacts[starIndex])
 				objects.append(sunFacts[starIndex])
 				
-				Animation.scale(node, to: sizeToScale, d: Duration.light)
 				Animation.scale(sunFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
@@ -713,37 +696,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if nodeA.name == "White Dwarf Star" {
 			if starIndex != wDwarfFacts.count {
 				ableToShoot = false
-				if searchNode(for: "Info Panel", from: objects) {
-					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+				if searchNode(for: "Info Text", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
 				}
 				let none: Float = 0.0
-				let size: Float = 0.001
-				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
-				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
-				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
-				
-				let node = ObjectNode(size)
-				node.setName(to: "Info Panel")
-				node.setShape(.plane)
-				node.setImage(to: "DialogBoxMedium")
-				if theme == 1 {
-					node.setImage(to: "DialogBoxMediumLight")
-				}
-				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
-				objects.first?.parent?.addChildNode(node)
-				objects.append(node)
 				
 				wDwarfFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
 				objects.first?.parent?.addChildNode(wDwarfFacts[starIndex])
 				objects.append(wDwarfFacts[starIndex])
 				
-				Animation.scale(node, to: sizeToScale, d: Duration.light)
 				Animation.scale(wDwarfFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
@@ -786,37 +751,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         if nodeA.name == "Black Dwarf Star" {
 			if starIndex != bDwarfFacts.count {
 				ableToShoot = false
-				if searchNode(for: "Info Panel", from: objects) {
-					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+				if searchNode(for: "Info Text", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
 				}
 				let none: Float = 0.0
-				let size: Float = 0.001
-				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
-				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
-				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
-				
-				let node = ObjectNode(size)
-				node.setName(to: "Info Panel")
-				node.setShape(.plane)
-				node.setImage(to: "DialogBoxMedium")
-				if theme == 1 {
-					node.setImage(to: "DialogBoxMediumLight")
-				}
-				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
-				objects.first?.parent?.addChildNode(node)
-				objects.append(node)
 				
 				bDwarfFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
 				objects.first?.parent?.addChildNode(bDwarfFacts[starIndex])
 				objects.append(bDwarfFacts[starIndex])
 				
-				Animation.scale(node, to: sizeToScale, d: Duration.light)
 				Animation.scale(bDwarfFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
@@ -859,37 +806,19 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		if nodeA.name == "Brown Dwarf Star" {
 			if starIndex != brDwarfFacts.count {
 				ableToShoot = false
-				if searchNode(for: "Info Panel", from: objects) {
-					objects[getNodeIndex(from: objects, by: "Info Panel")].removeFromParentNode()
-					objects.remove(at: getNodeIndex(from: objects, by: "Info Panel"))
+				if searchNode(for: "Info Text", from: objects) {
 					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
 					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
 				}
 				let none: Float = 0.0
-				let size: Float = 0.001
-				let sizeToScale: Float = 110.0
 				let textToScale: Float = 0.030
-				let yOffSet: Float = 0.40
 				let yTopOffSet: Float = 0.43
-				let zOffSet: Float = 0.060
 				let textZOffSet: Float = 0.062
-				
-				let node = ObjectNode(size)
-				node.setName(to: "Info Panel")
-				node.setShape(.plane)
-				node.setImage(to: "DialogBoxMedium")
-				if theme == 1 {
-					node.setImage(to: "DialogBoxMediumLight")
-				}
-				node.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yOffSet, zOffSet)
-				objects.first?.parent?.addChildNode(node)
-				objects.append(node)
 				
 				brDwarfFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
 				objects.first?.parent?.addChildNode(brDwarfFacts[starIndex])
 				objects.append(brDwarfFacts[starIndex])
 				
-				Animation.scale(node, to: sizeToScale, d: Duration.light)
 				Animation.scale(brDwarfFacts[starIndex], to: textToScale, d: Duration.light)
 				starIndex+=1
 				
@@ -909,6 +838,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
 					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
 						
+						self.backButton.isHidden = true
 						for obj in self.objects {
 							obj.removeFromParentNode()
 							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
