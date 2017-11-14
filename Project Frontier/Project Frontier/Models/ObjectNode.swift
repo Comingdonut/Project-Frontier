@@ -130,6 +130,8 @@ class ObjectNode: SCNNode {
 	
 	public func setTexture(to prefix: String) {
 		let material = self.geometry?.firstMaterial
+		material?.lightingModel = SCNMaterial.LightingModel.blinn
+		
 		material?.diffuse.contents = UIImage(named: "\(prefix)-albedo.png")
 		material?.roughness.contents = UIImage(named: "\(prefix)-roughness.png")
 		material?.metalness.contents = 0

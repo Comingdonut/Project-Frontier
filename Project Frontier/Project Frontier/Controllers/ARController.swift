@@ -127,9 +127,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     }
 	
 	private func setupLighting() {
-		let env = UIImage(named: "spherical.jpg")
+		let env = UIImage(named: "Environment.png")
 		sceneView.scene.lightingEnvironment.contents = env
-		sceneView.scene.lightingEnvironment.intensity = 2.0
+		sceneView.scene.lightingEnvironment.intensity = 2
 	}
     
     private func setupRecognizers() {
