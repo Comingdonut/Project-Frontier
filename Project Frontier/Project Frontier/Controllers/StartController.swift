@@ -48,7 +48,7 @@ class StartController: UIViewController {
             })
         }
         
-        let musicOn = defaults.bool(forKey: KeysData.key4_music)
+        let musicOn = defaults.bool(forKey: KeysData.key5_music)
         if musicOn {
             AudioPlayer.resetMusic()
             AudioPlayer.pickSong("Midnight Sky", "mp3")

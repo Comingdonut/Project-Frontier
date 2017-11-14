@@ -172,15 +172,34 @@
                                     <action selector="tutorialSwitch:" destination="rac-jO-kOH" eventType="valueChanged" id="RlW-yb-W9y"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AR Text Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4s-UF-vW1" userLabel="Text Color Label">
+                                <rect key="frame" x="16" y="216" width="159" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ETb-A6-pVU" userLabel="Text Color Control">
+                                <rect key="frame" x="183" y="218" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="White"/>
+                                    <segment title="Black"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="textColorChanged:" destination="rac-jO-kOH" eventType="valueChanged" id="Ab5-31-xir"/>
+                                </connections>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEX-rq-d1n" userLabel="Music Label">
-                                <rect key="frame" x="16" y="216" width="233" height="33"/>
+                                <rect key="frame" x="16" y="257" width="233" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-eU-JrB">
-                                <rect key="frame" x="257" y="217" width="49" height="31"/>
+                                <rect key="frame" x="257" y="258" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -188,20 +207,12 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SFX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMS-1w-xmL" userLabel="SFX Label">
-                                <rect key="frame" x="16" y="257" width="233" height="33"/>
+                                <rect key="frame" x="16" y="298" width="233" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-jq-b10">
-                                <rect key="frame" x="257" y="258" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="soundSwitch:" destination="rac-jO-kOH" eventType="valueChanged" id="LRv-U5-kZ0"/>
-                                </connections>
-                            </switch>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-Wi-x3n" userLabel="Button Back">
                                 <rect key="frame" x="16" y="518" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,6 +224,14 @@
                                     <segue destination="Cya-oo-3F5" kind="presentation" modalTransitionStyle="crossDissolve" id="zMR-U4-OlE"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-jq-b10">
+                                <rect key="frame" x="257" y="299" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="soundSwitch:" destination="rac-jO-kOH" eventType="valueChanged" id="LRv-U5-kZ0"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="V96-9n-BCL"/>
@@ -224,6 +243,7 @@
                         <outlet property="switchSound" destination="D7J-jq-b10" id="SbR-GC-9C8"/>
                         <outlet property="switchStatus" destination="mgZ-5n-Pop" id="B8P-qW-F4m"/>
                         <outlet property="switchTutorial" destination="sxb-gk-TVh" id="Hxr-en-ozB"/>
+                        <outlet property="textColorControl" destination="ETb-A6-pVU" id="SMj-V7-U7z"/>
                         <outlet property="themeControl" destination="Jhr-Cg-xpP" id="bvU-Vq-H02"/>
                     </connections>
                 </viewController>

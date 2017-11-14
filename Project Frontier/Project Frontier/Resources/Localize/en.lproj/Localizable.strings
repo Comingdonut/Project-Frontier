@@ -38,7 +38,7 @@
 "StarFact3_White" = "White Dwarf Stars are tinier than Red Dwarf Stars.";
 "StarFact4_White" = "And bigger than Brown Dwarf Stars.";
 "StarFact5_White" = "White Dwarf Stars are slowly cooling down.";
-"StarFact6_White" =  "After billions or trillions of years they will stop glowing.";
+"StarFact6_White" = "After billions or trillions of years they will stop glowing.";
 "StarFact7_White" = "They will then become Black Dwarf Stars.";
 
 "StarFact1_Black" = "Black Dwarf Stars are dead stars.";
@@ -46,7 +46,7 @@
 "StarFact3_Black" = "White Dwarf Stars will run out of fuel.";
 "StarFact4_Black" = "They will become darker and darker.";
 "StarFact5_Black" = "Until there is no more fuel to burn.";
-"StarFact6_Black" =  "They then become Black Dwarf Stars";
+"StarFact6_Black" = "They then become Black Dwarf Stars";
 "StarFact7_Black" = "White Dwarf Stars take a long time to run out of fuel.";
 "StarFact8_Black" = "Currently, there are no Black Dwarf Stars.";
 

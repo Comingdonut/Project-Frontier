@@ -11,12 +11,21 @@ import SceneKit
 
 class StarMenu: Menu {
     
+    private let defaults = UserDefaults.standard
+    
     var size: Int
     var options: [ObjectNode]
+    var color: Color
     
     required init() {
         size = 15
         options = []
+        color = Color.white
+        
+        let index = defaults.integer(forKey: KeysData.key4_textColor)
+        if index == 1 {
+            color = Color.black
+        }
     }
     
     func initMenu(_ dimension: Float) {
@@ -34,14 +43,14 @@ class StarMenu: Menu {
         options[6].setDimension(to: dimension*options[6].multiplier)
         initOption(6, "Back", .pyramid, .orange)
         options[7].setDimension(to: 0.030)
-        initOption(7, NSLocalizedString(KeysLocalize.DefaultKey2_Subject, comment: ""), .text, .white)
-        initOption(8, NSLocalizedString(KeysLocalize.StarKey1_Yellow, comment: ""), .text, .white)
-        initOption(9, NSLocalizedString(KeysLocalize.StarKey3_Red, comment: ""), .text, .white)
-        initOption(10, NSLocalizedString(KeysLocalize.StarKey2_Blue, comment: ""), .text, .white)
-        initOption(11, NSLocalizedString(KeysLocalize.StarKey4_White, comment: ""), .text, .white)
-        initOption(12, NSLocalizedString(KeysLocalize.StarKey5_Black, comment: ""), .text, .white)
-        initOption(13, NSLocalizedString(KeysLocalize.StarKey6_Brown, comment: ""), .text, .white)
-        initOption(14, NSLocalizedString(KeysLocalize.DefaultKey4_Back, comment: ""), .text, .white)
+        initOption(7, NSLocalizedString(KeysLocalize.DefaultKey2_Subject, comment: ""), .text, color)
+        initOption(8, NSLocalizedString(KeysLocalize.StarKey1_Yellow, comment: ""), .text, color)
+        initOption(9, NSLocalizedString(KeysLocalize.StarKey3_Red, comment: ""), .text, color)
+        initOption(10, NSLocalizedString(KeysLocalize.StarKey2_Blue, comment: ""), .text, color)
+        initOption(11, NSLocalizedString(KeysLocalize.StarKey4_White, comment: ""), .text, color)
+        initOption(12, NSLocalizedString(KeysLocalize.StarKey5_Black, comment: ""), .text, color)
+        initOption(13, NSLocalizedString(KeysLocalize.StarKey6_Brown, comment: ""), .text, color)
+        initOption(14, NSLocalizedString(KeysLocalize.DefaultKey4_Back, comment: ""), .text, color)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

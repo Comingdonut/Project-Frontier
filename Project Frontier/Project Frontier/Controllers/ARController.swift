@@ -30,6 +30,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     private var isPlacingNodes: Bool = true
 	private var ableToShoot: Bool = true
 	private var soundOn: Bool = true
+	private var color: Color = Color.white
     private var configuration = ARWorldTrackingConfiguration()
     private var planes = [UUID: SurfacePlane]()
     private var objects: [ObjectNode] = []
@@ -58,9 +59,14 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             progressBar.progressTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
 		}
 		
+		let index2 = defaults.integer(forKey: KeysData.key4_textColor)
+		if index2 == 1 {
+			color = Color.black
+		}
+		
         setupProgressBar()
         
-		soundOn = defaults.bool(forKey: KeysData.key5_sound)
+		soundOn = defaults.bool(forKey: KeysData.key6_sound)
         
         setupScene()
         setupRecognizers()
@@ -166,7 +172,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
-			node.setColor(.white)
+			node.setColor(color)
 			sunFacts.append(node)
 		}
 	}
@@ -184,7 +190,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
-			node.setColor(.white)
+			node.setColor(color)
 			wDwarfFacts.append(node)
 		}
 	}
@@ -203,7 +209,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
-			node.setColor(.white)
+			node.setColor(color)
 			bDwarfFacts.append(node)
 		}
 	}
@@ -224,7 +230,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			let node = ObjectNode(0.001, false, starText[x])
 			node.setName(to: "Info Text")
 			node.setShape(.text)
-			node.setColor(.white)
+			node.setColor(color)
 			brDwarfFacts.append(node)
 		}
 	}
@@ -256,7 +262,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						let bulletNode = ObjectNode(dimensions, true)
 						bulletNode.setName(to: "Bullet")
 						bulletNode.setShape(.sphere)
-						bulletNode.setColor(.white)
+						bulletNode.setColor(color)
 						bulletNode.setPosition(
 							(sceneView.session.currentFrame?.camera.transform.columns.3.x)!,
 							(sceneView.session.currentFrame?.camera.transform.columns.3.y)!,
@@ -976,6 +982,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     
     @IBAction func returnToPreviousMenu(_ sender: Any) {
         self.backButton.isHidden = true
+		starIndex = 0
         let dispatchGroup = DispatchGroup()
         
         ableToShoot = false

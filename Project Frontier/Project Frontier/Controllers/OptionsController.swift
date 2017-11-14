@@ -10,20 +10,23 @@ import UIKit
 
 class OptionsController: UIViewController{
     
+    private let defaults = UserDefaults.standard
+    
     @IBOutlet weak var themeControl: UISegmentedControl!
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var switchStatus: UISwitch!
     @IBOutlet weak var switchTutorial: UISwitch!
+    @IBOutlet weak var textColorControl: UISegmentedControl!
     @IBOutlet weak var switchMusic: UISwitch!
     @IBOutlet weak var switchSound: UISwitch!
     @IBOutlet weak var backButton: UIButton!
     
-    private let defaults = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let index = defaults.integer(forKey: KeysData.key1_theme)
+        let index2 = defaults.integer(forKey: KeysData.key4_textColor)
         themeControl.selectedSegmentIndex = index
+        textColorControl.selectedSegmentIndex = index2
         if index == 1 {
             background.image = UIImage(named: "DimBackgroundLight")
             switchStatus.onTintColor = UIColor(red: Theme.l_r, green: Theme.l_g, blue: Theme.l_b, alpha: Theme.a)
@@ -35,8 +38,8 @@ class OptionsController: UIViewController{
         
         let sbOn = defaults.bool(forKey: KeysData.key2_statusbar)
         let tOn = defaults.bool(forKey: KeysData.key3_tutorial)
-        let mOn = defaults.bool(forKey: KeysData.key4_music)
-        let sOn = defaults.bool(forKey: KeysData.key5_sound)
+        let mOn = defaults.bool(forKey: KeysData.key5_music)
+        let sOn = defaults.bool(forKey: KeysData.key6_sound)
         switchStatus.isOn = sbOn
         switchTutorial.isOn = tOn
         switchMusic.isOn = mOn
@@ -84,9 +87,23 @@ class OptionsController: UIViewController{
     @IBAction func tutorialSwitch(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: KeysData.key3_tutorial)
     }
+
+    @IBAction func textColorChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            defaults.set(0, forKey: KeysData.key4_textColor)
+            break
+        case 1:
+            defaults.set(1, forKey: KeysData.key4_textColor)
+            break
+        default:
+            print("Error")
+            break
+        }
+    }
     
     @IBAction func musicSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: KeysData.key4_music)
+        defaults.set(sender.isOn, forKey: KeysData.key5_music)
         if sender.isOn {
             AudioPlayer.pickSong("Future Discoveries", "mp3")
             AudioPlayer.playMusic()
@@ -98,6 +115,6 @@ class OptionsController: UIViewController{
     }
     
     @IBAction func soundSwitch(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: KeysData.key5_sound)
+        defaults.set(sender.isOn, forKey: KeysData.key6_sound)
     }
 }

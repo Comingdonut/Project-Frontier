@@ -11,12 +11,21 @@ import SceneKit
 
 class ARMenu: Menu {
     
+    private let defaults = UserDefaults.standard
+    
     var size: Int
     var options: [ObjectNode]
+    var color: Color
     
     required init() {
         size = 13
         options = []
+        color = Color.white
+        
+        let index = defaults.integer(forKey: KeysData.key4_textColor)
+        if index == 1 {
+            color = Color.black
+        }
     }
     
     func initMenu(_ dimension: Float) {
@@ -32,13 +41,13 @@ class ARMenu: Menu {
         initOption(4, "TBA", .box, .gray)
         initOption(5, "TBA", .box, .gray)
         options[6].setDimension(to: 0.030)
-        initOption(6, NSLocalizedString(KeysLocalize.DefaultKey1_Category, comment: ""), .text, .white)
-        initOption(7, NSLocalizedString(KeysLocalize.MenuKey1_Star, comment: ""), .text, .white)
-        initOption(8, NSLocalizedString(KeysLocalize.MenuKey3_BlackHole, comment: ""), .text, .white)
-        initOption(9, NSLocalizedString(KeysLocalize.MenuKey2_SolarSystem, comment: ""), .text, .white)
-        initOption(10, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
-        initOption(11, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
-        initOption(12, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, .white)
+        initOption(6, NSLocalizedString(KeysLocalize.DefaultKey1_Category, comment: ""), .text, color)
+        initOption(7, NSLocalizedString(KeysLocalize.MenuKey1_Star, comment: ""), .text, color)
+        initOption(8, NSLocalizedString(KeysLocalize.MenuKey3_BlackHole, comment: ""), .text, color)
+        initOption(9, NSLocalizedString(KeysLocalize.MenuKey2_SolarSystem, comment: ""), .text, color)
+        initOption(10, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
+        initOption(11, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
+        initOption(12, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
     }
     
     func initOption(_ index: Int, _ name: String, _ geometry: Shape, _ color: Color) {

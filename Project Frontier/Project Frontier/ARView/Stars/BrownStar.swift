@@ -15,10 +15,17 @@ class BrownStar: Subject {
     
     var size: Int
     var objects: [ObjectNode]
+    var color: Color
     
     required init() {
-        size = 2
+        size = 2 // TODO: Include astroid belt
         objects = []
+        color = Color.white
+        
+        let index = defaults.integer(forKey: KeysData.key4_textColor)
+        if index == 1 {
+            color = Color.black
+        }
     }
     
     func initSubject() {
@@ -31,7 +38,7 @@ class BrownStar: Subject {
         
         objects[0].useNameForText = false
         objects[0].customText = NSLocalizedString(KeysLocalize.DefaultKey5_Shoot, comment: "")
-        initObject(objects, 0, "Info Text", 0.001, .text, .white)
+        initObject(objects, 0, "Info Text", 0.001, .text, color)
         initObject(objects, 1, "Brown Dwarf Star", 0.030, .sphere, texture: "browndwarf")
     }
     
