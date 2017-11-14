@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Medium:  "; ObjectID = "0G1-L7-iSF"; */
-"0G1-L7-iSF.text" = "Medio:  ";
+"0G1-L7-iSF.text" = "Mediano:  ";
 
 /* Class = "UILabel"; text = "Small: "; ObjectID = "0bj-Ea-XEt"; */
 "0bj-Ea-XEt.text" = "Chico: ";
@@ -15,16 +15,16 @@
 "31n-P1-pbA.text" = "Ayuda";
 
 /* Class = "UIButton"; normalTitle = "Medium"; ObjectID = "6hM-Pc-P2L"; */
-"6hM-Pc-P2L.normalTitle" = "Medio";
+"6hM-Pc-P2L.normalTitle" = "Mediano";
 
 /* Class = "UILabel"; text = "Moving the device too fast can reduce the experience."; ObjectID = "6mv-WR-EvY"; */
-"6mv-WR-EvY.text" = "Mover el dispositivo rápido puede reducir la experiencia.";
+"6mv-WR-EvY.text" = "Mueve el dispositivo rápido puede reducir la experiencia.";
 
 /* Class = "UILabel"; text = "Objects are larger in favor of the camera being far away from a flat surface."; ObjectID = "9TB-wv-LQA"; */
 "9TB-wv-LQA.text" = "Objetos son más grandes a favor de que la cámara se aleje de una superficie plana.";
 
 /* Class = "UILabel"; text = "    Try using the reset button"; ObjectID = "AVG-td-6He"; */
-"AVG-td-6He.text" = "    Usar el botón de reinicio";
+"AVG-td-6He.text" = "    Usa el botón de reinicio";
 
 /* Class = "UILabel"; text = "Project Frontier"; ObjectID = "AcI-m6-vHh"; */
 "AcI-m6-vHh.text" = "Proyecto Frontera";
@@ -43,6 +43,12 @@
 
 /* Class = "UIViewController"; title = "Main Menu"; ObjectID = "Cya-oo-3F5"; */
 "Cya-oo-3F5.title" = "Menú Principal";
+
+/* Class = "UISegmentedControl"; ETb-A6-pVU.segmentTitles[0] = "White"; ObjectID = "ETb-A6-pVU"; */
+"ETb-A6-pVU.segmentTitles[0]" = "Blanco";
+
+/* Class = "UISegmentedControl"; ETb-A6-pVU.segmentTitles[1] = "Black"; ObjectID = "ETb-A6-pVU"; */
+"ETb-A6-pVU.segmentTitles[1]" = "Negro";
 
 /* Class = "UILabel"; text = "About"; ObjectID = "FVn-J4-Yqe"; */
 "FVn-J4-Yqe.text" = "Detalle";
@@ -82,6 +88,9 @@
 
 /* Class = "UILabel"; text = "Getting Started"; ObjectID = "LDa-KY-3G0"; */
 "LDa-KY-3G0.text" = "Para Comenzar";
+
+/* Class = "UILabel"; text = "AR Text Color"; ObjectID = "M4s-UF-vW1"; */
+"M4s-UF-vW1.text" = "Color de Texto";
 
 /* Class = "UILabel"; text = "Introduction"; ObjectID = "POk-Y8-Jph"; */
 "POk-Y8-Jph.text" = "Introducción";
@@ -177,7 +186,7 @@
 "v8M-bx-Dd3.text" = "Si los problemas aún persisten";
 
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "vG1-kL-Tjz"; */
-"vG1-kL-Tjz.normalTitle" = "Comienzo";
+"vG1-kL-Tjz.normalTitle" = "Comienza";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wAu-6z-F6r"; */
 "wAu-6z-F6r.normalTitle" = "Regreso";

@@ -115,7 +115,7 @@ class YellowStar: Subject {
             ringRadius: CGFloat(0.055),
             pipeRadius: CGFloat(0.008))
         rings.geometry = ring
-        rings.setColor(1, 0.94, 0.78, 1)
+        rings.setColor(1, 0.94, 0.78, 0.75)
         rings.setPosition(0, 0, 0, 0, 0, 0)
         saturn.addChildNode(rings)
     }

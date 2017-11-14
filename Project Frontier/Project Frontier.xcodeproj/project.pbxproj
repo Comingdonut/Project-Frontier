@@ -57,6 +57,7 @@
 		D115D42C1FB617B700BB74B4 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysLocalize.swift; sourceTree = "<group>"; };
 		D11CA96C1FA790E400FDECC5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D1225C4E1FBB7611006C666D /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		D12579481F5C6B9D000A3EF3 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		D12592FF1FB28B4700FA6D14 /* BrownStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownStar.swift; sourceTree = "<group>"; };
 		D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteStar.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1BF8E251F8C742D000FF09B /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; usesTabs = 1; };
-		D1D228891FB7D88B007C777B /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DFA9511F5B9CC200B0E4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,16 +186,16 @@
 		D1A2D1FD1F6F704000F5677F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D1F3F0E51F7C3D780082B4A9 /* Subject.swift */,
-				D1E1703D1F7C03BC0065C54F /* Menu.swift */,
 				D183665D1F6ED32F00E6786E /* CollisionCategory.swift */,
-				D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */,
 				D1B486C01F6DCD2C00031E86 /* Color.swift */,
-				D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */,
 				D1BF8E251F8C742D000FF09B /* Duration.swift */,
 				D15AFDC21FA16576006D6CFE /* KeysData.swift */,
-				D11CA96C1FA790E400FDECC5 /* Theme.swift */,
 				D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */,
+				D1E1703D1F7C03BC0065C54F /* Menu.swift */,
+				D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */,
+				D1ACCEBB1F6D8BA100859CD1 /* Shape.swift */,
+				D1F3F0E51F7C3D780082B4A9 /* Subject.swift */,
+				D11CA96C1FA790E400FDECC5 /* Theme.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D1DFA9511F5B9CC200B0E4D9 /* Base */,
-				D1D228891FB7D88B007C777B /* es-MX */,
+				D1225C4E1FBB7611006C666D /* es-MX */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

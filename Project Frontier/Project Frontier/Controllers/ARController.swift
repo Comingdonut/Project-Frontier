@@ -983,6 +983,10 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBAction func returnToPreviousMenu(_ sender: Any) {
         self.backButton.isHidden = true
 		starIndex = 0
+		sunFacts = []
+		wDwarfFacts = []
+		bDwarfFacts = []
+		brDwarfFacts = []
         let dispatchGroup = DispatchGroup()
         
         ableToShoot = false

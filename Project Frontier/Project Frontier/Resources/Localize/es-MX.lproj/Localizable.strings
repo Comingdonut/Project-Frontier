@@ -9,7 +9,7 @@
 "DefaultKey2_Subject" = "Elige un Sujeto";
 "DefaultKey3_TBA" = "SA";
 "DefaultKey4_Back" = "Regreso";
-"DefaultKey5_Shoot" = "¡Dispararme!";
+"DefaultKey5_Shoot" = "¡Disparame!";
 
 "MenuKey1_Star" = "Astro";
 "MenuKey2_SolarSystem" = "Sistema Solar";
@@ -24,10 +24,10 @@
 
 "StarFact1_Yellow" = "Las Estrellas Amarillas son una estrella de tamaño mediano.";
 "StarFact2_Yellow" = "Son tres colores diferentes:";
-"StarFact3_Yellow" = "Amarillo-blanco, amarillo y amarillo-naranja";
-"StarFact4_Yellow" = "Las Estrellas Amarillos son 5,840 - 13,040 grados Fahrenheit.";
-"StarFact5_Yellow" = "Las Estrellas Amarillos vivirán alrededor de 10 mil millones de años.";
-"StarFact6_Yellow" = "Una Estrella Amarillo muriendo comienza a convertirse en una Estrella Gigante.";
+"StarFact3_Yellow" = "Amarilla-blanco, Amarilla y Amarilla-naranja";
+"StarFact4_Yellow" = "Las Estrellas Amarillas son 5,840 - 13,040 grados Fahrenheit.";
+"StarFact5_Yellow" = "Las Estrellas Amarillas vivirán alrededor de 10 mil millones de años.";
+"StarFact6_Yellow" = "Una Estrella Amarilla muriendo comienza a convertirse en una Estrella Gigante.";
 "StarFact7_Yellow" = "Se encogerá y se convertirá en una Estrella Enana Blanca.";
 "StarFact8_Yellow" = "Mientras se reduce, dejará una gran cantidad de gas.";
 "StarFact9_Yellow" = "El gas formará una nube.";
@@ -35,19 +35,19 @@
 
 "StarFact1_White" = "Estrella Enana Blanca son estrellas muertas.";
 "StarFact2_White" = "Solían ser Estrellas Rojas Enanas o Estrellas Amarillas.";
-"StarFact3_White" = "Estrellas Enana Blanca son más pequeñas que Estrellas Enanas Rojas.";
+"StarFact3_White" = "Estrellas Enana Blancas son más pequeñas que Estrellas Enanas Rojas.";
 "StarFact4_White" = "Y más grande que Estrellas Enanas Marrónes.";
-"StarFact5_White" = "Estrellas Enana Blanca se están enfriando lentamente.";
+"StarFact5_White" = "Estrellas Enana Blancas se están enfriando lentamente.";
 "StarFact6_White" = "Después de miles de millones o billones de años dejarán de brillar.";
-"StarFact7_White" = "Luego se convertirán en estrellas negras enanas.";
+"StarFact7_White" = "Luego se convertirán en Estrellas Negras Enanas.";
 
 "StarFact1_Black" = "Estrellas Enanas Negras son estrellas muertas.";
-"StarFact2_Black" = "Solían ser Estrellas Enana Blanca.";
-"StarFact3_Black" = "Estrellas Enana Blanca se quedará sin combustible.";
+"StarFact2_Black" = "Solían ser Estrellas Enana Blancas.";
+"StarFact3_Black" = "Estrellas Enana Blancas se quedará sin combustible.";
 "StarFact4_Black" = "Se volverán más oscuros y oscuros.";
 "StarFact5_Black" = "Hasta que no haya más combustible para quemar.";
 "StarFact6_Black" = "Luego se convierten en Estrellas Enana Negras.";
-"StarFact7_Black" = "Estrellas Enana Blanca toman mucho tiempo para quedarse sin combustible.";
+"StarFact7_Black" = "Estrellas Enana Blancas toman mucho tiempo para quedarse sin combustible.";
 "StarFact8_Black" = "Actualmente, no hay Estrellas Enana Negras.";
 
 "StarFact1_Brown" = "Estrellas Enanas Marrónes son estrellas fallidas.";
