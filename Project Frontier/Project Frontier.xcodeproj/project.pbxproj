@@ -18,6 +18,9 @@
 		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
 		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
 		D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D6F1E1F72C5FF00F34B16 /* Animation.swift */; };
+		D152C5EE1FBAB75A0031AAFA /* FireParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D152C5EC1FBAB75A0031AAFA /* FireParticle.scnp */; };
+		D152C5EF1FBAB75A0031AAFA /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D152C5ED1FBAB75A0031AAFA /* spark.png */; };
+		D152C5F51FBABD700031AAFA /* Test.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D152C5F41FBABD700031AAFA /* Test.scnp */; };
 		D15AFDC31FA16576006D6CFE /* KeysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15AFDC21FA16576006D6CFE /* KeysData.swift */; };
 		D17413231F9ADDF50090C8DD /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17413221F9ADDF50090C8DD /* AudioPlayer.swift */; };
 		D17B91581F68437900BB533E /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B91571F68437800BB533E /* StartController.swift */; };
@@ -62,6 +65,9 @@
 		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
 		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		D14D6F1E1F72C5FF00F34B16 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		D152C5EC1FBAB75A0031AAFA /* FireParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = FireParticle.scnp; sourceTree = "<group>"; };
+		D152C5ED1FBAB75A0031AAFA /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		D152C5F41FBABD700031AAFA /* Test.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Test.scnp; sourceTree = "<group>"; };
 		D15AFDC21FA16576006D6CFE /* KeysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysData.swift; sourceTree = "<group>"; };
 		D17413221F9ADDF50090C8DD /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		D17B91571F68437800BB533E /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -134,6 +140,9 @@
 			children = (
 				D12939F91FB13F19001B6BED /* BulletParticle.png */,
 				D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */,
+				D152C5EC1FBAB75A0031AAFA /* FireParticle.scnp */,
+				D152C5ED1FBAB75A0031AAFA /* spark.png */,
+				D152C5F41FBABD700031AAFA /* Test.scnp */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -325,15 +334,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D18B2B3C1F9D949600744518 /* Bullet_Fired.wav in Resources */,
+				D152C5EF1FBAB75A0031AAFA /* spark.png in Resources */,
 				D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */,
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */,
 				D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
+				D152C5EE1FBAB75A0031AAFA /* FireParticle.scnp in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
 				D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */,
 				D18B2B3E1F9D949F00744518 /* Bullet_Contact.wav in Resources */,
+				D152C5F51FBABD700031AAFA /* Test.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
