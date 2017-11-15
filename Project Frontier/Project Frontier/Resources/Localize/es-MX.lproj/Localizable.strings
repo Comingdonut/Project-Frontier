@@ -10,6 +10,7 @@
 "DefaultKey3_TBA" = "SA";
 "DefaultKey4_Back" = "Regreso";
 "DefaultKey5_Shoot" = "¡Disparame!";
+"DefaultKey6_Soon" = "SP_ComingSoon";
 
 "MenuKey1_Star" = "Astro";
 "MenuKey2_SolarSystem" = "Sistema Solar";
@@ -21,6 +22,17 @@
 "StarKey4_White" = "Enano Blanco";
 "StarKey5_Black" = "Enano Negro";
 "StarKey6_Brown" = "Enano Marrón";
+
+"BonusFact1_TODO" = "SP_";
+"BonusFact2_Mercury" = "SP_MercuryDetail";
+"BonusFact3_Venus" = "SP_VenusDetail";
+"BonusFact4_Earth" = "SP_EarthDetail";
+"BonusFact5_Mars" = "SP_MarsDetail";
+"BonusFact6_Jupiter" = "SP_JupiterDetail";
+"BonusFact7_Saturn" = "SP_SaturnDetail";
+"BonusFact8_Uranus" = "SP_UranusDetail";
+"BonusFact9_Neptune" = "SP_NeptuneDetail";
+"BonusFact10_TODO" = "SP_";
 
 "StarFact1_Yellow" = "Las Estrellas Amarillas son una estrella de tamaño mediano.";
 "StarFact2_Yellow" = "Son tres colores diferentes:";

@@ -864,28 +864,28 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		DispatchQueue.main.async{
 			switch nodeA.name {
 			case "Mercury"?:
-				self.setBonusDetail("MercuryDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact2_Mercury, comment: ""))
 				break
 			case "Venus"?:
-				self.setBonusDetail("VenusDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact3_Venus, comment: ""))
 				break
 			case "Earth"?:
-				self.setBonusDetail("EarthDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact4_Earth, comment: ""))
 				break
 			case "Mars"?:
-				self.setBonusDetail("MarsDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact5_Mars, comment: ""))
 				break
 			case "Jupiter"?:
-				self.setBonusDetail("JupiterDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact6_Jupiter, comment: ""))
 				break
 			case "Saturn"?:
-				self.setBonusDetail("SaturnDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact7_Saturn, comment: ""))
 				break
 			case "Uranus"?:
-				self.setBonusDetail("UranusDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact8_Uranus, comment: ""))
 				break
 			case "Neptune"?:
-				self.setBonusDetail("NeptuneDetail")
+				self.setBonusDetail(NSLocalizedString(KeysLocalize.BonusFact9_Neptune, comment: ""))
 				break
 			default:
 				break

@@ -10,6 +10,7 @@
 "DefaultKey3_TBA" = "TBA";
 "DefaultKey4_Back" = "Back";
 "DefaultKey5_Shoot" = "Shoot Me!";
+"DefaultKey6_Soon" = "ComingSoon";
 
 "MenuKey1_Star" = "Star";
 "MenuKey2_SolarSystem" = "Solar System";
@@ -21,6 +22,17 @@
 "StarKey4_White" = "White Dwarf";
 "StarKey5_Black" = "Black Dwarf";
 "StarKey6_Brown" = "Brown Dwarf";
+
+"BonusFact1_TODO" = "";
+"BonusFact2_Mercury" = "MercuryDetail";
+"BonusFact3_Venus" = "VenusDetail";
+"BonusFact4_Earth" = "EarthDetail";
+"BonusFact5_Mars" = "MarsDetail";
+"BonusFact6_Jupiter" = "JupiterDetail";
+"BonusFact7_Saturn" = "SaturnDetail";
+"BonusFact8_Uranus" = "UranusDetail";
+"BonusFact9_Neptune" = "NeptuneDetail";
+"BonusFact10_TODO" = "";
 
 "StarFact1_Yellow" = "Yellow stars are a medium sized star.";
 "StarFact2_Yellow" = "They are three different colors:";

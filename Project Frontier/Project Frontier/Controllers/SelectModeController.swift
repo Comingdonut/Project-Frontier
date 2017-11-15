@@ -11,6 +11,8 @@ import UIKit
 class SelectModeController: UIViewController{
     
     @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var comingSoon1: UIImageView!
+    @IBOutlet weak var comingSoon2: UIImageView!
     @IBOutlet weak var buttonSmall: UIButton!
     @IBOutlet weak var buttonMedium: UIButton!
     @IBOutlet weak var buttonLarge: UIButton!
@@ -32,6 +34,8 @@ class SelectModeController: UIViewController{
             backButton.setBackgroundImage(UIImage(named: "ButtonBackgroundLight"), for: UIControlState.normal)
             infoButton.setBackgroundImage(UIImage(named: "SmallButtonBackgroundLight"), for: UIControlState.normal)
         }
+        comingSoon1.image = UIImage(named: NSLocalizedString(KeysLocalize.DefaultKey6_Soon, comment: ""))
+        comingSoon2.image = UIImage(named: NSLocalizedString(KeysLocalize.DefaultKey6_Soon, comment: ""))
     }
     
     override func didReceiveMemoryWarning() {

@@ -561,6 +561,8 @@
                         <outlet property="buttonLarge" destination="bw0-gj-ZZ5" id="yl4-Ng-18m"/>
                         <outlet property="buttonMedium" destination="6hM-Pc-P2L" id="kjg-Xh-X4b"/>
                         <outlet property="buttonSmall" destination="eBV-1P-x7M" id="KtW-Iq-6wh"/>
+                        <outlet property="comingSoon1" destination="RDl-O9-6Fb" id="F08-Nc-tdX"/>
+                        <outlet property="comingSoon2" destination="bzA-IK-UbM" id="JKc-Fq-ZwB"/>
                         <outlet property="infoButton" destination="xm4-ap-30t" id="C0a-JS-UUg"/>
                     </connections>
                 </viewController>
@@ -872,7 +874,8 @@
         <image name="TextureExample" width="125" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Oj-Y6-b4D"/>
         <segue reference="5Oj-dd-jYX"/>
-        <segue reference="Src-dw-F6L"/>
+        <segue reference="tzJ-AZ-ygO"/>
     </inferredMetricsTieBreakers>
 </document>

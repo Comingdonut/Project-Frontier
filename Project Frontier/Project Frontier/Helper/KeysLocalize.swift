@@ -14,6 +14,7 @@ struct KeysLocalize {
     static let DefaultKey3_TBA = "DefaultKey3_TBA"
     static let DefaultKey4_Back = "DefaultKey4_Back"
     static let DefaultKey5_Shoot = "DefaultKey5_Shoot"
+    static let DefaultKey6_Soon = "DefaultKey6_Soon"
     
     static let MenuKey1_Star = "MenuKey1_Star"
     static let MenuKey2_SolarSystem = "MenuKey2_SolarSystem"
@@ -25,6 +26,17 @@ struct KeysLocalize {
     static let StarKey4_White = "StarKey4_White"
     static let StarKey5_Black = "StarKey5_Black"
     static let StarKey6_Brown = "StarKey6_Brown"
+    
+    static let BonusFact1_TODO = ""
+    static let BonusFact2_Mercury = "BonusFact2_Mercury"
+    static let BonusFact3_Venus = "BonusFact3_Venus"
+    static let BonusFact4_Earth = "BonusFact4_Earth"
+    static let BonusFact5_Mars = "BonusFact5_Mars"
+    static let BonusFact6_Jupiter = "BonusFact6_Jupiter"
+    static let BonusFact7_Saturn = "BonusFact7_Saturn"
+    static let BonusFact8_Uranus = "BonusFact8_Uranus"
+    static let BonusFact9_Neptune = "BonusFact9_Neptune"
+    static let BonusFact10_TODO = ""
     
     static let StarFact1_Yellow = "StarFact1_Yellow"
     static let StarFact2_Yellow = "StarFact2_Yellow"
