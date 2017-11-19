@@ -1,5 +1,5 @@
 //
-//  OptionsController.swift
+//  SettingsController.swift
 //  Project Frontier
 //
 //  Created by James Castrejon on 9/3/17.

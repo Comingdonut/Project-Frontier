@@ -115,7 +115,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         sceneView.antialiasingMode = SCNAntialiasingMode.multisampling4X
         
         // Debug plane
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        // sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Create a new scene
         let scene = SCNScene()
@@ -290,7 +290,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	
 	private func initAR(){
 		isPlacingNodes = false
-//        backButton.isHidden = true
 		scopeImage.isHidden = false
 		newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 		hidePlanes()

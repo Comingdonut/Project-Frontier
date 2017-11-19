@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="-1185" y="861.97183098591552"/>
         </scene>
-        <!--Options-->
+        <!--Settings-->
         <scene sceneID="ETc-oa-yyd">
             <objects>
-                <viewController title="Options" id="rac-jO-kOH" customClass="OptionsController" customModule="Project_Frontier" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="rac-jO-kOH" customClass="SettingsController" customModule="Project_Frontier" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y5I-Xg-WuK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZS-5x-x1j" userLabel="Options Title">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZS-5x-x1j" userLabel="Settings Title">
                                 <rect key="frame" x="16" y="15" width="288" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="40"/>
@@ -416,7 +416,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-hn-jFA" userLabel="Help Button">
-                                <rect key="frame" x="108" y="217" width="104" height="30"/>
+                                <rect key="frame" x="108" y="285" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
@@ -427,20 +427,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="Z5B-OT-Gka" kind="presentation" modalTransitionStyle="crossDissolve" id="F4y-uF-rwb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-qW-82h" userLabel="Options Button">
-                                <rect key="frame" x="108" y="284" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Options" backgroundImage="ButtonBackground">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="rac-jO-kOH" kind="presentation" modalTransitionStyle="crossDissolve" id="6JS-Ec-9Ui"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-rg-coh" userLabel="About Button">
@@ -457,6 +443,20 @@
                                     <segue destination="JbR-Ct-DCV" kind="presentation" modalTransitionStyle="crossDissolve" id="ELZ-yb-ijs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-qW-82h" userLabel="Settings Button">
+                                <rect key="frame" x="108" y="219" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Settings" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rac-jO-kOH" kind="presentation" modalTransitionStyle="crossDissolve" id="6JS-Ec-9Ui"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -466,7 +466,7 @@
                         <outlet property="aboutButton" destination="ndb-rg-coh" id="MK8-F2-2Ux"/>
                         <outlet property="helpButton" destination="JFg-hn-jFA" id="uEM-Pp-MHu"/>
                         <outlet property="mainMenuBackground" destination="eDN-2K-syT" id="v83-Wm-P2r"/>
-                        <outlet property="optionsButton" destination="2Xz-qW-82h" id="xtK-M8-cOg"/>
+                        <outlet property="settingsButton" destination="2Xz-qW-82h" id="xtK-M8-cOg"/>
                         <outlet property="startButton" destination="vG1-kL-Tjz" id="d5c-2f-ce9"/>
                     </connections>
                 </viewController>
@@ -874,8 +874,7 @@
         <image name="TextureExample" width="125" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Oj-Y6-b4D"/>
-        <segue reference="5Oj-dd-jYX"/>
-        <segue reference="tzJ-AZ-ygO"/>
+        <segue reference="3fP-2r-61p"/>
+        <segue reference="zMR-U4-OlE"/>
     </inferredMetricsTieBreakers>
 </document>
