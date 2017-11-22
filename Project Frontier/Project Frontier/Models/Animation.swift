@@ -15,43 +15,49 @@ class Animation {
         
     }
     
-    static func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    public static func spin(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    static func disappear(_ node: SCNNode, d: Duration) {
+    public static func disappear(_ node: SCNNode, d: Duration) {
         let action = SCNAction.fadeOut(duration: d.rawValue)
         node.runAction(action)
     }
     
-    static func appear(_ node: SCNNode, d: Duration) {
+    public static func appear(_ node: SCNNode, d: Duration) {
         let action = SCNAction.fadeIn(duration: d.rawValue)
         node.runAction(action)
     }
     
-    static func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    public static func move(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.moveBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue)
         node.runAction(action)
     }
     
-    static func scale(_ node: SCNNode, to newSize: Float, d: Duration){
+    public static func scale(_ node: SCNNode, to newSize: Float, d: Duration){
         let action = SCNAction.scale(to: CGFloat(newSize), duration: d.rawValue)
         node.runAction(action)
     }
     
-    static func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
+    public static func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue))
         node.runAction(action)
     }
     
     // Mark: - Particle Effects
     
-    static func explode(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+    public static func explode(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
         let boom = SCNParticleSystem(named: "BulletParticle.scnp", inDirectory: nil)
         boom?.particleColor = color
         boom?.emitterShape = geometry
         return boom!
+    }
+    
+    public static func solarFlare(geometry: SCNGeometry) -> SCNParticleSystem {
+        let flare = SCNParticleSystem(named: "SolarFlareParticle.scnp", inDirectory: nil)
+        flare?.emitterShape = geometry
+        return flare!
     }
     
 }

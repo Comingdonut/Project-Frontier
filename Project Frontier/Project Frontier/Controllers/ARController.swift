@@ -332,6 +332,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             self.homeButton.isHidden = false
         })
 		arMenu.show()
+		arMenu.rotatePlanets()
     }
 	
 	private func newStarMenu(x: Float, y: Float, z: Float) {
@@ -426,6 +427,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
 	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+		//print("Name: \(String(describing: contact.nodeA.name))")
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(Animation.explode(color: .white, geometry: contact.nodeA.geometry!))
