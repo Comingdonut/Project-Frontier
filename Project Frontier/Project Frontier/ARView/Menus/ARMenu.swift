@@ -36,6 +36,7 @@ class ARMenu: Menu {
         }
         initOption(0, "Star", .sphere, "yellowstar")
         initOption(1, "Black Hole", .sphere, .black)
+        options[1].addParticleSystem(Animation.blackHole(geometry: options[1].geometry!))
         options[2].setDimension(to: 0.009)
         initOption(2, "Solar Sytem", .sphere, "yellowstar")
         initOption(3, "TBA", .box, .gray)
@@ -129,7 +130,7 @@ class ARMenu: Menu {
             }
             else if x == 7 {
                 Animation.infiniteRotate(options[2].childNodes[6].childNodes.first!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
-                Animation.spin(options[2].childNodes[6].childNodes.first!, x: 1.55, y: 0, z: 0, d: Duration.light)
+                Animation.spin(options[2].childNodes[6].childNodes.first!, x: 0, y: 0, z: 1.55, d: Duration.light)
                 Animation.infiniteRotate(options[2].childNodes[7].childNodes.first!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
         }

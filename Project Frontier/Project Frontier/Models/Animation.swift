@@ -54,10 +54,10 @@ class Animation {
         return boom!
     }
     
-    public static func solarFlare(geometry: SCNGeometry) -> SCNParticleSystem {
-        let flare = SCNParticleSystem(named: "SolarFlareParticle.scnp", inDirectory: nil)
-        flare?.emitterShape = geometry
-        return flare!
+    public static func blackHole(geometry: SCNGeometry) -> SCNParticleSystem {
+        let light = SCNParticleSystem(named: "BlackHoleParticle", inDirectory: nil)
+        light?.emitterShape = geometry
+        return light!
     }
     
 }

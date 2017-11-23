@@ -29,7 +29,6 @@ class YellowStar: Subject {
     }
     
     func initSubject() {
-        
         for _ in stride(from: 0, to: size, by: 1) {
             let node = ObjectNode()
             node.opacity = 0.0
@@ -173,7 +172,7 @@ class YellowStar: Subject {
             }
             else if x == 8 {
                 Animation.infiniteRotate((objects[8].childNodes.first)!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
-                Animation.spin((objects[8].childNodes.first)!, x: 1.55, y: 0, z: 0, d: Duration.light)
+                Animation.spin((objects[8].childNodes.first)!, x: 0, y: 0, z: 1.55, d: Duration.light)
                 Animation.infiniteRotate((objects[9].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
         }
