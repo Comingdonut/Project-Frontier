@@ -15,6 +15,9 @@
 "MenuKey1_Star" = "Star";
 "MenuKey2_SolarSystem" = "Solar System";
 "MenuKey3_BlackHole" = "Black Hole";
+"MenuKey4_Comet" = "Comet";
+"MenuKey5_Galaxy" = "Galaxy";
+"MenuKey6_DwarfPlanet" = "Dwarf Planet";
 
 "StarKey1_Yellow" = "Yellow Star";
 "StarKey2_Blue" = "Blue Star";

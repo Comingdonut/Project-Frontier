@@ -54,10 +54,16 @@ class Animation {
         return boom!
     }
     
-    public static func blackHole(geometry: SCNGeometry) -> SCNParticleSystem {
+    public static func emitLight(geometry: SCNGeometry) -> SCNParticleSystem {
         let light = SCNParticleSystem(named: "BlackHoleParticle", inDirectory: nil)
         light?.emitterShape = geometry
         return light!
+    }
+    
+    public static func tail(geometry: SCNGeometry) -> SCNParticleSystem {
+        let tail = SCNParticleSystem(named: "CometParticle", inDirectory: nil)
+        tail?.emitterShape = geometry
+        return tail!
     }
     
 }

@@ -36,20 +36,23 @@ class ARMenu: Menu {
         }
         initOption(0, "Star", .sphere, "yellowstar")
         initOption(1, "Black Hole", .sphere, .black)
-        options[1].addParticleSystem(Animation.blackHole(geometry: options[1].geometry!))
+        options[1].addParticleSystem(Animation.emitLight(geometry: options[1].geometry!))
         options[2].setDimension(to: 0.009)
         initOption(2, "Solar Sytem", .sphere, "yellowstar")
-        initOption(3, "TBA", .box, .gray)
-        initOption(4, "TBA", .box, .gray)
-        initOption(5, "TBA", .box, .gray)
+        options[3].setDimension(to: 0.012)
+        initOption(3, "Comet", .sphere, "comet")
+        options[3].addParticleSystem(Animation.tail(geometry: options[3].geometry!))
+        initOption(4, "Galaxies", .ring, .magenta)
+        options[5].setDimension(to: 0.015)
+        initOption(5, "Dwarf Planets", .sphere, "pluto")
         options[6].setDimension(to: 0.030)
         initOption(6, NSLocalizedString(KeysLocalize.DefaultKey1_Category, comment: ""), .text, color)
         initOption(7, NSLocalizedString(KeysLocalize.MenuKey1_Star, comment: ""), .text, color)
         initOption(8, NSLocalizedString(KeysLocalize.MenuKey3_BlackHole, comment: ""), .text, color)
         initOption(9, NSLocalizedString(KeysLocalize.MenuKey2_SolarSystem, comment: ""), .text, color)
-        initOption(10, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
-        initOption(11, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
-        initOption(12, NSLocalizedString(KeysLocalize.DefaultKey3_TBA, comment: ""), .text, color)
+        initOption(10, NSLocalizedString(KeysLocalize.MenuKey4_Comet, comment: ""), .text, color)
+        initOption(11, NSLocalizedString(KeysLocalize.MenuKey5_Galaxy, comment: ""), .text, color)
+        initOption(12, NSLocalizedString(KeysLocalize.MenuKey6_DwarfPlanet, comment: ""), .text, color)
         createSolarSystem(options[2])
     }
     
@@ -92,10 +95,11 @@ class ARMenu: Menu {
             Animation.appear(opt, d: Duration.light)
         }
         for j in stride(from: 0, to: 6, by: 1){
-            if j != 1 {
+            if j != 1 && j != 3 {
                 Animation.infiniteRotate(options[j], x: none, y: y_axis, z: none, d: Duration.medium)
             }
         }
+        Animation.infiniteRotate(options[5], x: none, y: y_axis, z: none, d: Duration.light_slow)
     }
     
     public func rotatePlanets() {
