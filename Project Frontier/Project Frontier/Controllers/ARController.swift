@@ -473,6 +473,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			dispatchGroup.enter()
 			for obj in objects {
 				Animation.disappear(obj, d: Duration.light)
+				obj.removeAllParticleSystems()
 			}
 			dispatchGroup.leave()
 			
@@ -480,7 +481,6 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
 					
 					for obj in self.objects {
-						obj.removeAllParticleSystems()
 						obj.removeFromParentNode()
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
