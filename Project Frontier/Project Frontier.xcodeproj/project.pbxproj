@@ -16,6 +16,7 @@
 		D128DE9C1FA942A9000BFB25 /* WhiteStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */; };
 		D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = D12939F91FB13F19001B6BED /* BulletParticle.png */; };
 		D12939FC1FB16453001B6BED /* BlackStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12939FB1FB16453001B6BED /* BlackStar.swift */; };
+		D12E06581FC877920059F886 /* FireParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D12E06571FC877920059F886 /* FireParticle.scnp */; };
 		D13233A11F5DA44C00033F33 /* SelectModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A01F5DA44C00033F33 /* SelectModeController.swift */; };
 		D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13233A21F5DC10B00033F33 /* InformationController.swift */; };
 		D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D6F1E1F72C5FF00F34B16 /* Animation.swift */; };
@@ -29,7 +30,6 @@
 		D18B2B3E1F9D949F00744518 /* Bullet_Contact.wav in Resources */ = {isa = PBXBuildFile; fileRef = D18B2B3D1F9D949F00744518 /* Bullet_Contact.wav */; };
 		D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D19112481F79DA5500806D9C /* Future Discoveries.mp3 */; };
 		D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */; };
-		D19555521FC5ECB7004AFC5C /* SolarFlareParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D19555501FC5ECB7004AFC5C /* SolarFlareParticle.scnp */; };
 		D19555531FC5ECB7004AFC5C /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = D19555511FC5ECB7004AFC5C /* bokeh.png */; };
 		D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
@@ -42,7 +42,6 @@
 		D1B9477F1F5C8C6B000FB895 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9477E1F5C8C6B000FB895 /* HelpController.swift */; };
 		D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF8E251F8C742D000FF09B /* Duration.swift */; };
 		D1C99C591FC65FA700683250 /* BlackHoleParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D1C99C571FC65FA700683250 /* BlackHoleParticle.scnp */; };
-		D1C99C5A1FC65FA700683250 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D1C99C581FC65FA700683250 /* spark.png */; };
 		D1CA25381F5F19510029D881 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CA25371F5F19510029D881 /* ARController.swift */; };
 		D1DFA94B1F5B9CC200B0E4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */; };
 		D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DFA9501F5B9CC200B0E4D9 /* Main.storyboard */; };
@@ -67,6 +66,7 @@
 		D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteStar.swift; sourceTree = "<group>"; };
 		D12939F91FB13F19001B6BED /* BulletParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BulletParticle.png; path = "Project Frontier/Resources/Assets.xcassets/Particle/BulletParticle.imageset/BulletParticle.png"; sourceTree = SOURCE_ROOT; };
 		D12939FB1FB16453001B6BED /* BlackStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackStar.swift; sourceTree = "<group>"; };
+		D12E06571FC877920059F886 /* FireParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = FireParticle.scnp; sourceTree = "<group>"; };
 		D13233A01F5DA44C00033F33 /* SelectModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeController.swift; sourceTree = "<group>"; };
 		D13233A21F5DC10B00033F33 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		D14D6F1E1F72C5FF00F34B16 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -80,7 +80,6 @@
 		D18B2B3D1F9D949F00744518 /* Bullet_Contact.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bullet_Contact.wav; sourceTree = "<group>"; };
 		D19112481F79DA5500806D9C /* Future Discoveries.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Future Discoveries.mp3"; sourceTree = "<group>"; };
 		D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Midnight Sky.mp3"; sourceTree = "<group>"; };
-		D19555501FC5ECB7004AFC5C /* SolarFlareParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = SolarFlareParticle.scnp; sourceTree = "<group>"; };
 		D19555511FC5ECB7004AFC5C /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOnPlane.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		D1B9477E1F5C8C6B000FB895 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		D1BF8E251F8C742D000FF09B /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		D1C99C571FC65FA700683250 /* BlackHoleParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = BlackHoleParticle.scnp; sourceTree = "<group>"; };
-		D1C99C581FC65FA700683250 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../../../spark.png; sourceTree = "<group>"; };
 		D1CA25371F5F19510029D881 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D1DFA9471F5B9CC200B0E4D9 /* Project Frontier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Frontier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DFA94A1F5B9CC200B0E4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,14 +142,13 @@
 		D14D6F201F73006A00F34B16 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				D1C99C581FC65FA700683250 /* spark.png */,
 				D1C99C571FC65FA700683250 /* BlackHoleParticle.scnp */,
 				D12939F91FB13F19001B6BED /* BulletParticle.png */,
 				D1AF40F51F745EA000E5BCE6 /* BulletParticle.scnp */,
 				D152C5ED1FBAB75A0031AAFA /* spark.png */,
-				D19555501FC5ECB7004AFC5C /* SolarFlareParticle.scnp */,
 				D19555511FC5ECB7004AFC5C /* bokeh.png */,
 				D124A7641FC74203004E7C95 /* CometParticle.scnp */,
+				D12E06571FC877920059F886 /* FireParticle.scnp */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -342,17 +339,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19555521FC5ECB7004AFC5C /* SolarFlareParticle.scnp in Resources */,
 				D18B2B3C1F9D949600744518 /* Bullet_Fired.wav in Resources */,
 				D152C5EF1FBAB75A0031AAFA /* spark.png in Resources */,
 				D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */,
+				D12E06581FC877920059F886 /* FireParticle.scnp in Resources */,
 				D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */,
 				D1DFA9571F5B9CC200B0E4D9 /* LaunchScreen.storyboard in Resources */,
 				D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */,
 				D19555531FC5ECB7004AFC5C /* bokeh.png in Resources */,
 				D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
-				D1C99C5A1FC65FA700683250 /* spark.png in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
 				D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */,
 				D18B2B3E1F9D949F00744518 /* Bullet_Contact.wav in Resources */,

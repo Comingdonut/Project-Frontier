@@ -16,8 +16,8 @@
 "MenuKey2_SolarSystem" = "Sistema Solar";
 "MenuKey3_BlackHole" = "Calabozo";
 "MenuKey4_Comet" = "Cometa";
-"MenuKey5_Galaxies" = "Galaxia";
-"MenuKey6_DwarfPlanets" = "Planeta Enanos";
+"MenuKey5_Galaxy" = "Galaxia";
+"MenuKey6_DwarfPlanet" = "Planeta Enanos";
 
 "StarKey1_Yellow" = "Astro Amarilla";
 "StarKey2_Blue" = "Astro Azul";

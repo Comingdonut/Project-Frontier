@@ -66,4 +66,10 @@ class Animation {
         return tail!
     }
     
+    public static func flare(geometry: SCNGeometry) -> SCNParticleSystem {
+        let flare = SCNParticleSystem(named: "FireParticle", inDirectory: nil)
+        flare?.emitterShape = geometry
+        return flare!
+    }
+    
 }
