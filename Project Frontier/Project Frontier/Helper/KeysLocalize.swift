@@ -20,7 +20,7 @@ struct KeysLocalize {
     static let MenuKey2_SolarSystem = "MenuKey2_SolarSystem"
     static let MenuKey3_BlackHole = "MenuKey3_BlackHole"
     static let MenuKey4_Comet = "MenuKey4_Comet"
-    static let MenuKey5_Galaxy = "MenuKey5_Galaxy"
+    static let MenuKey5_Exoplanet = "MenuKey5_Exoplanet"
     static let MenuKey6_DwarfPlanet = "MenuKey6_DwarfPlanet"
     
     static let StarKey1_Yellow = "StarKey1_Yellow"

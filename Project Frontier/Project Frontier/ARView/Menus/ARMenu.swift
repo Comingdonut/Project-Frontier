@@ -43,7 +43,8 @@ class ARMenu: Menu {
         options[3].setDimension(to: 0.012)
         initOption(3, "Comet", .sphere, "comet")
         options[3].addParticleSystem(Animation.tail(geometry: options[3].geometry!))
-        initOption(4, "Galaxies", .ring, .magenta)
+        options[4].setDimension(to: 0.019)
+        initOption(4, "Exoplanet", .sphere, "exoplanet2")
         options[5].setDimension(to: 0.015)
         initOption(5, "Dwarf Planets", .sphere, "pluto")
         options[6].setDimension(to: 0.030)
@@ -52,7 +53,7 @@ class ARMenu: Menu {
         initOption(8, NSLocalizedString(KeysLocalize.MenuKey3_BlackHole, comment: ""), .text, color)
         initOption(9, NSLocalizedString(KeysLocalize.MenuKey2_SolarSystem, comment: ""), .text, color)
         initOption(10, NSLocalizedString(KeysLocalize.MenuKey4_Comet, comment: ""), .text, color)
-        initOption(11, NSLocalizedString(KeysLocalize.MenuKey5_Galaxy, comment: ""), .text, color)
+        initOption(11, NSLocalizedString(KeysLocalize.MenuKey5_Exoplanet, comment: ""), .text, color)
         initOption(12, NSLocalizedString(KeysLocalize.MenuKey6_DwarfPlanet, comment: ""), .text, color)
         createSolarSystem(options[2])
     }
@@ -134,7 +135,7 @@ class ARMenu: Menu {
                 Animation.infiniteRotate(options[2].childNodes[5].childNodes.first!, x: 0, y: 1, z: 0, d: Duration.slow_fast)
             }
             else if x == 7 {
-                Animation.infiniteRotate(options[2].childNodes[6].childNodes.first!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
+                Animation.infiniteRotate(options[2].childNodes[6].childNodes.first!, x: 0, y: -1, z: 0, d: Duration.medium_slow)
                 Animation.spin(options[2].childNodes[6].childNodes.first!, x: 0, y: 0, z: 1.55, d: Duration.light)
                 Animation.infiniteRotate(options[2].childNodes[7].childNodes.first!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }

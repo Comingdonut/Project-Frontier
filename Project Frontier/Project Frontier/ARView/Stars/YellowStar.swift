@@ -171,7 +171,7 @@ class YellowStar: Subject {
                 Animation.infiniteRotate((objects[7].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.slow_fast)
             }
             else if x == 8 {
-                Animation.infiniteRotate((objects[8].childNodes.first)!, x: 0, y: 0, z: -1, d: Duration.medium_slow)
+                Animation.infiniteRotate((objects[8].childNodes.first)!, x: 0, y: -1, z: 0, d: Duration.medium_slow)
                 Animation.spin((objects[8].childNodes.first)!, x: 0, y: 0, z: 1.55, d: Duration.light)
                 Animation.infiniteRotate((objects[9].childNodes.first)!, x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
