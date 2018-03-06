@@ -144,7 +144,7 @@ class YellowStar: Subject {
             }
             else if x == 1 {//Planet Orbits
                 Animation.infiniteRotate(objects[2], x: 0, y: 1, z: 0, d: Duration.light)
-                Animation.infiniteRotate(objects[3], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                Animation.infiniteRotate(objects[3], x: 0, y: -1, z: 0, d: Duration.fast_fast)
             }
             else if x == 2 {
                 Animation.infiniteRotate(objects[4], x: 0, y: 1, z: 0, d: Duration.fast)
@@ -155,7 +155,7 @@ class YellowStar: Subject {
                 Animation.infiniteRotate(objects[7], x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
             else if x == 4 {
-                Animation.infiniteRotate(objects[8], x: 0, y: 1, z: 0, d: Duration.slow_fast)
+                Animation.infiniteRotate(objects[8], x: 0, y: -1, z: 0, d: Duration.slow_fast)
                 Animation.infiniteRotate(objects[9], x: 0, y: 1, z: 0, d: Duration.slow)
             }
             else if x == 5 {//Planets Rotation

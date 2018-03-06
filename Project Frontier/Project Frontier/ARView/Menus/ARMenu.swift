@@ -108,7 +108,7 @@ class ARMenu: Menu {
         for x in stride(from: 0, to: 8, by: 1) {
             if x == 0 {//Planet Orbits
                 Animation.infiniteRotate(options[2].childNodes[0], x: 0, y: 1, z: 0, d: Duration.light)
-                Animation.infiniteRotate(options[2].childNodes[1], x: 0, y: 1, z: 0, d: Duration.fast_fast)
+                Animation.infiniteRotate(options[2].childNodes[1], x: 0, y: -1, z: 0, d: Duration.fast_fast)
             }
             else if x == 1 {
                 Animation.infiniteRotate(options[2].childNodes[2], x: 0, y: 1, z: 0, d: Duration.fast)
@@ -119,7 +119,7 @@ class ARMenu: Menu {
                 Animation.infiniteRotate(options[2].childNodes[5], x: 0, y: 1, z: 0, d: Duration.medium_slow)
             }
             else if x == 3 {
-                Animation.infiniteRotate(options[2].childNodes[6], x: 0, y: 1, z: 0, d: Duration.slow_fast)
+                Animation.infiniteRotate(options[2].childNodes[6], x: 0, y: -3, z: 0, d: Duration.slow_fast)
                 Animation.infiniteRotate(options[2].childNodes[7], x: 0, y: 1, z: 0, d: Duration.slow)
             }
             else if x == 4 {//Planets Rotation
