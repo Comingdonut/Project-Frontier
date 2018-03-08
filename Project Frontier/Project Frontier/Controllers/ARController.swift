@@ -19,17 +19,20 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     @IBOutlet weak var scopeImage: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var imageDetail: UIImageView!
+    @IBOutlet weak var universeConsumed: UILabel!
     
     private let ARPlaneDetectionNone: UInt = 0
-	private let framesPerSecond: Float = 60.0
+	private let framesOfASecond: Float = 45.0
     private let defaults = UserDefaults.standard
 	
 	private var theme: Int = 0
 	private var starIndex: Int = 0
+	private var frames: Float = 0.0
 	private var bulletsFrames: Float = 0.0
     private var isPlacingNodes: Bool = true
 	private var ableToShoot: Bool = true
 	private var soundOn: Bool = true
+	private var isUniverseConsumed: Bool = false
 	private var color: Color = Color.white
     private var configuration = ARWorldTrackingConfiguration()
     private var planes = [UUID: SurfacePlane]()
@@ -38,6 +41,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	private var wDwarfFacts: [ObjectNode] = []
 	private var bDwarfFacts: [ObjectNode] = []
 	private var brDwarfFacts: [ObjectNode] = []
+	private var bHoleFacts: [ObjectNode] = []
 	
     private var counter: Int = 0 {
         didSet {
@@ -234,6 +238,28 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			brDwarfFacts.append(node)
 		}
 	}
+	
+	private func setupBHoleFacts() {
+		let bHoleText: [String] = [NSLocalizedString(KeysLocalize.BlackHoleFact1, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact2, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact3, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact4, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact5, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact6, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact7, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact8, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact9, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact10, comment: ""),
+								  NSLocalizedString(KeysLocalize.BlackHoleFact11, comment: "")]
+		
+		for x in stride(from: 0, to: bHoleText.count, by: 1) {
+			let node = ObjectNode(0.001, false, bHoleText[x])
+			node.setName(to: "Info Text")
+			node.setShape(.text)
+			node.setColor(color)
+			bHoleFacts.append(node)
+		}
+	}
     
 	@objc func handleTap (from recognizer: UITapGestureRecognizer){
         if isPlacingNodes {
@@ -349,6 +375,18 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		starMenu.show()
 	}
 	
+	private func newBlackHole(x: Float, y: Float, z: Float) {
+		let blackHole = BlackHole()
+		
+		blackHole.setPositions(x, y, z)
+		blackHole.animate()
+		
+		sceneView.scene.rootNode.addChildNode(blackHole.blackHole)
+		objects.append(blackHole.blackHole)
+		sceneView.scene.rootNode.addChildNode(blackHole.textFacts)
+		objects.append(blackHole.textFacts)
+	}
+	
 	private func newYellowStar(x: Float, y: Float, z: Float) {
 		let star: YellowStar = YellowStar()
 		
@@ -427,7 +465,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
 	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-		//print("Name: \(String(describing: contact.nodeA.name))")
+		print("Name: " + contact.nodeA.name!)
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(Animation.explode(color: .white, geometry: contact.nodeA.geometry!))
@@ -442,6 +480,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 		
 		checkForMenuStarContact(contact.nodeA)
+		checkForMenuBlackHoleContact(contact.nodeA)
 		checkForMenuBackContact(contact.nodeA)
 		checkForMenuYellowStarContact(contact.nodeA)
 		checkForMenuWhiteStarContact(contact.nodeA)
@@ -452,6 +491,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		checkBlackDwarfContact(contact.nodeA)
 		checkBrownDwarfContact(contact.nodeA)
 		checkForPlanets(contact.nodeA)
+		checkBlackHoleContact(contact.nodeA)
     }
 	
 	func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact) {
@@ -485,6 +525,62 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
 					}
 					self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					
+					self.ableToShoot = true
+				})
+			})
+		}
+	}
+	
+	private func checkForMenuBlackHoleContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Black Hole" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.homeButton.isHidden = true
+			})
+			
+			ableToShoot = false
+			let dispatchGroup = DispatchGroup()
+			let offSet: Float = 0.15
+			let none: Float = 0.0
+			
+			dispatchGroup.enter()
+			for x in stride(from: 0, to: self.objects.count, by: 1) {
+				if x == 0 {
+					Animation.disappear(objects[x], d: Duration.light)
+				}
+				else if x == 1 {
+					Animation.move(objects[x], x: -offSet, y: none, z: none, d: Duration.light)
+				}
+				else if x == 2 {
+					Animation.disappear(objects[x], d: Duration.light_slow)
+					Animation.move(objects[x], x: offSet, y: none, z: none, d: Duration.light)
+				}
+				else if x == 3 {
+					Animation.disappear(objects[x], d: Duration.light_slow)
+					Animation.move(objects[x], x: none, y: none, z: offSet, d: Duration.light)
+				}
+				else if x == 4 {
+					Animation.disappear(objects[x], d: Duration.light_slow)
+					Animation.move(objects[x], x: -offSet, y: none, z: offSet, d: Duration.light)
+				}
+				else if x == 5 {
+					Animation.disappear(objects[x], d: Duration.light_slow)
+					Animation.move(objects[x], x: offSet, y: none, z: offSet, d: Duration.light)
+				}
+				else {
+					Animation.disappear(objects[x], d: Duration.light_slow)
+				}
+				objects[x].removeAllParticleSystems()
+			}
+			dispatchGroup.leave()
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light_slow.rawValue, execute: {//Wait
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newBlackHole(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 					
 					self.ableToShoot = true
 				})
@@ -901,6 +997,47 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		self.imageDetail.isHidden = false
 		self.imageDetail.image = UIImage(named: detail)
 	}
+	
+	private func checkBlackHoleContact(_ nodeA: SCNNode) {
+		if nodeA.name == "BlackHole" {
+			ableToShoot = false
+			
+			let scale = objects[getNodeIndex(from: objects, by: "BlackHole")].dimension
+			objects[getNodeIndex(from: objects, by: "BlackHole")].removeFromParentNode()
+			objects.remove(at: getNodeIndex(from: objects, by: "BlackHole"))
+			if scale >= 0.10125 {
+				AudioPlayer.stopMusic()
+				AudioPlayer.pickSong("Space Harmony", "mp3")
+				AudioPlayer.playMusic()
+				AudioPlayer.loopMusic()
+
+				objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+				objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+				isUniverseConsumed = true
+				frames = 0.0
+				DispatchQueue.main.async {
+					self.universeConsumed.isHidden = false
+				}
+			} else {
+				let none: Float = 0.0
+				let offSet: Float = 0.15
+				
+				let blackHole: ObjectNode = ObjectNode(scale*1.5)
+				blackHole.setName(to: "BlackHole")
+				blackHole.setShape(Shape.sphere)
+				blackHole.setColor(Color.black)
+				blackHole.setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, offSet, none)
+				blackHole.addParticleSystem(Animation.emitLight(geometry: blackHole.geometry!))
+				print("Black Hole Added")
+				objects.first?.parent?.addChildNode(blackHole)
+				objects.append(blackHole)
+			}
+			
+			DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+				self.ableToShoot = true
+			})
+		}
+	}
 
     // MARK: - ARSCNViewDelegate
     
@@ -958,10 +1095,78 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
 		if searchNode(for: "Bullet", from: objects) {
 			bulletsFrames+=1
-			if bulletsFrames == (framesPerSecond * (objects.first?.multiplier)!) { //Bullet disappears in 2 seconds
+			if bulletsFrames == (framesOfASecond * (objects.first?.multiplier)!) { //Bullet disappears in 2 seconds
 				let node = objects.remove(at: getNodeIndex(from: objects, by: "Bullet"))
 				node.removeFromParentNode()
 				bulletsFrames = 0.0
+			}
+		}
+		if isUniverseConsumed {
+			frames+=1
+			if frames == (framesOfASecond*7) {
+				isUniverseConsumed = false
+				frames = 0.0
+				DispatchQueue.main.async {
+					self.universeConsumed.isHidden = true
+					self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+				}
+				AudioPlayer.stopMusic()
+				AudioPlayer.pickSong("Midnight Sky", "mp3")
+				AudioPlayer.playMusic()
+				AudioPlayer.loopMusic()
+			}
+		}
+		if searchNode(for: "BlackHole", from: objects) && !isUniverseConsumed {
+			frames+=1
+			if bHoleFacts.count == 0 {
+				setupBHoleFacts()
+			}
+			if frames == (framesOfASecond*7) {
+				if starIndex != bHoleFacts.count {
+					if searchNode(for: "Info Text", from: objects) {
+						objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+						objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+					}
+					let none: Float = 0.0
+					let textToScale: Float = 0.030
+					let yTopOffSet: Float = 0.40
+					
+					bHoleFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, none)
+					objects.first?.parent?.addChildNode(bHoleFacts[starIndex])
+					objects.append(bHoleFacts[starIndex])
+					
+					Animation.scale(bHoleFacts[starIndex], to: textToScale, d: Duration.light)
+					starIndex+=1
+				}
+				else {
+					let dispatchGroup = DispatchGroup()
+					
+					ableToShoot = false
+					dispatchGroup.enter()
+					for obj in objects {
+						Animation.disappear(obj, d: Duration.light)
+					}
+					for obj in self.objects {
+						obj.removeAllParticleSystems()
+						obj.removeFromParentNode()
+					}
+					dispatchGroup.leave()
+					
+					dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+						DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+							for obj in self.objects {
+								self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+							}
+							self.backButton.isHidden = true
+							self.starIndex = 0
+							self.bHoleFacts = []
+							self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+							
+							self.ableToShoot = true
+						})
+					})
+				}
+				frames = 0.0
 			}
 		}
 	}
@@ -1002,11 +1207,12 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
             DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
                 
                 for obj in self.objects {
+					obj.removeAllActions()
                     obj.removeFromParentNode()
                     self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
                 }
                 self.newARMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
-                
+				
                 self.ableToShoot = true
             })
         })

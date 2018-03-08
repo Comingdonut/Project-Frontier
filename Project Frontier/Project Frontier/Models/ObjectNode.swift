@@ -11,7 +11,7 @@ import SceneKit
 
 class ObjectNode: SCNNode {
     
-    private var dimension: Float // Size 0.025
+    public var dimension: Float // Size 0.025
     public var multiplier: Float // Small = 1.0, Medium = 2.0, Large = 3.0
     private var isBullet: Bool
 	public var useNameForText: Bool

@@ -36,10 +36,11 @@ class ARMenu: Menu {
         }
         initOption(0, "Star", .sphere, "yellowstar")
         options[0].addParticleSystem(Animation.flare(geometry: options[0].geometry!))
+        //Animation.blur(options[1])
         initOption(1, "Black Hole", .sphere, .black)
         options[1].addParticleSystem(Animation.emitLight(geometry: options[1].geometry!))
         options[2].setDimension(to: 0.009)
-        initOption(2, "Solar Sytem", .sphere, "yellowstar")
+        initOption(2, "Solar System", .sphere, "yellowstar")
         options[3].setDimension(to: 0.012)
         initOption(3, "Comet", .sphere, "comet")
         options[3].addParticleSystem(Animation.tail(geometry: options[3].geometry!))

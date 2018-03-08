@@ -40,9 +40,22 @@ class Animation {
         node.runAction(action)
     }
     
+    public static func scale(_ node: SCNNode, by amount: Float, d: Duration){
+        let action = SCNAction.scale(by: CGFloat(amount), duration: d.rawValue)
+        node.runAction(action)
+    }
+    
     public static func infiniteRotate(_ node: SCNNode, x: Float, y: Float, z: Float, d: Duration) {
         let action = SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(x), y: CGFloat(y), z: CGFloat(z), duration: d.rawValue))
         node.runAction(action)
+    }
+    
+    // Mark: - Filters
+    
+    public static func blur(_ node: SCNNode) {
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter?.name = "blur"
+        node.filters = [blurFilter!]
     }
     
     // Mark: - Particle Effects

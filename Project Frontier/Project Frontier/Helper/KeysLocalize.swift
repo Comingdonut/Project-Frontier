@@ -79,4 +79,16 @@ struct KeysLocalize {
     static let StarFact8_Brown = "StarFact8_Brown"
     static let StarFact9_Brown = "StarFact9_Brown"
     static let StarFact10_Brown = "StarFact10_Brown"
+    
+    static let BlackHoleFact1 = "BlackHoleFact1"
+    static let BlackHoleFact2 = "BlackHoleFact2"
+    static let BlackHoleFact3 = "BlackHoleFact3"
+    static let BlackHoleFact4 = "BlackHoleFact4"
+    static let BlackHoleFact5 = "BlackHoleFact5"
+    static let BlackHoleFact6 = "BlackHoleFact6"
+    static let BlackHoleFact7 = "BlackHoleFact7"
+    static let BlackHoleFact8 = "BlackHoleFact8"
+    static let BlackHoleFact9 = "BlackHoleFact9"
+    static let BlackHoleFact10 = "BlackHoleFact10"
+    static let BlackHoleFact11 = "BlackHoleFact11"
 }

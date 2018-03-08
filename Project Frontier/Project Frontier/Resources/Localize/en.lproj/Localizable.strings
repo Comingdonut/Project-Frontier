@@ -75,3 +75,16 @@
 "StarFact8_Brown" = "Brown Dwarf Stars are not brown either.";
 "StarFact9_Brown" = "They have various colors between red and black.";
 "StarFact10_Brown" = "Some can even be magenta or orange.";
+
+"BlackHoleFact1" = "When a large star runs out of fuel it cannot support its weight.";
+"BlackHoleFact2" = "Pressure from a star's hyrogen layers presses down onto the star.";
+"BlackHoleFact3" = "This causes the star to shrink smaller than an atom.";
+"BlackHoleFact4" = "When it shrinks, it's gravity also increases.";
+"BlackHoleFact5" = "Gravity of a Black Hole is so powerful, light can't escape it.";
+"BlackHoleFact6" = "Black Holes are made up of 3 parts:";
+"BlackHoleFact7" = "1) Outer Event Horizon - Escaping is still possible here.";
+"BlackHoleFact8" = "2) Inner Event Horizon - Escaping is not possible here.";
+"BlackHoleFact9" = "3) Singularity - Where the star is at.";
+"BlackHoleFact10" = "There are two types of Black Holes.";
+"BlackHoleFact11" = "A Stellar-mass Black Hole and a Supermassive Black Hole.";
+

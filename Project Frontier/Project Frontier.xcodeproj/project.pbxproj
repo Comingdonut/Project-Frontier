@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D113956E204F5FB7002FBA62 /* BlackHole.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113956D204F5FB7002FBA62 /* BlackHole.swift */; };
 		D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D115D4291FB6178800BB74B4 /* Localizable.strings */; };
 		D115D42E1FB6277F00BB74B4 /* KeysLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115D42D1FB6277F00BB74B4 /* KeysLocalize.swift */; };
 		D11CA96D1FA790E400FDECC5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11CA96C1FA790E400FDECC5 /* Theme.swift */; };
@@ -31,6 +32,7 @@
 		D191124E1F79E45A00806D9C /* Future Discoveries.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D19112481F79DA5500806D9C /* Future Discoveries.mp3 */; };
 		D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */; };
 		D19555531FC5ECB7004AFC5C /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = D19555511FC5ECB7004AFC5C /* bokeh.png */; };
+		D19B4D722051DFEC007712F2 /* Space Harmony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D19B4D712051DFE9007712F2 /* Space Harmony.mp3 */; };
 		D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
 		D1A31D491F5CF4610024E44F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* SettingsController.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D113956D204F5FB7002FBA62 /* BlackHole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackHole.swift; sourceTree = "<group>"; };
 		D115D4281FB6178800BB74B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D115D42A1FB617B600BB74B4 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D115D42C1FB617B700BB74B4 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		D19112481F79DA5500806D9C /* Future Discoveries.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Future Discoveries.mp3"; sourceTree = "<group>"; };
 		D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Midnight Sky.mp3"; sourceTree = "<group>"; };
 		D19555511FC5ECB7004AFC5C /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		D19B4D712051DFE9007712F2 /* Space Harmony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Space Harmony.mp3"; sourceTree = "<group>"; };
 		D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOnPlane.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D113956C204F5F0B002FBA62 /* BlackHole */ = {
+			isa = PBXGroup;
+			children = (
+				D113956D204F5FB7002FBA62 /* BlackHole.swift */,
+			);
+			path = BlackHole;
+			sourceTree = "<group>";
+		};
 		D115D4241FB6168900BB74B4 /* Localize */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 		D17F10F01F6F0365006800C7 /* ARView */ = {
 			isa = PBXGroup;
 			children = (
+				D113956C204F5F0B002FBA62 /* BlackHole */,
 				D1F3F0E41F7C3CB50082B4A9 /* Menus */,
 				D1F3F0E11F7C3BBA0082B4A9 /* Stars */,
 			);
@@ -174,6 +187,7 @@
 		D191124C1F79DAAF00806D9C /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				D19B4D712051DFE9007712F2 /* Space Harmony.mp3 */,
 				D19112481F79DA5500806D9C /* Future Discoveries.mp3 */,
 				D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */,
 			);
@@ -348,6 +362,7 @@
 				D12939FA1FB13F19001B6BED /* BulletParticle.png in Resources */,
 				D19555531FC5ECB7004AFC5C /* bokeh.png in Resources */,
 				D115D4271FB6178800BB74B4 /* Localizable.strings in Resources */,
+				D19B4D722051DFEC007712F2 /* Space Harmony.mp3 in Resources */,
 				D1DFA9541F5B9CC200B0E4D9 /* Assets.xcassets in Resources */,
 				D1DFA9521F5B9CC200B0E4D9 /* Main.storyboard in Resources */,
 				D1AF40F61F745EA000E5BCE6 /* BulletParticle.scnp in Resources */,
@@ -375,6 +390,7 @@
 				D128DE9C1FA942A9000BFB25 /* WhiteStar.swift in Sources */,
 				D17413231F9ADDF50090C8DD /* AudioPlayer.swift in Sources */,
 				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
+				D113956E204F5FB7002FBA62 /* BlackHole.swift in Sources */,
 				D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */,
 				D1E1703E1F7C03BC0065C54F /* Menu.swift in Sources */,
 				D1F3F0E31F7C3BD60082B4A9 /* YellowStar.swift in Sources */,
