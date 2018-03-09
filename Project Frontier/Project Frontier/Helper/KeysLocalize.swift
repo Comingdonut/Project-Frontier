@@ -41,6 +41,17 @@ struct KeysLocalize {
     static let BonusFact9_Neptune = "BonusFact9_Neptune"
     static let BonusFact10_TODO = ""
     
+    static let StarFact1_Red = "StarFact1_Red"
+    static let StarFact2_Red = "StarFact2_Red"
+    static let StarFact3_Red = "StarFact3_Red"
+    static let StarFact4_Red = "StarFact4_Red"
+    static let StarFact5_Red = "StarFact5_Red"
+    static let StarFact6_Red = "StarFact6_Red"
+    static let StarFact7_Red = "StarFact7_Red"
+    static let StarFact8_Red = "StarFact8_Red"
+    static let StarFact9_Red = "StarFact9_Red"
+    static let StarFact10_Red = "StarFact10_Red"
+    
     static let StarFact1_Yellow = "StarFact1_Yellow"
     static let StarFact2_Yellow = "StarFact2_Yellow"
     static let StarFact3_Yellow = "StarFact3_Yellow"
@@ -51,6 +62,15 @@ struct KeysLocalize {
     static let StarFact8_Yellow = "StarFact8_Yellow"
     static let StarFact9_Yellow = "StarFact9_Yellow"
     static let StarFact10_Yellow = "StarFact10_Yellow"
+    
+    static let StarFact1_Blue = "StarFact1_Blue"
+    static let StarFact2_Blue = "StarFact2_Blue"
+    static let StarFact3_Blue = "StarFact3_Blue"
+    static let StarFact4_Blue = "StarFact4_Blue"
+    static let StarFact5_Blue = "StarFact5_Blue"
+    static let StarFact6_Blue = "StarFact6_Blue"
+    static let StarFact7_Blue = "StarFact7_Blue"
+    static let StarFact8_Blue = "StarFact8_Blue"
     
     static let StarFact1_White = "StarFact1_White"
     static let StarFact2_White = "StarFact2_White"

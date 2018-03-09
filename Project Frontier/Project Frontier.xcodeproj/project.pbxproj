@@ -33,6 +33,8 @@
 		D191124F1F79E46200806D9C /* Midnight Sky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */; };
 		D19555531FC5ECB7004AFC5C /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = D19555511FC5ECB7004AFC5C /* bokeh.png */; };
 		D19B4D722051DFEC007712F2 /* Space Harmony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D19B4D712051DFE9007712F2 /* Space Harmony.mp3 */; };
+		D19B4D742051E486007712F2 /* RedStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B4D732051E486007712F2 /* RedStar.swift */; };
+		D19B4D762051E4B3007712F2 /* BlueStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B4D752051E4B3007712F2 /* BlueStar.swift */; };
 		D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */; };
 		D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2D9711F609828004C1162 /* SurfacePlane.swift */; };
 		D1A31D491F5CF4610024E44F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A31D481F5CF4610024E44F /* SettingsController.swift */; };
@@ -85,6 +87,8 @@
 		D191124A1F79DA8E00806D9C /* Midnight Sky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Midnight Sky.mp3"; sourceTree = "<group>"; };
 		D19555511FC5ECB7004AFC5C /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		D19B4D712051DFE9007712F2 /* Space Harmony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Space Harmony.mp3"; sourceTree = "<group>"; };
+		D19B4D732051E486007712F2 /* RedStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedStar.swift; sourceTree = "<group>"; };
+		D19B4D752051E4B3007712F2 /* BlueStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueStar.swift; sourceTree = "<group>"; };
 		D1A2D1FB1F6F6FC700F5677F /* PointOnPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOnPlane.swift; sourceTree = "<group>"; };
 		D1A2D9711F609828004C1162 /* SurfacePlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfacePlane.swift; sourceTree = "<group>"; };
 		D1A31D481F5CF4610024E44F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				D128DE9B1FA942A9000BFB25 /* WhiteStar.swift */,
 				D12939FB1FB16453001B6BED /* BlackStar.swift */,
 				D12592FF1FB28B4700FA6D14 /* BrownStar.swift */,
+				D19B4D732051E486007712F2 /* RedStar.swift */,
+				D19B4D752051E4B3007712F2 /* BlueStar.swift */,
 			);
 			path = Stars;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1A2D9721F609828004C1162 /* SurfacePlane.swift in Sources */,
+				D19B4D742051E486007712F2 /* RedStar.swift in Sources */,
 				D15AFDC31FA16576006D6CFE /* KeysData.swift in Sources */,
 				D12939FC1FB16453001B6BED /* BlackStar.swift in Sources */,
 				D1BF8E261F8C742E000FF09B /* Duration.swift in Sources */,
@@ -389,6 +396,7 @@
 				D14D6F1F1F72C5FF00F34B16 /* Animation.swift in Sources */,
 				D128DE9C1FA942A9000BFB25 /* WhiteStar.swift in Sources */,
 				D17413231F9ADDF50090C8DD /* AudioPlayer.swift in Sources */,
+				D19B4D762051E4B3007712F2 /* BlueStar.swift in Sources */,
 				D13233A31F5DC10C00033F33 /* InformationController.swift in Sources */,
 				D113956E204F5FB7002FBA62 /* BlackHole.swift in Sources */,
 				D1A2D1FC1F6F6FC700F5677F /* PointOnPlane.swift in Sources */,

@@ -37,6 +37,17 @@
 "BonusFact9_Neptune" = "NeptuneDetail";
 "BonusFact10_TODO" = "";
 
+"StarFact1_Red" = "Red Dwarf Stars are one of the smallest types of stars.";
+"StarFact2_Red" = "Because of that, they burn less fuel.";
+"StarFact3_Red" = "They are also not as hot compared to other stars.";
+"StarFact4_Red" = "Red Dwarf Stars are the most common stars in space.";
+"StarFact5_Red" = "Yet they are hard to see at night.";
+"StarFact6_Red" = "Some Red Dwarf Stars live about trillions of years.";
+"StarFact7_Red" = "Temperature determines the stars color.";
+"StarFact8_Red" = "The coolest star colored is red.";
+"StarFact9_Red" = "A hotter star is yellow.";
+"StarFact10_Red" = "And the hottest star is blue.";
+
 "StarFact1_Yellow" = "Yellow stars are a medium sized star.";
 "StarFact2_Yellow" = "They are three different colors:";
 "StarFact3_Yellow" = "Yellow-White, Yellow, and Yellow-Orange";
@@ -47,6 +58,15 @@
 "StarFact8_Yellow" = "While shrinking, it will leave behind a lot of gas.";
 "StarFact9_Yellow" = "The gas will form a cloud.";
 "StarFact10_Yellow" = "This cloud is called: Planetary Nebula.";
+
+"StarFact1_Blue" = "Blue Stars tend to be large and compact.";
+"StarFact2_Blue" = "This causes them to burn fuel faster.";
+"StarFact3_Blue" = "Which means Blue Stars are extremely hot.";
+"StarFact4_Blue" = "They run out of fuel in abou 10,000 - 10,000 years.";
+"StarFact5_Blue" = "Blue Giant Stars make up most of the visible stars at night.";
+"StarFact6_Blue" = "When Blue Stars die, they expand like Yellow Stars.";
+"StarFact7_Blue" = "Instead of shrinking, they explode which is called a Super Nova.";
+"StarFact8_Blue" = "Sometimes, a dieing Blue Star will turn into a Black Hole.";
 
 "StarFact1_White" = "White Dwarf Stars are dead stars.";
 "StarFact2_White" = "They use to be Red Dwarf Stars or Yellow Stars.";

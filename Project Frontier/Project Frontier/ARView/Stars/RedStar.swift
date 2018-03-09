@@ -1,15 +1,15 @@
 //
-//  BrownStar.swift
+//  RedStar.swift
 //  Project Frontier
 //
-//  Created by James Castrejon on 11/7/17.
-//  Copyright © 2017 James Castrejon. All rights reserved.
+//  Created by James Castrejon on 3/8/18.
+//  Copyright © 2018 James Castrejon. All rights reserved.
 //
 
 import Foundation
 import SceneKit
 
-class BrownStar: Subject {
+class RedStar: Subject {
     
     private let defaults = UserDefaults.standard
     
@@ -29,8 +29,7 @@ class BrownStar: Subject {
     }
     
     func initSubject() {
-        
-        for _ in stride(from: 0, to: size, by: 1) {
+        for _ in stride(from: 0, to: size, by: 1){
             let node = ObjectNode()
             node.opacity = 0.0
             objects.append(node)
@@ -39,7 +38,7 @@ class BrownStar: Subject {
         objects[0].useNameForText = false
         objects[0].customText = NSLocalizedString(KeysLocalize.DefaultKey5_Shoot, comment: "")
         initObject(objects, 0, "Info Text", 0.001, .text, color)
-        initObject(objects, 1, "Brown Dwarf Star", 0.030, .sphere, texture: "browndwarf")
+        initObject(objects, 1, "Small Star", 0.030, .sphere, texture: "redstar")
     }
     
     func initObject(_ objects: [ObjectNode], _ index: Int, _ name: String, _ size: Float, _ geometry: Shape, _ color: Color) {
@@ -75,7 +74,7 @@ class BrownStar: Subject {
         let offSet: Float = 0.20
         let none: Float = 0.0
         
-        for j in stride(from: 1, to: size, by: 1) {
+        for j in stride(from: 1, to: size, by: 1){
             objects[j].setPosition(x, y, z, none, offSet, distance*objects[j].multiplier)
         }
         objects[0].setPosition(x, y, z, none, 0.43, 0.062)

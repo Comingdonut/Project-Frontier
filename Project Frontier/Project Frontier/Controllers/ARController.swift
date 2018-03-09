@@ -37,7 +37,9 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     private var configuration = ARWorldTrackingConfiguration()
     private var planes = [UUID: SurfacePlane]()
     private var objects: [ObjectNode] = []
+	private var redSunFacts: [ObjectNode] = []
 	private var sunFacts: [ObjectNode] = []
+	private var blueSunFacts: [ObjectNode] = []
 	private var wDwarfFacts: [ObjectNode] = []
 	private var bDwarfFacts: [ObjectNode] = []
 	private var brDwarfFacts: [ObjectNode] = []
@@ -161,6 +163,26 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
         })
     }
 	
+	private func setupRSunFacts() {
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact8_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact9_Red, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact10_Red, comment: "")]
+		for x in stride(from: 0, to: starText.count, by: 1) {
+			let node = ObjectNode(0.001, false, starText[x])
+			node.setName(to: "Info Text")
+			node.setShape(.text)
+			node.setColor(color)
+			redSunFacts.append(node)
+		}
+	}
+	
 	private func setupSunFacts() {
 		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Yellow, comment: ""),
 								  NSLocalizedString(KeysLocalize.StarFact2_Yellow, comment: ""),
@@ -178,6 +200,24 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 			node.setShape(.text)
 			node.setColor(color)
 			sunFacts.append(node)
+		}
+	}
+	
+	private func setupBSunFacts() {
+		let starText: [String] = [NSLocalizedString(KeysLocalize.StarFact1_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact2_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact3_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact4_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact5_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact6_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact7_Blue, comment: ""),
+								  NSLocalizedString(KeysLocalize.StarFact8_Blue, comment: "")]
+		for x in stride(from: 0, to: starText.count, by: 1) {
+			let node = ObjectNode(0.001, false, starText[x])
+			node.setName(to: "Info Text")
+			node.setShape(.text)
+			node.setColor(color)
+			blueSunFacts.append(node)
 		}
 	}
 	
@@ -387,8 +427,36 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		objects.append(blackHole.textFacts)
 	}
 	
+	private func newRedStar(x: Float, y: Float, z: Float) {
+		let star: RedStar = RedStar()
+		
+		star.initSubject()
+		star.setObjectPositions(x, y, z)
+		
+		for x in stride(from: 0, to: star.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(star.objects[x])
+			objects.append(star.objects[x])
+		}
+		star.show()
+		star.animate()
+	}
+	
 	private func newYellowStar(x: Float, y: Float, z: Float) {
 		let star: YellowStar = YellowStar()
+		
+		star.initSubject()
+		star.setObjectPositions(x, y, z)
+		
+		for x in stride(from: 0, to: star.size, by: 1) {
+			sceneView.scene.rootNode.addChildNode(star.objects[x])
+			objects.append(star.objects[x])
+		}
+		star.show()
+		star.animate()
+	}
+	
+	private func newBlueStar(x: Float, y: Float, z: Float) {
+		let star: BlueStar = BlueStar()
 		
 		star.initSubject()
 		star.setObjectPositions(x, y, z)
@@ -465,7 +533,7 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
     // MARK: - SCNPhysicsContactDelegate
     
 	func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-		print("Name: " + contact.nodeA.name!)
+		//print("Name: " + contact.nodeA.name!)
 		bulletsFrames = 0.0
 		
 		contact.nodeA.addParticleSystem(Animation.explode(color: .white, geometry: contact.nodeA.geometry!))
@@ -482,11 +550,15 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		checkForMenuStarContact(contact.nodeA)
 		checkForMenuBlackHoleContact(contact.nodeA)
 		checkForMenuBackContact(contact.nodeA)
+		checkForMenuRedStarContact(contact.nodeA)
 		checkForMenuYellowStarContact(contact.nodeA)
+		checkForMenuBlueStarContact(contact.nodeA)
 		checkForMenuWhiteStarContact(contact.nodeA)
 		checkForMenuBlackStarContact(contact.nodeA)
 		checkForMenuBrownStarContact(contact.nodeA)
+		checkRedStarContact(contact.nodeA)
 		checkYellowStarContact(contact.nodeA)
+		checkBlueStarContact(contact.nodeA)
 		checkWhiteDwarfContact(contact.nodeA)
 		checkBlackDwarfContact(contact.nodeA)
 		checkBrownDwarfContact(contact.nodeA)
@@ -614,6 +686,37 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
+	private func checkForMenuRedStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Red Star" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
+			let dispatchGroup = DispatchGroup()
+			
+			ableToShoot = false
+			dispatchGroup.enter()
+			for obj in objects {
+				Animation.disappear(obj, d: Duration.light)
+			}
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newRedStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					if self.backButton.isHidden {
+						self.backButton.isHidden = false
+					}
+					self.ableToShoot = true
+				})
+			})
+		}
+	}
+	
 	private func checkForMenuYellowStarContact(_ nodeA: SCNNode) {
 		if nodeA.name == "Yellow Star" {
 			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
@@ -639,6 +742,37 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
                     if self.backButton.isHidden {
                         self.backButton.isHidden = false
                     }
+					self.ableToShoot = true
+				})
+			})
+		}
+	}
+	
+	private func checkForMenuBlueStarContact(_ nodeA: SCNNode) {
+		if nodeA.name == "Blue Star" {
+			DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+				self.backButton.isHidden = true
+			})
+			let dispatchGroup = DispatchGroup()
+			
+			ableToShoot = false
+			dispatchGroup.enter()
+			for obj in objects {
+				Animation.disappear(obj, d: Duration.light)
+			}
+			dispatchGroup.leave()
+			
+			dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
+					
+					for obj in self.objects {
+						obj.removeFromParentNode()
+						self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+					}
+					self.newBlueStar(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+					if self.backButton.isHidden {
+						self.backButton.isHidden = false
+					}
 					self.ableToShoot = true
 				})
 			})
@@ -738,6 +872,61 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 		}
 	}
 	
+	private func checkRedStarContact(_ nodeA: SCNNode) {
+		if redSunFacts.count == 0 {
+			setupRSunFacts()
+		}
+		if nodeA.name == "Small Star" {
+			if starIndex != redSunFacts.count {
+				ableToShoot = false
+				if searchNode(for: "Info Text", from: objects) {
+					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+				}
+				let none: Float = 0.0
+				let textToScale: Float = 0.030
+				let yTopOffSet: Float = 0.43
+				let textZOffSet: Float = 0.062
+				
+				redSunFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
+				objects.first?.parent?.addChildNode(redSunFacts[starIndex])
+				objects.append(redSunFacts[starIndex])
+				
+				Animation.scale(redSunFacts[starIndex], to: textToScale, d: Duration.light)
+				starIndex+=1
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+					self.ableToShoot = true
+				})
+			}
+			else {
+				let dispatchGroup = DispatchGroup()
+				ableToShoot = false
+				dispatchGroup.enter()
+				for obj in objects {
+					Animation.disappear(obj, d: Duration.light)
+				}
+				dispatchGroup.leave()
+				
+				dispatchGroup.notify(queue: DispatchQueue.main, execute: {//After disappear is done
+					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {//Wait
+						
+						self.backButton.isHidden = true
+						for obj in self.objects {
+							obj.removeFromParentNode()
+							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+						}
+						self.starIndex = 0
+						self.redSunFacts = []
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						
+						self.ableToShoot = true
+					})
+				})
+			}
+		}
+	}
+	
 	private func checkYellowStarContact(_ nodeA: SCNNode) {
 		if sunFacts.count == 0 {
 			setupSunFacts()
@@ -784,6 +973,61 @@ class ARController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelega
 						}
 						self.starIndex = 0
 						self.sunFacts = []
+						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
+						
+						self.ableToShoot = true
+					})
+				})
+			}
+		}
+	}
+	
+	private func checkBlueStarContact(_ nodeA: SCNNode) {
+		if blueSunFacts.count == 0 {
+			setupBSunFacts()
+		}
+		if nodeA.name == "Big Star" {
+			if starIndex != blueSunFacts.count {
+				ableToShoot = false
+				if searchNode(for: "Info Text", from: objects) {
+					objects[getNodeIndex(from: objects, by: "Info Text")].removeFromParentNode()
+					objects.remove(at: getNodeIndex(from: objects, by: "Info Text"))
+				}
+				let none: Float = 0.0
+				let textToScale: Float = 0.030
+				let yTopOffSet: Float = 0.43
+				let textZOffSet: Float = 0.062
+				
+				blueSunFacts[starIndex].setPosition(PointOnPlane.x, PointOnPlane.y, PointOnPlane.z, none, yTopOffSet, textZOffSet)
+				objects.first?.parent?.addChildNode(blueSunFacts[starIndex])
+				objects.append(blueSunFacts[starIndex])
+				
+				Animation.scale(blueSunFacts[starIndex], to: textToScale, d: Duration.light)
+				starIndex+=1
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
+					self.ableToShoot = true
+				})
+			}
+			else {
+				let dispatchGroup = DispatchGroup()
+				ableToShoot = false
+				dispatchGroup.enter()
+				for obj in objects {
+					Animation.disappear(obj, d: Duration.light)
+				}
+				dispatchGroup.leave()
+				
+				dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+					DispatchQueue.main.asyncAfter(deadline: .now() + Duration.light.rawValue, execute: {
+						
+						self.backButton.isHidden = true
+						for obj in self.objects {
+							obj.removeFromParentNode()
+							self.objects.remove(at: self.getNodeIndex(from: self.objects, by: obj.name!))
+						}
+						self.starIndex = 0
+						self.blueSunFacts = []
 						self.newStarMenu(x: PointOnPlane.x, y: PointOnPlane.y, z: PointOnPlane.z)
 						
 						self.ableToShoot = true
