@@ -5,4 +5,4 @@ Project Frontier is my capstone project for school. 10 weeks was spent planning 
 Project Frontier is a mobile learning application that uses augmented reality to educate users of astronomy.
 
 ## Frameworks
-The two main framworks used are ArKit and SceneKit
+The two main framworks used are ArKit and SceneKit. The programming language used was Swift and IDE was Xcode.
