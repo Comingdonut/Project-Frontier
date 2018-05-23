@@ -4,5 +4,5 @@ Project Frontier is my capstone project for school. 10 weeks was spent planning 
 ## Description
 Project Frontier is a mobile learning application that uses augmented reality to educate users of astronomy.
 
-## Framwaorks
+## Frameworks
 The two main framworks used are ArKit and SceneKit
